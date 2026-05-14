@@ -1,0 +1,24 @@
+---
+title: "🗓️ Semana 01: Introducción al curso"
+---
+
+En esta primera semana revisaremos los objetivos, evaluaciones y la estructura de trabajo del semestre. Luego, introduciremos el rol de la estadística dentro del proceso de investigación social empírica: cómo se relaciona con la teoría, qué supuestos implica la cuantificación de la realidad social y cómo ha sido usada en la sociología clásica y contemporánea.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 📚 Lecturas Obligatorias
+
+Para acompañar los contenidos de esta semana, por favor revisa el siguiente material:
+
+- **Babbie, E. (2000).** *Fundamentos de la investigación social*. Cengage Learning Latin Am. *(Capítulos 1 y 2)*
+- **Cea D'Ancona, M. A. (1996).** *Metodología Cuantitativa: Estrategias y Técnicas de Investigación Social*. Ed. Síntesis Sociológica. *(Capítulo 2, págs. 81–120)*
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre los contenidos de esta semana.

@@ -1,0 +1,67 @@
+---
+title: "Descripción y Visualización de Datos"
+subtitle: "Año académico: 2026"
+format: html
+---
+
+::: {.callout-important collapse=false}
+## 📢 Avisos
+
+- Bienvenidos/as al curso. El material irá publicándose semana a semana.
+:::
+
+# 🧑🏻‍🏫 Equipo Docente
+
+::: {.panel-tabset}
+## Profesor
+
+![](/figures/people/profesor.jpg){fig-align="left" fig-alt="Foto de Gabriel Sotomayor" style="object-fit: cover;width:5em;height:5em;border-radius: 50%;"}
+**[Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)** <br/>
+_Sociólogo (U. de Chile) · MSc en Sociología (LSE)_ <br/>
+[Universidad Diego Portales](https://sociologia.udp.cl/)<br/>
+📧 [gabriel.sotomayor@mail.udp.cl](mailto:gabriel.sotomayor@mail.udp.cl)
+
+Horario de consultas:
+
+- **Cuándo:** Por confirmar
+- **Dónde:** Virtual vía Google Meet
+
+## Ayudantes
+
+**Felipe Adasme** <br/>
+Licenciado en Sociología<br/>
+📧 [felipe.adasme@mail.udp.cl](mailto:felipe.adasme@mail.udp.cl)
+
+**Francisca Hernández** <br/>
+Licenciada en Sociología<br/>
+📧 [francisca.hernandez_c@mail.udp.cl](mailto:francisca.hernandez_c@mail.udp.cl)
+
+**Romina Zamorano** <br/>
+Licenciada en Sociología<br/>
+📧 [romina.zamorano@mail.udp.cl](mailto:romina.zamorano@mail.udp.cl)
+
+:::
+
+# 📍 Horario y Sala
+
+::: {.schedule-box}
+**Plenaria**
+
+- 📆 Lunes (Módulo 1)
+- ⌚ 08:30 a 09:50 hrs.
+- 📌 Asistencia: 70%
+:::
+
+::: {.schedule-box}
+**Talleres**
+
+- 📆 Lunes (Módulos 2 y 3)
+- ⌚ Grupo 1: 10:00–11:20 · Grupo 2: 11:30–12:50
+- 📌 Asistencia: 70%
+:::
+
+# Ayudantía
+
+- 📆 Lunes (Módulo 4)
+- ⌚ Grupo 1 y 2: 14:30–15:50 hrs.
+- 8 sesiones prácticas de R a lo largo del semestre

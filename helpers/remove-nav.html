@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    var collection = document.getElementsByClassName("navbar-title");
+    if (collection && collection[0]) {
+        collection[0].innerHTML = "Descripción y Visualización de Datos";
+    }
+
+    var sidebar = document.getElementById("quarto-sidebar");
+    if (sidebar) sidebar.parentNode.removeChild(sidebar);
+
+    var marginSidebar = document.getElementById("quarto-margin-sidebar");
+    if (marginSidebar) marginSidebar.parentNode.removeChild(marginSidebar);
+
+    var search = document.getElementById("quarto-search");
+    if (search) search.parentNode.removeChild(search);
+</script>

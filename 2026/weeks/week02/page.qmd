@@ -1,0 +1,25 @@
+---
+title: "🗓️ Semana 02: El Rol de la Estadística y la Programación en la Sociología Actual"
+---
+
+En esta sesión profundizamos en la lógica del razonamiento estadístico como práctica sociológica. Discutiremos por qué los datos sistemáticos son superiores a las anécdotas, cómo la variación es el objeto central de la estadística social, y analizaremos un caso de investigación real —el estudio de Wright y Baxter sobre clase, género y trabajo doméstico— para ver estas ideas en acción. Cerraremos con una introducción a R como herramienta fundamental del análisis cuantitativo contemporáneo.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 📚 Lecturas Obligatorias
+
+- **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. *(Capítulo 1: Razonamiento Estadístico)*
+
+## 📚 Lecturas Complementarias
+
+- **Wright, E. O., & Baxter, J. (1997).** The non-effects of class on the gendered division of labor in the home. *Gender & Society, 11*(2), 176–197.
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre los contenidos de esta semana.

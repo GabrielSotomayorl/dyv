@@ -1,0 +1,197 @@
+---
+title: "Práctico 1: Exploración Inicial de Datos en R"
+subtitle: "Trabajando con la Encuesta CASEN 2024"
+date: "2026-09-08"
+lang: es
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    body-classes: lab-content
+---
+
+```{r load-data, include=FALSE}
+library(haven)
+library(tidyverse)
+casen <- readRDS("../../data/casen24.rds")
+```
+
+## 0. Objetivos del Práctico
+
+El propósito de este práctico es aplicar los conceptos de la clase teórica en un entorno de R real. Al finalizar, serás capaz de:
+
+*   Establecer un flujo de trabajo reproducible usando un Proyecto de RStudio.
+*   Importar una base de datos en formato `.RData` usando el paquete `haven`.
+*   Realizar un "diagnóstico inicial" sistemático de una base de datos, interpretando los resultados de las funciones de exploración.
+*   Manejar la gran cantidad de variables de una encuesta real mediante la **subselección de datos**.
+*   Utilizar la función `haven::as_factor()` para trabajar con las etiquetas de las variables.
+*   Explorar variables individuales, tanto categóricas como numéricas.
+
+## 1. Contexto: ¿Qué es la Encuesta CASEN?
+
+La Encuesta de Caracterización Socioeconómica Nacional (CASEN) es el principal instrumento de medición socioeconómica en Chile, a cargo del Ministerio de Desarrollo Social y Familia. Su objetivo es conocer la situación de los hogares en áreas como pobreza, ingresos, educación, salud, trabajo y vivienda.
+
+Los datos de CASEN son fundamentales para el diseño y evaluación de las políticas sociales del país. En este práctico, daremos nuestros primeros pasos para analizar esta rica fuente de información.
+
+## 2. Preparación del Entorno de Trabajo
+
+### 2.1 Proyectos de RStudio y Rutas Relativas
+
+La base de un trabajo de análisis reproducible es la organización. La mejor forma de hacerlo es usando **Proyectos de RStudio (`.Rproj`)**. Un proyecto agrupa todos los archivos de una investigación (datos, scripts, informes) en una sola carpeta, y establece la raíz del directorio de trabajo en esa carpeta.
+
+Esto nos permite usar **rutas relativas** (ej. `"datos/casen_2024.RData"`) en lugar de rutas absolutas (ej. `"C:/Users/Gabriel/Documentos/Curso/datos/casen_2024.RData"`), lo que asegura que nuestro código funcione en cualquier computador.
+
+**Acción:** Antes de continuar, asegúrate de haber creado un Proyecto de RStudio para esta clase.
+
+### 2.2 Paquetes: Ampliando las capacidades de R
+
+R base tiene muchas funciones, pero su verdadero poder reside en los **paquetes**: colecciones de funciones, datos y documentación creadas por la comunidad de usuarios.
+
+**Funcionamiento de los paquetes:**
+
+1.  **Se instalan UNA SOLA VEZ** con `install.packages("nombre_del_paquete")`.
+2.  **Se cargan CADA VEZ que inicias una nueva sesión de R** con `library(nombre_del_paquete)`.
+
+Para este práctico, usaremos `haven` para importar datos y `tidyverse` para buenas prácticas generales.
+
+```{r setup-packages, message=FALSE, warning=FALSE}
+# Cargar paquetes necesarios para la sesión
+# Si no los tienes, debes instalarlos primero ejecutando en la consola:
+# install.packages("haven")
+# install.packages("tidyverse")
+
+library(haven)
+library(tidyverse)
+```
+
+### 2.3 Carga de la Base de Datos CASEN 2024
+
+La base de datos está disponible en el sitio del [Observatorio Social del Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2024) en formato `.RData`. Descárgala y guárdala dentro de la carpeta de tu proyecto (por ejemplo, en una subcarpeta llamada `datos`). Luego cárgala así:
+
+```{r load-show, eval=FALSE}
+load("datos/casen_2024.RData")
+```
+
+::: {.callout-note title="¿Por qué necesitamos `haven` si la base ya está en formato `.RData`?"}
+Encuestas como CASEN son procesadas originalmente en programas como SPSS. Al convertirlas a R, las variables conservan una metadata especial llamada **etiquetas** (por ejemplo, que el código `1` significa *"Hombre"* y el `2` significa *"Mujer"*). El paquete `haven` le enseña a R cómo interpretar esa información. **Sin `haven` cargado, R no sabrá qué hacer con las etiquetas de las variables.**
+:::
+
+## 3. Primer Contacto y Subselección de Datos
+
+### 3.1 El Problema: ¡Demasiadas Variables!
+
+Veamos las dimensiones de nuestra base de datos recién cargada.
+
+```{r dim-casen}
+dim(casen)
+```
+
+Como pueden ver, la CASEN 2024 tiene **`r nrow(casen)`** casos (filas) y **`r ncol(casen)`** variables (columnas). Trabajar con una base de datos tan grande es ineficiente y confuso. El primer paso en cualquier análisis real es **seleccionar solo las variables que necesitamos**.
+
+### 3.2 Subselección con R Base
+
+Usaremos la sintaxis de corchetes de R base `[filas, columnas]` para crear un nuevo `data.frame` más pequeño y manejable. Dejamos el espacio de las filas en blanco para seleccionar **TODAS** las filas, y en el espacio de las columnas, le damos un vector con los nombres de las variables que queremos conservar.
+
+```{r subset-casen}
+# Creamos un vector con los nombres de las variables de interés
+variables_seleccionadas <- c("region", "sexo", "edad", "esc", "ind_hacina", "ytotcorh")
+
+# Creamos un nuevo objeto 'casen_sub' con solo esas columnas
+casen_sub <- casen[, variables_seleccionadas]
+
+# Verificamos las dimensiones de nuestra nueva base de datos
+dim(casen_sub)
+```
+
+¡Mucho mejor! Ahora trabajaremos con este objeto `casen_sub` que es más liviano y enfocado.
+
+## 4. La exploración inicial de nuestros datos
+
+Ahora que tenemos un conjunto de datos manejable, apliquemos el protocolo de exploración.
+
+### 4.1 Estructura y el Problema de las Etiquetas (`<dbl+lbl>`)
+
+Usemos `str()` para ver la estructura de nuestro nuevo objeto.
+
+```{r str-casen}
+str(casen_sub)
+```
+
+**Interpretación:** `haven` es inteligente. Ha importado las variables numéricas de SPSS (ej. `sexo` donde 1="Hombre", 2="Mujer") y también ha guardado las **etiquetas de texto** asociadas. Por eso vemos `dbl+lbl` o `haven_labelled`. Por defecto, R las trata como números, pero guarda las etiquetas. Para que nuestro análisis sea más claro, necesitamos "activar" esas etiquetas.
+
+### 4.2 Trabajando con Etiquetas: `haven::as_factor()`
+
+La función `as_factor()` del paquete `haven` convierte estas variables etiquetadas en **factores**, que es el tipo de dato que R usa para variables categóricas. Esta función reemplaza los números por sus correspondientes etiquetas de texto.
+
+```{r as-factor}
+# Convirtamos la variable de hacinamiento a factor para ver sus etiquetas
+casen_sub$hacinamiento_factor <- as_factor(casen_sub$ind_hacina)
+
+# Ahora comparemos los tipos de dato
+class(casen_sub$ind_hacina)
+class(casen_sub$hacinamiento_factor)
+```
+
+### 4.3 Resumen General y Detección de Problemas
+
+`summary()` nos da un resumen estadístico de cada variable, ideal para un control de calidad.
+
+```{r summary-casen}
+summary(casen_sub)
+```
+
+**Actividad de Interpretación:** Examina el `summary`. ¿Detectas algún valor que te parezca extraño o problemático?
+*   En `ind_hacina`, vemos un `Min.` de -88. Esto es un código para "No sabe", no un valor real.
+*   En `esc`, hay `NA's` (valores perdidos). Esto es esperable, ya que la pregunta solo aplica a personas mayores de cierta edad.
+*   En `ytotcorh`, el `Max.` es muy alto. Esto sugiere una distribución de ingresos muy asimétrica (desigual).
+
+## 5. Explorando Variables Individuales
+
+### 5.1 Variable Categórica: Hacinamiento (`ind_hacina`)
+
+Veamos la diferencia al tabular la variable numérica original versus la versión convertida a factor.
+
+```{r table-hacina}
+# Tabla con la variable numérica (menos informativa, solo vemos códigos)
+table(casen_sub$ind_hacina)
+
+# Tabla con la variable convertida a factor (mucho más clara, vemos las categorías)
+table(casen_sub$hacinamiento_factor)
+```
+
+Para obtener los porcentajes, usamos `prop.table()`.
+
+```{r prop-table-hacina}
+# Calculamos la proporción y multiplicamos por 100 para obtener el porcentaje
+prop.table(table(casen_sub$hacinamiento_factor)) * 100
+```
+
+**Actividad de Interpretación:** Basado en la tabla de frecuencias porcentuales, ¿qué porcentaje de los hogares en la muestra vive en condiciones de hacinamiento (sumando las categorías de hacinamiento medio, alto y crítico)?
+
+### 5.2 Variable Numérica: Edad (`edad`)
+
+Para las variables numéricas, nos interesan las medidas de tendencia central y dispersión. El principal desafío son los valores perdidos (`NA`).
+
+```{r mean-edad}
+# La variable edad en CASEN no tiene valores perdidos, por lo que podemos calcularla directamente
+mean(casen_sub$edad)
+
+# Sin embargo, la buena práctica es usar siempre na.rm = TRUE
+# por si trabajamos con otras variables que sí tengan NAs.
+edad_promedio <- mean(casen_sub$edad, na.rm = TRUE)
+desv_est_edad <- sd(casen_sub$edad, na.rm = TRUE)
+
+# Imprimimos los resultados
+edad_promedio
+desv_est_edad
+```
+
+**Actividad Aplicada:** Calcula e interpreta el promedio de años de escolaridad (`esc`) y el ingreso total del hogar (`ytotcorh`). No olvides usar `na.rm = TRUE`. ¿Qué te llama la atención de estos valores?
+
+## 6. Reflexiones Finales y Próximos Pasos
+
+**Resumen del Práctico:** En esta sesión, realizamos un diagnóstico completo de una subselección de variables de la Encuesta CASEN. Aprendimos a importar datos con `haven`, a subseleccionar variables, a interpretar la estructura de los datos, a convertir variables etiquetadas en factores con `as_factor()`, y a calcular nuestras primeras estadísticas descriptivas. Este protocolo es el primer paso fundamental en cualquier análisis de datos.
+
+**Conexión con la Próxima Clase:** Hemos visto que para responder preguntas más complejas (ej. '¿Cuál es el ingreso promedio *por región*?') necesitamos herramientas más potentes para manipular y agrupar los datos. Eso es exactamente lo que veremos en la próxima clase, cuando aprendamos la "gramática de la manipulación de datos" con `dplyr`.

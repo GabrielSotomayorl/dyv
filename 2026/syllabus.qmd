@@ -1,0 +1,237 @@
+---
+title: "Programa del curso"
+subtitle: "Descripción y Visualización de Datos"
+format: html
+toc: true
+---
+
+## I. Identificación
+
+| | |
+|---|---|
+| **Código** | SOC09124 |
+| **Créditos** | 5 |
+| **Período Académico** | 2º semestre 2026 |
+| **Requisito** | SOC09114 Matemáticas para Sociología |
+| **Duración** | Semestral |
+| **Horario de plenaria** | Lunes 08:30–09:50 |
+| **Horario de talleres** | Grupo 1: Lunes 10:00–11:20<br>Grupo 2: Lunes 11:30–12:50 |
+| **Horario de ayudantía** | Grupo 1: Lunes 14:30–15:50<br>Grupo 2: Lunes 14:30–15:50 |
+| **Asistencia** | Obligatoria 70% (clases y ayudantías) |
+| **Docente** | Gabriel Sotomayor<br>gabriel.sotomayor@mail.udp.cl |
+| **Ayudantes** | Felipe Adasme<br>felipe.adasme@mail.udp.cl<br><br>Francisca Hernández<br>francisca.hernandez_c@mail.udp.cl<br><br>Romina Zamorano<br>romina.zamorano@mail.udp.cl |
+
+---
+
+## II. Presentación
+
+La estadística es una herramienta esencial para el quehacer sociológico moderno, ya que permite analizar diferentes dinámicas que se despliegan en todas las áreas de la vida social. Este curso busca entregar a los/las alumnos/as las herramientas básicas para establecer la relación entre la recolección de datos en investigaciones empíricas de carácter cuantitativo y las técnicas estadísticas apropiadas para el análisis, lectura e interpretación de los resultados. Para tales propósitos, el curso aborda elementos de la estadística descriptiva univariada como lo son la presentación de datos en tablas y gráficos, el cálculo e interpretación de estadígrafos de tendencia central, de dispersión, de forma y de posición; además de nociones básicas de estadística descriptiva bivariada y algunas reglas de asociación.
+
+Los alumnos desarrollarán la capacidad de resumir información, analizarla y concluir sustantivamente respecto de cualquier problemática social que deban tratar. En consecuencia, el curso tiene un carácter eminentemente práctico a través de ejercicios y el uso de lenguajes de programación con orientación estadística que permitan el análisis y presentación adecuada de los datos. Finalmente, se busca que los/las alumnos/as comprendan el uso y la relevancia del análisis estadístico en las Ciencias Sociales y de forma particular en la Sociología.
+
+---
+
+## III. Resultados de Aprendizaje
+
+### Resultado general
+
+Aplicar los métodos y herramientas de la estadística descriptiva necesarios para el análisis de datos cuantitativos en las ciencias sociales.
+
+### Resultados específicos
+
+1. Comprender el uso y relevancia de la estadística en las Ciencias Sociales.
+2. Relacionar metodologías de recolección de datos y las técnicas estadísticas apropiadas para su análisis.
+3. Comprender las principales herramientas de la estadística descriptiva.
+4. Definir correctamente un plan de análisis descriptivo para una tabla de datos.
+5. Identificar el estadístico apropiado según el tipo de variable analizada.
+6. Manipular y analizar tablas de datos a través del lenguaje de programación R.
+7. Interpretar datos cuantitativos producidos por investigaciones propias o de terceros.
+8. Distinguir entre estadística descriptiva e inferencial.
+
+---
+
+## IV. Contenidos
+
+**Unidad 1: Introducción a la estadística y su relación con las ciencias sociales**
+
+- El proceso de conocimiento científico: lógica inductiva y deductiva.
+- Etapas generales de la investigación social empírica.
+- Datos: la fuente de información clave para la estadística.
+- La estadística como una aproximación a preguntas de investigación sociológicas.
+- Usos de la estadística en la actualidad: sociología, ciencia política, economía, políticas públicas.
+- La relevancia de los lenguajes de programación para el análisis estadístico actual.
+
+**Unidad 2: Conceptos claves para la investigación social**
+
+- Conceptualización y operacionalización.
+- Unidad de análisis vs. unidad de observación.
+- Tipos de variables y niveles de medición.
+- Muestra y población: estadísticos muestrales y parámetros poblacionales.
+- Población objetivo, marco muestral, muestra.
+- Validez y confiabilidad en la medición.
+- Error de medición y error muestral.
+
+**Unidad 3: Marcos de datos para la investigación social**
+
+- Estructura de una tabla de datos: lógica filas, columnas.
+- Exploración de una tabla de datos en R.
+- Tipos de variables en una tabla de datos.
+- Introducción al `tidyverse`.
+- Manipulación de tablas de datos I: selecciones, filtros, ordenamiento.
+- Manipulación de tablas de datos II: uniones y pivot.
+- Recodificación de variables: uso de estructuras condicionales.
+- Construcción de variables: índices, escalas y tipologías.
+
+**Unidad 4: Estadística Descriptiva Univariada**
+
+- **Estadísticos para variables numéricas:** centro (media, mediana, moda), dispersión (rango, varianza, desviación estándar), posición (percentiles), forma (asimetría y curtosis).
+- **Estadísticos para variables categóricas:** frecuencias absolutas y relativas, porcentajes, tasas.
+- Visualización de datos: barras, histogramas y boxplots.
+- Recomendaciones para la visualización de datos cuantitativos.
+
+**Unidad 5: Estadística Descriptiva Bivariada**
+
+- Tipos de asociaciones entre variables según su naturaleza.
+- Concepto de independencia.
+- Construcción de estadísticos por grupo.
+- Construcción de tablas de contingencia y control por tercera variable.
+- Visualizaciones bivariadas: barras, histogramas y boxplots.
+- Medidas de asociación: Pearson, Spearman, gamma, policóricas.
+- Más allá de lo descriptivo: la probabilidad como medida de incertidumbre.
+
+### Ayudantías de R
+
+Se realizarán 8 ayudantías de R con asistencia obligatoria, cuyo objetivo es introducir el lenguaje R para el análisis estadístico y servir de guía para las evaluaciones del curso.
+
+| N° | Contenido |
+|:---|:---|
+| **1** | Introducción a R: lenguaje, RStudio, rutas relativas, vectores, lógica de objetos y funciones. |
+| **2** | Lectura y exploración de marcos de datos: formatos, importación, indexación, valores perdidos. |
+| **3** | Manipulación de datos I: `dplyr`, `filter`, `select`, `arrange`. |
+| **4** | Manipulación de datos II: joins, `rbind`, pivoteo de tablas. |
+| **5** | Generación de variables: `mutate`, `ifelse`, `case_when`, índices y escalas. |
+| **6** | Visualización de datos: `ggplot2`, gramática de gráficos, barras, histogramas, boxplots. |
+| **7** | Análisis descriptivo univariado en R: estadísticos y visualizaciones. |
+| **8** | Análisis descriptivo bivariado en R: tablas de contingencia, estadísticos por grupo. |
+
+---
+
+## V. Metodología
+
+El curso se desarrollará en base a clases teóricas de modalidad expositiva y prácticas tipo taller. Durante las clases en aula se presentarán los contenidos del curso tanto a nivel teórico como práctico a través de ejemplos y guías de ejercicios. Algunas sesiones serán destinadas al trabajo exclusivo en laboratorio de computación, abordando el lenguaje de programación R.
+
+Adicionalmente se realizará una sesión semanal de ayudantía con asistencia obligatoria a cargo de los ayudantes del curso, en el laboratorio de computación. La ayudantía entregará los elementos necesarios para el desarrollo y aplicación adecuada de los contenidos vistos en clases y la práctica de R.
+
+---
+
+## VI. Evaluación
+
+| Componente | Ponderación | Descripción resumida |
+|:---|:---:|:---|
+| **Trabajos Prácticos (TP)** | 30% | 2 trabajos grupales. |
+| **Controles (CONT)** | 10% | 5 controles individuales en clases (se borra el peor). |
+| **Tareas de R (TAR)** | 10% | 4 tareas individuales en R. |
+| **Pruebas Solemnes (PS)** | 50% | 2 pruebas (25% cada una). |
+
+- **Trabajos Prácticos (30%):** Los/as estudiantes desarrollarán 2 trabajos grupales que integran contenidos teóricos y prácticos a partir de una pregunta de investigación propia. Entrega en formato Word o Quarto.
+- **Controles (10%):** 5 controles individuales al final de cada unidad. Promedio simple; se elimina la peor nota.
+- **Tareas de R (10%):** 4 tareas individuales donde se aplican las herramientas de R desarrolladas en el curso.
+- **Pruebas Solemnes (50%):** Dos pruebas que evalúan conceptos, cálculo, análisis e interpretación de datos.
+
+### Nota de Presentación (NP: 70%)
+
+**NP** = TP × 0,30 + CONT × 0,10 + TAR × 0,10 + PS × 0,50
+
+### Examen (30%)
+
+Habrá un examen que evaluará todos los contenidos del curso. Equivale al 30% de la nota final.
+
+Se podrán eximir del examen los estudiantes con nota de presentación igual o superior a 5,5, siempre y cuando no tengan ninguna nota bajo 5,0 en las pruebas solemnes. La nota mínima en el examen para aprobar es 3,5.
+
+### Nota Final (NF)
+
+**NF** = NP × 0,7 + Examen × 0,3
+
+### Sobre inasistencia a evaluaciones
+
+Si un estudiante falta a una evaluación, puede presentar ante la Secretaría de Estudios un certificado médico dentro de los cinco días hábiles posteriores para tener derecho a rendir una prueba recuperativa. Las evaluaciones no rendidas tendrán nota 1,0. Los estudiantes tienen derecho a un máximo de una prueba recuperativa por curso.
+
+### Recorrección
+
+Los estudiantes tienen derecho a conocer las notas y la pauta de corrección en un plazo no superior a 10 días hábiles desde la evaluación. Pueden impugnar la corrección en un plazo de 5 días hábiles desde la entrega de la nota, a través de carta dirigida al secretario de estudios, adjuntando la evaluación corregida.
+
+---
+
+## VII. Cronograma de trabajo
+
+| Semana | Fecha | Unidad | Tópico | Evaluaciones |
+|:---|:---|:---|:---|:---|
+| 1 | 11-08 | 1 | Presentación del curso. El proceso de conocimiento científico. La estadística como herramienta sociológica. | |
+| 2 | 18-08 | 1 | Usos de la estadística en la actualidad. Relevancia de los lenguajes de programación. | Control N°1 |
+| 3 | 25-08 | 2 | Conceptualización y operacionalización. Tipos de variables y niveles de medición. | |
+| 4 | 01-09 | 2 | Muestra y población. Validez y confiabilidad. Error de medición. | Control N°2 · Tarea 1 |
+| 5 | 08-09 | 3 | Estructura de una tabla de datos. Exploración en R. | TP 1 (inicia) |
+| — | 15-09 | — | *Receso — Fiestas Patrias* | |
+| 6 | 22-09 | 3 | Manipulación de tablas de datos I y II. | |
+| 7 | 29-09 | 3 | Recodificación y construcción de variables. | Control N°3 |
+| 8 | 06-10 | — | **Solemne 1** — Unidades 1, 2 y 3 | **PS 1** |
+| 9 | 13-10 | 4 | Estadísticos de centro, dispersión y posición. | Tarea 2 |
+| 10 | 20-10 | 4 | Forma: asimetría y curtosis. Frecuencias, porcentajes y tasas. | |
+| 11 | 27-10 | 4 | Visualización de datos y recomendaciones. | Tarea 3 |
+| 12 | 03-11 | 4 | Introducción a la gramática de gráficos con ggplot2. | Control N°4 · TP 2 |
+| 13 | 10-11 | 5 | Tipos de asociaciones. Independencia. Estadísticos por grupo. | |
+| 14 | 17-11 | 5 | Tablas de contingencia y control por tercera variable. | Tarea 4 |
+| 15 | 24-11 | 5 | Visualizaciones bivariadas. Medidas de asociación. | Control N°5 |
+| 16 | 01-12 | — | **Solemne 2** — Unidades 4 y 5 | **PS 2** |
+| 17 | 08-12 | — | **Prueba Recuperativa** | |
+
+---
+
+## VIII. Bibliografía
+
+### Bibliografía Obligatoria
+
+- Asún, R. (2006). Medir la realidad social: El sentido de la metodología cuantitativa. En M. Canales, *Metodologías de investigación Social*. Santiago: LOM.
+- Babbie, E. (1996). *Manual para la práctica de la investigación social*. Desclée De Brouwer.
+- Babbie, E. (2000). *Fundamentos de la investigación social*. Cengage Learning Latin Am.
+- Cea D'Ancona, M. A. (1996). *Metodología Cuantitativa: Estrategias y Técnicas de Investigación Social*. Ed. Síntesis Sociológica.
+- Diez, D. M., Barr, C. D., & Çetinkaya-Rundel, M. (2024). *OpenIntro Statistics*. Creative Commons.
+- Hernández, R., Fernández, C. & Baptista, P. (2010). *Metodología de la Investigación*. McGraw-Hill.
+- Moore, D. S. (2005). *Estadística aplicada básica*. Antoni Bosch editor.
+- Ritchey, F. (2008). *Estadística para las ciencias sociales*. McGraw-Hill.
+- Urdinez, F., & Cruz, A. (2020). *R for political data science: a practical guide*. CRC Press. [https://arcruz0.github.io/libroadp/](https://arcruz0.github.io/libroadp/)
+- Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). *R for data science*. O'Reilly Media. [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
+
+### Bibliografía Complementaria
+
+- Çetinkaya-Rundel, M., & Hardin, J. (2021). *Introduction to Modern Statistics*. OpenIntro. [https://openintro-ims.netlify.app/](https://openintro-ims.netlify.app/)
+- Goldthorpe, J. H. (2017). *La sociología como ciencia de la población*. Alianza Editorial.
+- Healey, J. F. (2015). *The essentials of statistics: A tool for social research*. Cengage Learning.
+
+---
+
+## IX. Cláusula Ética
+
+La Escuela establece severas sanciones para las faltas graves que los estudiantes realicen, tales como plagio o falsificación de documentos, señalados en el Reglamento del Estudiante de Pre-grado en el Título XIII de las Conductas Contrarias a los Principios Universitarios.
+
+El Comité de Ética es la instancia responsable de revisar y resolver las situaciones contrarias a los principios universitarios. Son conductas que vician una evaluación todos aquellos actos que implican un rompimiento de los estándares éticos: copia, uso indebido de medios electrónicos, falsificación de documentos, plagio en trabajos escritos.
+
+Se consideran fuentes de información que deben citarse los textos e imágenes en formato electrónico o en papel, en todas sus modalidades: libros, diarios, documentos de trabajo, artículos académicos, etc.
+
+---
+
+## X. Política sobre discriminación arbitraria, acoso sexual y acoso laboral
+
+La Universidad Diego Portales (UDP) promueve el pluralismo y la independencia crítica, y tiene como uno de sus principales objetivos el desarrollo integral de las personas que forman parte de ella. La UDP promueve una convivencia reflexiva basada en el reconocimiento a la dignidad de las personas, la libertad de expresión, la identidad y expresión de género, y la autonomía de sus integrantes.
+
+La UDP ha desarrollado reglamentos y políticas que garantizan el respeto a las personas y la no discriminación, buscando construir un espacio universitario libre de violencia.
+
+Más información: [https://genero.udp.cl/politicas-normativas-y-orientaciones/](https://genero.udp.cl/politicas-normativas-y-orientaciones/)
+
+---
+
+## XI. Uso de Inteligencia Artificial (IA)
+
+El uso de herramientas de IA en este curso debe contar con la autorización explícita del profesor, en sintonía con los objetivos de aprendizaje y el tipo de evaluaciones del programa. Su uso sin autorización puede afectar el aprendizaje de habilidades clave y constituir una falta ética según el Reglamento de Facultad.
+
+Consulta la [🤖 Política de IA](ai-policy.qmd) del curso para más detalles.

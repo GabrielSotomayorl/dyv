@@ -1,0 +1,31 @@
+---
+title: "Descripción y Visualización de Datos"
+format:
+  html:
+    include-before-body: helpers/remove-nav.html
+    include-after-body: helpers/remove-title.html
+---
+
+# 📑 Presentación
+
+La estadística es una herramienta esencial para el quehacer sociológico moderno, ya que permite analizar diferentes dinámicas que se despliegan en todas las áreas de la vida social. Este curso busca entregar las herramientas básicas para establecer la relación entre la recolección de datos en investigaciones empíricas de carácter cuantitativo y las técnicas estadísticas apropiadas para el análisis, lectura e interpretación de los resultados.
+
+El curso aborda elementos de la estadística descriptiva univariada y bivariada: presentación de datos en tablas y gráficos, cálculo e interpretación de estadísticos de tendencia central, dispersión, forma y posición, y nociones de asociación. Tiene un carácter eminentemente práctico a través del uso del lenguaje de programación **R**.
+
+# 🎯 Objetivo de aprendizaje
+
+Aplicar los métodos y herramientas de la estadística descriptiva necesarios para el análisis de datos cuantitativos en las ciencias sociales.
+
+-----------------
+
+**Selecciona el año académico:**
+
+<a href="2026/index.qmd">
+    <button class="btn-course">2026</button>
+</a>
+
+**Versiones anteriores:**
+
+<a href="https://dyv25.netlify.app/">
+    <button class="btn-course">2025</button>
+</a>

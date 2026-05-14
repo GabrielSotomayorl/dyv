@@ -1,0 +1,28 @@
+---
+title: "🗓️ Semana 05: La Estructura de los Datos en R"
+---
+
+En esta semana damos el salto a la práctica con R. Revisaremos la estructura fundamental de una tabla de datos, los tipos de datos básicos en R y el concepto de coerción. Estableceremos un flujo de trabajo reproducible para la exploración inicial de bases de datos reales, aplicándolo directamente sobre la Encuesta CASEN 2024.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 1)
+
+En este laboratorio realizaremos una exploración inicial de la Encuesta CASEN 2024 usando R, aplicando las funciones y flujos de trabajo vistos en clase.
+
+👉 **[Ir al Práctico 1: Exploración inicial de datos con CASEN 2024](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Wickham, H., Çetinkaya-Rundel, M. y Grolemund, G. (2023).** *R para ciencia de datos* (2ª ed.). Capítulos sobre [Transformación de datos](https://davidrsch.github.io/r4ds-es/data-transform.html) y [Visualización de datos](https://davidrsch.github.io/r4ds-es/data-visualize.html).
+- **Babbie, E. (2000).** *Fundamentos de la investigación social*. Cap. 14. Págs. 336–342.
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dificultades cargando la base de datos CASEN en tu computador o cualquier otra duda sobre el curso.
