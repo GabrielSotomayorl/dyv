@@ -40,11 +40,8 @@ jobs:
             libfreetype6-dev \
             cmake
 
-      - name: Install R packages
-        run: |
-          options(repos = c(CRAN = "https://cloud.r-project.org"))
-          install.packages(c("tidyverse", "haven", "scales"))
-        shell: Rscript {0}
+      - name: Setup renv
+        uses: r-lib/actions/setup-renv@v2
 
       - name: Render site
         run: quarto render
