@@ -26,9 +26,11 @@ format:
 
 ## Presentación {.smaller}
 
-La estadística es una herramienta esencial para el quehacer sociológico moderno, ya que permite analizar diferentes dinámicas que se despliegan en todas las áreas de la vida social. Este curso busca entregar a los/las alumnos/as las herramientas básicas para establecer la relación entre la recolección de datos en investigaciones empíricas de carácter cuantitativo y las técnicas estadísticas apropiadas para el análisis, lectura e interpretación de los resultados. Para tales propósitos, el curso aborda elementos de la estadística descriptiva univariada como lo son la presentación de datos en tablas y gráficos, el cálculo e interpretación de estadígrafos de tendencia central, de dispersión, de forma y de posición; además de nociones básicas de estadística descriptiva bivariada y algunas reglas de asociación.
+La estadística es una herramienta esencial para el quehacer sociológico moderno. Este curso busca entregar las herramientas básicas para relacionar la recolección de datos cuantitativos con las técnicas estadísticas apropiadas para su análisis, lectura e interpretación.
 
-Los alumnos desarrollarán la capacidad de resumir información, analizarla y concluir sustantivamente respecto de cualquier problemática social que deban tratar. En consecuencia, el curso tiene un carácter eminentemente práctico a través de ejercicios y el uso de lenguajes de programación con orientación estadística que permitan el análisis y presentación adecuada de los datos. Finalmente, se busca que los/las alumnos/as comprendan el uso y la relevancia del análisis estadístico en las Ciencias Sociales y de forma particular en la Sociología.
+Se abordarán elementos de la estadística descriptiva univariada y bivariada, como la presentación de datos en tablas y gráficos, el cálculo de estadísticos (tendencia central, dispersión, etc.) y nociones de asociación.
+
+El curso tiene un carácter eminentemente práctico, utilizando lenguajes de programación como **R** para el análisis y presentación de datos, buscando que los y las estudiantes comprendan la relevancia del análisis estadístico en las Ciencias Sociales.
 
 ## Resultados de Aprendizaje
 

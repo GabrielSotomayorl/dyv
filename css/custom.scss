@@ -2,13 +2,17 @@
 
 // 1. PALETA DE COLORES (Basada en el Banner)
 // NOTA: Si cambias estos valores, actualiza también los mismos en css/slides.scss
-$brand-main:    #1a365d;
-$brand-accent:  #e67e22;
-$brand-link:    #2980b9;
+$brand-main:    #1E2240;   // Azul medianoche — estructura dominante de la imagen
+$brand-accent:  #7C90CC;   // Lavanda — luz fría predominante
+$brand-link:    #8A9ED4;   // Lavanda clara — zonas de transición
 
 $primary:       $brand-main;
 $navbar-bg:     $brand-main;
 $link-color:    $brand-link;
+
+// Override Bootstrap colors usados por callouts
+$danger:        $brand-accent;   // callout-important
+$warning:       $brand-accent;   // callout-warning
 
 /*-- scss:rules --*/
 
@@ -17,10 +21,10 @@ $link-color:    $brand-link;
 // ==========================================
 .navbar {
   background-color: $navbar-bg;
-  background-image: linear-gradient(rgba(26, 54, 93, 0.0), rgba(26, 54, 93, 0.0)), url("figures/banner.png");
+  background-image: linear-gradient(rgba(30, 34, 64, 0.15), rgba(30, 34, 64, 0.15)), url("figures/banner.png");
   background-size: cover;
-  background-position: center center;
-  min-height: 140px;
+  background-position: center 40%;
+  min-height: 160px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   align-items: center;
 
@@ -45,8 +49,21 @@ table.syllabus {
 .callout.callout-style-default {
   border-left-width: 5px;
   border-radius: 5px;
-  &.callout-important { border-left-color: $brand-accent; background-color: rgba($brand-accent, 0.05); }
-  &.callout-note { border-left-color: $brand-main; background-color: rgba($brand-main, 0.05); }
+  &.callout-important {
+    border-left-color: $brand-accent;
+    background-color: rgba($brand-accent, 0.07);
+    .callout-icon::before { color: $brand-accent !important; }
+    .callout-title { color: $brand-main; }
+  }
+  &.callout-note {
+    border-left-color: $brand-main;
+    background-color: rgba($brand-main, 0.05);
+  }
+  &.callout-warning {
+    border-left-color: $brand-accent;
+    background-color: rgba($brand-accent, 0.07);
+    .callout-icon::before { color: $brand-accent !important; }
+  }
 }
 
 // ==========================================
