@@ -16,6 +16,16 @@ El curso aborda elementos de la estadística descriptiva univariada y bivariada:
 
 Aplicar los métodos y herramientas de la estadística descriptiva necesarios para el análisis de datos cuantitativos en las ciencias sociales.
 
+### Objetivos de aprendizaje específicos:
+
+1. Comprender el uso y relevancia de la estadística en las Ciencias Sociales.
+2. Relacionar metodologías de recolección de datos y las técnicas estadísticas apropiadas para su análisis.
+3. Comprender las principales herramientas de la estadística descriptiva.
+4. Definir correctamente un plan de análisis descriptivo para una tabla de datos.
+5. Identificar el estadístico apropiado según el tipo de variable analizada.
+6. Manipular y analizar tablas de datos a través del lenguaje de programación R.
+7. Interpretar datos cuantitativos producidos por investigaciones propias o de terceros.
+8. Distinguir entre estadística descriptiva e inferencial.
 -----------------
 
 **Selecciona el año académico:**
