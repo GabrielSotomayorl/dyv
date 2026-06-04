@@ -1,0 +1,264 @@
+---
+title: "Tablas de Contingencia y el Control por Tercera Variable"
+subtitle: "Unidad 5: Estadística Descriptiva Bivariada"
+author: "Gabriel Sotomayor"
+date: "2025-11-17"
+format:
+  revealjs:
+    theme: [dark, custom.scss]
+    slide-number: true
+    auto-fit: true
+    logo: images/logo.png
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.8em;
+      }
+      </style>
+---
+
+## Objetivos de la Sesión de Hoy {.smaller background-color="white"}
+
+-   **Construir, interpretar y dar formato** a **tablas de contingencia** (tablas cruzadas).
+-   **Dominar** el cálculo y la interpretación de **porcentajes condicionales** (de fila, de columna y totales).
+-   **Introducir** el concepto de control estadístico mediante una tercera variable (Z).
+-   **Comprender y diagnosticar** una **asociación espuria**.
+
+---
+title_slide_background: "#008080"
+---
+
+# 1. La Tabla de Contingencia
+
+## De Comparar Grupos a Cruzar Categorías {.smaller background-color="white"}
+
+En la clase anterior, vimos cómo analizar la relación entre una variable categórica y una cuantitativa.
+
+Hoy, nos enfocamos en el caso **Categórica (X) ➞ Categórica (Y)**, uno de los análisis más clásicos e importantes en sociología.
+
+-   **Pregunta clave:** ¿La probabilidad de pertenecer a una categoría de la variable Y depende de la categoría de la variable X a la que se pertenece?
+-   **Herramienta Central:** La **tabla de contingencia** (también llamada tabla cruzada o de doble entrada).
+
+## Anatomía de una Tabla de Contingencia {.smaller background-color="white"}
+
+Una tabla de contingencia cruza las categorías de una variable explicativa (X) con las de una variable respuesta (Y), y muestra la **frecuencia** de casos en cada celda.
+
+**Ejemplo con ENUT 2023:**
+-   **Pregunta:** ¿Se asocia el `sexo` (X) con la `participación en trabajo doméstico no remunerado` (`p_tdnr_dt`, Y)?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+# Carga de paquetes y datos
+library(tidyverse)
+library(haven)
+library(janitor)
+library(knitr)
+library(kableExtra)
+
+# Carga de ENUT y preparación
+url_enut <- "https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7"
+archivo_interno <- "250403-ii-enut-bdd-r-v2.RDS"
+enut <- rio::import(url_enut, which = archivo_interno)
+
+enut_trabajo <- enut %>%
+  filter(tiempo == 1) %>%
+  mutate(
+    sexo_factor = as_factor(sexo),
+    p_tdnr_dt_factor = as_factor(p_tdnr_dt)
+  )
+
+# Tabla de frecuencias absolutas
+enut_trabajo %>%
+  filter(!is.na(p_tdnr_dt_factor)) %>%
+  tabyl(p_tdnr_dt_factor, sexo_factor, show_missing_levels = FALSE) %>%
+  adorn_totals(c("row", "col")) %>%
+  kable(caption = "Frecuencias Absolutas: Participación en Trabajo Doméstico por Sexo") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE)
+```
+
+**Problema:** Hay más mujeres que hombres en la muestra que contestó el cuestionario de uso del tiempo. Comparar los conteos directos (9,742 vs. 17,646) puede ser engañoso. **Necesitamos porcentajes.**
+
+---
+title_slide_background: "#008080"
+---
+
+# 2. Uso de Porcentajes
+
+## Tres Tipos de Porcentajes {.smaller background-color="white"}
+
+En una tabla de contingencia, podemos calcular tres tipos de porcentajes:
+
+1.  **Porcentajes Totales:** `(frecuencia de la celda / N Total) * 100`.
+    -   *Responde a:* "¿Qué porcentaje del total de la muestra son, por ejemplo, hombres que no participan en trabajo doméstico?".
+    -   *Utilidad:* Bueno para describir la composición de la muestra, pero **malo para analizar relaciones**.
+
+2.  **Porcentajes de Fila:** `(frecuencia de la celda / Total de la Fila) * 100`.
+    -   *Responde a:* "De todas las personas que participan en trabajo doméstico, ¿qué porcentaje son hombres y qué porcentaje son mujeres?".
+
+3.  **Porcentajes de Columna:** `(frecuencia de la celda / Total de la Columna) * 100`.
+    -   *Responde a:* "Del total de hombres, ¿qué porcentaje participa en trabajo doméstico?".
+
+## Comparando grupos {.smaller background-color="white"}
+
+Para analizar una relación explicativa (X → Y), debemos seguir un procedimiento simple pero fundamental:
+
+> **1. Calcula los porcentajes en la dirección de la variable explicativa (X).**
+>
+> **2. Compara los porcentajes en la dirección opuesta.**
+
+-   **En la práctica:** Si tu variable explicativa (X) está en las **columnas**, calcula **porcentajes de columna** (cada columna suma 100%).
+-   Luego, para ver si hay una relación, **compara los porcentajes a través de las filas**.
+
+Si los porcentajes son diferentes entre las columnas, significa que la distribución de Y **depende** de la categoría de X. ¡Hay una asociación!
+
+## Ejemplo de comparación {.smaller background-color="white"}
+
+**Pregunta:** ¿Se asocia el `sexo` (X) con la `participación en trabajo doméstico` (Y)?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+enut_trabajo %>%
+  filter(!is.na(p_tdnr_dt_factor)) %>%
+  tabyl(p_tdnr_dt_factor, sexo_factor) %>%
+  adorn_percentages("col") %>% # <--- 1. CALCULAMOS PORCENTAJES DE COLUMNA
+  adorn_pct_formatting(digits = 1) %>%
+  adorn_ns("front") %>%
+  kable(caption = "Participación en Trabajo Doméstico por Sexo (%)") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE)
+```
+
+**Interpretación:**
+
+1.  **Calculamos** porcentajes de columna (X = `sexo_factor` está en las columnas).
+2.  **Comparamos** los porcentajes a través de la fila "Sí participa".
+3.  **Conclusión:** Un **97.9%** de las mujeres participa en trabajo doméstico, en comparación con un **93.8%** de los hombres. Como estos porcentajes son diferentes, concluimos que **existe una asociación** entre el sexo y la participación en trabajo doméstico en la muestra.
+
+
+# 3. El Control por una Tercera Variable
+
+## ¿Es "Real" la Relación? {.smaller background-color="white"}
+
+El análisis bivariado es solo el primer paso. Una pregunta fundamental en sociología es:
+
+> ¿La relación que observamos entre X e Y se mantiene, o es un "espejismo" creado por una tercera variable (Z) que no hemos considerado?
+
+Para responder a esto, usamos una técnica central en el análisis de datos: el **control estadístico**.
+
+La idea es **estratificar**: rehacemos nuestro análisis de la relación entre X e Y, pero esta vez por separado para cada categoría de la variable de control Z. Esto nos permite ver si la relación original se comporta de la misma manera en diferentes contextos.
+
+## Un Ejemplo Clásico: La Asociación Espuria {.smaller background-color="white"}
+
+::: {style="font-size: 0.8em; line-height: 1.2;"}
+Antes de usar nuestros datos, veamos un ejemplo conceptual clásico para entender la lógica.
+
+-   **Relación Bivariada Original (X → Y):** En una ciudad, se observa que a mayor **número de bomberos** (X) en un incendio, mayores son los **daños económicos** (Y).
+    -   *Conclusión apresurada:* "Los bomberos causan los daños".
+
+-   **Introducimos una Variable de Control (Z):** La **magnitud del incendio** (pequeño / grande).
+
+-   **Análisis Estratificado:**
+    -   **Tabla 1 (Solo para incendios pequeños):** Vemos que no hay relación entre el número de bomberos y los daños.
+    -   **Tabla 2 (Solo para incendios grandes):** Vemos que tampoco hay relación.
+
+-   **Conclusión Final:** La relación original era **espuria** (engañosa). La magnitud del incendio (Z) era la **causa común** que explicaba tanto el aumento de bomberos (X) como el aumento de los daños (Y).
+
+::: 
+
+## Aplicando el Control en la Práctica (ENUT 2023) {.smaller background-color="white"}
+
+**Paso 1: La Relación Original (X → Y)**
+
+Analicemos la relación bivariada entre `sexo` (X) y la `participación en trabajo de cuidados no remunerado` (`p_tcnr_dt`, Y).
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Preparamos los datos para este ejemplo
+enut_control <- enut_trabajo %>%
+  mutate(
+    p_tcnr_dt_factor = as_factor(p_tcnr_dt),
+    cae_factor = fct_recode(as_factor(cae), "Inactiva" = "Personas fuera de la fuerza de trabajo")
+    ) %>%
+  filter(!is.na(p_tcnr_dt_factor))
+
+# Tabla bivariada original
+enut_control %>%
+  tabyl(p_tcnr_dt_factor, sexo_factor) %>%
+  adorn_percentages("col") %>%
+  adorn_pct_formatting(digits = 1) %>%
+  adorn_ns("front") %>%
+  kable(caption = "Participación en Trabajo de Cuidados por Sexo (%)") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE)
+```
+
+**Interpretación Inicial:** Observamos una clara brecha de género. Un **41.0%** de las mujeres participa en trabajo de cuidados, en comparación con solo el **29.1%** de los hombres. Esto representa una diferencia de casi 12 puntos porcentuales en la participación.
+
+## Aplicando el Control en la Práctica (ENUT 2023) {.smaller background-color="white"}
+
+**Paso 2: Introduciendo la Variable de Control (Z)**
+
+**Pregunta:** Pero, ¿es esta brecha de género la misma para todas las personas? ¿O podría depender de su relación con el mercado laboral? Por ejemplo, entre las personas que ya tienen un trabajo remunerado, la distribución de cuidados podría ser diferente.
+
+-   **Variable de Control (Z):** `cae` (Condición de Actividad Económica).
+-   **Estrategia:** Repetiremos la tabla anterior, pero ahora por separado para "Personas ocupadas" y "Personas inactivas".
+
+## Aplicando el Control en la Práctica (ENUT 2023) {.smaller background-color="white"}
+
+**Paso 3: Las Tablas Parciales o Estratificadas**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Tabla para Ocupados
+enut_control %>%
+  filter(cae_factor == "Persona ocupada") %>%
+  tabyl(p_tcnr_dt_factor, sexo_factor) %>%
+  adorn_percentages("col") %>%
+  adorn_pct_formatting(digits = 1) %>%
+  adorn_ns("front") %>%
+  kable(caption = "Tabla Parcial 1: Solo Personas Ocupadas (%)") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE)
+
+# Tabla para Inactivos
+enut_control %>%
+  filter(cae_factor == "Inactiva") %>%
+  tabyl(p_tcnr_dt_factor, sexo_factor) %>%
+  adorn_percentages("col") %>%
+  adorn_pct_formatting(digits = 1) %>%
+  adorn_ns("front") %>%
+  kable(caption = "Tabla Parcial 2: Solo Personas Inactivas (%)") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE)
+```
+
+## Conclusión del Análisis de Control {.smaller background-color="white"}
+
+Al comparar las tablas parciales, observamos un patrón de **Especificación (o Interacción)**:
+
+1.  **Entre las personas ocupadas:** La brecha de género en la participación de cuidados **se mantiene**, y de hecho, es similar a la brecha general. Un **46.8%** de las mujeres ocupadas participa en cuidados, frente a un **33.6%** de los hombres ocupados (una diferencia de 13.2 puntos).
+
+2.  **Entre las personas inactivas:** La brecha de género también **se mantiene**, siendo incluso ligeramente mayor. La participación de las mujeres inactivas es del **35.2%**, mientras que la de los hombres inactivos es solo del **19.3%** (una diferencia de 15.9 puntos).
+
+**Conclusión Sociológica:** La relación entre sexo y trabajo de cuidados no es espuria, sino robusta y **especificada** por la condición de actividad. La brecha de género existe tanto dentro como fuera del mercado laboral, pero se manifiesta de forma diferente: aunque en términos absolutos la participación en cuidados es mayor entre las personas ocupadas, la **desigualdad relativa** (la diferencia porcentual entre hombres y mujeres) es aún más pronunciada entre quienes están fuera de la fuerza de trabajo.
+
+
+## Patrones del Análisis de Control {.smaller background-color="white"}
+
+Al introducir una variable de control (Z), la relación original entre X e Y puede:
+
+1.  **Replicarse:** La relación se mantiene igual en todas las tablas parciales. Esto refuerza nuestra confianza en la relación original.
+
+2.  **Desaparecer (Explicación / Asociación Espuria):** La relación desaparece en las tablas parciales. Esto sugiere que Z es una causa común que explica la relación original (como en el ejemplo de los bomberos).
+
+3.  **Especificarse (Interacción):** La relación es **diferente** en las distintas categorías de Z, siendo más fuerte para un grupo que para otro. **Esto es lo que acabamos de encontrar en nuestro ejemplo de la ENUT:** la relación entre sexo y trabajo de cuidados fue especificada por la condición de actividad.
+
+
+## Cierre y Próximos Pasos {.smaller background-color="white"}
+
+**Resumen de la sesión de hoy:**
+
+-   Las **tablas de contingencia** son la herramienta central para analizar la relación entre dos variables categóricas.
+-   El procedimiento estandar es **calcular porcentajes en la dirección de la variable explicativa** y comparar en la dirección opuesta.
+-   El **control por una tercera variable** es un paso crucial del análisis sociológico para probar la robustez de nuestras asociaciones y evitar conclusiones espurias.
+
+**En el práctico de hoy:**
+
+-   Utilizarán el paquete `janitor` para crear tablas de contingencia ponderadas y estratificadas, aplicando la regla de los porcentajes.
+
+**Adelanto de la próxima clase:**
+
+-   Sintetizaremos el análisis bivariado, reforzando las estrategias visuales y cuantificando la relación entre variables cuantitativas con el **coeficiente de correlación**.
