@@ -1,0 +1,23 @@
+---
+title: "🗓️ Semana 14: Síntesis Bivariada y Medidas de Asociación"
+---
+
+En esta semana cerramos el análisis bivariado con una síntesis de las herramientas visuales aprendidas y la introducción del coeficiente de correlación de Pearson para cuantificar la fuerza y dirección de una relación lineal entre dos variables cuantitativas. Concluiremos el curso conectando la estadística descriptiva con la lógica de la inferencia y el rol de la probabilidad en la investigación social.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 10)
+
+En este laboratorio final exploraremos la relación entre la edad y las distintas cargas de trabajo usando gráficos de dispersión y matrices de correlación con la ENUT 2023, integrando todas las herramientas de visualización y análisis cuantitativo del semestre.
+
+👉 **[Ir al Práctico 10: Análisis Cuantitativo Bivariado: Dispersión y Correlación](lab.qmd)**
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

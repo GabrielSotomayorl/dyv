@@ -1,37 +1,38 @@
 ---
-title: "Introducción al Análisis Bivariado y Tipos de Asociación"
-subtitle: "Unidad 5: Estadística Descriptiva Bivariada"
-author: "Gabriel Sotomayor"
-date: "2025-11-10"
+subtitle: "Descripción y Visualización de Datos"
+title: "<font style='font-size:1em;'>🗓️ Semana 12<br/> Introducción al Análisis Bivariado y Tipos de Asociación</font>"
+author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
+institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
+date: 02 November 2026
+date-meta: 02 November 2026
+date-format: "DD MMM YYYY"
+toc: true
+toc-depth: 1
+toc-title: "Contenidos de hoy:"
+center-title-slide: false
+from: markdown+emoji
 format:
   revealjs:
-    theme: [dark, custom.scss]
+    fig-responsive: true
+    theme: [simple, ../../../css/slides.scss]
     slide-number: true
-    auto-fit: true
-    logo: images/logo.png
-include-in-header:
-  - text: |
-      <style>
-      #title-slide .title {
-        font-size: 1.8em;
-      }
-      </style>
+    mouse-wheel: false
+    preview-links: auto
+    logo: /figures/icons/course_favicon.png
+    footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller background-color="white"}
+## Objetivos de la Sesión de Hoy {.smaller}
 
 -   **Definir** el análisis bivariado y la distinción entre **variable explicativa (X)** y **variable respuesta (Y)**.
 -   **Clasificar** los tres tipos de relaciones bivariadas según el nivel de medición de las variables.
 -   **Introducir** el concepto estadístico de **independencia** como punto de referencia para evaluar asociaciones.
 -   **Asociar** cada tipo de relación con su **herramienta de análisis numérico y visual** principal.
 
----
-title_slide_background: "#008080"
----
 
 # 1. De Describir a Relacionar
 
-## El Salto al Análisis Bivariado {.smaller background-color="white"}
+## El Salto al Análisis Bivariado {.smaller}
 
 Hasta ahora, en la Unidad 4, nos hemos enfocado en el **análisis univariado**: describir cada variable por separado (su forma, centro y dispersión).
 
@@ -43,7 +44,7 @@ Sin embargo, el corazón del análisis sociológico reside en entender **relacio
 
 Hoy comenzamos el **análisis bivariado**: el estudio de la relación entre **dos variables** a la vez.
 
-## Variable Explicativa y Variable Respuesta {.smaller background-color="white"}
+## Variable Explicativa y Variable Respuesta {.smaller}
 
 
 ::: {style="font-size: 0.8em; line-height: 1.2;"}
@@ -62,7 +63,7 @@ En el análisis bivariado, asignamos roles a nuestras variables para estructurar
 **Convención:** Al graficar, la variable explicativa (X) siempre va en el **eje horizontal** y la variable respuesta (Y) en el **eje vertical**.
 :::
 
-## El Problema Sociológico del Uso del Tiempo {.smaller background-color="white"}
+## El Problema Sociológico del Uso del Tiempo {.smaller}
 
 El tiempo es un recurso universal, pero su distribución y uso no lo son. Es un recurso escaso que se reparte de manera desigual según ejes clave de la estructura social como el **sexo**, el **nivel socioeconómico** o el **territorio**.
 
@@ -70,13 +71,10 @@ Gran parte del trabajo que sostiene a la sociedad, como las tareas domésticas y
 
 **La Encuesta Nacional de Uso del Tiempo (ENUT)** es la principal herramienta en Chile para medir este fenómeno. Su objetivo es cuantificar cómo las personas distribuyen su tiempo entre el trabajo remunerado, el trabajo no remunerado y las actividades personales, haciendo visible lo invisible para el diseño de políticas públicas más equitativas.
 
----
-title_slide_background: "#008080"
----
 
 # 2. La Caja de Herramientas del Análisis Bivariado
 
-## Tres Tipos de Relaciones {.smaller background-color="white"}
+## Tres Tipos de Relaciones {.smaller}
 
 La forma en que analizamos una relación bivariada depende fundamentalmente del **tipo de variables** que estemos cruzando (categóricas o cuantitativas).
 
@@ -86,7 +84,7 @@ Esto nos da tres casos principales, cada uno con su propio set de herramientas:
 2.  **Categórica (X) ➞ Categórica (Y)**
 3.  **Cuantitativa (X) ➞ Cuantitativa (Y)**
 
-## Caso 1: Categórica (X) ➞ Cuantitativa (Y) {.smaller background-color="white"}
+## Caso 1: Categórica (X) ➞ Cuantitativa (Y) {.smaller}
 
 -   **Pregunta Clave:** ¿Existen diferencias en el promedio (o la distribución) de una variable cuantitativa entre distintos grupos?
     -   **Ejemplo:** *¿Dedican hombres y mujeres, en promedio, la misma cantidad de tiempo al trabajo doméstico no remunerado (`t_tnr_dt`)?*
@@ -99,7 +97,7 @@ Esto nos da tres casos principales, cada uno con su propio set de herramientas:
 -   **Herramienta de Análisis Visual:**
     -   **Boxplots comparativos** o gráficos de densidad por grupo.
 
-## Caso 1: Tabla de Estadísticos por Grupo {.smaller background-color="white"}
+## Caso 1: Tabla de Estadísticos por Grupo {.smaller}
 
 Analizamos las horas diarias de trabajo no remunerado (`t_tnr_dt`) por `sexo`.
 
@@ -139,7 +137,7 @@ kable(tabla_caso1, digits = 2, caption = "Horas diarias de trabajo no remunerado
 
 La tabla revela una marcada brecha de género. En promedio, las mujeres dedican **4.96 horas** diarias al trabajo no remunerado, casi 2.1 horas más que los hombres (2.86 horas). La mediana confirma esta tendencia: el 50% de las mujeres dedica 4.11 horas o más, mientras que el 50% de los hombres dedica 2.10 horas o más. Además, la mayor desviación estándar en las mujeres (3.90) sugiere que existe más variabilidad en sus cargas de trabajo no remunerado que entre los hombres.
 
-## Caso 1: Gráfico de Boxplots Comparativos {.smaller background-color="white"}
+## Caso 1: Gráfico de Boxplots Comparativos {.smaller}
 
 La visualización confirma la brecha observada en la tabla.
 
@@ -157,7 +155,7 @@ ggplot(enut_trabajo, aes(x = sexo_factor, y = t_tnr_dt, fill = sexo_factor)) +
 
 La visualización confirma la magnitud de la brecha. El boxplot de las mujeres está completamente por encima del de los hombres, indicando una diferencia estructural. La mediana de las mujeres (la línea central de su caja) es superior al tercer cuartil de los hombres (el borde superior de su caja). Esto implica que **más del 50% de las mujeres dedica más tiempo al trabajo no remunerado que el 75% de los hombres**.
 
-## Caso 1: Gráfico de Densidad Comparativo {.smaller background-color="white"}
+## Caso 1: Gráfico de Densidad Comparativo {.smaller}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=5}
 
@@ -183,7 +181,7 @@ ggplot(enut_trabajo, aes(x = t_tnr_dt, fill = sexo_factor, color = sexo_factor))
 ```
 
 
-## Caso 2: Categórica (X) ➞ Categórica (Y) {.smaller background-color="white"}
+## Caso 2: Categórica (X) ➞ Categórica (Y) {.smaller}
 
   - **Pregunta Clave:** ¿La probabilidad de pertenecer a una categoría de Y depende de la categoría de X a la que se pertenece?
 
@@ -201,7 +199,7 @@ ggplot(enut_trabajo, aes(x = t_tnr_dt, fill = sexo_factor, color = sexo_factor))
 
 -----
 
-## Caso 2: Tabla de Contingencia {.smaller background-color="white"}
+## Caso 2: Tabla de Contingencia {.smaller}
 
 Analizamos la relación entre `sexo` (X) y `atisfacción con el reparto de tareas domésticas` (Y).
 
@@ -224,7 +222,7 @@ La tabla muestra que un porcentaje mayor de hombres (**28.3%**) que de mujeres (
 
 -----
 
-## Caso 2: Gráfico de Barras Apiladas al 100% {.smaller background-color="white"}
+## Caso 2: Gráfico de Barras Apiladas al 100% {.smaller}
 
 Este gráfico visualiza los porcentajes de la tabla anterior.
 
@@ -245,7 +243,7 @@ enut_trabajo %>%
  theme(legend.position = "bottom")
 ```
 
-## Caso 3: Cuantitativa (X) ➞ Cuantitativa (Y) {.smaller background-color="white"}
+## Caso 3: Cuantitativa (X) ➞ Cuantitativa (Y) {.smaller}
 
 -   **Pregunta Clave:** A medida que X aumenta, ¿Y tiende a aumentar, disminuir o no cambia?
     -   **Ejemplo:** *A mayor `edad` (X), ¿cómo cambia el tiempo dedicado al trabajo doméstico no remunerado (`t_tnr_dt`, Y)?*
@@ -259,7 +257,7 @@ enut_trabajo %>%
     -   **Gráfico de dispersión (Scatterplot)**.
 
 
-## Caso 3: Tabla de Correlación {.smaller background-color="white"}
+## Caso 3: Tabla de Correlación {.smaller}
 
 Calculamos la correlación de Pearson entre `edad` y `trabajo no remunerado total` para cuantificar su relación lineal. El coeficiente varía entre −1 y 1: **1** indica asociación lineal positiva perfecta, **−1** indica asociación lineal negativa perfecta y **0** indica ausencia de asociación lineal (aunque puede existir una relación no lineal).
 
@@ -286,7 +284,7 @@ kable(cor_resultado, digits = 3, caption = "Correlación") %>%
 El coeficiente de correlación de Pearson es de 0.104. Al ser un valor positivo pero muy cercano a cero, indica que existe una **asociación lineal muy débil** entre la edad y las horas de trabajo no remunerado. Si solo miráramos este número, concluiríamos que la edad no es un factor relevante para predecir la carga de trabajo doméstico.
 
 
-## Caso 3: Gráfico de Dispersión {.smaller background-color="white"}
+## Caso 3: Gráfico de Dispersión {.smaller}
 
 El gráfico de dispersión nos cuenta una historia más compleja.
 
@@ -306,7 +304,7 @@ ggplot(enut_trabajo, aes(x = edad, y = t_tnr_dt)) +
 
 La relación entre edad y trabajo no remunerado no es lineal, sino **curvilínea**, con forma de U invertida. La carga de trabajo no remunerado tiende a aumentar desde la juventud, alcanza su punto máximo en la adultez media (aproximadamente entre los 40 y 50 años, coincidiendo con la crianza y consolidación del hogar) y luego disminuye gradualmente en la vejez.
 
-## El Punto de Referencia: Independencia Estadística {.smaller background-color="white"}
+## El Punto de Referencia: Independencia Estadística {.smaller}
 
 Antes de poder decir que dos variables están "relacionadas", necesitamos un punto de referencia.
 
@@ -315,7 +313,7 @@ Antes de poder decir que dos variables están "relacionadas", necesitamos un pun
 -   **El Objetivo del Análisis Bivariado:** Nuestro trabajo como analistas es buscar **evidencia en contra de la independencia**. Buscamos patrones sistemáticos que demuestren que las variables *sí* están relacionadas.
     -   En nuestros tres ejemplos, encontramos evidencia clara de que las variables **no son independientes**.
 
-## Cierre y Próximos Pasos {.smaller background-color="white"}
+## Cierre y Próximos Pasos {.smaller}
 
 **Resumen de la sesión de hoy:**
 

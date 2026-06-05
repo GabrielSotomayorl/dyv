@@ -1,0 +1,29 @@
+---
+title: "🗓️ Semana 08: Descripción de Variables Categóricas"
+---
+
+En esta semana iniciamos el análisis estadístico univariado con el foco en las variables categóricas. Aprenderemos a calcular e interpretar tablas de frecuencias absolutas, relativas y porcentajes, identificar la moda, comprender el concepto de tasas, y construir gráficos de barras para visualizar distribuciones categóricas.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 4)
+
+En este laboratorio trabajaremos con la Encuesta Nacional de Empleo (ENE) para describir la condición de actividad de la población chilena usando tablas de frecuencia ponderadas y gráficos de barras.
+
+👉 **[Ir al Práctico 4: Descripción de Variables Categóricas: Frecuencias y Gráficos de Barras en R](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Ritchey, F. (2008).** *Estadística para las ciencias sociales*. McGraw-Hill. Cap. Frecuencias. [[PDF]](../../bib/Ritchey-frecuencias.pdf)
+- **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. Cap. 1, págs. 45–66. [[PDF]](../../bib/Moore - Estadística aplicada básica-45-66.pdf)
+- **Diez, D. M., Barr, C. D., & Çetinkaya-Rundel, M. (2024).** *OpenIntro Statistics*. Creative Commons. Cap. 2, págs. 61–71. [[PDF]](../../bib/Diez - Open Intro Statistics-61-71.pdf)
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

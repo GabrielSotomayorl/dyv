@@ -1,0 +1,27 @@
+---
+title: "🗓️ Semana 13: Tablas de Contingencia y el Control por Tercera Variable"
+---
+
+En esta semana nos enfocamos en el análisis de la relación entre dos variables categóricas mediante tablas de contingencia. Aprenderemos a construirlas e interpretarlas correctamente usando porcentajes condicionales, e introduciremos el control estadístico por una tercera variable para distinguir relaciones genuinas de asociaciones espurias.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 9)
+
+En este laboratorio construiremos e interpretaremos tablas de contingencia ponderadas con la ENUT 2023, analizando cómo el sexo y el nivel educativo se asocian con la participación en trabajo doméstico no remunerado.
+
+👉 **[Ir al Práctico 9: Análisis Categórico Bivariado: Tablas de Contingencia y Control](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. Sec. 2.6: Relaciones entre variables categóricas. [[PDF]](../../bib/Moore - Estadística aplicada básica-311-330.pdf)
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

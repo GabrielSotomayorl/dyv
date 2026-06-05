@@ -1,0 +1,24 @@
+---
+title: "🗓️ Semana 03: Conceptos clave para la investigación social I"
+---
+
+En esta semana profundizamos en los fundamentos del proceso de medición en ciencias sociales. Revisaremos los conceptos de conceptualización, operacionalización y jerarquía de la medición, además de la distinción entre unidades de análisis y observación, y los cuatro niveles de medición (nominal, ordinal, intervalo y razón).
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 📚 Lecturas Obligatorias
+
+- **Babbie, E. (2000).** *Fundamentos de la investigación social*. Cap. 5, págs. 96–115. [[PDF]](../../bib/Babbie-Fundamentos de la Investigacion Social-59-69.pdf)
+- **Babbie, E. (2000).** *Fundamentos de la investigación social*. Cap. 6, págs. 117–138. [[PDF]](../../bib/Babbie-Fundamentos de la Investigacion Social-69-82.pdf)
+- **Ritchey, F. (2008).** *Estadística para las ciencias sociales*. McGraw-Hill. Cap. 2, págs. 42–48. [[PDF]](../../bib/Ritchey - Análisis estadistico.pdf)
+- **Asún, R. (2006).** Medir la realidad social: El sentido de la metodología cuantitativa. En M. Canales (Ed.), *Metodologías de investigación social*. LOM. [[PDF]](../../bib/Asun - Medir la realidad social.pdf)
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre los contenidos de esta semana.

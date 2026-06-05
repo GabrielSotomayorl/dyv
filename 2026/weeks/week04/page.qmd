@@ -1,0 +1,22 @@
+---
+title: "🗓️ Semana 04: Conceptos clave para la investigación social II"
+---
+
+En esta semana continuamos con los fundamentos metodológicos de la investigación social, enfocándonos en el muestreo probabilístico: la distinción entre población objetivo y marco muestral, los diferentes diseños de muestreo (MAS, estratificado, por conglomerados), y los criterios de fiabilidad y validez para evaluar la calidad de la medición.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 📚 Lecturas Obligatorias
+
+- **Babbie, E. (1996).** *Manual para la práctica de la investigación social*. Desclée De Brouwer. Cap. 5, págs. 147–175. [[PDF]](../../bib/Babbie - MANUAL PARA LA PRACTICA DE LA INVESTIGACION SOCIAL cap 5.pdf)
+- **Babbie, E. (2000).** *Fundamentos de la investigación social*. Cap. 4, págs. 89–91 y Cap. 8, págs. 176–191. [[PDF]](../../bib/Babbie-Fundamentos de la Investigacion Social - MUESTREO CAP 4 Y 8.pdf)
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre los contenidos de esta semana.

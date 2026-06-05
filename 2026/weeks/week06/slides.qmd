@@ -1,37 +1,38 @@
 ---
-title: "La Gramática de la Manipulación de Datos"
-subtitle: "Unidad 3: Descripción y Visualización de Datos"
-author: "Gabriel Sotomayor"
-date: "09-22-2025"
+subtitle: "Descripción y Visualización de Datos"
+title: "<font style='font-size:1em;'>🗓️ Semana 06<br/> La Gramática de la Manipulación de Datos</font>"
+author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
+institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
+date: 21 September 2026
+date-meta: 21 September 2026
+date-format: "DD MMM YYYY"
+toc: true
+toc-depth: 1
+toc-title: "Contenidos de hoy:"
+center-title-slide: false
+from: markdown+emoji
 format:
   revealjs:
-    theme: [dark, custom.scss]
+    fig-responsive: true
+    theme: [simple, ../../../css/slides.scss]
     slide-number: true
-    auto-fit: true
-    logo: images/logo.png
-include-in-header:
-  - text: |
-      <style>
-      #title-slide .title {
-        font-size: 2em;
-      }
-      </style>
+    mouse-wheel: false
+    preview-links: auto
+    logo: /figures/icons/course_favicon.png
+    footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller background-color="white"}
+## Objetivos de la Sesión de Hoy {.smaller}
 
 -   **Introducir** la "gramática de la manipulación de datos" del paquete `dplyr`.
 -   **Aprender y aplicar** los cinco "verbos" principales de `dplyr`: `select()`, `filter()`, `arrange()`, `mutate()` y `summarise()`.
 -   **Entender y utilizar** el operador *pipe* (`%>%`) para encadenar operaciones de forma clara y legible.
 -   **Aplicar** la combinación `group_by()` + `summarise()` para calcular estadísticas descriptivas por subgrupos.
 
----
-title_slide_background: "#008080"
----
 
 # 1. Una Forma Intuitiva de Trabajar: El Tidyverse y `dplyr`
 
-## Repaso y Conexión {.smaller background-color="white"}
+## Repaso y Conexión {.smaller}
 
 En la clase anterior, aprendimos el **protocolo de exploración inicial**:
 
@@ -42,7 +43,7 @@ En la clase anterior, aprendimos el **protocolo de exploración inicial**:
 
 **El Desafío:** A medida que nuestras preguntas se vuelven más complejas, como "calcular el ingreso promedio *solo de las mujeres de la Región Metropolitana*", el código en R base puede volverse anidado y difícil de leer. Hoy aprenderemos un enfoque más intuitivo.
 
-## El Ecosistema Tidyverse: Un Lenguaje para la Ciencia de Datos {.smaller background-color="white"}
+## El Ecosistema Tidyverse: Un Lenguaje para la Ciencia de Datos {.smaller}
 
 El **Tidyverse** no es solo un paquete, es una **colección de paquetes** diseñados para trabajar juntos de forma coherente en todo el ciclo de análisis de datos. Comparte una filosofía común que hace el código más **legible, consistente e intuitivo**.
 
@@ -54,7 +55,7 @@ El **Tidyverse** no es solo un paquete, es una **colección de paquetes** diseñ
     -   `tidyr`: Para ordenar y reestructurar datos.
     -   Y muchos más (`purrr`, `stringr`, `forcats`...).
     
-## El Ecosistema Tidyverse: Un Lenguaje para la Ciencia de Datos {.smaller background-color="white"}
+## El Ecosistema Tidyverse: Un Lenguaje para la Ciencia de Datos {.smaller}
 
 
 Al cargar el paquete `tidyverse` con `library(tidyverse)`, se cargan automáticamente los paquetes más importantes de este ecosistema.
@@ -64,7 +65,7 @@ Al cargar el paquete `tidyverse` con `library(tidyverse)`, se cargan automática
 library(tidyverse)
 ```
 
-## `dplyr`: La Gramática de la Manipulación de Datos {.smaller background-color="white"}
+## `dplyr`: La Gramática de la Manipulación de Datos {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 El paquete `dplyr` es el corazón del Tidyverse para la manipulación de datos. Su diseño se basa en una "gramática" simple y consistente, definida por tres reglas clave:
@@ -81,7 +82,7 @@ El paquete `dplyr` es el corazón del Tidyverse para la manipulación de datos. 
 Esta gramática consistente es lo que permite que las funciones se encadenen de manera fluida y predecible.
 :::
 
-## El Operador Pipe `%>%`: Escribiendo Código como se Piensa {.smaller background-color="white"}
+## El Operador Pipe `%>%`: Escribiendo Código como se Piensa {.smaller}
 
 ::: {style="font-size: 0.87em; line-height: 1.2;"}
 El *pipe* (tubería) es el operador `%>%` y es la pieza central que hace que el código del Tidyverse sea tan legible.
@@ -103,7 +104,7 @@ Esto se lee como: "Toma la base CASEN, **luego** filtra por la RM, **luego** agr
 :::
 
 
-## El Pipe Nativo de R: `|>` {.smaller background-color="white"}
+## El Pipe Nativo de R: `|>` {.smaller}
 
 A partir de la versión 4.1.0, R introdujo su propio operador de *pipe* "nativo": `|>`. Su función es muy similar al `%>%` del Tidyverse.
 
@@ -122,13 +123,10 @@ casen |>
 -   El pipe nativo `|>` es un poco más rápido pero, por ahora, ligeramente **menos flexible** que `%>%`. Algunas funciones y paquetes más antiguos del Tidyverse aún no son totalmente compatibles con él.
 -   Se puede escribir el pipe pulsando CTRL + SHIFT + M. Se peude cambiar el pipe escrito con dicho atajo en las opciones de RStudio.
 
----
-title_slide_background: "#008080"
----
 
 # 2. Los Verbos Fundamentales de `dplyr`
 
-## Los 5 Verbos Principales {.smaller background-color="white"}
+## Los 5 Verbos Principales {.smaller}
 
 `dplyr` se basa en un conjunto pequeño de "verbos" o funciones que resuelven la gran mayoría de las tareas de manipulación de datos. Cada verbo realiza una acción específica y predecible.
 
@@ -140,7 +138,7 @@ title_slide_background: "#008080"
 
 Hoy nos enfocaremos en estos cinco.
 
-## `select()`: Trabajando con Columnas {.smaller background-color="white"}
+## `select()`: Trabajando con Columnas {.smaller}
 
 `select()` nos permite quedarnos con las variables que nos interesan, descartando el resto.
 
@@ -158,7 +156,7 @@ casen_sin_ids <- casen %>%
 ```
 `select()` tiene "helpers" muy útiles como `starts_with("y_")` para seleccionar todas las variables que empiezan con "y_", o `everything()` para mover columnas de lugar.
 
-## La Lógica del Filtrado: Operadores de Comparación {.smaller background-color="white"}
+## La Lógica del Filtrado: Operadores de Comparación {.smaller}
 
 Antes de usar `filter()`, necesitamos entender cómo construir las "condiciones lógicas". El primer paso es usar **operadores de comparación** para crear una pregunta que R pueda responder con `TRUE` o `FALSE`.
   
@@ -177,7 +175,7 @@ Antes de usar `filter()`, necesitamos entender cómo construir las "condiciones 
 
 :::
 
-## Combinando Condiciones: Operadores Lógicos {.smaller background-color="white"}
+## Combinando Condiciones: Operadores Lógicos {.smaller}
 
 A menudo, nuestras preguntas de investigación requieren combinar varias condiciones. Para esto, usamos los **operadores lógicos**.  
 
@@ -193,7 +191,7 @@ El orden de las operaciones importa. Al igual que en matemáticas, es una buena 
 
 
 
-## `filter()`: Aplicando la Lógica para Seleccionar Filas {.smaller background-color="white"}
+## `filter()`: Aplicando la Lógica para Seleccionar Filas {.smaller}
 
 Ahora sí, la función `filter()` toma estas condiciones lógicas y las usa para seleccionar solo las filas (observaciones) de nuestra base de datos donde la condición completa es `TRUE`.
 
@@ -214,7 +212,7 @@ casen_v_viii <- casen %>%
   filter(region %in% c(5, 8))
 ```
 
-## `arrange()`: Reordenando Filas {.smaller background-color="white"}
+## `arrange()`: Reordenando Filas {.smaller}
 
 `arrange()` nos permite ordenar las filas de nuestra tabla de datos según los valores de una o más columnas.
 
@@ -232,7 +230,7 @@ casen_ordenada_ingreso <- casen %>%
 ```
 Podemos ordenar por múltiples variables. Por ejemplo, `arrange(region, desc(edad))` ordenaría primero por región y, dentro de cada región, por edad de forma descendente.
 
-## `mutate()`: Creando y Modificando Variables {.smaller background-color="white"}
+## `mutate()`: Creando y Modificando Variables {.smaller}
 
 `mutate()` es el verbo que nos permite añadir nuevas columnas o modificar las existentes. Es una de las funciones más poderosas y creativas.
 
@@ -249,7 +247,7 @@ casen_con_mayoria_edad <- casen %>%
 ```
 En la próxima clase, veremos cómo usar `mutate()` con funciones más complejas como `case_when()` para realizar recodificaciones avanzadas.
 
-## `summarise()`: Colapsando Datos en Resúmenes {.smaller background-color="white"}
+## `summarise()`: Colapsando Datos en Resúmenes {.smaller}
 
 `summarise()` (o `summarize`) reduce la base de datos a una sola fila que contiene resúmenes estadísticos.
 
@@ -267,13 +265,10 @@ resumen_general
 ```
 Por sí solo, `summarise()` es útil para obtener una visión global. Sin embargo, su verdadero poder se desata cuando lo combinamos con `group_by()`.
 
----
-title_slide_background: "#008080"
----
 
 # 3. Análisis por Grupos: `group_by()` + `summarise()`
 
-## Obteniendo estadísticos por grupo {.smaller background-color="white"}
+## Obteniendo estadísticos por grupo {.smaller}
 
 La combinación de `group_by()` y `summarise()` es el flujo de trabajo estándar para el análisis descriptivo en el Tidyverse. Nos permite responder preguntas del tipo: "¿Cuál es [estadístico] por [grupo]?".
 
@@ -283,7 +278,7 @@ La combinación de `group_by()` y `summarise()` es el flujo de trabajo estándar
 2.  **`summarise(...)`:** Luego, `summarise` calcula el resumen estadístico para cada uno de estos grupos virtuales.
 3.  **Resultado:** `dplyr` devuelve una nueva tabla con los resultados para cada grupo.
 
-## Calculando Estadísticas por Grupo {.smaller background-color="white"}
+## Calculando Estadísticas por Grupo {.smaller}
 
 **Pregunta de investigación:** ¿Cuál es el promedio de años de escolaridad (`esc`) por sexo?
 
@@ -303,7 +298,7 @@ casen %>%
 
 *Para que esto sea más claro, primero tendríamos que convertir `sexo` a un factor con `as_factor()`.*
 
-## Análisis por Múltiples Grupos {.smaller background-color="white"}
+## Análisis por Múltiples Grupos {.smaller}
 
 Podemos agrupar por más de una variable para análisis más detallados.
 
@@ -321,7 +316,7 @@ casen %>%
 
 Este tipo de tabla es el punto de partida para muchos análisis sociológicos, permitiendo comparar subgrupos de la población de manera sistemática.
 
-## Cierre y Próximos Pasos {.smaller background-color="white"}
+## Cierre y Próximos Pasos {.smaller}
 ::: {style="font-size: 0.95em; line-height: 1.2;"}
 **Resumen de la sesión de hoy:**
 

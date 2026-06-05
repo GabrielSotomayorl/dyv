@@ -1,0 +1,28 @@
+---
+title: "🗓️ Semana 09: Visualizando Distribuciones y Medidas Robustas"
+---
+
+En esta semana aprendemos a describir variables cuantitativas a través de la tríada Forma-Centro-Dispersión. Nos centraremos en las herramientas robustas: el histograma para visualizar la forma, y la mediana, los cuartiles y el rango intercuartil como medidas de centro y dispersión resistentes a valores atípicos. El boxplot integra todo este repertorio en una sola visualización.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 5)
+
+En este laboratorio analizaremos la distribución del ingreso del trabajo principal en Chile usando la Encuesta Suplementaria de Ingresos (ESI) 2024, aplicando histogramas y boxplots ponderados para caracterizar una distribución fuertemente asimétrica.
+
+👉 **[Ir al Práctico 5: Visualizando Distribuciones y Medidas Robustas: Histogramas y Boxplots en R](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Ritchey, F. (2008).** *Estadística para las ciencias sociales*. McGraw-Hill. Caps. 4 y 5, págs. 117–135. [[PDF]](../../bib/ritchey cap 4 y 5.pdf)
+- **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. Cap. 1, págs. 32–54. [[PDF]](../../bib/Moore - Estadística aplicada básica 32-54.pdf)
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

@@ -1,16 +1,23 @@
 ---
-title: "La Media, la Desviación Estándar y la Estandarización en R"
-linktitle: "10: Medidas No Robustas y Estandarización"
-date: "2025-10-27"
-menu:
-  example:
-    parent: Ejemplos
-    weight: 10
-type: docs
-toc: true
-editor_options:
-  chunk_output_type: console
+title: "Práctico 6: La Media, la Desviación Estándar y la Estandarización en R"
+subtitle: "Trabajando con la Encuesta Suplementaria de Ingresos (ESI) 2024"
+date: "2026-10-19"
+lang: es
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    body-classes: lab-content
 ---
+
+```{r load-data, include=FALSE}
+library(tidyverse)
+library(haven)
+library(DescTools)
+esi <- readRDS("../../data/esi24.rds")
+```
 
 
 ## 0. Objetivos del Práctico
@@ -51,29 +58,15 @@ library(Hmisc)
 ```
 
 **Paso 3: Cargar la base de datos**
-El método recomendado es descargar el archivo y cargarlo desde tu proyecto. Puedes encontrar la base de datos en el [siguiente enlace](https://www.ine.gob.cl/docs/default-source/encuesta-suplementaria-de-ingresos/bbdd/rdata/2024/esi_2024.rdata) 
 
-```{r load-manual, eval=FALSE, echo=TRUE}
-# Paso 1: Descarga la base de datos desde el sitio del INE y guárdala 
-# en tu carpeta 'datos'. El archivo viene en formato .Rdata.
+La base de datos está disponible en el sitio del [INE](https://www.ine.gob.cl/estadisticas-por-tema/mercado-laboral/encuesta-suplementaria-de-ingresos). Descárgala y guárdala en tu carpeta `datos`. Luego cárgala así:
+
+```{r load-show, eval=FALSE}
+# Descarga la base de datos y guárdala en tu carpeta 'datos'
 # Enlace: https://www.ine.gob.cl/docs/default-source/encuesta-suplementaria-de-ingresos/bbdd/rdata/2024/esi_2024.rdata
-
-# Paso 2: Carga los datos usando la función load() y una ruta relativa
 load("datos/esi_2024.rdata")
-esi <- base # El objeto se llama 'base', lo renombramos a 'esi'
+esi <- base # El objeto dentro del .Rdata se llama 'base', lo renombramos a 'esi'
 ```
-
-***
-Para asegurar que este documento se pueda ejecutar de forma autocontenida, el siguiente código realiza la descarga y carga de forma automática. No necesitas ejecutarlo si ya cargaste la base manualmente.
-
-```{r load-auto, message=FALSE, warning=FALSE, cache=TRUE}
-# Código automático para cargar los datos desde la web
-tmp <- tempfile(fileext = ".rdata")
-download.file("https://www.ine.gob.cl/docs/default-source/encuesta-suplementaria-de-ingresos/bbdd/rdata/2024/esi_2024.rdata?sfvrsn=582b8630_4&download=true", tmp, mode = "wb")
-load(tmp); esi <- base; unlink(tmp); rm(base, tmp)
-```
-***
-
 **Paso 4: Preparar la base de trabajo**
 Filtramos por la población de referencia (`ocup_ref == 1`) y limpiamos la variable de horas trabajadas, ya que los códigos `888` y `999` representan valores perdidos.
 
@@ -218,6 +211,16 @@ resumen_poblacional
 **Interpretación:**
 -   Se estima que el ingreso promedio del trabajo principal en Chile es de **`r format(round(resumen_poblacional$media_ing_pob), big.mark = ",")`**, con una desviación estándar de **`r format(round(resumen_poblacional$sd_ing_pob), big.mark = ",")`**.
 -   Se estima que las horas efectivas trabajadas promedian **`r round(resumen_poblacional$media_horas_pob, 1)` horas** semanales, con una desviación estándar de **`r round(resumen_poblacional$sd_horas_pob, 1)` horas**.
+
+---
+
+**Actividad 1:** Usando `summarise()` y `weighted.mean()`, calcula la media ponderada de `edad` para dos grupos: personas que trabajan a tiempo completo (`efectivas >= 40`) y personas que trabajan menos horas (`efectivas < 40`). ¿Difieren en edad promedio? ¿Cómo interpretas esa diferencia sociológicamente?
+
+```{r actividad-1, eval=FALSE}
+# Escribe tu código aquí
+```
+
+---
 
 ## 5. Cuantificando la Forma: Asimetría y Curtosis
 

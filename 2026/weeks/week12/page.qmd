@@ -1,0 +1,27 @@
+---
+title: "🗓️ Semana 12: Introducción al Análisis Bivariado y Tipos de Asociación"
+---
+
+En esta semana pasamos del análisis univariado al bivariado. Aprenderemos a clasificar los tres tipos de relaciones según el nivel de medición de las variables (Categórica-Cuantitativa, Categórica-Categórica, Cuantitativa-Cuantitativa) y a asociar cada tipo con su herramienta de análisis numérico y visual más apropiada.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 8)
+
+En este laboratorio exploraremos el uso del tiempo en Chile usando la Encuesta Nacional de Uso del Tiempo (ENUT) 2023, aplicando los tres tipos de análisis bivariado para visibilizar las desigualdades de género en el trabajo remunerado y no remunerado.
+
+👉 **[Ir al Práctico 8: Introducción al Análisis Bivariado: Explorando el Uso del Tiempo con la ENUT 2023](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. Cap. 2, págs. 98–128. [[PDF]](../../bib/Moore - Estadística aplicada básica-139-173.pdf)
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

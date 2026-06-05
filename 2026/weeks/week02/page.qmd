@@ -14,11 +14,11 @@ Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer
 
 ## 📚 Lecturas Obligatorias
 
-- **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. *(Capítulo 1: Razonamiento Estadístico)*
+- **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. Cap. 1: Razonamiento Estadístico, págs. 27–37. [[PDF]](../../bib/Moore - Estadística aplicada básica-27-37.pdf)
 
 ## 📚 Lecturas Complementarias
 
-- **Wright, E. O. (1997).** *Class Counts: Comparative Studies in Class Analysis*. Cambridge University Press. *(Cap. 11: "The Non-Effects of Class on the Gendered Division of Labor in the Home", págs. 281–317)*
+- **Wright, E. O. (1997).** *Class Counts: Comparative Studies in Class Analysis*. Cambridge University Press. Cap. 11: "The Non-Effects of Class on the Gendered Division of Labor in the Home". [[PDF]](../../bib/the non effect.pdf)
 
 ## 📟 Dudas y Comunicación
 

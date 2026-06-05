@@ -1,24 +1,28 @@
 ---
-title: "Conceptos clave para la investigación social II"
-subtitle: "Unidad 2: Muestreo y Población"
-author: "Gabriel Sotomayor"
-date: "09-01-2025"
+subtitle: "Descripción y Visualización de Datos"
+title: "<font style='font-size:1em;'>🗓️ Semana 04<br/> Conceptos clave para la investigación social II</font>"
+author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
+institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
+date: 31 August 2026
+date-meta: 31 August 2026
+date-format: "DD MMM YYYY"
+toc: true
+toc-depth: 1
+toc-title: "Contenidos de hoy:"
+center-title-slide: false
+from: markdown+emoji
 format:
   revealjs:
-    theme: [dark, custom.scss]
+    fig-responsive: true
+    theme: [simple, ../../../css/slides.scss]
     slide-number: true
-    auto-fit: true
-    logo: images/logo.png
-include-in-header:
-  - text: |
-      <style>
-      #title-slide .title {
-        font-size: 1.9em;
-      }
-      </style>
+    mouse-wheel: false
+    preview-links: auto
+    logo: /figures/icons/course_favicon.png
+    footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller background-color="white"}
+## Objetivos de la Sesión de Hoy {.smaller}
 
 -   **Distinguir** entre población y muestra, y comprender la lógica del muestreo probabilístico.
 -   **Identificar** los conceptos de población objetivo y marco muestral, y reconocer sus desafíos prácticos.
@@ -26,13 +30,10 @@ include-in-header:
 -   **Analizar** ejemplos de marcos y diseños muestrales utilizados en encuestas chilenas reales.
 -   **Evaluar** la calidad de una medición a través de los criterios de **fiabilidad** y **validez**.
 
----
-title_slide_background: "#008080"
----
 
 # 1. ¿A quiénes estudiamos? La Lógica del Muestreo
 
-## Repaso: De la Idea al Dato {.smaller background-color="white"}
+## Repaso: De la Idea al Dato {.smaller}
 
 En la clase anterior, establecimos el camino para medir un concepto sociológico:
 
@@ -43,7 +44,7 @@ En la clase anterior, establecimos el camino para medir un concepto sociológico
 
 Hoy, respondemos a la siguiente pregunta: una vez que sabemos qué medir y en quiénes, **¿cómo seleccionamos a las unidades de análisis que efectivamente vamos a estudiar?**
 
-## ¿Por qué Muestrear? Población vs. Muestra {.smaller background-color="white"}
+## ¿Por qué Muestrear? Población vs. Muestra {.smaller}
 
 :::::: columns
 ::: {.column width="65%"}
@@ -56,11 +57,11 @@ Hoy, respondemos a la siguiente pregunta: una vez que sabemos qué medir y en qu
 -   El objetivo es usar la información de la muestra para hacer **inferencias** (generalizaciones) sobre la población total.    
 :::
 ::: {.column width="35%"}
-![](img/04/01.png){fig-align="center"}
+![](img/01.png){fig-align="center"}
 :::
 ::::::
 
-## La Lógica del Muestreo Probabilístico {.smaller background-color="white"}
+## La Lógica del Muestreo Probabilístico {.smaller}
 
 El **muestreo probabilístico** es el pilar de la investigación cuantitativa que busca generalizar. Su lógica se basa en un principio fundamental:
 
@@ -71,7 +72,7 @@ La selección **aleatoria** (al azar).
     1.  **Minimiza el sesgo de selección:** El azar, no la conveniencia ni las preferencias del investigador, decide quién entra en la muestra. Una muestra probabilística bien diseñada es, por definición, **representativa**.
     2.  **Permite estimar el error muestral:** Nos da acceso a la teoría de la probabilidad, que nos permite calcular con precisión qué tan lejos están probablemente nuestras estimaciones del verdadero valor en la población.
 
-## Población Objetivo vs. Marco Muestral {.smaller background-color="white"}
+## Población Objetivo vs. Marco Muestral {.smaller}
 
 Aquí es donde la teoría se encuentra con la realidad.
 
@@ -83,7 +84,7 @@ Aquí es donde la teoría se encuentra con la realidad.
 
 **El problema fundamental:** El marco muestral casi nunca es una representación perfecta de la población objetivo. Esta brecha puede ser una importante fuente de error.
 
-## Ejemplo 1: Encuesta CASEN {.smaller background-color="white"}
+## Ejemplo 1: Encuesta CASEN {.smaller}
 
 -   **Población Objetivo:** "Hogares que habitan viviendas particulares ocupadas y sus residentes habituales" a nivel nacional.
 -   **Marco Muestral:** El Marco Muestral de Viviendas (MMV) del INE, que se construye a partir del Censo y se actualiza periódicamente. Es una lista de "unidades primarias de muestreo" (UPM), que son áreas geográficas (similares a manzanas).
@@ -93,7 +94,7 @@ Aquí es donde la teoría se encuentra con la realidad.
     -   **Problema de Actualización:** No captura instantáneamente las viviendas nuevas o las que han sido demolidas desde la última actualización.
     -   **Consecuencia:** Las personas que viven en estas zonas excluidas tienen una probabilidad de selección igual a cero, lo que introduce un **sesgo de cobertura**.
 
-## Ejemplo 2: Encuesta CADEM Plaza Pública {.smaller background-color="white"}
+## Ejemplo 2: Encuesta CADEM Plaza Pública {.smaller}
 
 -   **Población Objetivo:** "Hombres y mujeres de 18 años o más, habitantes en las 16 regiones del país".
 -   **Marco Muestral:** Una base de datos propia con más de 18 millones de números de celulares, generada a través de *Random Digit Dialing* (RDD).
@@ -102,7 +103,7 @@ Aquí es donde la teoría se encuentra con la realidad.
     -   **Problema de Cobertura:** Excluye sistemáticamente a la población que **no tiene celular**, que suele ser de mayor edad y menor nivel socioeconómico.
     -   **Sesgo de No Respuesta:** El desafío más grande. La tasa de logro es baja (cerca del 11%). Quienes deciden contestar una encuesta de un número desconocido pueden ser sistemáticamente diferentes (ej. más interesados en política, más confiados) de quienes no contestan. Esto es un **sesgo de autoselección**.
 
-## Ejemplo 3: Encuesta Longitudinal de Primera Infancia (ELPI) {.smaller background-color="white"}
+## Ejemplo 3: Encuesta Longitudinal de Primera Infancia (ELPI) {.smaller}
 
 -   **Población Objetivo:** "Niños y niñas nacidos en Chile entre el 1 de enero de 2006 y el 31 de diciembre de 2016".
 -   **Marco Muestral:** Las partidas de nacimiento del **Servicio de Registro Civil e Identificación (SRCeI)**.
@@ -111,20 +112,17 @@ Aquí es donde la teoría se encuentra con la realidad.
     -   **Limitación:** Solo sirve para esa población específica. No es útil para estudios sobre la población general.
     -   **Atrición:** En estudios longitudinales, el principal desafío es la "mortalidad muestral" o atrición: la pérdida de participantes a lo largo del tiempo, que puede no ser aleatoria.
 
----
-title_slide_background: "#008080"
----
 
 # 2. Diseños de Muestreo Probabilístico
 
-## El Ideal: Muestreo Aleatorio Simple (MAS) {.smaller background-color="white"}
+## El Ideal: Muestreo Aleatorio Simple (MAS) {.smaller}
 
 -   **Definición:** Cada elemento de la población tiene exactamente la misma probabilidad de ser seleccionado. Es el equivalente a poner todos los nombres en un sombrero y sacar uno por uno.
 -   **Requisito:** Necesita una **lista completa y numerada** de todos los elementos de la población (un marco muestral perfecto).
 -   **Método:** Se usa una tabla de números aleatorios o un software para seleccionar los números de la lista.
 
 
-## ¿Por qué el Muestreo Aleatorio Simple es tan raro en la práctica? {.smaller background-color="white"}
+## ¿Por qué el Muestreo Aleatorio Simple es tan raro en la práctica? {.smaller}
 
 Aunque es el modelo base de la estadística, el MAS casi nunca se usa en encuestas sociales a gran escala por tres razones fundamentales:
 
@@ -134,7 +132,7 @@ Aunque es el modelo base de la estadística, el MAS casi nunca se usa en encuest
 
 Por estas razones, se han desarrollado diseños más complejos y eficientes.
 
-## Solución Práctica 1: Muestreo Estratificado {.smaller background-color="white"}
+## Solución Práctica 1: Muestreo Estratificado {.smaller}
 
 -   **Lógica:** En lugar de muestrear de la población total, primero la dividimos en subgrupos homogéneos y mutuamente excluyentes llamados **estratos**. Luego, se realiza un muestreo aleatorio *dentro* de cada estrato.
 -   **Objetivo Principal:** Asegurar la **representatividad de subgrupos clave** y aumentar la precisión estadística.
@@ -142,14 +140,14 @@ Por estas razones, se han desarrollado diseños más complejos y eficientes.
  
 
 
-## Solución Práctica 2: Muestreo por Conglomerados {.smaller background-color="white"}
+## Solución Práctica 2: Muestreo por Conglomerados {.smaller}
 
 -   **Lógica:** Muestrear grupos en lugar de individuos. La población se divide en grupos o **conglomerados** (generalmente geográficos). Se toma una muestra aleatoria de conglomerados y luego se estudian **todas o algunas** de las unidades dentro de los conglomerados seleccionados.
 -   **Objetivo Principal:** **Eficiencia logística y reducción de costos**, especialmente en encuestas presenciales.
 -   **Ejemplo (CASEN - Primera Etapa):** En lugar de seleccionar hogares al azar en todo Chile, primero se selecciona una muestra de **conglomerados** (las "manzanas" o UPMs). El trabajo de campo se concentra solo en esas áreas.
 -   **Trade-off:** Es más barato, pero estadísticamente menos preciso que el MAS o el estratificado, porque las personas dentro de un conglomerado tienden a parecerse entre sí (homogeneidad intraconglomerado).
 
-## Poniendo todo junto: Diseños Muestrales Complejos (Multietápicos) {.smaller background-color="white"}
+## Poniendo todo junto: Diseños Muestrales Complejos (Multietápicos) {.smaller}
 
 Las encuestas reales como CASEN combinan estas técnicas en un **diseño muestral complejo y multietápico**.
 
@@ -161,13 +159,10 @@ El diseño de CASEN es **probabilístico, estratificado y bietápico**:
 
 Este diseño equilibra la representatividad (gracias a la estratificación) con la eficiencia logística (gracias al muestreo por conglomerados).
 
----
-title_slide_background: "#008080"
----
 
 # 3. La Calidad de la Medición y el Error Total
 
-## De la Selección a la Calidad {.smaller background-color="white"}
+## De la Selección a la Calidad {.smaller}
 
 Ya hemos resuelto el problema de **a quiénes** estudiar a través de la lógica del muestreo. Ahora, enfrentamos una pregunta igualmente importante:
 
@@ -175,7 +170,7 @@ Ya hemos resuelto el problema de **a quiénes** estudiar a través de la lógica
 
 La calidad de nuestros datos no solo depende de una buena muestra, sino también de la calidad de nuestros instrumentos de medición. Esto nos introduce a dos conceptos fundamentales: **fiabilidad** y **validez**.
 
-## Fiabilidad: ¿Es consistente nuestra medición? {.smaller background-color="white"}
+## Fiabilidad: ¿Es consistente nuestra medición? {.smaller}
 
 La **fiabilidad** (o confiabilidad) se refiere a la **consistencia** y **estabilidad** de una medición. Si aplicamos el mismo instrumento repetidamente al mismo objeto bajo las mismas condiciones, ¿obtenemos siempre el mismo resultado?
 
@@ -186,7 +181,7 @@ La **fiabilidad** (o confiabilidad) se refiere a la **consistencia** y **estabil
 -   Las preguntas de una encuesta son ambiguas y cada persona las interpreta de forma distinta en momentos distintos.  
 -   Los observadores que codifican un comportamiento usan criterios que cambian con el tiempo o entre ellos.
 
-## Validez: ¿Medimos lo que realmente queremos medir? {.smaller background-color="white"}
+## Validez: ¿Medimos lo que realmente queremos medir? {.smaller}
 
 La **validez** se refiere al grado en que una medida empírica refleja adecuadamente el **significado real del concepto** que pretende medir. Es una pregunta sobre la **exactitud conceptual**.
 
@@ -198,7 +193,7 @@ La **validez** se refiere al grado en que una medida empírica refleja adecuadam
 -   Las personas pueden dar respuestas socialmente deseables en lugar de honestas.    
 -   Nuestros indicadores pueden ser una simplificación excesiva del concepto.   
 
-## Tres Tipos de Validez: ¿Cómo evaluamos la exactitud? {.smaller background-color="white"}
+## Tres Tipos de Validez: ¿Cómo evaluamos la exactitud? {.smaller}
 
 La validez no es un concepto único. En la práctica, la evaluamos de diferentes maneras, cada una respondiendo a una pregunta distinta sobre la calidad de nuestra medición.
 
@@ -210,7 +205,7 @@ Se enfoca en la **amplitud y representatividad** de los indicadores. Se evalúa 
 
 **Ejemplo:** Una medida de "bienestar social" que solo incluye indicadores de ingreso económico tendría baja validez de contenido, pues omite dimensiones cruciales como la salud, las redes sociales o la seguridad.
 
-## Tres Tipos de Validez: ¿Cómo evaluamos la exactitud? {.smaller background-color="white"}
+## Tres Tipos de Validez: ¿Cómo evaluamos la exactitud? {.smaller}
 
 **2. Validez de Criterio (o Predictiva)**
 
@@ -220,7 +215,7 @@ Se enfoca en la **utilidad práctica** de la medida.
 
 **Ejemplo:** Una escala que mide el "riesgo de deserción escolar" tiene alta validez de criterio si los estudiantes con puntajes altos en la escala son, efectivamente, los que tienen más probabilidades de abandonar la escuela al año siguiente.
 
-## Tres Tipos de Validez: ¿Cómo evaluamos la exactitud? {.smaller background-color="white"}
+## Tres Tipos de Validez: ¿Cómo evaluamos la exactitud? {.smaller}
 
 **3. Validez de Constructo**
 
@@ -231,18 +226,18 @@ Es la forma de validez más importante y abstracta.
 **Ejemplo:** La teoría dice que el "capital social" se asocia positivamente con la "participación cívica". Si nuestra nueva escala de capital social muestra una fuerte correlación con una medida de participación cívica, es una evidencia a favor de su validez de constructo.
 
 
-## La Analogía del Tiro al Blanco {.smaller background-color="white"}
+## La Analogía del Tiro al Blanco {.smaller}
 
 Una forma clásica de entender la diferencia es con la analogía de un tirador:
 
-![](img/04/03.png){fig-align="center"}
+![](img/03.png){fig-align="center"}
 
 -   **Fiable pero no Válido:** Todos los tiros dan en el mismo lugar, pero lejos del centro. La medición es consistente pero incorrecta.
 -   **Válido pero no Fiable:** Los tiros están dispersos alrededor del centro. En promedio aciertan, pero la medición es inconsistente.
 -   **Ni Fiable ni Válido:** Los tiros están dispersos y lejos del centro.
 -   **Fiable y Válido (El Ideal):** Todos los tiros dan consistentemente en el centro.
 
-## La Tensión entre Fiabilidad y Validez {.smaller background-color="white"}
+## La Tensión entre Fiabilidad y Validez {.smaller}
 
 En la práctica, a menudo existe una tensión entre ambos criterios.
 
@@ -255,7 +250,7 @@ La primera medida es muy **fiable** pero de **validez cuestionable** (el estado 
 
 El desafío del investigador es encontrar un equilibrio razonable.
 
-## El Error Total de Encuesta: Un Marco Integrador {.smaller background-color="white"}
+## El Error Total de Encuesta: Un Marco Integrador {.smaller}
 
 Nuestras conclusiones no solo dependen de a quiénes seleccionamos (muestreo), sino también de cómo medimos (calidad de la medición).
 
@@ -263,7 +258,7 @@ El **Error Total de Encuesta** es un marco que nos ayuda a pensar en todas las f
 
 1.  **Error Muestral:** La diferencia entre un estadístico de la muestra y el parámetro de la población, que existe simplemente porque estudiamos una parte y no el todo. Es el error del **azar**, y es **estimable** en el muestreo probabilístico.
 
-## El Error Total de Encuesta: Un Marco Integrador {.smaller background-color="white"}
+## El Error Total de Encuesta: Un Marco Integrador {.smaller}
 
 2.  **Error No Muestral (o de Medición):** Todos los demás errores que pueden ocurrir en el proceso. Son **sesgos sistemáticos** y difíciles de cuantificar. Incluye:
     -   *Error de cobertura:* El marco muestral no cubre a toda la población.
@@ -273,12 +268,11 @@ El **Error Total de Encuesta** es un marco que nos ayuda a pensar en todas las f
     -   *Error de procesamiento:* Errores al digitar o codificar los datos.
 
 
-----
-## {.smaller background-color="white"}
-![](img/04/04.png){fig-align="center"}
+## {}
+![](img/04.png){fig-align="center"}
 
 
-## El Error Total como un Desafío de Diseño {.smaller background-color="white"}
+## El Error Total como un Desafío de Diseño {.smaller}
 
 El objetivo de un buen diseño de investigación es minimizar el **error total**.
 
@@ -290,7 +284,7 @@ El objetivo de un buen diseño de investigación es minimizar el **error total**
 
 
 
-## Actividad de Aplicación (15 min) {.smaller background-color="white"}
+## Actividad de Aplicación (15 min) {.smaller}
 
 **Escenario de Investigación:** Queremos realizar un estudio sobre el **"bienestar subjetivo de los estudiantes de la UDP"**.  
 
@@ -300,7 +294,7 @@ El objetivo de un buen diseño de investigación es minimizar el **error total**
 3.  **Validez:** ¿La pregunta "¿Qué tan feliz es usted?" es una medida válida de "bienestar subjetivo"? ¿Qué otras dimensiones importantes del bienestar podría estar omitiendo?  
 4.  **Error Total:** ¿Cuál creen que sería la mayor fuente de error en este estudio, el error muestral o el error no muestral? ¿Por qué?  
 
-## Cierre de la Unidad 2 y Próximos Pasos {.smaller background-color="white"}
+## Cierre de la Unidad 2 y Próximos Pasos {.smaller}
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 
 -   Hemos desglosado el proceso fundamental de pasar de una idea abstracta a un dato medible, definiendo la **conceptualización**, la **operacionalización**, las **unidades de análisis** y los **niveles de medición**.  

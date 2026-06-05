@@ -10,9 +10,7 @@ $primary:       $brand-main;
 $navbar-bg:     $brand-main;
 $link-color:    $brand-link;
 
-// Override Bootstrap colors usados por callouts
-$danger:        $brand-accent;   // callout-important
-$warning:       $brand-accent;   // callout-warning
+// (callout colors handled directly in scss:rules section below)
 
 /*-- scss:rules --*/
 
@@ -52,17 +50,26 @@ table.syllabus {
   &.callout-important {
     border-left-color: $brand-accent;
     background-color: rgba($brand-accent, 0.07);
-    .callout-icon::before { color: $brand-accent !important; }
+    .callout-header { background-color: rgba($brand-accent, 0.18) !important; }
+    .callout-icon::before { color: $brand-main !important; }
     .callout-title { color: $brand-main; }
   }
   &.callout-note {
     border-left-color: $brand-main;
     background-color: rgba($brand-main, 0.05);
+    .callout-header { background-color: rgba($brand-main, 0.10) !important; }
   }
   &.callout-warning {
     border-left-color: $brand-accent;
     background-color: rgba($brand-accent, 0.07);
-    .callout-icon::before { color: $brand-accent !important; }
+    .callout-header { background-color: rgba($brand-accent, 0.18) !important; }
+    .callout-icon::before { color: $brand-main !important; }
+  }
+  &.callout-tip {
+    border-left-color: $brand-main;
+    background-color: rgba($brand-main, 0.05);
+    .callout-header { background-color: rgba($brand-main, 0.10) !important; }
+    .callout-icon::before { color: $brand-main !important; }
   }
 }
 

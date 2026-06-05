@@ -1,0 +1,28 @@
+---
+title: "🗓️ Semana 11: La Visualización como Argumento Sociológico y la Gramática de Gráficos"
+---
+
+En esta semana tratamos la visualización de datos no como un adorno, sino como una forma de argumento sociológico. Analizaremos visualizaciones icónicas de Piketty y Bourdieu, aprenderemos las mejores prácticas para crear gráficos claros y honestos, e introduciremos la gramática de gráficos de `ggplot2` con especial atención al faceting para comparar distribuciones.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 7)
+
+En este laboratorio dominaremos la gramática de gráficos de `ggplot2` capa por capa, construyendo visualizaciones univariadas y bivariadas de alta calidad con datos de la CASEN 2024 para explorar desigualdades socioeconómicas en Chile.
+
+👉 **[Ir al Práctico 7: La Visualización como Argumento Sociológico con ggplot2](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Ritchey, F. (2008).** *Estadística para las ciencias sociales*. McGraw-Hill. Cap. 3: Tablas y gráficas. [[PDF]](../../bib/Ritchey-2002_Teorica-49-57.pdf)
+- **Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023).** *R para ciencia de datos* (2ª ed.). Cap. [Visualización de datos](https://davidrsch.github.io/r4ds-es/data-visualize.html).
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

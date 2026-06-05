@@ -1,200 +1,152 @@
 ---
-title: "Construcción y Combinación de Datos: Un Análisis de Bienestar Infantil con la ELPI"
-linktitle: "7: Creación y Combinación de Datos"
-date: "2025-09-29"
-menu:
-  example:
-    parent: Ejemplos
-    weight: 7
-type: docs
-toc: true
-editor_options: 
-  chunk_output_type: console
+title: "Práctico 3: Construcción y Combinación de Datos: Un Análisis de Bienestar Adolescente con la ELPI"
+subtitle: "Trabajando con la Encuesta Longitudinal de Primera Infancia (ELPI) Cuarta Ronda 2024"
+date: "2026-09-28"
+lang: es
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    body-classes: lab-content
 ---
+
+```{r load-data, include=FALSE}
+library(haven)
+library(tidyverse)
+elpicp <- readRDS("../../data/elpicp.rds")
+elpiadol <- readRDS("../../data/elpiadol.rds")
+```
 
 ## 0. Objetivos del Práctico
 
 El objetivo de este práctico es aplicar las técnicas avanzadas de manipulación de datos vistas en clase. Al finalizar, serás capaz de:
 
-*   Manejar un proyecto con **múltiples bases de datos** en diferentes formatos.
-*   Aplicar `left_join()` para **combinar información** de diferentes fuentes (cuidador y niño/a).
+*   Manejar un proyecto con **múltiples bases de datos** en formato R.
+*   Aplicar `left_join()` para **combinar información** de diferentes fuentes (responsable principal y adolescente).
 *   Realizar recodificaciones complejas usando `case_when()` para crear una **tipología**.
-*   Construir un **índice sumativo** a partir de múltiples indicadores.
+*   Construir un **índice sumativo** a partir de múltiples indicadores de satisfacción.
 *   Aplicar un flujo de trabajo completo para limpiar, preparar y analizar los datos, respondiendo a una pregunta de investigación.
 
 ## 1. Contexto: La Encuesta Longitudinal de Primera Infancia (ELPI)
 
 La **Encuesta Longitudinal de Primera Infancia (ELPI)** es un estudio a nivel nacional que sigue a una cohorte de niños y niñas desde su nacimiento para monitorear su desarrollo en el tiempo. Es una herramienta fundamental para el diseño y evaluación de políticas públicas en el área de la niñez en Chile.
 
-La ELPI recolecta información de diferentes fuentes y a través de distintos cuestionarios. Hoy trabajaremos con dos de ellos de la ronda 2017:
-1.  La base del **Cuidador Principal**, que contiene información socioeconómica detallada del hogar.
-2.  La base de **Niños y Niñas**, que contiene las respuestas de un cuestionario auto-aplicado contestado por los niños y niñas de 7 años o más.
+En su **Cuarta Ronda (2024)**, los participantes originales tienen entre 14 y 18 años. La ELPI recolecta información a través de distintos instrumentos aplicados a diferentes informantes. Hoy trabajaremos con dos:
 
-Nuestro primer desafío será unir estas dos fuentes para poder analizar cómo las características del hogar se relacionan con el bienestar de los niños/as.
+1.  La base del **Responsable Principal (RP)**, que contiene información socioeconómica detallada del hogar y características generales de cada miembro.
+2.  La base de **Adolescentes**, que contiene las respuestas del cuestionario auto-aplicado por los jóvenes de 14 a 18 años, incluyendo un módulo de satisfacción con distintos ámbitos de su vida.
+
+Nuestro primer desafío será unir estas dos fuentes para analizar cómo las características del hogar se relacionan con el bienestar subjetivo de los adolescentes.
 
 ## 2. Preparación del Entorno y Carga de Datos
 
-### 2.1 Configuración del Proyecto y Descarga de Datos
+### 2.1 Proyectos de RStudio y Rutas Relativas (Recordatorio)
 
-Como siempre, un flujo de trabajo reproducible comienza con una buena organización.
+Un flujo de trabajo reproducible comienza con una buena organización. La herramienta clave es el **Proyecto de RStudio (`.Rproj`)**: agrupa todos los archivos de una investigación (datos, scripts, informes) en una sola carpeta y fija ahí la raíz del directorio de trabajo.
 
-1.  **Crea un Proyecto de RStudio:** Si aún no lo has hecho, crea un nuevo Proyecto para esta unidad.
-2.  **Crea una carpeta de datos:** Dentro de tu proyecto, crea una carpeta llamada `datos`.
-3.  **Descarga las bases de datos:**
-    *   [Base Cuidador Principal ELPI III (Formato STATA, `.dta`)](https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/elpi/2017/Base_Cuidador_Principal_ELPI_III(STATA)_241010.dta.zip)
-    *   [Base Niños y Niñas ELPI III (Formato SPSS, `.sav`)](https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/elpi/2017/Base_Ni%C3%B1os_y_Ni%C3%B1as_ELPI_III_(SPSS).sav.zip)
-4.  **Guarda los archivos:** Descomprime los archivos `.zip` y guarda los archivos `.dta` y `.sav` dentro de tu carpeta `datos`.
+Esto nos permite usar **rutas relativas** (ej. `"datos/mis_datos.rds"`) en lugar de rutas absolutas (ej. `"C:/Users/Gabriel/Desktop/datos/mis_datos.rds"`), lo que asegura que el código funcione en cualquier computador sin modificaciones.
 
-### 2.2 Carga de Paquetes
+**Acción:** Antes de continuar, asegúrate de estar trabajando dentro de un Proyecto de RStudio.
 
-Cargamos los paquetes que usaremos hoy. `haven` es esencial porque nos permite leer datos de otros software estadísticos como Stata y SPSS.
+### 2.2 Descarga de Datos
 
+Descarga ambas bases desde el sitio del [Observatorio Social del Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/elpi-cuarta-ronda) y guárdalas en una carpeta `datos` dentro de tu proyecto:
 
-```r
+*   Base del **Responsable Principal** (formato `.rds`)
+*   Base de **Adolescentes** (formato `.rds`)
+
+### 2.4 Carga de Paquetes
+
+Cargamos los paquetes que usaremos hoy.
+
+```{r setup, message=FALSE, warning=FALSE}
 library(haven)
 library(tidyverse)
 ```
 
-### 2.3 Carga de las Bases de Datos desde Archivos Locales
+### 2.5 Carga de las Bases de Datos
 
-Ahora, cargaremos los datos en R. Fíjate que usamos una función diferente para cada tipo de archivo: `read_dta()` para Stata y `read_sav()` para SPSS.
+Las bases están disponibles en el sitio del [Observatorio Social](https://observatorio.ministeriodesarrollosocial.gob.cl/elpi-cuarta-ronda). Descarga ambos archivos y guárdalos en tu carpeta `datos`. Luego cárgalos así:
 
+```{r load-show, eval=FALSE}
+# Cargar la base del Responsable Principal
+elpicp <- readRDS("datos/Base responsable principal R.rds")
 
-```r
-# Cargar la base de datos del Cuidador Principal (formato Stata)
-elpicp <- haven::read_dta("datos/Base_Cuidador_Principal_ELPI_III(STATA)_241010.dta")
-
-# Cargar la base de datos de Niños y Niñas (formato SPSS)
-elpinna <- haven::read_sav("datos/Base Niños y Niñas ELPI III (SPSS).sav")
-```
-
----
-
-*Nota sobre la reproducibilidad:* Para que este práctico funcione de manera autocontenida, a continuación se incluye el código que realiza la descarga y carga de forma automática. **No necesitas ejecutarlo si ya cargaste las bases manualmente.**
-
-
-```r
-# Carga Base Cuidador Principal (STATA)
-temp_cp <- tempfile() 
-download.file("https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/elpi/2017/Base_Cuidador_Principal_ELPI_III(STATA)_241010.dta.zip", temp_cp)
-elpicp <- haven::read_dta(unz(temp_cp, "Base_Cuidador_Principal_ELPI_III(STATA)_241010.dta"))
-unlink(temp_cp); remove(temp_cp)
-
-# Carga Base Niños y Niñas (SPSS)
-temp_nna <- tempfile()
-download.file("https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/elpi/2017/Base_Ni%C3%B1os_y_Ni%C3%B1as_ELPI_III_(SPSS).sav.zip", temp_nna)
-elpinna <- haven::read_sav(unz(temp_nna, "Base Niños y Niñas ELPI III (SPSS).sav"))
-unlink(temp_nna); remove(temp_nna)
+# Cargar la base de Adolescentes
+elpiadol <- readRDS("datos/Base adolescentes R.rds")
 ```
 
 ## 3. Limpieza y Preparación de las Bases (Por Separado)
 
-Antes de unir las tablas, debemos prepararlas para asegurarnos de que contengan solo la información que necesitamos.
+Antes de unir las tablas, debemos prepararlas para que contengan solo la información que necesitamos.
 
-### 3.1 Base del Cuidador Principal (`elpicp`)
+### 3.1 Base del Responsable Principal (`elpicp`)
 
-Esta base contiene información de todos los miembros del hogar, pero nos interesan las características asociadas al **niño/a ELPI**. Además, solo queremos a los niños/as de 10 años o más, ya que son quienes, por los lineamientos de aplicación de la escala de bienestar, contestaron dicho módulo.
+Esta base contiene información de **todos los miembros del hogar**. La variable `tipo_persona` nos indica el rol de cada persona en el estudio. Filtramos por `tipo_persona == 1` para quedarnos solo con el **adolescente ELPI** (el joven de 14–18 años que es el sujeto de seguimiento de la encuesta).
 
-
-```r
+```{r clean-rp}
 elpicp_limpia <- elpicp %>%
-  # 1. Filtramos para quedarnos solo con las filas que corresponden al niño/a (tipopersona == 1)
-  filter(tipopersona == 1) %>%
-  # 2. Filtramos para quedarnos solo con los nna de 10 años o más (variable h3 es la edad)
-  filter(h3 >= 10) %>%
-  # 3. Seleccionamos las variables que nos interesan para nuestro análisis
-  select(folio, idregion, qaut_casen)
+  # 1. Filtramos para quedarnos solo con el adolescente ELPI de cada hogar
+  filter(tipo_persona == 1) %>%
+  # 2. Seleccionamos el identificador del hogar, la región y el quintil de ingresos
+  select(folio, cod_region, qaut_casen)
 
 # Verificamos las dimensiones de nuestra base limpia
 dim(elpicp_limpia)
 ```
 
-```
-## [1] 6066    3
-```
+**Interpretación:** Nuestra base del Responsable Principal ahora tiene **`r nrow(elpicp_limpia)` filas**, una por cada adolescente ELPI del estudio, y `r ncol(elpicp_limpia)` columnas con la información socioeconómica que necesitamos.
 
-**Interpretación:** Nuestra base de datos del cuidador principal (`elpicp_limpia`) ahora solo tiene **6,066 filas**, que corresponden a los niños/as de 10 años o más, y 3 columnas con la información que necesitamos.
+### 3.2 Base de Adolescentes (`elpiadol`)
 
-### 3.2 Base de Niños y Niñas (`elpinna`)
+Esta base contiene las respuestas directas de los adolescentes. Nos interesan especialmente las variables `d3_1` a `d3_7`, que miden la **satisfacción con distintos ámbitos de la vida** en una escala de 1 (nada satisfecho) a 7 (muy satisfecho). En esta ronda, todos los adolescentes (14–18 años) respondieron este módulo, por lo que no es necesario filtrar por edad.
 
-Esta base contiene las respuestas de bienestar. La limpiaremos y renombraremos las variables para que sea más fácil de usar.
-
-
-```r
-elpinna_limpia <- elpinna %>%
-  # Nos quedamos solo con los niños/as de 10 años o más para ser consistentes
-  filter(edad >= 10) %>%  
-  # Seleccionamos el identificador del hogar y las 6 preguntas de satisfacción, renombrándolas
-  select(folio, 
-         satisf_familia = e1, 
-         satisf_amigos = e2, 
-         satisf_colegio = e3, 
-         satisf_contigo = e4, 
-         satisf_barrio = e5, 
-         satisf_vida = e6)
+```{r clean-adol}
+elpiadol_limpia <- elpiadol %>%
+  # Seleccionamos el identificador y las 7 preguntas de satisfacción, renombrándolas
+  select(folio,
+         satisf_familia  = d3_1,
+         satisf_amigos   = d3_2,
+         satisf_colegio  = d3_3,
+         satisf_contigo  = d3_4,
+         satisf_barrio   = d3_5,
+         satisf_vida     = d3_6,
+         satisf_cuerpo   = d3_7)
 
 # Vemos un resumen para verificar la limpieza
-summary(elpinna_limpia)
+summary(elpiadol_limpia)
 ```
 
-```
-##      folio        satisf_familia  satisf_amigos   satisf_colegio 
-##  Min.   :100011   Min.   :1.000   Min.   :1.000   Min.   :1.000  
-##  1st Qu.:164216   1st Qu.:6.000   1st Qu.:6.000   1st Qu.:6.000  
-##  Median :231891   Median :7.000   Median :7.000   Median :7.000  
-##  Mean   :237839   Mean   :6.487   Mean   :6.282   Mean   :6.167  
-##  3rd Qu.:314551   3rd Qu.:7.000   3rd Qu.:7.000   3rd Qu.:7.000  
-##  Max.   :399641   Max.   :7.000   Max.   :7.000   Max.   :7.000  
-##                   NA's   :6       NA's   :6       NA's   :6      
-##  satisf_contigo  satisf_barrio    satisf_vida   
-##  Min.   :1.000   Min.   :1.000   Min.   :1.000  
-##  1st Qu.:6.000   1st Qu.:5.000   1st Qu.:6.000  
-##  Median :7.000   Median :7.000   Median :7.000  
-##  Mean   :6.336   Mean   :5.912   Mean   :6.489  
-##  3rd Qu.:7.000   3rd Qu.:7.000   3rd Qu.:7.000  
-##  Max.   :7.000   Max.   :7.000   Max.   :7.000  
-##  NA's   :6       NA's   :6       NA's   :6
-```
-
-**Interpretación:** El resumen nos muestra que las variables de satisfacción ahora tienen muy pocos `NA's` (solo 6). Esto confirma que nuestro filtro por edad fue correcto y que casi todos los niños y niñas de 10 años o más respondieron estas preguntas.
+**Interpretación:** El resumen nos muestra las distribuciones de cada variable de satisfacción. La escala va de 1 a 7, y la mayoría de los adolescentes se concentra en los valores altos, lo que indica niveles generales de satisfacción elevados.
 
 ## 4. Combinando las Bases con `left_join()` (Paso Central)
 
-Ahora que tenemos nuestras dos tablas limpias, las uniremos. La **variable llave** que conecta ambas tablas es `folio`, el identificador del hogar.
+Ahora que tenemos nuestras dos tablas limpias, las uniremos. La **variable llave** que conecta ambas tablas es `folio`, el identificador único del hogar.
 
-
-```r
+```{r join}
 # Unimos las dos bases de datos.
-# La tabla del cuidador es la "izquierda" (la principal), y le "pegamos" las respuestas de los niños/as.
-elpi_completa <- left_join(elpicp_limpia, elpinna_limpia, by = "folio")
+# La tabla del RP es la "izquierda" (la principal), y le "pegamos" las respuestas de los adolescentes.
+elpi_completa <- left_join(elpicp_limpia, elpiadol_limpia, by = "folio")
 
 # Verificamos el resultado
 head(elpi_completa)
 ```
 
-```
-## # A tibble: 6 × 9
-##    folio idregion         qaut_casen satisf_familia satisf_amigos satisf_colegio
-##    <dbl> <dbl+lbl>        <dbl+lbl>  <dbl+lbl>      <dbl+lbl>     <dbl+lbl>     
-## 1 100011 15 [Regi\xf3n d… 2 [II]     5 [5]          4 [4]         4 [4]         
-## 2 100081 15 [Regi\xf3n d… 1 [I]      7 [7. Muy sat… 7 [7. Muy sa… 7 [7. Muy sat…
-## 3 100091 15 [Regi\xf3n d… 1 [I]      7 [7. Muy sat… 7 [7. Muy sa… 7 [7. Muy sat…
-## 4 100121 15 [Regi\xf3n d… 3 [III]    7 [7. Muy sat… 4 [4]         7 [7. Muy sat…
-## 5 100131 15 [Regi\xf3n d… 4 [IV]     6 [6]          5 [5]         4 [4]         
-## 6 100151 15 [Regi\xf3n d… 1 [I]      5 [5]          7 [7. Muy sa… 4 [4]         
-## # ℹ 3 more variables: satisf_contigo <dbl+lbl>, satisf_barrio <dbl+lbl>,
-## #   satisf_vida <dbl+lbl>
-```
-
-```r
+```{r dim-join}
 dim(elpi_completa)
 ```
 
-```
-## [1] 6066    9
-```
+**Interpretación:** La base unificada `elpi_completa` tiene **`r nrow(elpi_completa)` filas** y `r ncol(elpi_completa)` columnas. Cada fila corresponde a un adolescente con su información socioeconómica (región, quintil) y sus respuestas de bienestar subjetivo.
 
-**Interpretación:** ¡Éxito! Ahora tenemos una única base de datos (`elpi_completa`) con 6,066 filas y 9 columnas, que contiene, para cada niño/a de 10 años o más, tanto sus características socioeconómicas (región, quintil) como sus respuestas de bienestar.
+---
+
+**Actividad 1:** Antes de continuar, calcula el promedio de `satisf_vida` y `satisf_barrio` separadamente para adolescentes de la Región Metropolitana (`cod_region == 13`) versus el resto del país. ¿Observas diferencias entre regiones para estos dos ámbitos?
+
+```{r actividad-1, eval=FALSE}
+# Escribe tu código aquí
+```
 
 ## 5. Construcción de Nuevas Variables
 
@@ -202,47 +154,42 @@ Con nuestra base unificada, podemos crear las variables que necesitamos para nue
 
 ### 5.1 Construcción de un Índice de Bienestar Subjetivo
 
-**Objetivo:** Crear un puntaje global de satisfacción con la vida promediando las 6 preguntas.
+**Objetivo:** Crear un puntaje global de satisfacción con la vida promediando las 7 preguntas del módulo de bienestar de la ELPI 2024.
 
-
-```r
+```{r create-index}
 elpi_completa <- elpi_completa %>%
   mutate(
-    # Sumamos las 6 variables y dividimos por 6 para obtener el promedio
-    indice_bienestar = (satisf_familia + satisf_amigos + satisf_colegio + satisf_contigo + satisf_barrio + satisf_vida) / 6
+    # Promediamos las 7 variables de satisfacción (escala 1-7)
+    indice_bienestar = (satisf_familia + satisf_amigos + satisf_colegio +
+                        satisf_contigo + satisf_barrio + satisf_vida + satisf_cuerpo) / 7
   )
 
-# Exploremos la distribución de nuestro nuevo índice
+# Exploramos la distribución de nuestro nuevo índice
 summary(elpi_completa$indice_bienestar)
 ```
 
-```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-##   1.000   6.000   6.500   6.279   6.833   7.000     478
-```
-
-```r
-hist(elpi_completa$indice_bienestar, main = "Distribución del Índice de Bienestar", xlab = "Puntaje Promedio (1-7)")
+```{r hist-index}
+hist(elpi_completa$indice_bienestar,
+     main = "Distribución del Índice de Bienestar (ELPI 2024)",
+     xlab = "Puntaje Promedio (1-7)",
+     col = "#008080")
 ```
 
-<img src="/example/07-practico_files/figure-html/create-index-1.png" width="672" />
-
-**Interpretación:** El `summary` nos muestra que el promedio del índice de bienestar es **6.28**, con la mayoría de los casos concentrados en los valores altos de la escala (la mediana es 6.5). El histograma confirma esta distribución, fuertemente sesgada hacia la izquierda, lo que indica altos niveles generales de satisfacción en esta submuestra.
+**Interpretación:** El `summary` nos muestra la distribución del índice. La mediana y la media nos permiten ver si la distribución está centrada o si hay asimetría. El histograma revela visualmente la forma de la distribución del bienestar subjetivo en esta cohorte de adolescentes chilenos.
 
 ### 5.2 Construcción de una Tipología Socio-Territorial
 
-**Objetivo:** Crear perfiles de estudiantes según si viven en la Región Metropolitana (código 13) y si pertenecen a los quintiles de mayores ingresos (4 y 5).
+**Objetivo:** Crear perfiles de adolescentes según si viven en la Región Metropolitana (código 13) y si pertenecen a los quintiles de mayores ingresos (4 y 5).
 
-
-```r
+```{r create-typology}
 elpi_final <- elpi_completa %>%
   mutate(
     tipo_perfil = case_when(
-      idregion == 13 & qaut_casen %in% c(4, 5)   ~ "RM - Quintil Alto",
-      idregion == 13 & !qaut_casen %in% c(4, 5)  ~ "RM - Quintil Bajo/Medio",
-      idregion != 13 & qaut_casen %in% c(4, 5)   ~ "Otras Regiones - Quintil Alto",
-      idregion != 13 & !qaut_casen %in% c(4, 5)  ~ "Otras Regiones - Quintil Bajo/Medio",
-      TRUE                                       ~ "Sin Información" # Para casos con NA
+      cod_region == 13 & qaut_casen %in% c(4, 5)   ~ "RM - Quintil Alto",
+      cod_region == 13 & !qaut_casen %in% c(4, 5)  ~ "RM - Quintil Bajo/Medio",
+      cod_region != 13 & qaut_casen %in% c(4, 5)   ~ "Otras Regiones - Quintil Alto",
+      cod_region != 13 & !qaut_casen %in% c(4, 5)  ~ "Otras Regiones - Quintil Bajo/Medio",
+      TRUE                                          ~ "Sin Información"
     )
   )
 
@@ -250,43 +197,21 @@ elpi_final <- elpi_completa %>%
 table(elpi_final$tipo_perfil)
 ```
 
-```
-## 
-##       Otras Regiones - Quintil Alto Otras Regiones - Quintil Bajo/Medio 
-##                                 728                                3385 
-##                   RM - Quintil Alto             RM - Quintil Bajo/Medio 
-##                                 396                                1557
-```
-
 ## 6. Análisis Descriptivo Final
 
-**Pregunta de Investigación:** ¿Existen diferencias en el bienestar subjetivo (nuestro índice) según el perfil socio-territorial de los niños y niñas?
+**Pregunta de Investigación:** ¿Existen diferencias en el bienestar subjetivo según el perfil socio-territorial de los adolescentes?
 
-
-```r
+```{r final-analysis}
 elpi_final %>%
-  # Agrupamos por nuestra nueva tipología
   group_by(tipo_perfil) %>%
-  # Calculamos el promedio del índice y el número de casos por grupo
   summarise(
     bienestar_promedio = mean(indice_bienestar, na.rm = TRUE),
     n_casos = n()
   ) %>%
-  # Ordenamos para ver los resultados más claramente
   arrange(desc(bienestar_promedio))
 ```
 
-```
-## # A tibble: 4 × 3
-##   tipo_perfil                         bienestar_promedio n_casos
-##   <chr>                                            <dbl>   <int>
-## 1 Otras Regiones - Quintil Alto                     6.37     728
-## 2 Otras Regiones - Quintil Bajo/Medio               6.31    3385
-## 3 RM - Quintil Alto                                 6.25     396
-## 4 RM - Quintil Bajo/Medio                           6.16    1557
-```
-
-**Actividad de Interpretación:** Observa la tabla de resultados. ¿Qué grupo presenta el mayor promedio de bienestar? ¿Y el menor? Vemos que los niños/as de regiones de quintiles altos reportan el mayor bienestar, mientras que los de la RM de quintiles bajos/medios, el menor. ¿Te sorprenden estos resultados? ¿Qué hipótesis sociológica podrías formular a partir de esta tabla?
+**Actividad de Interpretación:** Observa la tabla de resultados. ¿Qué grupo presenta el mayor promedio de bienestar? ¿Y el menor? ¿Te sorprenden estos resultados? ¿Qué hipótesis sociológica podrías formular para explicar las diferencias observadas entre regiones y niveles socioeconómicos?
 
 ## 7. Actividad de Desafío
 
@@ -300,7 +225,6 @@ Ahora te toca a ti.
 3.  Calcula el promedio de `satisf_familia` y `satisf_colegio` para cada quintil.
 4.  No olvides manejar los `NA` y contar el número de casos por grupo.
 
-
-```r
+```{r challenge}
 # Escribe tu código aquí
 ```

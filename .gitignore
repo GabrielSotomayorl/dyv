@@ -15,9 +15,6 @@ node_modules
 /site_libs/
 **/*.quarto_ipynb
 
-# PDFs (ignorar en general, pero permitir lecturas en semanas)
-*.pdf
-!2026/weeks/**/*.pdf
 
 # R
 .Rhistory

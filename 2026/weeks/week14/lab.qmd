@@ -1,16 +1,26 @@
 ---
-title: "Análisis Cuantitativo Bivariado: Dispersión y Correlación"
-linktitle: "14: Dispersión y Correlación"
-date: "2025-11-24"
-menu:
-  example:
-    parent: Ejemplos
-    weight: 14
-type: docs
-toc: true
-editor_options: 
-  chunk_output_type: console
+title: "Práctico 10: Análisis Cuantitativo Bivariado: Dispersión y Correlación"
+subtitle: "Trabajando con la Encuesta Nacional de Uso del Tiempo (ENUT) 2023"
+date: "2026-11-16"
+lang: es
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    body-classes: lab-content
 ---
+
+```{r load-data, include=FALSE}
+library(tidyverse)
+library(haven)
+library(rio)
+library(knitr)
+library(kableExtra)
+library(corrr)
+enut <- readRDS("../../data/enut.rds")
+```
 
 ## 0. Objetivos del Práctico
 
@@ -51,14 +61,9 @@ library(corrr)      # Análisis de correlaciones estilo 'tidy'
 
 Cargamos la base de datos:
 
-```{r load-manual, eval=FALSE, echo=TRUE}
+```{r load-show, eval=FALSE}
 # Carga Manual (Método recomendado desde tu carpeta de proyecto)
 enut <- rio::import("datos/250403-ii-enut-bdd-r-v2.zip", which = "250403-ii-enut-bdd-r-v2.RDS")
-```
-
-```{r load-auto, message=FALSE, warning=FALSE, cache=TRUE}
-# Carga automática (Solo para reproducción del documento)
-enut <- rio::import("https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7", which = "250403-ii-enut-bdd-r-v2.RDS")
 ```
 
 ### 1.2 Limpieza y Selección de Variables

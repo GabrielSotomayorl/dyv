@@ -1,0 +1,27 @@
+---
+title: "🗓️ Semana 07: Creación, Reestructuración y Combinación de Datos"
+---
+
+En esta semana avanzamos en la manipulación de datos: aprenderemos recodificación condicional con `case_when()`, la reestructuración de tablas entre formato ancho y largo (`pivot_longer()`), y la combinación de múltiples bases de datos con `left_join()`. Estos son los ingredientes clave para preparar datos complejos provenientes de fuentes distintas.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 3)
+
+En este laboratorio trabajaremos con la Encuesta Longitudinal de Primera Infancia (ELPI) Cuarta Ronda 2024, uniendo las bases del Responsable Principal y de Adolescentes para analizar el bienestar subjetivo de jóvenes de 14-18 años según características del hogar.
+
+👉 **[Ir al Práctico 3: Construcción y Combinación de Datos: Un Análisis de Bienestar Adolescente con la ELPI](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Wickham, H., Çetinkaya-Rundel, M. y Grolemund, G. (2023).** *R para ciencia de datos* (2ª ed.). Caps. sobre [datos relacionales y joins](https://davidrsch.github.io/r4ds-es/joins.html).
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

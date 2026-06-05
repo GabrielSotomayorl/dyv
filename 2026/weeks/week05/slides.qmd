@@ -41,7 +41,7 @@ Hoy, damos el salto a la práctica: **¿Cómo se organizan esas mediciones en el
 
 Esta unidad se centrará en los primeros y más cruciales pasos del proceso de análisis:
 
-![](https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/data-science-explore.svg)
+![](img/data-science-explore.svg)
 
 
 # 2. Los tipos de datos en R
@@ -230,7 +230,7 @@ Para que el análisis de datos sea eficiente y libre de errores, buscamos un for
 2.  **Cada observación tiene su propia fila.**
 3.  **Cada valor tiene su propia celda.**
 
-![](https://es.r4ds.hadley.nz/diagrams_w_text_as_path/es/tidy-1.svg)
+![](img/tidy-1.svg)
 
 Afortunadamente, la mayoría de las encuestas (como CASEN o EBS) ya vienen en este formato. Nuestro trabajo es mantener este orden.
 

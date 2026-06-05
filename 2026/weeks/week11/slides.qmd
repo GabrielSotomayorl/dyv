@@ -1,24 +1,35 @@
 ---
-title: "La Visualización como Argumento Sociológico y la Gramática de Gráficos"
-subtitle: "Unidad 4: Estadística Descriptiva Univariada"
-author: "Gabriel Sotomayor"
-date: "2025-11-03"
+subtitle: "Descripción y Visualización de Datos"
+title: "<font style='font-size:1em;'>🗓️ Semana 11<br/> La Visualización como Argumento Sociológico y la Gramática de Gráficos</font>"
+author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
+institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
+date: 26 October 2026
+date-meta: 26 October 2026
+date-format: "DD MMM YYYY"
+toc: true
+toc-depth: 1
+toc-title: "Contenidos de hoy:"
+center-title-slide: false
+from: markdown+emoji
 format:
   revealjs:
-    theme: [dark, custom.scss]
+    fig-responsive: true
+    theme: [simple, ../../../css/slides.scss]
     slide-number: true
-    auto-fit: true
-    logo: images/logo.png
-include-in-header:
-  - text: |
-      <style>
-      #title-slide .title {
-        font-size: 1.8em;
-      }
-      </style>
+    mouse-wheel: false
+    preview-links: auto
+    logo: /figures/icons/course_favicon.png
+    footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller background-color="white"}
+```{r setup, include=FALSE}
+library(tidyverse)
+library(haven)
+casen <- readRDS("../../data/casen24.rds")
+casen <- casen %>% mutate(pobreza_factor = as_factor(pobreza))
+```
+
+## Objetivos de la Sesión de Hoy {.smaller}
 
 -   **Comprender** la visualización no solo como una ilustración, sino como una **forma de argumento sociológico**.
 -   **Analizar** cómo "visualizaciones icónicas" han redefinido debates sobre la desigualdad.
@@ -27,13 +38,10 @@ include-in-header:
 -   **Introducir** la **"Gramática de Gráficos"** y sus componentes (`data`, `aes`, `geom`).
 -   **Ampliar** el repertorio en `ggplot2` con una herramienta clave para la comparación: **el *faceting***.
 
----
-title_slide_background: "#008080"
----
 
 # 1. La Visualización como Argumento Sociológico
 
-## Más Allá de la Ilustración {.smaller background-color="white"}
+## Más Allá de la Ilustración {.smaller}
 
 La visualización de datos no es un paso meramente técnico o decorativo al final de un análisis. En sociología, las visualizaciones más influyentes son, en sí mismas, **argumentos teóricos condensados**.
 
@@ -50,22 +58,22 @@ Savage, M. (2021). *The Return of Inequality: Social Change and the Weight of th
 :::
 
 
-## La Curva en U de Piketty (La Desigualdad en el Tiempo) {.smaller background-color="white"}
+## La Curva en U de Piketty (La Desigualdad en el Tiempo) {.smaller}
 
-![](img/11/01.jpg){fig-align="center"}
+![](img/01.jpg){fig-align="center"}
 
-## La Curva en U de Piketty (La Desigualdad en el Tiempo) {.smaller background-color="white"}
+## La Curva en U de Piketty (La Desigualdad en el Tiempo) {.smaller}
 
 -   **El Gráfico:** Una simple línea del tiempo (*sparkline*) que muestra la participación del 1% más rico en el ingreso nacional de EE.UU. a lo largo del siglo XX.
 
 -   **El Argumento Visual:** La forma de **"U"** es una poderosa narrativa. Desafía la idea modernista de un progreso lineal y constante hacia una mayor igualdad. El gráfico *argumenta* que, tras un período de relativa equidad a mediados de siglo, estamos **"regresando"** a los niveles de desigualdad de la "Gilded Age". Hace visible **"el peso de la historia"** en el presente.
 
 
-## El Espacio Social de Bourdieu (La Desigualdad en el Espacio) {.smaller background-color="white"}
+## El Espacio Social de Bourdieu (La Desigualdad en el Espacio) {.smaller}
 
-![](img/11/02.jpg){fig-align="center"}
+![](img/02.jpg){fig-align="center"}
 
-## El Espacio Social de Bourdieu (La Desigualdad en el Espacio) {.smaller background-color="white"}
+## El Espacio Social de Bourdieu (La Desigualdad en el Espacio) {.smaller}
 
 -   **El Gráfico:** No es una línea de tiempo, sino un **mapa**. Posiciona a grupos e individuos en un espacio bidimensional.
     -   **Eje Vertical:** Volumen total de capital (económico + cultural).
@@ -75,7 +83,7 @@ Savage, M. (2021). *The Return of Inequality: Social Change and the Weight of th
 
 
 
-## Ver para argumentar {.smaller background-color="white"}
+## Ver para argumentar {.smaller}
 
 Savage (2021) señala que Piketty usa el **tiempo** para argumentar que el pasado está regresando. Bourdieu usa el **espacio** para argumentar que la desigualdad es más que solo económica.
 
@@ -84,31 +92,31 @@ En ambos casos, el gráfico no es una simple ilustración del texto. Es el **nú
 La visualización, por tanto, es una forma de hacer sociología.
 
 
-## Veamos algunos otros ejemplos {.smaller background-color="white"}
+## Veamos algunos otros ejemplos {.smaller}
 
-![](img/11/03.png){fig-align="center"}
-
-
-## Veamos algunos otros ejemplos {.smaller background-color="white"}
-
-![](img/11/04.png){fig-align="center"}
+![](img/03.png){fig-align="center"}
 
 
+## Veamos algunos otros ejemplos {.smaller}
 
-## Veamos algunos otros ejemplos {.smaller background-color="white"}
-
-![](img/11/05.jpg){fig-align="center"}
+![](img/04.png){fig-align="center"}
 
 
-## Veamos algunos otros ejemplos {.smaller background-color="white"}
 
-![](img/11/06.jpg){fig-align="center"}
+## Veamos algunos otros ejemplos {.smaller}
+
+![](img/05.jpg){fig-align="center"}
+
+
+## Veamos algunos otros ejemplos {.smaller}
+
+![](img/06.jpg){fig-align="center"}
 
 
 
 # 2. La Visualización como Diagnóstico Estadístico
 
-## El Engaño de los Estadísticos Descriptivos {.smaller background-color="white"}
+## El Engaño de los Estadísticos Descriptivos {.smaller}
 
 Además de ser argumentos, los gráficos son herramientas de **diagnóstico** cruciales. Los estadísticos resumen por sí solos pueden ser idénticos para distribuciones radicalmente diferentes.
 
@@ -124,21 +132,11 @@ Imaginemos tres grupos de datos con los siguientes estadísticos:
 
 Si solo miramos los números, podríamos pensar que las tres distribuciones son similares. Pero...
 
-## ¡GRAFICA SIEMPRE TUS DATOS! {.smaller background-color="white"}
+## ¡GRAFICA SIEMPRE TUS DATOS! {.smaller}
 
 La visualización revela la verdadera estructura que los números ocultaban.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-library(tidyverse)
-
-temp <- tempfile() 
-download.file("https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2022/Base%20de%20datos%20Casen%202022%20SPSS.sav.zip", temp)
-casen <- haven::read_sav(unz(temp, "Base de datos Casen 2022 SPSS.sav"))
-unlink(temp); remove(temp)
-
-casen <- casen %>%
-  mutate(pobreza_factor = as_factor(pobreza))
-
 set.seed(123)
 grupo_a <- tibble(valor = rnorm(500, 75, 10), grupo = "A: Simétrico (Unimodal)")
 grupo_b <- tibble(valor = c(rnorm(250, 65, 5), rnorm(250, 85, 5)), grupo = "B: Bimodal (Dos grupos)")
@@ -159,13 +157,10 @@ ggplot(trio_enganoso, aes(x = valor)) +
 
 **Lección:** La visualización es el único modo de detectar la **forma**, la **modalidad** y la presencia de **outliers**. Es un paso no negociable del análisis de datos.
 
----
-title_slide_background: "#008080"
----
 
 # 3. Mejores Prácticas en Visualización
 
-## Principios para Gráficos Claros y Honestos {.smaller background-color="white"}
+## Principios para Gráficos Claros y Honestos {.smaller}
 
 Un buen gráfico no solo muestra datos, sino que cuenta una historia de forma clara, precisa y honesta.
 
@@ -180,7 +175,7 @@ Un buen gráfico no solo muestra datos, sino que cuenta una historia de forma cl
 3.  **Etiquetar Todo Claramente:**
     -   Ejes (con sus unidades: $, años, %), leyendas, y siempre citar la fuente.
 
-## La Regla de Oro del Eje Cero {.smaller background-color="white"}
+## La Regla de Oro del Eje Cero {.smaller}
 
 **Los gráficos de barras (y de áreas) SIEMPRE deben empezar en cero.**
 
@@ -198,7 +193,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2)
 ```
 En el gráfico de la derecha, la barra C parece 3 o 4 veces más grande que la A, cuando la diferencia real es solo de un ~18%.
 
-## Elige el Gráfico Adecuado {.smaller background-color="white"}
+## Elige el Gráfico Adecuado {.smaller}
 
 No todos los gráficos sirven para todo. La elección de la geometría depende del tipo de variable(s) que quieres mostrar.
 
@@ -210,13 +205,13 @@ No todos los gráficos sirven para todo. La elección de la geometría depende d
 
 # 4. La Gramática de Gráficos con `ggplot2`
 
-## Un Sistema para Construir Gráficos en Capas {.smaller background-color="white"}
+## Un Sistema para Construir Gráficos en Capas {.smaller}
 
 `ggplot2` es un paquete de R que implementa la **"Gramática de Gráficos"**, una idea poderosa: en lugar de tener comandos rígidos para cada tipo de gráfico, tenemos un sistema de "bloques de construcción" que podemos combinar para crear cualquier visualización que imaginemos.
 
 **Un gráfico en `ggplot2` es una superposición de capas.**
 
-## Los 3 Componentes Esenciales {.smaller background-color="white"}
+## Los 3 Componentes Esenciales {.smaller}
 
 Toda visualización en `ggplot2` se construye a partir de tres componentes fundamentales:
 
@@ -231,7 +226,7 @@ Toda visualización en `ggplot2` se construye a partir de tres componentes funda
     -   `geom_bar()`: para barras.
     -   `geom_histogram()`: para un histograma.
 
-## La Plantilla Universal de `ggplot2` {.smaller background-color="white"}
+## La Plantilla Universal de `ggplot2` {.smaller}
 
 La sintaxis siempre sigue esta plantilla:
 
@@ -241,7 +236,7 @@ La sintaxis siempre sigue esta plantilla:
 -   **`+`**: El operador para **añadir una nueva capa**.
 -   **`geom_...()`**: Añade la capa de geometría que **dibuja los datos** en el lienzo.
 
-## Construyendo por Capas: Ejemplo {.smaller background-color="white"}
+## Construyendo por Capas: Ejemplo {.smaller}
 
 **Paso 1: `ggplot()` crea el lienzo.** Le decimos qué datos usar y qué variables mapear a los ejes. El resultado es un plano cartesiano vacío.
 
@@ -251,7 +246,7 @@ La sintaxis siempre sigue esta plantilla:
 ggplot(data = casen, mapping = aes(x = edad))
 ```
 
-## Construyendo por Capas: Ejemplo {.smaller background-color="white"}
+## Construyendo por Capas: Ejemplo {.smaller}
 
 **Paso 2: `+ geom_histogram()` añade la capa que dibuja.** Le decimos que represente los datos mapeados como un histograma.
 
@@ -261,7 +256,7 @@ ggplot(data = casen, mapping = aes(x = edad)) +
    geom_histogram(fill = "#40E0D0", color = "white", bins = 30)
 ```
 
-## Mapear vs. Fijar {.smaller background-color="white"}
+## Mapear vs. Fijar {.smaller}
 
 Este es el punto que causa más confusión al principio, pero es fundamental.
 
@@ -289,7 +284,7 @@ Este es el punto que causa más confusión al principio, pero es fundamental.
 :::
 ::::::
 
-## Mapear vs. Fijar: Ejemplo Visual {.smaller background-color="white"}
+## Mapear vs. Fijar: Ejemplo Visual {.smaller}
 
 Usemos el dataset `mtcars` para ver la diferencia de forma clara. Crearemos un gráfico de dispersión del peso (`wt`) vs. el rendimiento (`mpg`) de los autos.
 
@@ -321,7 +316,7 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 
 
 
-## Ampliando la Gramática: Faceting (Small Multiples) {.smaller background-color="white"}
+## Ampliando la Gramática: Faceting (Small Multiples) {.smaller}
 
 **El Problema:** ¿Qué pasa si queremos comparar la distribución del ingreso a través de las 16 regiones de Chile? Mapear 16 colores a una estética se vuelve un caos visual.
 
@@ -335,7 +330,7 @@ ggplot(datos, aes(x = ingreso)) +
   facet_wrap(~ region) # Crea un histograma separado para cada región
 ```
 
-## Faceting en Acción {.smaller background-color="white"}
+## Faceting en Acción {.smaller}
 
 Ahora, usemos `facet_wrap()` para comparar la distribución del rendimiento (`mpg`) para cada tipo de cilindro (`cyl`). En lugar de usar colores en un solo gráfico, creamos un panel para cada categoría.
 
@@ -354,7 +349,7 @@ ggplot(mtcars, aes(x = mpg)) +
 ```
 
 
-## Cierre y Próximos Pasos {.smaller background-color="white"}
+## Cierre y Próximos Pasos {.smaller}
 
 ::: {style="font-size: 0.8em; line-height: 1.2;"}
 **Resumen de la sesión de hoy:**
@@ -366,7 +361,7 @@ ggplot(mtcars, aes(x = mpg)) +
 
 **En el práctico de hoy:**
 
--   Aplicarán estos principios para diagnosticar datos, construir sus primeros gráficos con `ggplot2` desde cero y usar `facet_wrap` para análisis comparativos con la CASEN 2022.
+-   Aplicarán estos principios para diagnosticar datos, construir sus primeros gráficos con `ggplot2` desde cero y usar `facet_wrap` para análisis comparativos con la CASEN 2024.
 
 **Adelanto de la Unidad 5:**
 

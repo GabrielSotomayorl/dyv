@@ -4,10 +4,10 @@ subtitle: "Año académico: 2026"
 format: html
 ---
 
-::: {.callout-important collapse=false}
+::: {.callout-note collapse=false}
 ## 📢 Avisos
 
-- Bienvenidos/as al curso. El material irá publicándose semana a semana.
+- El programa del curso, calendario de evaluaciones y normas de entrega están disponibles en la sección [**📓 Programa**](syllabus.qmd).
 :::
 
 # 🧑🏻‍🏫 Equipo Docente

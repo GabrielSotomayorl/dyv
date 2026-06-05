@@ -200,7 +200,7 @@ Los estudiantes tienen derecho a conocer las notas y la pauta de corrección en 
 - Moore, D. S. (2005). *Estadística aplicada básica*. Antoni Bosch editor.
 - Ritchey, F. (2008). *Estadística para las ciencias sociales*. McGraw-Hill.
 - Urdinez, F., & Cruz, A. (2020). *R for political data science: a practical guide*. CRC Press. [https://arcruz0.github.io/libroadp/](https://arcruz0.github.io/libroadp/)
-- Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). *R for data science*. O'Reilly Media. [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
+- Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). *R for data science*. O'Reilly Media. [https://davidrsch.github.io/r4ds-es/](https://davidrsch.github.io/r4ds-es/)
 
 ### Bibliografía Complementaria
 

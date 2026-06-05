@@ -1,16 +1,26 @@
 ---
-title: "Introducción al Análisis Bivariado: Explorando el Uso del Tiempo con la ENUT 2023"
-linktitle: "12: Introducción al Análisis Bivariado"
-date: "2025-11-10"
-menu:
-  example:
-    parent: Ejemplos
-    weight: 12
-type: docs
-toc: true
-editor_options: 
-  chunk_output_type: console
+title: "Práctico 8: Introducción al Análisis Bivariado: Explorando el Uso del Tiempo con la ENUT 2023"
+subtitle: "Trabajando con la Encuesta Nacional de Uso del Tiempo (ENUT) 2023"
+date: "2026-11-02"
+lang: es
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    body-classes: lab-content
 ---
+
+```{r load-data, include=FALSE}
+library(tidyverse)
+library(haven)
+library(DescTools)
+library(rio)
+library(knitr)
+library(kableExtra)
+enut <- readRDS("../../data/enut.rds")
+```
 
 ## 0. Objetivos del Práctico
 
@@ -47,7 +57,7 @@ library(kableExtra)
 
 ```
 
-```{r load-manual, eval=FALSE, echo=TRUE}
+```{r load-show, eval=FALSE}
 # Carga Manual (Método recomendado)
 # 1. Crea una carpeta 'datos' en tu Proyecto de RStudio.
 # 2. Descarga el archivo .zip desde: https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7
@@ -56,13 +66,6 @@ library(kableExtra)
 enut <- rio::import("datos/250403-ii-enut-bdd-r-v2.zip", which = "250403-ii-enut-bdd-r-v2.RDS")
 ```
 
-
-El siguiente bloque carga los datos automáticamente para la reproducibilidad del documento.
-
-```{r load-auto, message=FALSE, warning=FALSE, cache=TRUE}
-# Carga automática de datos
-enut <- rio::import("https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7", which = "250403-ii-enut-bdd-r-v2.RDS")
-```
 
 
 ### 1.4 Limpieza Inicial de Datos

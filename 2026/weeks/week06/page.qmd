@@ -1,0 +1,27 @@
+---
+title: "🗓️ Semana 06: La Gramática de la Manipulación de Datos"
+---
+
+En esta semana aprendemos a manipular y transformar datos en R usando la "gramática" del paquete `dplyr`. Trabajaremos con los cinco verbos principales (`select`, `filter`, `arrange`, `mutate`, `summarise`) y el operador pipe (`%>%`) para encadenar operaciones de forma legible, aplicando todo ello a datos reales de la Encuesta CASEN 2024.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 2)
+
+En este laboratorio aplicaremos los verbos de `dplyr` para responder preguntas de investigación usando la Encuesta CASEN 2024, explorando patrones de ingresos y escolaridad a nivel regional.
+
+👉 **[Ir al Práctico 2: Manipulación de Datos con dplyr: Respondiendo Preguntas con datos sociales](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Wickham, H., Çetinkaya-Rundel, M. y Grolemund, G. (2023).** *R para ciencia de datos* (2ª ed.). Caps. sobre [Transformación de datos](https://davidrsch.github.io/r4ds-es/data-transform.html).
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

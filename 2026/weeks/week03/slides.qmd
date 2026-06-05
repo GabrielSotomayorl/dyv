@@ -1,24 +1,28 @@
 ---
-title: "Conceptos clave para la investigación social I"
-subtitle: "Unidad 2: Descripción y Visualización de Datos"
-author: "Gabriel Sotomayor"
-date: "08-25-2025"
+subtitle: "Descripción y Visualización de Datos"
+title: "<font style='font-size:1em;'>🗓️ Semana 03<br/> Conceptos clave para la investigación social I</font>"
+author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
+institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
+date: 24 August 2026
+date-meta: 24 August 2026
+date-format: "DD MMM YYYY"
+toc: true
+toc-depth: 1
+toc-title: "Contenidos de hoy:"
+center-title-slide: false
+from: markdown+emoji
 format:
   revealjs:
-    theme: [dark, custom.scss]
+    fig-responsive: true
+    theme: [simple, ../../../css/slides.scss]
     slide-number: true
-    auto-fit: true
-    logo: images/logo.png
-include-in-header:
-  - text: |
-      <style>
-      #title-slide .title {
-        font-size: 1.9em;
-      }
-      </style>
+    mouse-wheel: false
+    preview-links: auto
+    logo: /figures/icons/course_favicon.png
+    footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller background-color="white"}
+## Objetivos de la Sesión de Hoy {.smaller}
 
 -   **Diferenciar** entre el proceso de **conceptualización** (definir qué queremos decir) y **operacionalización** (definir cómo lo vamos a medir).
 -   **Identificar** la **unidad de análisis** y la **unidad de observación** en un diseño de investigación.
@@ -26,13 +30,10 @@ include-in-header:
 -   **Clasificar** variables según su función en un modelo (independiente, dependiente).
 -   **Distinguir** entre los cuatro **niveles de medición** (nominal, ordinal, de intervalo, de razón) y comprender sus implicancias.
 
----
-title_slide_background: "#008080"
----
 
 # 1. Del Concepto al Indicador
 
-## El Problema: Los Conceptos Sociológicos son Abstractos {.smaller background-color="white"}
+## El Problema: Los Conceptos Sociológicos son Abstractos {.smaller}
 
 Nuestros conceptos centrales —clase social, anomia, cohesión, prejuicio— no tienen una existencia tangible. No podemos "ver" o "tocar" el prejuicio.
 
@@ -41,7 +42,7 @@ Nuestros conceptos centrales —clase social, anomia, cohesión, prejuicio— no
 
 El primer desafío de la investigación es pasar de estas ideas vagas y abstractas a algo que podamos estudiar sistemáticamente.
 
-## Conceptualización: El Proceso de Especificación {.smaller background-color="white"}
+## Conceptualización: El Proceso de Especificación {.smaller}
 
 La **conceptualización** es el proceso a través del cual hacemos explícitos y precisos los conceptos abstractos que queremos estudiar. Es el viaje de una idea vaga a una definición teórica clara.
 
@@ -52,7 +53,7 @@ La **conceptualización** es el proceso a través del cual hacemos explícitos y
 
 El producto final es una **definición conceptual** rigurosa que guiará nuestra investigación.
 
-## Operacionalización: El Puente hacia el Mundo Empírico {.smaller background-color="white"}
+## Operacionalización: El Puente hacia el Mundo Empírico {.smaller}
 
 La **operacionalización** es el desarrollo de **procedimientos de investigación específicos (operaciones)** que nos permitirán observar y medir empíricamente los conceptos que hemos definido.
 
@@ -61,7 +62,7 @@ La **operacionalización** es el desarrollo de **procedimientos de investigació
 
 *Ejemplo: Para la dimensión "confianza" del capital social, un **indicador** podría ser el grado de acuerdo con la frase: "En general, se puede confiar en la mayoría de las personas".*
 
-## El Flujo Completo: De la Idea al Dato {.smaller background-color="white"}
+## El Flujo Completo: De la Idea al Dato {.smaller}
 
 1.  **Concepción Mental** (Idea vaga de "prejuicio").
 2.  **Concepto** (Constructo con nombre: "Prejuicio").
@@ -69,7 +70,7 @@ La **operacionalización** es el desarrollo de **procedimientos de investigació
 4.  **Operacionalización** (Procedimiento: Escala de acuerdo con frases sobre inmigrantes).
 5.  **Medición en el Mundo Real** (Aplicación de la escala para obtener un puntaje de prejuicio).
 
-## La Jerarquía de la Medición {.smaller background-color="white"}
+## La Jerarquía de la Medición {.smaller}
 
 El viaje desde una idea abstracta hasta un dato observable sigue una jerarquía lógica, un proceso de "descomposición". No todos los conceptos tienen todos los niveles, pero la lógica de ir de lo general a lo específico es siempre la misma.
 
@@ -95,7 +96,7 @@ digraph G {
 ```
 
 
-## Conceptos Unidimensionales vs. Multidimensionales {.smaller background-color="white"}
+## Conceptos Unidimensionales vs. Multidimensionales {.smaller}
 
 -   **Concepto Unidimensional:** Se refiere a un fenómeno que puede ser medido adecuadamente a lo largo de una única dimensión o continuo.
     -   *Ejemplo clásico:* **Edad**. Se mide en una sola escala (años) que captura su esencia.
@@ -105,7 +106,7 @@ digraph G {
 
 La mayoría de los conceptos interesantes en sociología (poder, anomia, desigualdad, bienestar) son **multidimensionales**.
 
-## Características de un Buen Indicador {.smaller background-color="white"}
+## Características de un Buen Indicador {.smaller}
 
 Un indicador es la manifestación empírica de nuestro concepto. Para ser útil, debe tener ciertas características:
 
@@ -116,7 +117,7 @@ Un indicador es la manifestación empírica de nuestro concepto. Para ser útil,
 
 Un buen conjunto de indicadores nos permite "ver" el concepto abstracto en el mundo real.
 
-## Una Pincelada de Calidad: Fiabilidad y Validez {.smaller background-color="white"}
+## Una Pincelada de Calidad: Fiabilidad y Validez {.smaller}
 
 ¿Cómo sabemos si nuestros indicadores miden bien? Evaluamos dos criterios clave. (**¡Esto es un adelanto de la próxima clase!**)
 
@@ -136,13 +137,13 @@ Un buen conjunto de indicadores nos permite "ver" el concepto abstracto en el mu
 ::::::
 
 
-## Ejemplo 1: Inseguridad Alimentaria (CASEN - FIES) {.smaller background-color="white"}
+## Ejemplo 1: Inseguridad Alimentaria (CASEN - FIES) {.smaller}
 
 -   **Concepto:** Inseguridad Alimentaria. No es simplemente "tener hambre". La FAO lo define como la falta de **acceso** físico, social y/o económico a alimentos suficientes, inocuos y nutritivos.
 -   **Enfoque de Medición:** La Escala de Experiencia de Inseguridad Alimentaria (FIES) mide el acceso a los alimentos a través de la **experiencia directa** de las personas.
 -   **Dimensión:** La FIES conceptualiza la inseguridad alimentaria como un fenómeno **unidimensional** de **severidad creciente**, que va desde la preocupación por la comida hasta pasar un día entero sin comer.
 
-## Operacionalización de la Inseguridad Alimentaria {.smaller background-color="white"}
+## Operacionalización de la Inseguridad Alimentaria {.smaller}
 
 La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de esta escala de severidad.Cada respuesta afirmativa acumula evidencia de un mayor grado de severidad en esta única dimensión.
 
@@ -158,7 +159,7 @@ La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de est
 | **r8h.** ¿Dejó de comer todo un día por falta de dinero? |
 
 
-## Ejemplo 2: Clase Social como Capital Multidimensional {.smaller background-color="white"}
+## Ejemplo 2: Clase Social como Capital Multidimensional {.smaller}
 
 -   **Concepto:** Clase Social.
 -   **Punto de Partida Teórico (Bourdieu):** Se supera la visión tradicional que reduce la clase a la ocupación o el ingreso. La clase es una **posición en un espacio social**, definida por el **volumen** y la **composición** de diferentes formas de poder o "capitales".
@@ -167,7 +168,7 @@ La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de est
     2.  **Capital Social:** Red de contactos y relaciones sociales.
     3.  **Capital Cultural:** Conocimientos, gustos y habilidades que confieren prestigio.
 
-## Dimensión 1: Capital Económico {.smaller background-color="white"}
+## Dimensión 1: Capital Económico {.smaller}
 
 **Definición:** Refleja la riqueza material y los recursos financieros de un hogar. Es la dimensión más directa de la desigualdad.
 
@@ -182,7 +183,7 @@ La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de est
 -   **Indicador 3: Valor de la Vivienda**
     -   *Ejemplo de Pregunta:* "Si tuviera que vender su vivienda hoy, ¿cuál cree que sería su precio de mercado aproximado?".
 
-## Dimensión 2: Capital Social {.smaller background-color="white"}
+## Dimensión 2: Capital Social {.smaller}
 
 **Definición:** La red de contactos y relaciones sociales que una persona puede movilizar. No se trata solo de "tener amigos", sino del **alcance y prestigio** de esa red.
 
@@ -195,7 +196,7 @@ La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de est
 
 -   **Ejemplo de Pregunta:** "De la siguiente lista de 37 ocupaciones, por favor, indique si conoce personalmente a alguien que trabaje en cada una de ellas (ej. Abogado/a, Electricista, CEO, Personal de Limpieza, Científico/a, Artista)".
 
-## Dimensión 3: Capital Cultural {.smaller background-color="white"}
+## Dimensión 3: Capital Cultural {.smaller}
 
 **Definición:** Los conocimientos, gustos, habilidades y credenciales que son valorados y confieren prestigio en una sociedad.
 
@@ -207,7 +208,7 @@ La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de est
 -   **Sub-dimensión 2: Capital Cultural "Emergente"**
     -   Representa la participación en formas culturales más nuevas, contemporáneas y a menudo asociadas con la juventud.
 
-## Indicadores del Capital Cultural {.smaller background-color="white"}
+## Indicadores del Capital Cultural {.smaller}
 
 :::::: columns
 ::: {.column width="50%"}
@@ -237,7 +238,7 @@ La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de est
 :::
 ::::::
 
-## Conclusión del Ejemplo: Un Mapa de Clases {.smaller background-color="white"}
+## Conclusión del Ejemplo: Un Mapa de Clases {.smaller}
 
 -   Este ejemplo ilustra cómo un **concepto multidimensional** como la clase social se descompone en **dimensiones**, **sub-dimensiones** e **indicadores** concretos para poder ser medido.
 
@@ -245,14 +246,14 @@ La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de est
 
 -   **El Resultado:** Mediante un análisis estadístico (Latent Class Analysis), identificaron un nuevo mapa de **siete clases sociales** en el Reino Unido, desde una "Élite" muy rica y conectada hasta un "Precariado" con bajos niveles en todos los capitales.
 
-## La gran calculadora de clases británica {.smaller background-color="white"}
+## La gran calculadora de clases británica {.smaller}
 
-![](img/03/survey.png){fig-align="center"}
+![](img/survey.png){fig-align="center"}
 
 
 # 2. ¿A Quién o Qué Estudiamos?
 
-## La Unidad de Análisis {.smaller background-color="white"}
+## La Unidad de Análisis {.smaller}
 
 La **unidad de análisis** es el **"qué"** o **"quién"** se está estudiando. Es la unidad sobre la cual queremos sacar conclusiones y hacer afirmaciones.
 
@@ -265,7 +266,7 @@ Tipos comunes de Unidades de Análisis en sociología:
 
 Definir la unidad de análisis es un paso crucial del diseño de investigación.
 
-## Unidad de Análisis vs. Unidad de Observación {.smaller background-color="white"}
+## Unidad de Análisis vs. Unidad de Observación {.smaller}
 
 Es fundamental no confundirlas.
 
@@ -278,7 +279,7 @@ A veces son la misma:
 A veces son diferentes:  
 -   Para estudiar la **dinámica de conflicto en los hogares** (U. de Análisis), podríamos encuestar solo a las **mujeres** de esos hogares (U. de Observación). Aquí, la mujer es nuestra informante sobre el hogar.
 
-## Las Falacias Lógicas en la Investigación {.smaller background-color="white"}
+## Las Falacias Lógicas en la Investigación {.smaller}
 
 Confundir las unidades de análisis lleva a errores graves de interpretación.
 
@@ -297,7 +298,7 @@ Confundir las unidades de análisis lleva a errores graves de interpretación.
 :::
 ::::::
 
-## Actividad de Discusión (10 min) {.smaller background-color="white"}
+## Actividad de Discusión (10 min) {.smaller}
 
 **Escenario de Investigación:**
 
@@ -308,17 +309,17 @@ Un sociólogo analiza los resultados de la prueba PISA a nivel nacional y observ
 2. ¿Sobre qué **unidad de análisis** está sacando sus conclusiones?  
 3. ¿Qué **falacia lógica** está cometiendo? ¿Por qué es un error?  
 
-## {.smaller background-color="white"}
+## {.smaller}
 
-![](img/03/casen.png){fig-align="center"}
+![](img/casen.png){fig-align="center"}
 
-## {.smaller background-color="white"}
+## {.smaller}
 
-![](img/03/encla.png){fig-align="center"}
+![](img/encla.png){fig-align="center"}
 
 
 
-## Ejemplo Sociológico: ¿Cuál es la Unidad de Análisis de la Clase Social? {.smaller background-color="white"}
+## Ejemplo Sociológico: ¿Cuál es la Unidad de Análisis de la Clase Social? {.smaller}
 
 El debate sobre cómo integrar a las mujeres en los estudios de clase es un buen ejemplo de la importancia de definir la unidad de análisis.
 
@@ -328,7 +329,7 @@ El debate sobre cómo integrar a las mujeres en los estudios de clase es un buen
     -   **Supuesto 2:** Esa posición de clase está determinada por la ocupación del **"jefe de hogar" masculino**, debido a su vínculo "más fuerte y duradero" con el mercado laboral.
     -   *Consecuencia:* La posición de clase de la mujer se **deriva** de la de su marido y su propia ocupación es irrelevante para el análisis.  
 
-## Críticas Feministas a la Perspectiva Convencional {.smaller background-color="white"}
+## Críticas Feministas a la Perspectiva Convencional {.smaller}
 
 Autoras como Joan Acker, Michelle Stanworth y Janeen Baxter criticaron duramente estos supuestos:
 
@@ -337,7 +338,7 @@ Autoras como Joan Acker, Michelle Stanworth y Janeen Baxter criticaron duramente
 3.  **¿Homogeneidad de Clase?** Un gran porcentaje de los hogares son de **clase heterogénea** (los cónyuges pertenecen a clases distintas), lo que hace que el modelo convencional sea simplemente inadecuado.
 4.  **¿Qué son los Intereses de Clase?** Se reduce el "interés de clase" solo a los ingresos, ignorando experiencias clave en el trabajo como la autonomía o la dominación.
 
-## Hacia una Solución: Posiciones Directas y Mediadas (Wright, 1989) {.smaller background-color="white"}
+## Hacia una Solución: Posiciones Directas y Mediadas (Wright, 1989) {.smaller}
 
 Erik Olin Wright propone una solución más sofisticada que supera la dicotomía individuo vs. familia.
 
@@ -349,7 +350,7 @@ Erik Olin Wright propone una solución más sofisticada que supera la dicotomía
 -   **Pregunta de Investigación Empírica:** ¿Cuál es el **peso relativo** de la posición directa y la mediada para explicar fenómenos como la identidad de clase, el comportamiento político o la división del trabajo doméstico?
 -   Este peso puede variar para hombres y mujeres, y entre diferentes países.
 
-## Modelo de Wright: Efectos sobre la Identidad de Clase {.smaller background-color="white"}
+## Modelo de Wright: Efectos sobre la Identidad de Clase {.smaller}
 
 -   **Posición Directa:** Influye en la identidad a través de las experiencias en la **producción** (interacciones laborales, autonomía, etc.).
 -   **Posición Mediada:** Influye en la identidad a través de los intereses materiales y las experiencias de **consumo** del hogar.
@@ -382,7 +383,7 @@ digraph G {
 ```
 
 
-## Conclusión del Debate {.smaller background-color="white"}
+## Conclusión del Debate {.smaller}
 
 -   La "solución" convencional de usar al hombre para definir la clase de la familia es una **simplificación teórica y empíricamente problemática**.
 -   El debate nos muestra que no hay una respuesta única y universal. La elección de la unidad de análisis (**individuo, familia, o individuo-en-familia**) depende de la **pregunta de investigación**.
@@ -391,13 +392,10 @@ digraph G {
 -   En lugar de asumir una solución, debemos tratar el peso de las posiciones de clase directa y mediada como una **pregunta empírica a investigar**.
 
 
----
-title_slide_background: "#008080"
----
 
 # 3. El Lenguaje de la Medición
 
-## Variables Dependientes e Independientes {.smaller background-color="white"}
+## Variables Dependientes e Independientes {.smaller}
 
 Para probar hipótesis sobre relaciones causales o de dependencia, clasificamos nuestras variables según su función en el modelo teórico.
 
@@ -410,7 +408,7 @@ El nivel de **educación** (Variable Independiente) influye positivamente en el 
 
 *Advertencia:* La causalidad requiere de diseños de investigación específicos para este fin, por lo que a menudo hablamos de "asociación" o "relación" en lugar de causalidad directa.
 
-## Los Niveles de Medición {.smaller background-color="white"}
+## Los Niveles de Medición {.smaller}
 
 No todos los números son iguales. El **nivel de medición** nos dice qué tipo de información contiene una variable y, por lo tanto, qué operaciones matemáticas y estadísticas son lógicas y válidas. Es una decisión clave en la **operacionalización**.
 
@@ -420,7 +418,7 @@ No todos los números son iguales. El **nivel de medición** nos dice qué tipo 
 3.  De Intervalo   
 4.  De Razón  
 
-## Nivel de Medición: NOMINAL {.smaller background-color="white"}
+## Nivel de Medición: NOMINAL {.smaller}
 
 -   **Definición:** Las categorías de la variable no tienen un orden intrínseco. Los números, si se usan, son solo **etiquetas arbitrarias**.
 -   **Propiedad Matemática:** Igualdad / Desigualdad (`=`, `!=`).
@@ -430,7 +428,7 @@ No todos los números son iguales. El **nivel de medición** nos dice qué tipo 
     -   Región de Residencia (1=Norte, 2=Centro, 3=Sur)
 -   **Operaciones Válidas:** Contar frecuencias, calcular porcentajes y la moda. No tiene sentido calcular un "promedio de género".
 
-## Nivel de Medición: ORDINAL {.smaller background-color="white"}
+## Nivel de Medición: ORDINAL {.smaller}
 
 -   **Definición:** Las categorías tienen un **orden lógico o jerarquía**, pero la distancia entre ellas no es necesariamente igual o cuantificable.
 -   **Propiedades Matemáticas:** Igualdad / Desigualdad y Orden (`>`, `<`).
@@ -440,7 +438,7 @@ No todos los números son iguales. El **nivel de medición** nos dice qué tipo 
     -   Escalas de Acuerdo tipo Likert (1=Muy en desacuerdo, ..., 5=Muy de acuerdo)
 -   **Operaciones Válidas:** Mediana, percentiles, cuantiles. El uso de la media es controversial y requiere supuestos fuertes.
 
-## Nivel de Medición: INTERVALO Y RAZÓN {.smaller background-color="white"}
+## Nivel de Medición: INTERVALO Y RAZÓN {.smaller}
 
 A menudo se agrupan porque sus propiedades estadísticas son muy similares.
 
@@ -452,7 +450,7 @@ A menudo se agrupan porque sus propiedades estadísticas son muy similares.
     -   **De Razón:** Edad en años, Ingresos en pesos, Número de hijos, Años de escolaridad.  
 -   **Operaciones Válidas:** Todas: media, desviación estándar, correlación, regresión.
 
-## Tabla Resumen de los Niveles de Medición {.smaller background-color="white"}
+## Tabla Resumen de los Niveles de Medición {.smaller}
 
 | Nivel de Medición | Propiedades | Ejemplo Sociológico | Operación Central |
 | :---| :--- | :--- | :--- |
@@ -461,7 +459,7 @@ A menudo se agrupan porque sus propiedades estadísticas son muy similares.
 | **Intervalo** | Orden con distancia igual y significativa | `Puntaje en escala de CI` | Media / Desv. Estándar |
 | **Razón** | Orden, distancia igual y cero absoluto real | `Ingresos ($)` | Todas (incluye razones) |
 
-## Actividad Práctica (15 min) {.smaller background-color="white"}
+## Actividad Práctica (15 min) {.smaller}
 
 **Instrucciones:** Para cada una de las siguientes variables, identifiquen la **unidad de análisis** más probable y el **nivel de medición** más adecuado.
 
@@ -471,7 +469,7 @@ A menudo se agrupan porque sus propiedades estadísticas son muy similares.
 4.  El ingreso total del hogar en pesos.
 5.  La afiliación a un partido político.
 
-## Cierre y Próximos Pasos {.smaller background-color="white"}
+## Cierre y Próximos Pasos {.smaller}
 
 **Resumen de la sesión de hoy:**
 

@@ -1,37 +1,38 @@
 ---
-title: "Creación, Reestructuración y Combinación de Datos"
-subtitle: "Unidad 3: Descripción y Visualización de Datos"
-author: "Gabriel Sotomayor"
-date: "09-29-2025"
+subtitle: "Descripción y Visualización de Datos"
+title: "<font style='font-size:1em;'>🗓️ Semana 07<br/> Creación, Reestructuración y Combinación de Datos</font>"
+author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
+institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
+date: 28 September 2026
+date-meta: 28 September 2026
+date-format: "DD MMM YYYY"
+toc: true
+toc-depth: 1
+toc-title: "Contenidos de hoy:"
+center-title-slide: false
+from: markdown+emoji
 format:
   revealjs:
-    theme: [dark, custom.scss]
+    fig-responsive: true
+    theme: [simple, ../../../css/slides.scss]
     slide-number: true
-    auto-fit: true
-    logo: images/logo.png
-include-in-header:
-  - text: |
-      <style>
-      #title-slide .title {
-        font-size: 2em;
-      }
-      </style>
+    mouse-wheel: false
+    preview-links: auto
+    logo: /figures/icons/course_favicon.png
+    footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller background-color="white"}
+## Objetivos de la Sesión de Hoy {.smaller}
 
 -   **Aprender** técnicas de recodificación de variables usando `case_when()`.
 -   **Comprender y aplicar** la lógica de reestructurar datos de formato ancho a largo (`pivot_longer()`).
 -   **Aprender** a combinar o cruzar dos tablas de datos diferentes usando `left_join()`.
 -   **Distinguir** conceptualmente entre la construcción de índices y tipologías.
 
----
-title_slide_background: "#008080"
----
 
 # 1. Creando Nuevas Variables
 
-## Repaso y Conexión {.smaller background-color="white"}
+## Repaso y Conexión {.smaller}
 
 En la clase anterior, aprendimos la "gramática" de `dplyr` para manipular tablas:
 
@@ -42,7 +43,7 @@ En la clase anterior, aprendimos la "gramática" de `dplyr` para manipular tabla
 
 Hoy nos enfocaremos en el verbo más creativo, **`mutate()`**, y en tareas más avanzadas: crear nuevas variables a partir de condiciones, cambiar la forma de nuestras tablas y unir diferentes bases de datos.
 
-## Recodificación Condicional: `ifelse()` vs. `case_when()` {.smaller background-color="white"}
+## Recodificación Condicional: `ifelse()` vs. `case_when()` {.smaller}
 
 Para crear variables basadas en condiciones, tenemos dos herramientas principales:
 
@@ -74,7 +75,7 @@ datos %>%
 :::
 ::::::
 
-## `case_when()` en Acción: Creando Tramos de Edad {.smaller background-color="white"}
+## `case_when()` en Acción: Creando Tramos de Edad {.smaller}
 
 `case_when()` se lee como una serie de instrucciones lógicas. R evalúa cada condición en orden y asigna el valor de la primera que sea `TRUE`.
 
@@ -94,7 +95,7 @@ casen %>%
 -   `&` significa que ambas condiciones deben ser verdaderas.
 -   `TRUE ~ ...`: Esta última línea es una "catch-all" o cláusula por defecto. Si ninguna de las condiciones anteriores se cumple, se asignará este valor. Es una muy buena práctica incluirla siempre.
 
-## Más Allá de la Recodificación: Creando Nuevo Conocimiento {.smaller background-color="white"}
+## Más Allá de la Recodificación: Creando Nuevo Conocimiento {.smaller}
 
 A menudo, un solo indicador (una sola pregunta de encuesta) no es suficiente para capturar la complejidad de un concepto sociológico. Para medir fenómenos como "bienestar social", "precariedad laboral" o "capital cultural", necesitamos combinar múltiples indicadores.
 
@@ -102,7 +103,7 @@ A menudo, un solo indicador (una sola pregunta de encuesta) no es suficiente par
 
 En esta sección, veremos dos formas de construir estas nuevas variables compuestas: **Índices** y **Tipologías**. La herramienta principal para crearlas en R seguirá siendo `mutate()`.
 
-## Índices: La Suma de las Partes {.smaller background-color="white"}
+## Índices: La Suma de las Partes {.smaller}
 
 Un **índice** es una variable compuesta, generalmente numérica, que se crea a partir de la **suma o promedio** de varios indicadores.
 
@@ -119,7 +120,7 @@ Un **índice** es una variable compuesta, generalmente numérica, que se crea a 
 
 El índice se construye promediando las respuestas de estos 6 ítems para obtener un puntaje global de satisfacción.
 
-## Tipologías: Creando Perfiles {.smaller background-color="white"}
+## Tipologías: Creando Perfiles {.smaller}
 
 Una **tipología** es una variable **categórica** (nominal u ordinal) que se crea al **cruzar dos o más variables** para clasificar a las observaciones en "tipos" o "perfiles" cualitativamente distintos.
 
@@ -128,11 +129,11 @@ Una **tipología** es una variable **categórica** (nominal u ordinal) que se cr
     2.  **Ocupación** del PSH.
     3.  **Tramos de Ingreso** del hogar.
 
-## {.smaller background-color="white"}
+## {.smaller}
 
-![](img/07/aim.jpg){fig-align="center"}
+![](img/aim.jpg){fig-align="center"}
 
-## Operacionalizando una Tipología: El GSE en R {.smaller background-color="white"}
+## Operacionalizando una Tipología: El GSE en R {.smaller}
 
 La creación de una tipología es la aplicación perfecta de `case_when()` con condiciones complejas unidas por el operador `&`. El código traduce directamente las reglas de la matriz de clasificación.
 
@@ -158,13 +159,10 @@ datos %>%
 ```
 
 
----
-title_slide_background: "#008080"
----
 
 # 2. Reestructurando Datos con `tidyr`
 
-## El Problema de los Datos "Anchos" (Wide) {.smaller background-color="white"}
+## El Problema de los Datos "Anchos" (Wide) {.smaller}
 
 A veces, los datos no vienen en formato "ordenado" (tidy). Un problema común es el formato **ancho**, donde los valores de una misma variable se distribuyen en múltiples columnas.
 
@@ -178,7 +176,7 @@ A veces, los datos no vienen en formato "ordenado" (tidy). Un problema común es
 
 **Problema:** Este formato es difícil de analizar. No podemos, por ejemplo, calcular fácilmente la satisfacción promedio por año o graficar la evolución en el tiempo. "Año" está atrapado en los nombres de las columnas.
 
-## La Solución: `pivot_longer()` {.smaller background-color="white"}
+## La Solución: `pivot_longer()` {.smaller}
 
 El paquete `tidyr` (parte del Tidyverse) nos permite reestructurar datos. La función `pivot_longer()` convierte los datos de formato ancho a **largo** (formato tidy).
 
@@ -197,7 +195,7 @@ datos_wide %>%
   )
 ```
 
-## `pivot_longer()` en Acción: El Resultado {.smaller background-color="white"}
+## `pivot_longer()` en Acción: El Resultado {.smaller}
 
 La tabla se transforma, y ahora sí está en formato **ordenado (tidy)**.
 
@@ -208,7 +206,7 @@ La tabla se transforma, y ahora sí está en formato **ordenado (tidy)**.
 | 1 | 7 | 8 | 8 |
 | 2 | 5 | 5 | 6 |
 
-## `pivot_longer()` en Acción: El Resultado {.smaller background-color="white"}
+## `pivot_longer()` en Acción: El Resultado {.smaller}
 
 **Tabla Transformada (Larga):**
 
@@ -222,13 +220,10 @@ La tabla se transforma, y ahora sí está en formato **ordenado (tidy)**.
 
 Ahora, "año" y "satisfacción" son variables en sus propias columnas, lo que facilita enormemente el análisis (ej. `group_by(año) %>% summarise(...)`) y la visualización.
 
----
-title_slide_background: "#008080"
----
 
 # 3. Combinando Tablas de Datos con `dplyr`
 
-## La Necesidad de Unir Datos {.smaller background-color="white"}
+## La Necesidad de Unir Datos {.smaller}
 
 Rara vez toda la información que necesitamos está en una sola tabla. En la investigación real, es muy común tener que **combinar o cruzar diferentes fuentes de datos**.  
 
@@ -239,7 +234,7 @@ Rara vez toda la información que necesitamos está en una sola tabla. En la inv
 -   Cruzar una **encuesta de hogares** con una **base de datos de personas** para asignar las características del hogar a cada miembro.  
 -   Combinar **dos rondas de una encuesta de panel** para analizar cambios en el tiempo.  
 
-## La Clave de la Unión: La "Llave" (`key`) {.smaller background-color="white"}
+## La Clave de la Unión: La "Llave" (`key`) {.smaller}
 
 Para que R sepa cómo conectar las filas de dos tablas, necesita una (o más) variables **"llave"** (`key`).  
 
@@ -254,7 +249,7 @@ Para que R sepa cómo conectar las filas de dos tablas, necesita una (o más) va
 
 La calidad de la unión depende de la calidad de la llave.
 
-## `left_join()`: La Unión más Común {.smaller background-color="white"}
+## `left_join()`: La Unión más Común {.smaller}
 
 Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utilizada es `left_join()`.
 
@@ -262,12 +257,12 @@ Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utiliza
 
 **Sintaxis:** `left_join(tabla_izquierda, tabla_derecha, by = "nombre_variable_llave")`  
 
-![](img/07/left_join.png){fig-align="center"}
+![](img/left_join.png){fig-align="center"}
 
 -   Si una fila en la tabla izquierda no tiene correspondencia en la derecha, las nuevas columnas se rellenarán con `NA`.  
 -   Si una fila en la tabla derecha no tiene correspondencia en la izquierda, se descarta.  
 
-## Otros `joins` {.smaller background-color="white"}
+## Otros `joins` {.smaller}
 
 `dplyr` ofrece una familia completa de `joins` para diferentes necesidades.
 
@@ -279,13 +274,13 @@ Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utiliza
 -   **`anti_join(x, y)`:** Una herramienta de diagnóstico muy poderosa. Devuelve **todas las filas de la tabla izquierda que NO tienen correspondencia** en la tabla derecha. Es ideal para encontrar problemas de codificación en las llaves. 
 :::
 ::: {.column width="50%"}
-![](img/07/joins.png){fig-align="center"}
+![](img/joins.png){fig-align="center"}
   
 :::
 ::::::
 
 
-## Cierre y Próximos Pasos {.smaller background-color="white"}
+## Cierre y Próximos Pasos {.smaller}
 
 **Resumen de la sesión de hoy:**
 
@@ -296,7 +291,7 @@ Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utiliza
 
 **En el práctico de hoy:**
 
--   Aplicarán estas tres técnicas avanzadas (`case_when`, `pivot_longer`, `left_join`) en ejercicios prácticos con la Encuesta ELPI 2017.
+-   Aplicarán estas tres técnicas avanzadas (`case_when`, `pivot_longer`, `left_join`) en ejercicios prácticos con la Encuesta ELPI Cuarta Ronda (2024).
 
 **Adelanto de la Unidad 4:**
 -   ¡Ahora que tenemos los datos listos, comenzaremos a analizarlos! La próxima unidad se centrará en la **Estadística Descriptiva Univariada**.

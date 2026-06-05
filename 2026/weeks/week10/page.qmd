@@ -1,0 +1,28 @@
+---
+title: "🗓️ Semana 10: La Media, la Desviación Estándar y la Estandarización"
+---
+
+En esta semana profundizamos en las medidas no robustas de tendencia central y dispersión: la media aritmética, la varianza y la desviación estándar. Aprenderemos a compararlas con las medidas robustas para diagnosticar asimetrías, e introduciremos la estandarización mediante puntuaciones Z, una herramienta fundamental para comparar valores entre diferentes escalas.
+
+## 👨‍🏫 Clase Expositiva
+
+Puedes navegar por las diapositivas directamente en el recuadro de abajo o hacer clic [aquí](slides.qmd) para ver la presentación en pantalla completa. Usa las flechas de tu teclado para avanzar.
+
+<div class="container" style="position: relative;overflow: hidden;width: 100%;min-height:600px;">
+<iframe src="slides.html" style="position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;min-height:600px;"></iframe>
+</div>
+
+## 💻 Taller Aplicado (Práctico 6)
+
+En este laboratorio continuamos trabajando con la ESI 2024 para calcular la media y desviación estándar del ingreso y las horas trabajadas, comparar ambas distribuciones, y construir puntuaciones Z para detectar observaciones inusuales.
+
+👉 **[Ir al Práctico 6: La Media, la Desviación Estándar y la Estandarización en R](lab.qmd)**
+
+## 📚 Lecturas Obligatorias
+
+- **Ritchey, F. (2008).** *Estadística para las ciencias sociales*. McGraw-Hill. Caps. 4 y 5, págs. 117–135. [[PDF]](../../bib/ritchey cap 4 y 5.pdf)
+- **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. Cap. 1, págs. 32–54. [[PDF]](../../bib/Moore - Estadística aplicada básica 32-54.pdf)
+
+## 📟 Dudas y Comunicación
+
+Recuerda que puedes utilizar los canales de comunicación establecidos o acercarte al profesor y ayudantes si tienes dudas sobre el práctico o los contenidos de esta semana.

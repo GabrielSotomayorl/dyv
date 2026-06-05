@@ -1,16 +1,24 @@
 ---
-title: "Descripción de Variables Categóricas: Frecuencias y Gráficos de Barras en R"
-linktitle: "8: Descripción de Variables Categóricas"
-date: "2025-10-13"
-menu:
-  example:
-    parent: Ejemplos
-    weight: 8
-type: docs
-toc: true
-editor_options: 
-  chunk_output_type: console
+title: "Práctico 4: Descripción de Variables Categóricas: Frecuencias y Gráficos de Barras en R"
+subtitle: "Trabajando con la Encuesta Nacional de Empleo (ENE)"
+date: "2026-10-05"
+lang: es
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    body-classes: lab-content
 ---
+
+```{r load-data, include=FALSE}
+library(haven)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+ene <- readRDS("../../data/ene_fma.rds")
+```
 
 ## 0. Objetivos del Práctico
 
@@ -25,7 +33,7 @@ El objetivo de este práctico es aplicar los conceptos de descripción de variab
 
 La **Encuesta Nacional de Empleo (ENE)**, realizada por el Instituto Nacional de Estadísticas (INE), es el principal instrumento para medir el mercado laboral en Chile. Sus datos se publican mensualmente y son fundamentales para el diagnóstico económico y social del país.
 
-Hoy trabajaremos con los datos del trimestre móvil **Junio-Julio-Agosto de 2025**, y nos enfocaremos en la variable **`activ`**, que mide la condición de actividad de las personas.
+Hoy trabajaremos con los datos del trimestre móvil **Febrero-Marzo-Abril 2026**, y nos enfocaremos en la variable **`activ`**, que mide la condición de actividad de las personas.
 
 ## 2. Preparación del Entorno y Carga de Datos
 
@@ -33,8 +41,8 @@ Hoy trabajaremos con los datos del trimestre móvil **Junio-Julio-Agosto de 2025
 
 1.  **Crea un Proyecto de RStudio** y una carpeta `datos` dentro de él.
 2.  **Descarga la base de datos** desde el sitio del INE. El archivo está en formato Stata (`.dta`).
-    *   [Enlace de descarga: ENE Junio-Julio-Agosto 2025](https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/bbdd/2025/stata/ene-2025-07-jja.dta?sfvrsn=3f9c9348_5&download=true)
-3.  **Guarda el archivo:** Guarda el archivo `ene-2025-07-jja.dta` dentro de tu carpeta `datos`.
+    *   [Enlace de descarga: ENE (trimestre más reciente)](https://www.ine.gob.cl/estadisticas-por-tema/mercado-laboral/ocupacion-y-desocupacion)
+3.  **Guarda el archivo:** Guarda el archivo `.dta` descargado dentro de tu carpeta `datos`.
 
 ### 2.2 Carga de Paquetes
 
@@ -47,26 +55,12 @@ library(kableExtra)
 
 ### 2.3 Carga de la Base de Datos
 
-Vamos a cargar los datos usando `read_dta()` del paquete `haven`, ya que es un archivo de Stata.
+La base de datos está disponible en el sitio del [INE](https://www.ine.gob.cl/estadisticas-por-tema/mercado-laboral/ocupacion-y-desocupacion). Descarga el trimestre más reciente en formato Stata (`.dta`) y guárdalo en tu carpeta `datos`. Luego cárgalo así:
 
-```{r load-manual, eval=FALSE, echo=TRUE}
+```{r load-show, eval=FALSE}
 # Cargar la base de datos de la ENE desde tu carpeta local
-ene <- haven::read_dta("datos/ene-2025-07-jja.dta")
+ene <- haven::read_dta("datos/ene-2026-03-fma.dta")
 ```
-
----
-*Nota sobre la reproducibilidad:* Para que este práctico funcione de manera autocontenida, a continuación se incluye el código que realiza la descarga y carga de forma automática.
-
-```{r load-auto, message=FALSE, warning=FALSE, cache=TRUE}
-# Este código cargará automáticamente los datos desde la web
-temp <- tempfile(fileext = ".dta")
-download.file("https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/bbdd/2025/stata/ene-2025-07-jja.dta?sfvrsn=3f9c9348_5&download=true", temp, mode="wb")
-ene <- haven::read_dta(temp)
-unlink(temp); remove(temp)
-
-knitr::opts_knit$set(bookdown.internal.label = FALSE)
-```
-
 ## 3. Tablas de Frecuencia
 
 El primer paso para describir una variable categórica es crear una tabla de frecuencias. Veremos diferentes formas de hacerlo, prestando atención a si estamos describiendo solo la **muestra** o estimando para la **población**.
@@ -126,7 +120,7 @@ kable(
   kable_styling()
 ```
 
-**Interpretación:** Esta tabla es una estimación para la población total de Chile. Ahora sí podemos decir que, para este trimestre, se estima que un **56.5%** de la población en edad de trabajar estaba ocupada. Estos son los números que se acercan a las cifras oficiales del INE.
+**Interpretación:** Esta tabla es una estimación para la población total de Chile. El porcentaje de ocupados corresponde a `r round(tabla_frec_pob$Porcentaje[grepl("Ocupado", tabla_frec_pob$condicion_actividad)][1], 1)`% de la población en edad de trabajar para este trimestre — cifras comparables con las publicaciones oficiales del INE.
 
 ## 5. Visualización: Gráficos de Barras
 
@@ -168,7 +162,7 @@ ene %>%
   geom_bar(fill = "#3A1C71") +
   labs(
     title = "Estimación de la Condición de Actividad en la Población",
-    subtitle = "Trimestre Junio-Julio-Agosto 2025",
+    subtitle = "Trimestre Febrero-Marzo-Abril 2026",
     x = "Condición de Actividad",
     y = "Población Estimada",
     caption = "Fuente: ENE"
@@ -177,9 +171,19 @@ ene %>%
 ```
 **Análisis:** Este gráfico es una representación visual de las **estimaciones poblacionales**. La altura de las barras representa el número total de personas que se estima hay en cada categoría en todo el país.
 
+---
+
+**Actividad 1:** Crea una tabla de frecuencias (sin factor de expansión) para la variable `sexo` de la ENE usando `dplyr`. Incluye frecuencia absoluta y porcentaje de la muestra. Luego repite el análisis usando `wt = fact_cal` para obtener la estimación poblacional. ¿Cambia mucho la distribución entre muestra y población?
+
+```{r actividad-1, eval=FALSE}
+# Escribe tu código aquí
+```
+
+---
+
 ## 6. Actividad de Desafío
 
-1.  **Crear una tabla de frecuencias completa:** Usando el flujo de `dplyr` y `knitr::kable()`, crea una tabla de frecuencias para la variable `region` de la encuesta ENE. Usar el factor de expansión `fact_cal`.Asegúrate de incluir frecuencias absolutas y porcentajes.
+1.  **Crear una tabla de frecuencias completa:** Usando el flujo de `dplyr` y `knitr::kable()`, crea una tabla de frecuencias para la variable `region` de la encuesta ENE. Usar el factor de expansión `fact_cal`. Asegúrate de incluir frecuencias absolutas y porcentajes.
 2.  **Crear un gráfico de barras:** Usando `ggplot2`, crea un gráfico de barras que muestre la distribución de personas por `region`.
     *   **Pista 1:** No olvides filtrar por edad y usar `aes(weight = fact_cal)`.
     *   **Pista 2:** Para que el eje X sea legible, puedes usar `+ theme(axis.text.x = element_text(angle = 45, hjust = 1))` para rotar las etiquetas de las regiones.

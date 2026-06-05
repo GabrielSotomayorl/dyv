@@ -21,7 +21,7 @@ En este laboratorio realizaremos una exploración inicial de la Encuesta CASEN 2
 ## 📚 Lecturas Obligatorias
 
 - **Wickham, H., Çetinkaya-Rundel, M. y Grolemund, G. (2023).** *R para ciencia de datos* (2ª ed.). Capítulos sobre [Transformación de datos](https://davidrsch.github.io/r4ds-es/data-transform.html) y [Visualización de datos](https://davidrsch.github.io/r4ds-es/data-visualize.html).
-- **Babbie, E. (2000).** *Fundamentos de la investigación social*. Cap. 14. Págs. 336–342.
+- **Babbie, E. (2000).** *Fundamentos de la investigación social*. Cap. 14, págs. 336–342. [[PDF]](../../bib/Babbie-Fundamentos de la Investigacion Social-177-180.pdf)
 
 ## 📟 Dudas y Comunicación
 

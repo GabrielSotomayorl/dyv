@@ -1,24 +1,28 @@
 ---
-title: "Descripción de Variables Categóricas"
-subtitle: "Unidad 4: Estadística Descriptiva Univariada"
-author: "Gabriel Sotomayor"
-date: "10-13-2025"
+subtitle: "Descripción y Visualización de Datos"
+title: "<font style='font-size:1em;'>🗓️ Semana 08<br/> Descripción de Variables Categóricas</font>"
+author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
+institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
+date: 05 October 2026
+date-meta: 05 October 2026
+date-format: "DD MMM YYYY"
+toc: true
+toc-depth: 1
+toc-title: "Contenidos de hoy:"
+center-title-slide: false
+from: markdown+emoji
 format:
   revealjs:
-    theme: [dark, custom.scss]
+    fig-responsive: true
+    theme: [simple, ../../../css/slides.scss]
     slide-number: true
-    auto-fit: true
-    logo: images/logo.png
-include-in-header:
-  - text: |
-      <style>
-      #title-slide .title {
-        font-size: 2em;
-      }
-      </style>
+    mouse-wheel: false
+    preview-links: auto
+    logo: /figures/icons/course_favicon.png
+    footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller background-color="white"}
+## Objetivos de la Sesión de Hoy {.smaller}
 
 -   **Revisar** la distinción entre variables categóricas y cuantitativas.
 -   **Calcular e interpretar** tablas de frecuencias absolutas, relativas y porcentajes.
@@ -26,19 +30,16 @@ include-in-header:
 -   **Comprender** el concepto y la utilidad de las **tasas** en el análisis sociológico.
 -   **Crear e interpretar** gráficos de barras, discutiendo buenas prácticas de visualización.
 
----
-title_slide_background: "#008080"
----
 
 # 1. El Primer Paso del Análisis: Describir
 
-## Repaso y Conexión {.smaller background-color="white"}
+## Repaso y Conexión {.smaller}
 
 En la Unidad 3, aprendimos a **preparar y manipular** nuestras bases de datos en R. Ahora que tenemos los datos limpios y ordenados, comenzamos a **analizarlos**.
 
 El primer paso de cualquier análisis de datos es la **estadística descriptiva univariada**: las herramientas que nos permitiran resumir y describir cada variable por sí sola.
 
-## La Distinción Fundamental {.smaller background-color="white"}
+## La Distinción Fundamental {.smaller}
 
 Las herramientas que usamos para describir una variable dependen fundamentalmente de su tipo. Recordemos la distinción clave:
 
@@ -63,13 +64,10 @@ Las herramientas que usamos para describir una variable dependen fundamentalment
 
 **Hoy, nos enfocaremos exclusivamente en las variables categóricas.**
 
----
-title_slide_background: "#008080"
----
 
 # 2. Resúmenes Numéricos para Variables Categóricas
 
-## Tablas de Frecuencia: La Herramienta Central {.smaller background-color="white"}
+## Tablas de Frecuencia: La Herramienta Central {.smaller}
 
 La forma más básica y fundamental de describir una variable categórica es a través de una **tabla de frecuencias**. Esta tabla nos muestra la **distribución** de la variable: qué valores toma y con qué frecuencia.
 
@@ -85,7 +83,7 @@ La forma más básica y fundamental de describir una variable categórica es a t
 
 Nos dice *cuántos* hay en cada grupo, pero es difícil de comparar si los totales son diferentes.
 
-## De Conteos a Comparaciones: Frecuencias Relativas {.smaller background-color="white"}
+## De Conteos a Comparaciones: Frecuencias Relativas {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 Para comparar la distribución de una variable entre grupos de diferentes tamaños, necesitamos estandarizar los conteos. Para esto usamos las **frecuencias relativas**.
@@ -104,7 +102,7 @@ Para comparar la distribución de una variable entre grupos de diferentes tamañ
 Ahora podemos decir que "el 60% de la muestra son mujeres", una afirmación comparable con otras encuestas.
 ::: 
 
-## La Moda: El Centro de las Categorías {.smaller background-color="white"}
+## La Moda: El Centro de las Categorías {.smaller}
 
 Para las variables categóricas, la única medida de tendencia central que podemos calcular es la **moda**.
 
@@ -123,7 +121,7 @@ Para las variables categóricas, la única medida de tendencia central que podem
 
 *Importante:* La moda es la **categoría** ("Católica"), no el número de casos (450).
 
-## Ejemplo Aplicado: La Fuerza de Trabajo en Chile {.smaller background-color="white"}
+## Ejemplo Aplicado: La Fuerza de Trabajo en Chile {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 Para aplicar estos conceptos, usaremos datos reales de la **Encuesta Nacional de Empleo (ENE)** del INE. Esta encuesta mide periódicamente el estado del mercado laboral en Chile y es fundamental para el diagnóstico y la creación de políticas públicas.
@@ -135,17 +133,15 @@ Nos centraremos en la variable **condición de actividad (`activ`)** para la pob
 -   **Inactivos o Fuera de la Fuerza de Trabajo:** Personas que no estaban ocupadas ni buscaron activamente trabajo (ej. estudiantes, jubilados, personas dedicadas al trabajo doméstico no remunerado).
 ::: 
 
-## Tabla de Frecuencias: Condición de Actividad {.smaller background-color="white"}
+## Tabla de Frecuencias: Condición de Actividad {.smaller}
 
-El primer paso es construir una tabla de frecuencias para describir la distribución de esta variable. Usaremos los datos de la ENE para el trimestre móvil Junio-Julio-Agosto de 5.
+El primer paso es construir una tabla de frecuencias para describir la distribución de esta variable. Usaremos los datos de la ENE para el trimestre móvil Febrero-Marzo-Abril 2026.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# Carga de datos simulados para el ejemplo (en la clase se usarán los reales)
 library(tidyverse)
 library(haven)
-ene <- readRDS("data/enejja.rds")
-# Simulación de datos para que el ejemplo funcione
-
+library(knitr)
+ene <- readRDS("../../data/ene_fma.rds")
 
 # Creación de la tabla
 tabla_frec <- ene %>%
@@ -165,11 +161,11 @@ knitr::kable(
 )
 ```
 
--   Podemos observar que la categoría con la mayor frecuencia, es decir, la **moda**, es "Ocupado".
--   El 51.4% de las personas encuestadas de 15 años y más se encontraba ocupada en este período, mientras que un 4.7% estaba desocupada y un 43.9% se encontraba fuera de la fuerza de trabajo.
+-   Podemos observar que la categoría con la mayor frecuencia, es decir, la **moda**, es "Ocupado/as".
+-   La tabla muestra la distribución entre personas ocupadas, desocupadas y fuera de la fuerza de trabajo para la población de 15 años y más.
 
 
-## De la Muestra a la Población: Un Problema de Representatividad {.smaller background-color="white"}
+## De la Muestra a la Población: Un Problema de Representatividad {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 Hasta ahora, hemos contado los casos directamente de nuestra muestra (`n`). Sin embargo, si quisiéramos que nuestras conclusiones fueran representativas de todo Chile, **usar las frecuencias absolutas o relativas directas sería un error.**
@@ -184,7 +180,7 @@ Esto genera dos desafíos:
 Si no corregimos esto, nuestra muestra no reflejará correctamente la estructura demográfica de Chile y nuestras estimaciones serán **sesgadas**.
 :::
 
-## La Solución: Ponderadores o Factores de Expansión {.smaller background-color="white"}
+## La Solución: Ponderadores o Factores de Expansión {.smaller}
 
 Para resolver este problema, los equipos estadísticos calculan una variable especial llamada **ponderador** o **factor de expansión**.
 
@@ -194,7 +190,7 @@ Para resolver este problema, los equipos estadísticos calculan una variable esp
     -   La no respuesta de su grupo demográfico.
     -   Otros ajustes (como **cobertura** del marco muestral y **post-estratificación**) para "calibrar" la muestra final con las proyecciones de población oficiales del INE (ej. por región, sexo y tramo de edad).
 
-## Ponderadores en la Práctica {.smaller background-color="white"}
+## Ponderadores en la Práctica {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 Al usar el ponderador, pasamos de describir la muestra a **estimar las características de la población**.
@@ -208,7 +204,7 @@ Al usar el ponderador, pasamos de describir la muestra a **estimar las caracter�
 # Carga de datos
 library(tidyverse)
 library(haven)
-ene <- readRDS("data/enejja.rds") # Se asume que este archivo está disponible
+ene <- readRDS("../../data/ene_fma.rds")
 ```
 ```{r}
 # Creamos la tabla ponderada
@@ -226,7 +222,7 @@ tabla_frec_ponderada
 
 **Nota sobre análisis avanzado:** El análisis correcto de encuestas complejas (para calcular errores estándar, intervalos de confianza, etc.) requiere paquetes especializados como `survey`. Este es un tema avanzado, pero por ahora, es fundamental que sepan que **para obtener estimaciones poblacionales, siempre deben usar el ponderador**.
 
-## Tabla Ponderada: Condición de Actividad en la Población {.smaller background-color="white"}
+## Tabla Ponderada: Condición de Actividad en la Población {.smaller}
 
 Al aplicar el factor de expansión, nuestra tabla ya no describe la muestra, sino que **estima la distribución para toda la población de 15 años y más en Chile**. Estos porcentajes son los que coinciden con las cifras oficiales publicadas por el INE.
 
@@ -240,10 +236,10 @@ knitr::kable(
 )
 ```
 
-**Interpretación:** Ahora podemos afirmar con propiedad que, para el trimestre Junio-Julio-Agosto de 2025, se estima que un 56.5% de la población de 15 años y más se encontraba ocupada, un 5.3% desocupada, y un 38.2% fuera de la fuerza de trabajo.
+**Interpretación:** Ahora podemos afirmar con propiedad que, para el trimestre Febrero-Marzo-Abril 2026, la tabla anterior muestra la distribución estimada de la población de 15 años y más según condición de actividad.
 
 
-## Tasas: Una Medida Estandarizada para la Comparación {.smaller background-color="white"}
+## Tasas: Una Medida Estandarizada para la Comparación {.smaller}
 
 Una **tasa** es un tipo especial de frecuencia relativa que se usa para comparar la ocurrencia de un evento entre poblaciones de diferentes tamaños.
 
@@ -251,7 +247,7 @@ Una **tasa** es un tipo especial de frecuencia relativa que se usa para comparar
 -   **Fórmula:** `Tasa = (N° de eventos / Población total en riesgo) * k`
 -   **Uso Común:** Tasas de natalidad, mortalidad, desempleo, homicidios, etc.
 
-## Tasas: Una Medida Estandarizada para la Comparación {.smaller background-color="white"}
+## Tasas: Una Medida Estandarizada para la Comparación {.smaller}
 
 **Ejemplo:** Tasa de homicidios.
 
@@ -266,7 +262,7 @@ Una **tasa** es un tipo especial de frecuencia relativa que se usa para comparar
 **Conclusión:** Aunque la Comuna B tuvo más homicidios en términos absolutos, la Comuna A tiene una tasa de homicidios 5 veces mayor. Las tasas nos permiten hacer comparaciones justas.  
 
 
-## Tasas en Acción: Analizando la Crisis de Natalidad en Chile {.smaller background-color="white"}
+## Tasas en Acción: Analizando la Crisis de Natalidad en Chile {.smaller}
 
 Para ilustrar el poder de las tasas en el análisis sociológico, examinaremos uno de los cambios demográficos más profundos del Chile contemporáneo: la drástica caída de la natalidad. Para ello, usaremos dos indicadores clave.
 
@@ -279,7 +275,7 @@ Para ilustrar el poder de las tasas en el análisis sociológico, examinaremos u
     -   *Utilidad:* Es el indicador más preciso para medir el comportamiento reproductivo. Una TGF de **2,1** es considerada la "tasa de reemplazo" poblacional.
 
 
-## La Caída de la Fecundidad en Chile (1992-2024) {.smaller background-color="white"}
+## La Caída de la Fecundidad en Chile (1992-2024) {.smaller}
 
 El siguiente gráfico visualiza la evolución de ambos indicadores. La línea roja punteada marca la tasa de reemplazo poblacional de 2,1 hijos por mujer.
 
@@ -361,7 +357,7 @@ ggplot(fecundidad_chile, aes(x = anio)) +
   )
 ```
 
-## Contexto Sociológico: ¿Por qué hay menos nacimientos? {.smaller background-color="white"}
+## Contexto Sociológico: ¿Por qué hay menos nacimientos? {.smaller}
 
 La socióloga Martina Yopo, experta en género y reproducción, ofrece un diagnóstico complejo que va más allá de las decisiones individuales.
 
@@ -374,13 +370,10 @@ La socióloga Martina Yopo, experta en género y reproducción, ofrece un diagn�
 -   **Tensiones Estructurales:** Existe un conflicto entre el mundo del trabajo y la vida familiar, que recae desproporcionadamente sobre las mujeres. La maternidad a menudo obstaculiza el desarrollo laboral y personal.
 -   **Futuro Incierto:** La crisis climática, la inestabilidad política y la precariedad económica generan una "desesperanza estructural" que desincentiva la formación de familias.
 
----
-title_slide_background: "#008080"
----
 
 # 3. Visualización de Variables Categóricas
 
-## Gráfico de Barras: La Herramienta Estándar {.smaller background-color="white"}
+## Gráfico de Barras: La Herramienta Estándar {.smaller}
 
 Las tablas de frecuencia son precisas, pero no siempre son la forma más rápida de comunicar un patrón. Nuestro cerebro procesa la información visual de manera mucho más eficiente.
 
@@ -390,7 +383,7 @@ El **gráfico de barras** es la forma más clara y efectiva de visualizar la dis
 -   La **altura** de la barra representa la frecuencia (absoluta o porcentual) de esa categoría.
 
 
-## Gráfico de Barras: Nuestro Primer Vistazo Visual {.smaller background-color="white"}
+## Gráfico de Barras: Nuestro Primer Vistazo Visual {.smaller}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -411,7 +404,7 @@ ggplot(datos_grafico_final, aes(y = n, x = condicion_actividad)) +
   geom_col(fill = "#D76D77") +
   labs(
     title = "Distribución de la Condición de Actividad",
-    subtitle = "Trimestre Junio-Julio-Agosto 2025",
+    subtitle = "Trimestre Febrero-Marzo-Abril 2026",
     x = "Condición de Actividad",
     y = "Frecuencia Absoluta (Conteo)"
   ) +
@@ -422,7 +415,7 @@ ggplot(datos_grafico_final, aes(y = n, x = condicion_actividad)) +
 
 Este gráfico es un buen primer paso. Nos permite ver de un vistazo que la categoría "Ocupado" es la moda. Sin embargo, el orden de las categorías es alfabético, lo que no es ideal para la comparación, y las frecuencias absolutas son difíciles de interpretar sin el total.
 
-## Buenas Prácticas: Hacia un Gráfico Informativo {.smaller background-color="white"}
+## Buenas Prácticas: Hacia un Gráfico Informativo {.smaller}
 
 Para que un gráfico de barras sea una herramienta de análisis poderosa y honesta, debe seguir algunas reglas:
 
@@ -432,7 +425,7 @@ Para que un gráfico de barras sea una herramienta de análisis poderosa y hones
 4.  **Título y Subtítulo Informativos:** El título debe comunicar el hallazgo principal, no solo describir el gráfico.
 5.  **Eje Y en Cero:** Empezar el eje Y en un valor mayor a cero es una práctica engañosa que distorsiona las proporciones.
 
-## Aplicando Buenas Prácticas al Gráfico de la ENE {.smaller background-color="white"}
+## Aplicando Buenas Prácticas al Gráfico de la ENE {.smaller}
 
 Ahora, apliquemos todas estas reglas para crear un gráfico final de calidad de publicación.
 
@@ -450,7 +443,7 @@ ggplot(datos_grafico_final, aes(x = fct_reorder(condicion_actividad, -porcentaje
   geom_text(aes(label = paste0(round(porcentaje, 1), "%")), vjust = -0.5, size = 5, fontface = "bold") +
   labs(
     title = "Más de la mitad de la población mayor de 15 años está ocupada",
-    subtitle = "Distribución de la Condición de Actividad, Trimestre JJA 2025",
+    subtitle = "Distribución de la Condición de Actividad, Trimestre FMA 2026",
     x = NULL, # Quitamos la etiqueta del eje x, es redundante
     y = "Porcentaje (%)",
     caption = "Fuente: Elaboración propia a partir de Encuesta Nacional de Empleo (ENE)."
@@ -465,7 +458,7 @@ ggplot(datos_grafico_final, aes(x = fct_reorder(condicion_actividad, -porcentaje
   )
 ```
 
-## ¿Y por qué no un Gráfico de Torta? {.smaller background-color="white"}
+## ¿Y por qué no un Gráfico de Torta? {.smaller}
 
 Aunque son muy populares, los gráficos de torta son desaconsejados por la mayoría de los expertos en visualización de datos.
 
@@ -482,7 +475,7 @@ ggplot(datos_grafico_pie, aes(x = "", y = n, fill = activ)) +
   labs(fill = "Condición de Actividad")
 ```
 
-## ¿Y por qué no un Gráfico de Torta? {.smaller background-color="white"}
+## ¿Y por qué no un Gráfico de Torta? {.smaller}
 
 **El Problema:** Nuestro cerebro es muy malo para comparar **ángulos** y **áreas**, pero es muy bueno para comparar **longitudes** en una escala común (como las alturas de las barras).
 
@@ -492,7 +485,7 @@ ggplot(datos_grafico_pie, aes(x = "", y = n, fill = activ)) +
 
 
 
-## Cierre y Próximos Pasos {.smaller background-color="white"}
+## Cierre y Próximos Pasos {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 **Resumen de la sesión de hoy:**

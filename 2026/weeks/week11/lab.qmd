@@ -1,16 +1,22 @@
 ---
-title: "La Visualización como Argumento Sociológico con ggplot2"
-linktitle: "11: Gramática de Gráficos con ggplot2"
-date: "2025-11-03"
-menu:
-  example:
-    parent: Ejemplos
-    weight: 11
-type: docs
-toc: true
-editor_options: 
-  chunk_output_type: console
+title: "Práctico 7: La Visualización como Argumento Sociológico con ggplot2"
+subtitle: "Trabajando con la Encuesta CASEN 2024"
+date: "2026-10-26"
+lang: es
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-tools: true
+    df-print: paged
+    body-classes: lab-content
 ---
+
+```{r load-data, include=FALSE}
+library(tidyverse)
+library(haven)
+casen <- readRDS("../../data/casen24.rds")
+```
 
 ## 0. Objetivos del Práctico
 
@@ -28,12 +34,12 @@ El objetivo de este práctico es dominar la "Gramática de Gráficos" para const
 
 Como vimos en la clase, la visualización de datos no es un simple adorno. Es una forma de **argumento sociológico** y una herramienta de **diagnóstico fundamental**. Autores como Piketty y Bourdieu usan gráficos como el núcleo de sus teorías. Estadísticamente, graficar nuestros datos es la mejor forma de descubrir la verdadera forma de una distribución, que puede ocultarse detrás de estadísticos descriptivos similares.
 
-### **1.2 Preparación del Entorno y Datos (CASEN 2022)**
+### **1.2 Preparación del Entorno y Datos (CASEN 2024)**
 
 Como en prácticos anteriores, nuestro primer paso es asegurar un entorno de trabajo reproducible.
 
 1.  **Asegúrate de estar en tu Proyecto de RStudio** y de tener una carpeta `datos`.
-2.  **Descarga la Base de Datos CASEN 2022 (formato SPSS)** desde [este enlace](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022) y guarda el archivo `.sav` en tu carpeta `datos`.
+2.  **Descarga la Base de Datos CASEN 2024 (formato SPSS)** desde [este enlace](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2024) y guarda el archivo `.sav` en tu carpeta `datos`.
 
 #### Carga de Paquetes
 Cargamos los paquetes que necesitaremos para la sesión de hoy.
@@ -48,21 +54,12 @@ A continuación, hay dos formas de cargar los datos. **Debes usar el Método 1 (
 
 **Método 1: Carga Manual (Para tu trabajo)**
 Este bloque de código carga la base de datos que guardaste en tu carpeta `datos`.
-```{r load-manual, eval=FALSE, echo=TRUE}
+```{r load-show, eval=FALSE}
 # Usamos read_sav() con la ruta relativa a nuestro proyecto
-casen <- read_sav("datos/Base de datos Casen 2022 SPSS.sav")
+casen <- read_sav("datos/Base de datos Casen 2024 SPSS.sav")
 ```
 
-**Método 2: Carga Automática (Para reproducibilidad del documento)**
-El siguiente bloque es para que este práctico se pueda generar automáticamente. **No necesitas ejecutarlo** si ya cargaste los datos con el método anterior.
 
-```{r load-auto, message=FALSE, warning=FALSE, cache=TRUE}
-# Código automático para cargar los datos desde la web
-temp <- tempfile() 
-download.file("https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2022/Base%20de%20datos%20Casen%202022%20SPSS.sav.zip", temp)
-casen <- haven::read_sav(unz(temp, "Base de datos Casen 2022 SPSS.sav"))
-unlink(temp); remove(temp)
-```
 
 ## 2. Diagnóstico Visual: ¡Grafica Siempre tus Datos!
 
@@ -117,10 +114,10 @@ p
 p_final <- ggplot(data = casen, mapping = aes(x = edad, weight = expr)) +
   geom_histogram(fill = "#40E0D0", color = "white", bins = 30) +
   labs(
-    title = "Distribución de Edades en la Encuesta Casen 2022",
+    title = "Distribución de Edades en la Encuesta CASEN 2024",
     x = "Edad (en años)",
     y = "Población Estimada",
-    caption = "Fuente: Encuesta Casen 2022"
+    caption = "Fuente: Encuesta CASEN 2024"
   ) +
   theme_minimal()
 
@@ -151,7 +148,7 @@ casen %>%
   geom_bar(fill = "#008080") +
   labs(
     title = "Distribución de la población por nivel de pobreza",
-    subtitle = "CASEN 2022, estimaciones ponderadas",
+    subtitle = "CASEN 2024, estimaciones ponderadas",
     x = "Situación de pobreza",
     y = "Población estimada"
   ) +
@@ -170,7 +167,7 @@ casen %>%
   scale_y_continuous(labels = scales::percent) +
   labs(
     title = "Distribución porcentual de la población por nivel de pobreza",
-    subtitle = "CASEN 2022, estimaciones ponderadas",
+    subtitle = "CASEN 2024, estimaciones ponderadas",
     x = "Situación de pobreza",
     y = "Porcentaje del total"
   ) +
@@ -203,7 +200,7 @@ casen %>%
   ) +
   labs(
     title = "Distribución de la población por nivel de pobreza",
-    subtitle = "CASEN 2022, estimaciones ponderadas",
+    subtitle = "CASEN 2024, estimaciones ponderadas",
     x = "Situación de pobreza",
     y = "Población estimada"
   ) +
@@ -232,7 +229,7 @@ casen %>%
   ) +
   labs(
     title = "Distribución porcentual de la población por nivel de pobreza",
-    subtitle = "CASEN 2022, estimaciones ponderadas",
+    subtitle = "CASEN 2024, estimaciones ponderadas",
     x = "Situación de pobreza",
     y = "Porcentaje del total"
   ) +
@@ -240,6 +237,16 @@ casen %>%
 ```
 
 
+
+---
+
+**Actividad 1:** Usando la CASEN, crea un gráfico de barras ponderado (`weight = expr`) para la variable `sexo` convertida a factor con `as_factor()`. Muestra los porcentajes del total (no frecuencias absolutas). Añade etiquetas con los porcentajes sobre cada barra y aplica un `theme_minimal()`. Compara el resultado con la distribución sin ponderar y comenta si hay diferencias.
+
+```{r actividad-1, eval=FALSE}
+# Escribe tu código aquí
+```
+
+---
 
 ## 5. La utilidad del Faceting: `facet_wrap()`
 
@@ -264,7 +271,7 @@ ggplot(casen_pob_zona, aes(x = edad, y = porc_pobreza)) +
     title = "Porcentaje de Pobreza por Edad, según Zona Geográfica",
     x = "Edad",
     y = "% de Personas en Situación de Pobreza",
-    caption = "Fuente: Casen 2022"
+    caption = "Fuente: CASEN 2024"
   ) +
   theme_bw() +
   facet_wrap(~ zona_factor) # La variable que define los paneles
