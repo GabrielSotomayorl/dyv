@@ -86,7 +86,7 @@ trio_enganoso %>%
 
 # 3. Visualizamos los datos
 ggplot(trio_enganoso, aes(x = valor)) +
-  geom_histogram(fill = "#008080", color = "white", bins = 20) +
+  geom_histogram(fill = "#7C90CC", color = "white", bins = 20) +
   facet_wrap(~grupo) +
   labs(title = "El Trío Engañoso: Mismos Estadísticos, Diferentes Distribuciones") +
   theme_minimal()
@@ -107,12 +107,12 @@ p <- p + geom_histogram()
 p
 
 # Capa 3: Personalización estética. Ajustamos colores y número de bins.
-# p <- p + geom_histogram(fill = "#40E0D0", color = "white", bins = 30)
+# p <- p + geom_histogram(fill = "#7C90CC", color = "white", bins = 30)
 # (Para ver el cambio, tendríamos que volver a dibujar p. Lo haremos todo junto)
 
 # Capa 4: Etiquetas y Título. Añadimos contexto con labs() y ponderador.
 p_final <- ggplot(data = casen, mapping = aes(x = edad, weight = expr)) +
-  geom_histogram(fill = "#40E0D0", color = "white", bins = 30) +
+  geom_histogram(fill = "#7C90CC", color = "white", bins = 30) +
   labs(
     title = "Distribución de Edades en la Encuesta CASEN 2024",
     x = "Edad (en años)",
@@ -145,7 +145,7 @@ Usamos `weight = expr` para que las alturas representen población expandida.
 casen %>% 
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
-  geom_bar(fill = "#008080") +
+  geom_bar(fill = "#1E2240") +
   labs(
     title = "Distribución de la población por nivel de pobreza",
     subtitle = "CASEN 2024, estimaciones ponderadas",
@@ -163,7 +163,7 @@ Para porcentajes del total del gráfico, definimos `y = after_stat(count / sum(c
 casen %>% 
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
-  geom_bar(aes(y = after_stat(count / sum(count))), fill = "#42affa") +
+  geom_bar(aes(y = after_stat(count / sum(count))), fill = "#7C90CC") +
   scale_y_continuous(labels = scales::percent) +
   labs(
     title = "Distribución porcentual de la población por nivel de pobreza",
@@ -185,7 +185,7 @@ Usamos `geom_text()` para añadir etiquetas. La idea clave es **usar la misma es
 casen %>% 
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
-  geom_bar(fill = "#008080") +
+  geom_bar(fill = "#1E2240") +
   geom_text(
     aes(
       y = after_stat(count),
@@ -213,7 +213,7 @@ casen %>%
 casen %>% 
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
-  geom_bar(aes(y = after_stat(count / sum(count))), fill = "#42affa") +
+  geom_bar(aes(y = after_stat(count / sum(count))), fill = "#7C90CC") +
   geom_text(
     aes(
       y     = after_stat(count / sum(count)),
@@ -266,7 +266,7 @@ casen_pob_zona <- casen %>%
 
 # 2. Creamos el gráfico facetado
 ggplot(casen_pob_zona, aes(x = edad, y = porc_pobreza)) +
-  geom_line(color = "#D76D77", linewidth = 1) +
+  geom_line(color = "#1E2240", linewidth = 1) +
   labs(
     title = "Porcentaje de Pobreza por Edad, según Zona Geográfica",
     x = "Edad",

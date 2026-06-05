@@ -40,6 +40,7 @@ El tiempo es un recurso universal, pero su distribución y uso no lo son. Gran p
 ### 1.2 Variables Clave y el "Día Tipo"
 
 En este práctico, nos enfocaremos en las variables de "Día Tipo", que representan un promedio ponderado del tiempo dedicado a una actividad: `(tiempo en día de semana * 5 + tiempo en día de fin de semana * 2) / 7`.
+
 *   `t_to_dt`: Trabajo en la Ocupación (remunerado).
 *   `t_tdnr_dt`: Trabajo Doméstico No Remunerado.
 *   `t_tcnr_dt`: Trabajo de Cuidados No Remunerado.
@@ -116,11 +117,12 @@ knitr::kable(tabla_caso1, digits = 2)
 # Boxplots comparativos para el trabajo doméstico no remunerado
 ggplot(enut_trabajo, aes(x = sexo_factor, y = t_tnr_dt, fill = sexo_factor)) +
   geom_boxplot(outlier.alpha = 0.1) +
+  scale_fill_manual(values = c("#1E2240", "#7C90CC")) +
   labs(
     title = "Distribución de Horas de Trabajo No Remunerado por Sexo",
     x = "Sexo", y = "Horas diarias"
   ) +
-  theme_minimal() + 
+  theme_minimal() +
   theme(legend.position = "none")
 ```
 
@@ -187,14 +189,16 @@ enut_limpio_cat %>%
   ggplot(aes(x = sexo_factor, fill = fct_rev(bs2_factor), weight = fe_cut)) +
   geom_bar(position = "fill", width = 0.6) +
   scale_y_continuous(labels = scales::percent) +
-  scale_fill_viridis_d(option = "viridis", direction = -1) +
+  scale_fill_manual(
+    values = c("#1E2240", "#7C90CC", "#B8B8B8", "#D9A594", "#C2694B")
+  ) +
   labs(
     title = "Satisfacción con el Reparto de Tareas Domésticas por Sexo",
-    x = "Sexo", 
-    y = "Porcentaje de Respuestas", 
+    x = "Sexo",
+    y = "Porcentaje de Respuestas",
     fill = "Nivel de Satisfacción"
   ) +
-  theme_minimal(base_size = 14) +
+  theme_minimal() +
   theme(legend.position = "bottom")
 ```
 
@@ -213,7 +217,7 @@ enut_limpio_cat %>%
 **Pregunta:** ¿Cómo se relaciona la `edad` con el tiempo dedicado al trabajo doméstico (`t_tdnr_dt`)?
 ```{r quant-quant-vis, warning=FALSE}
 ggplot(enut_trabajo, aes(x = edad, y = t_tdnr_dt)) +
-  geom_point(alpha = 0.05, color = "#008080", position = "jitter") +
+  geom_point(alpha = 0.05, color = "#1E2240", position = "jitter") +
   geom_smooth(color = "red", se = FALSE, method = "loess") +
     geom_smooth(color = "blue", se = FALSE, method = "lm") +
   labs(

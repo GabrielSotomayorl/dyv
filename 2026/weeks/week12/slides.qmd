@@ -29,6 +29,17 @@ format:
 -   **Introducir** el concepto estadístico de **independencia** como punto de referencia para evaluar asociaciones.
 -   **Asociar** cada tipo de relación con su **herramienta de análisis numérico y visual** principal.
 
+## Repaso y Conexión {.smaller}
+
+En la clase anterior cerramos la Unidad 4 con herramientas de **visualización**:
+
+-   Los gráficos son **argumentos sociológicos**, no solo ilustraciones (Piketty, Bourdieu).
+-   La **"Gramática de Gráficos"** (`ggplot2`) nos permite construir visualizaciones por capas: `data` → `aes()` → `geom`.
+-   Los **histogramas** y **boxplots** muestran la distribución de una variable cuantitativa.
+-   El **faceting** (`facet_wrap`) permite comparar la misma distribución entre subgrupos.
+
+**Hoy** iniciamos la **Unidad 5**: dejamos el análisis univariado y pasamos a estudiar la *relación entre dos variables*.
+
 
 # 1. De Describir a Relacionar
 
@@ -144,12 +155,13 @@ La visualización confirma la brecha observada en la tabla.
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=5}
 ggplot(enut_trabajo, aes(x = sexo_factor, y = t_tnr_dt, fill = sexo_factor)) +
   geom_boxplot(outlier.alpha = 0.1) +
+  scale_fill_manual(values = c("#1E2240", "#7C90CC")) +
   labs(
     title = "Distribución de Horas de Trabajo No Remunerado por Sexo",
-    x = "Sexo", 
+    x = "Sexo",
     y = "Horas diarias"
   ) +
-  theme_minimal(base_size = 14) + 
+  theme_minimal(base_size = 14) +
   theme(legend.position = "none")
 ```
 
@@ -164,8 +176,8 @@ ggplot(enut_trabajo, aes(x = t_tnr_dt, fill = sexo_factor, color = sexo_factor))
   geom_density(alpha = 0.6) +
   
   # Aplicamos la paleta de colores Viridis (versión discreta, '_d')
-  scale_fill_viridis_d() +
-  scale_color_viridis_d() +
+  scale_fill_manual(values = c("#1E2240", "#7C90CC")) +
+  scale_color_manual(values = c("#1E2240", "#7C90CC")) +
   
   labs(
     title = "Distribución de Horas de Trabajo No Remunerado por Sexo",
@@ -233,7 +245,7 @@ enut_trabajo %>%
  ggplot(aes(x = sexo_factor, fill = fct_rev(bs2_factor), weight = fe_cut)) +
  geom_bar(position = "fill", width = 0.6) +
  scale_y_continuous(labels = scales::percent) +
- scale_fill_viridis_d(option = "viridis", direction = -1) +
+ scale_fill_manual(values = c("#1E2240", "#7C90CC", "#B8B8B8", "#D9A594", "#C2694B")) +
   # --- CORRECCIÓN: Se actualizan los labels del gráfico ---
  labs(
   title = "Satisfacción con el Reparto de Tareas Domésticas por Sexo",
@@ -290,7 +302,7 @@ El gráfico de dispersión nos cuenta una historia más compleja.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=5}
 ggplot(enut_trabajo, aes(x = edad, y = t_tnr_dt)) +
-  geom_point(alpha = 0.05, color="#008080", position = "jitter") +
+  geom_point(alpha = 0.05, color = "#1E2240", position = "jitter") +
   geom_smooth(color="red", se = FALSE, method = "loess") +
   geom_smooth(color = "blue", se = FALSE, method = "lm") +
   labs(

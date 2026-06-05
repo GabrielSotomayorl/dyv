@@ -38,6 +38,17 @@ casen <- casen %>% mutate(pobreza_factor = as_factor(pobreza))
 -   **Introducir** la **"Gramática de Gráficos"** y sus componentes (`data`, `aes`, `geom`).
 -   **Ampliar** el repertorio en `ggplot2` con una herramienta clave para la comparación: **el *faceting***.
 
+## Repaso y Conexión {.smaller}
+
+En la clase anterior completamos la descripción numérica de variables cuantitativas:
+
+-   La **media** como "centro de gravedad" de los datos, sensible a valores atípicos.
+-   La comparación **Media vs. Mediana** como diagnóstico de asimetría: si la media > mediana, la distribución tiene cola a la derecha.
+-   La **desviación estándar** como la "distancia típica" de los datos respecto a la media.
+-   Las **Puntuaciones Z** para comparar observaciones de diferentes distribuciones en una escala universal.
+
+**Hoy** cerramos la Unidad 4 aprendiendo a *mostrar* esas distribuciones de manera efectiva: la visualización no como decoración, sino como argumento.
+
 
 # 1. La Visualización como Argumento Sociológico
 
@@ -148,7 +159,7 @@ trio_enganoso <- trio_enganoso %>% group_by(grupo) %>%
   mutate(valor = scale(valor) * 10 + 75)
 
 ggplot(trio_enganoso, aes(x = valor)) +
-  geom_histogram(fill = "#008080", color = "white", bins = 20) +
+  geom_histogram(fill = "#7C90CC", color = "white", bins = 20) +
   facet_wrap(~grupo, scales = "free_x") +
   labs(title = "El Trío Engañoso: Mismos Estadísticos, Diferentes Formas", x="", y="Frecuencia") +
   theme_minimal(base_size = 14) +
@@ -187,8 +198,8 @@ data_barras <- tibble(
   grupo = c("A", "B", "C"),
   valor = c(85, 90, 100)
 )
-p1 <- ggplot(data_barras, aes(x = grupo, y = valor)) + geom_col(fill = "#008080") + labs(title = "Honesto: Eje Y empieza en 0") + theme_minimal(base_size=14)
-p2 <- ggplot(data_barras, aes(x = grupo, y = valor)) + geom_col(fill = "#D76D77") + coord_cartesian(ylim = c(80, 105)) + labs(title = "Engañoso: Eje Y truncado") + theme_minimal(base_size=14)
+p1 <- ggplot(data_barras, aes(x = grupo, y = valor)) + geom_col(fill = "#7C90CC") + labs(title = "Honesto: Eje Y empieza en 0") + theme_minimal(base_size=14)
+p2 <- ggplot(data_barras, aes(x = grupo, y = valor)) + geom_col(fill = "#C2694B") + coord_cartesian(ylim = c(80, 105)) + labs(title = "Engañoso: Eje Y truncado") + theme_minimal(base_size=14)
 gridExtra::grid.arrange(p1, p2, ncol = 2)
 ```
 En el gráfico de la derecha, la barra C parece 3 o 4 veces más grande que la A, cuando la diferencia real es solo de un ~18%.
@@ -253,7 +264,7 @@ ggplot(data = casen, mapping = aes(x = edad))
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6}
 # Capa 2: Geometría
 ggplot(data = casen, mapping = aes(x = edad)) +
-   geom_histogram(fill = "#40E0D0", color = "white", bins = 30)
+   geom_histogram(fill = "#7C90CC", color = "white", bins = 30)
 ```
 
 ## Mapear vs. Fijar {.smaller}
@@ -336,7 +347,7 @@ Ahora, usemos `facet_wrap()` para comparar la distribución del rendimiento (`mp
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=5}
 ggplot(mtcars, aes(x = mpg)) +
-  geom_histogram(fill = "#008080", color = "white", bins = 5) +
+  geom_histogram(fill = "#7C90CC", color = "white", bins = 5) +
   # La fórmula ~ cyl le dice a ggplot que cree un panel para cada valor de 'cyl'
   facet_wrap(~ cyl, labeller = labeller(cyl = c("4" = "4 Cilindros", "6" = "6 Cilindros", "8" = "8 Cilindros"))) +
   labs(

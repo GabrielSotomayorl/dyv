@@ -29,14 +29,22 @@ format:
 -   **Calcular e interpretar** las medidas de **centro** y **dispersión robustas**: **Mediana**, **Cuartiles** y **Rango Intercuartil (IQR)**.
 -   **Construir e interpretar** el **Resumen de Cinco Números** y su visualización: el **Boxplot**.
 
+## Repaso y Conexión {.smaller}
+
+En la clase anterior describimos **variables categóricas**:
+
+-   Construimos tablas de frecuencias absolutas y relativas con `table()` y `count()`.
+-   Incorporamos **factores de expansión** para estimar proporciones en la población.
+-   Visualizamos la distribución con **gráficos de barras** (`barplot()` y `geom_bar()`).
+
+**Hoy** pasamos a las **variables cuantitativas** (de intervalo o razón), como la edad, los ingresos o los años de escolaridad. Con estas variables, un simple conteo no es suficiente: necesitamos herramientas para describir la **forma**, el **centro** y la **dispersión** de su distribución.
+
 
 # 1. Descripción de Variables Cuantitativas
 
 ## De las Categorías a los Números {.smaller}
 
-En la clase anterior, aprendimos a describir variables categóricas contando casos y mostrando porcentajes (`table`, `count`, `geom_bar`).
-
-Hoy, pasamos a las **variables cuantitativas** (de intervalo o razón), como la edad, los ingresos o los años de escolaridad.
+Pasamos de las variables categóricas a las **variables cuantitativas** (de intervalo o razón), como la edad, los ingresos o los años de escolaridad.
 
 Con estas variables, un simple conteo no es suficiente. Necesitamos herramientas para describir su **distribución**: cómo se reparten los valores a lo largo de un rango numérico.
 
@@ -82,7 +90,7 @@ esi <- readRDS("../../data/esi24.rds")
 esi %>%
   filter(ocup_ref == 1, ing_t_p < 5000000) %>% # Filtramos y acotamos para visualizar mejor
   ggplot(aes(x = ing_t_p, weight = fact_cal_esi)) +
-  geom_histogram(binwidth = 100000, fill = "#D76D77", color = "white") +
+  geom_histogram(binwidth = 100000, fill = "#7C90CC", color = "white") +
   labs(
     title = "Distribución del Ingreso del Trabajo Principal en Chile",
     subtitle = "Se observa una fuerte asimetría a la derecha",
@@ -130,6 +138,7 @@ datos_asimetria <- bind_rows(data_simetrica, data_as_der, data_as_izq)
 
 ggplot(datos_asimetria, aes(x = valor)) +
   geom_histogram(aes(fill = tipo), color = "white", bins = 30, show.legend = FALSE) +
+  scale_fill_manual(values = c("#7C90CC", "#C2694B", "#1E2240")) +
   facet_wrap(~tipo, scales = "free", ncol = 1) +
   theme_minimal(base_size = 12) +
   labs(x = NULL, y = NULL) +
@@ -163,6 +172,7 @@ datos_modalidad <- bind_rows(data_unimodal, data_bimodal)
 
 ggplot(datos_modalidad, aes(x = valor)) +
   geom_histogram(aes(fill = tipo), color = "white", bins = 30, show.legend = FALSE) +
+  scale_fill_manual(values = c("#7C90CC", "#C2694B")) +
   facet_wrap(~tipo, scales = "free_x", ncol = 1) +
   theme_minimal(base_size = 12) +
   labs(x = NULL, y = NULL) +
@@ -317,7 +327,7 @@ set.seed(123)
 df_boxplot <- data.frame(y = c(rnorm(100, 50, 10), 10, 90, 95))
 
 ggplot(df_boxplot, aes(x = "", y = y)) +
-  geom_boxplot(fill = "#D76D77", width = 0.22, alpha = 0.85, linewidth = 0.8, outlier.size = 2.8) +
+  geom_boxplot(fill = "#7C90CC", width = 0.22, alpha = 0.85, linewidth = 0.8, outlier.size = 2.8) +
   stat_summary(fun = "mean", geom = "point", shape = 23, size = 4.5, fill = "white") +
   annotate("text", x = 1.25, y = 60, label = "Tercer Cuartil (Q3)", hjust = 0, size = 5.2) +
   annotate("text", x = 1.25, y = 50, label = "Mediana (Q2)", hjust = 0, size = 5.2) +
@@ -345,7 +355,7 @@ Apliquemos el boxplot a la variable de ingreso de la ESI 2024. Este gráfico nos
 esi %>%
   filter(ocup_ref == 1) %>%
   ggplot(aes(x = "", y = ing_t_p)) +
-  geom_boxplot(fill = "#3A1C71", outlier.color = "#D76D77", outlier.alpha = 0.3) +
+  geom_boxplot(fill = "#1E2240", outlier.color = "#7C90CC", outlier.alpha = 0.3) +
   scale_y_log10(labels = scales::dollar_format(prefix = "$", big.mark = ".")) +
   coord_flip() +
   labs(

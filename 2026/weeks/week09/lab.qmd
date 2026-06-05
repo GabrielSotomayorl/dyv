@@ -42,6 +42,7 @@ Nos centraremos en la variable `ing_t_p` (ingreso del trabajo principal), un eje
 **Paso 1: Organiza tu entorno de trabajo**
 
 Antes de empezar, asegúrate de tener una buena organización.
+
 1.  **Crea un Proyecto de RStudio** para este curso o unidad si aún no lo tienes.
 2.  Dentro de tu proyecto, **crea una carpeta llamada `datos`**.
 
@@ -91,7 +92,7 @@ hist(esi_trabajo$ing_t_p,
      main = "Histograma de Ingreso del Trabajo Principal (R Base)",
      xlab = "Ingreso Mensual ($ CLP)",
      ylab = "Frecuencia (conteo de la muestra)",
-     col = "#D76D77",
+     col = "#7C90CC",
      breaks = 100) # 'breaks' controla el número de barras
 ```
 
@@ -106,7 +107,7 @@ hist(esi_trabajo$ing_t_p,
 esi_trabajo %>%
   filter(ing_t_p < 5000000) %>%
   ggplot(aes(x = ing_t_p, weight = fact_cal_esi)) +
-  geom_histogram(binwidth = 100000, fill = "#D76D77", color = "white") +
+  geom_histogram(binwidth = 100000, fill = "#7C90CC", color = "white") +
   labs(
     title = "Distribución del Ingreso del Trabajo Principal (acotado a < $5M)",
     subtitle = "Fuerte asimetría a la derecha, con la mayoría de los casos bajo $1M",
@@ -205,10 +206,10 @@ knitr::kable(
 
 ```{r boxplot-ingreso, message=FALSE, warning=FALSE}
 esi_trabajo %>%
-  ggplot(aes(x = "", y = ing_t_p, weight = fact_cal_esi )) + # Eje X vacío para un solo boxplot
-  geom_boxplot(fill = "#3A1C71", outlier.alpha = 0.1) +
+  ggplot(aes(x = "", y = ing_t_p)) +
+  geom_boxplot(fill = "#1E2240", outlier.alpha = 0.1) +
   labs(
-    title = "Boxplot del Ingreso del Trabajo Principal (Muestra sin ponderar)",
+    title = "Boxplot del Ingreso del Trabajo Principal",
     y = "Ingreso Mensual ($ CLP)",
     x = ""
   ) +
@@ -224,12 +225,11 @@ Para solucionarlo, usamos una **escala logarítmica** en el eje Y para "comprimi
 ```{r boxplot-ingreso-log, message=FALSE, warning=FALSE}
 # Creamos el boxplot con escala logarítmica y lo guardamos en un objeto
 boxplot_log <- esi_trabajo %>%
-  ggplot(aes(x = "", y = ing_t_p, weight = fact_cal_esi)) +
-  geom_boxplot(fill = "#3A1C71", outlier.alpha = 0.1) +
+  ggplot(aes(x = "", y = ing_t_p)) +
+  geom_boxplot(fill = "#1E2240", outlier.alpha = 0.1) +
   scale_y_log10(labels = scales::dollar_format(prefix = "$", big.mark = ".")) +
   labs(
     title = "Boxplot del Ingreso (Eje Y Logarítmico)",
-    subtitle = "Visualización de la muestra sin ponderar",
     y = "Ingreso Mensual ($ CLP, escala log)",
     x = ""
   ) +

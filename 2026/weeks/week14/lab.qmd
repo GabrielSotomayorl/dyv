@@ -41,6 +41,7 @@ Como siempre, asegúrate de estar trabajando dentro de tu **Proyecto de RStudio*
 
 **Paso 2: Descarga la Base de Datos**
 Descarga la base de datos de la ENUT 2023 desde el siguiente enlace y guarda el archivo `.zip` en tu carpeta `datos`:
+
 -   **Enlace de descarga:** [Base de datos ENUT 2023 (formato R)](https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7)
 
 **Paso 3: Carga de Paquetes y Datos**
@@ -112,15 +113,15 @@ ggplot(enut_cuant, aes(x = edad, y = t_tdnr_dt)) +
   # Capa 1: Los Puntos 
   # Usamos alpha = 0.1 para manejar el 'overplotting' (muchos puntos encimados).
   # Esto hace que los puntos sean semitransparentes: zonas más oscuras indican mayor densidad de datos.
-  geom_point(alpha = 0.1, color = "#2c3e50") +
+  geom_point(alpha = 0.1, color = "#1E2240") +
   
   # Capa 2: Tendencia Lineal 
   # method = "lm" fuerza una línea recta (Linear Model)
-  geom_smooth(method = "lm", color = "#e74c3c", se = FALSE, linewidth = 1) +
+  geom_smooth(method = "lm", color = "#C2694B", se = FALSE, linewidth = 1) +
   
   # Capa 3: Tendencia Local
   # method = "loess" se adapta a las curvas de los datos
-  geom_smooth(method = "loess", color = "#3498db", se = FALSE, linetype = "dashed", linewidth = 1) +
+  geom_smooth(method = "loess", color = "#4A8B8A", se = FALSE, linetype = "dashed", linewidth = 1) +
   
   # Etiquetas y Estética
   labs(
@@ -134,6 +135,7 @@ ggplot(enut_cuant, aes(x = edad, y = t_tdnr_dt)) +
 
 ### Interpretación 
 Observa las diferencias entre las líneas de tendencia:
+
 1.  **Línea Roja (Lineal):** Muestra una pendiente positiva suave. Nos dice que, *en general*, a mayor edad, mayor trabajo doméstico.
 2.  **Línea Azul (Loess):** Nos cuenta una historia más rica. El trabajo doméstico aumenta rápidamente entre los 15 y los 30 años (independencia, formación de hogares), se mantiene alto y estable durante la adultez, y comienza a decaer levemente en la vejez avanzada.
 
@@ -159,6 +161,7 @@ round(correlacion_edad_tdnr, 3)
 
 **Interpretación del Resultado:**
 El resultado es **0.204**. ¿Cómo leemos esto?
+
 *   **Signo (+):** Es positivo. Confirma que existe una tendencia al aumento del trabajo doméstico con la edad.
 *   **Magnitud (0.2):** Es una correlación **baja a moderada**.
 *   **Sociológicamente:** Esto indica que, aunque la edad influye, **no determina por sí sola** cuánto lavas o cocinas. Hay mucha variabilidad (dispersión) en los datos que la edad no explica (como el género, el tamaño del hogar, o la clase social).
@@ -202,7 +205,7 @@ Podemos visualizar la intensidad y dirección de todas las correlaciones simult�
 
 ```{r corrr-plot}
 matriz_tidy %>%
-  rplot(colors = c("#e74c3c", "white", "#3498db")) + # Rojo (neg) - Blanco - Azul (pos)
+  rplot(colors = c("#C2694B", "white", "#1E2240")) + # Terracota (neg) - Blanco - Azul noche (pos)
   labs(title = "Mapa de Correlaciones: Uso del Tiempo")
 ```
 

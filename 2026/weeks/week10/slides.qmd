@@ -30,12 +30,23 @@ format:
 * **Interpretar** los **estadísticos de forma** (asimetría y curtosis) para caracterizar la forma de una distribución.
 * **Aplicar la estandarización** mediante **Puntuaciones Z**, comprendiendo su utilidad para comparar valores entre diferentes escalas o variables.
 
+## Repaso y Conexión {.smaller}
+
+En la clase anterior describimos variables cuantitativas con **medidas robustas**:
+
+-   El **histograma** como herramienta para ver la *forma* de una distribución (simetría, picos, colas).
+-   La **mediana** como medida de centro robusta: el valor que divide la distribución exactamente en dos mitades.
+-   Los **cuartiles (Q1, Q3)** y el **Rango Intercuartil (IQR)** como medidas de dispersión robustas.
+-   El **boxplot** como visualización compacta del resumen de cinco números.
+
+**Hoy** introducimos las medidas **no robustas**: la **media** y la **desviación estándar**, que usan la información de todos los datos y son la base de la estadística inferencial.
+
 
 # 1. La Media y su Sensibilidad
 
 ## ¿Por qué Necesitamos la Media? {.smaller}
 
-En la clase anterior, vimos que la **mediana** es una excelente medida de centro, especialmente para distribuciones asimétricas, porque es **robusta**.
+La **mediana** es robusta, pero la **media (x̄)** posee propiedades matemáticas que la convierten en la piedra angular de la estadística más avanzada (correlación, regresión, análisis de varianza).
 
 **Entonces, ¿por qué necesitamos otra medida de centro?**
 
@@ -105,11 +116,11 @@ stats <- datos_sim %>%
 
 # Gráfico
 ggplot(datos_sim, aes(x = valor)) +
-  geom_histogram(aes(y = after_stat(density)), fill = "#008080", color = "white", bins = 40, alpha = 0.7) +
-  geom_density(color = "#008080", size=1.2) +
+  geom_histogram(aes(y = after_stat(density)), fill = "#7C90CC", color = "white", bins = 40, alpha = 0.7) +
+  geom_density(color = "#1E2240", size=1.2) +
   geom_vline(data = stats, aes(xintercept = media, color = "Media"), linetype = "dashed", size = 1.2) +
   geom_vline(data = stats, aes(xintercept = mediana, color = "Mediana"), linetype = "solid", size = 1.2) +
-  scale_color_manual(name = "Medidas de Centro", values = c("Media" = "red", "Mediana" = "blue")) +
+  scale_color_manual(name = "Medidas de Centro", values = c("Media" = "#C2694B", "Mediana" = "#1E2240")) +
   facet_wrap(~tipo, scales = "free") +
   labs(title = "Relación entre Media y Mediana según la Forma de la Distribución", x="", y="Densidad") +
   theme_minimal(base_size = 12) +
@@ -141,11 +152,11 @@ stats_horas <- esi_trabajo %>%
 
 # Gráfico
 ggplot(esi_trabajo, aes(x = efectivas, weight = fact_cal_esi)) +
-  geom_histogram(aes(y = after_stat(density)), binwidth = 2, fill = "#008080", color = "white", alpha = 0.7) +
-  geom_density(color = "#008080", size = 1.2, na.rm = TRUE) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 2, fill = "#7C90CC", color = "white", alpha = 0.7) +
+  geom_density(color = "#1E2240", size = 1.2, na.rm = TRUE) +
   geom_vline(data = stats_horas, aes(xintercept = media, color = "Media"), linetype = "dashed", size = 1.2) +
   geom_vline(data = stats_horas, aes(xintercept = mediana, color = "Mediana"), linetype = "solid", size = 1.2) +
-  scale_color_manual(name = "Medidas de Centro", values = c("Media" = "red", "Mediana" = "blue")) +
+  scale_color_manual(name = "Medidas de Centro", values = c("Media" = "#C2694B", "Mediana" = "#1E2240")) +
   labs(
     title = "Distribución de Horas de Trabajo Semanales Efectivas",
     subtitle = paste0("La Media (", round(stats_horas$media, 1), ") es marcadamente menor que la Mediana (", round(stats_horas$mediana, 1), "), indicando una clara asimetría a la izquierda"),
@@ -173,11 +184,11 @@ stats_edad <- esi_trabajo %>%
 
 # Gráfico
 ggplot(esi_trabajo, aes(x = edad, weight = fact_cal_esi)) +
-  geom_histogram(aes(y = after_stat(density)), binwidth = 1, fill = "#42affa", color = "white", alpha = 0.8) +
-  geom_density(color = "#42affa", size = 1.2, na.rm = TRUE, adjust=1.5) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 1, fill = "#7C90CC", color = "white", alpha = 0.8) +
+  geom_density(color = "#1E2240", size = 1.2, na.rm = TRUE, adjust=1.5) +
   geom_vline(data = stats_edad, aes(xintercept = media, color = "Media"), linetype = "dashed", size = 1.2) +
   geom_vline(data = stats_edad, aes(xintercept = mediana, color = "Mediana"), linetype = "solid", size = 1.2) +
-  scale_color_manual(name = "Medidas de Centro", values = c("Media" = "red", "Mediana" = "darkblue")) +
+  scale_color_manual(name = "Medidas de Centro", values = c("Media" = "#C2694B", "Mediana" = "#1E2240")) +
   labs(
     title = "Distribución de la Edad en la Población Ocupada",
     subtitle = paste0("La Media (", round(stats_edad$media, 1), ") es ligeramente mayor que la Mediana (", round(stats_edad$mediana, 1), "), sugiriendo una leve asimetría a la derecha"),
@@ -212,7 +223,7 @@ media_val <- mean(datos_desv$valor)
 
 ggplot(datos_desv, aes(x = valor, y = 0)) +
   geom_segment(aes(xend = media_val, yend = 0), color = "grey", arrow = arrow(length = unit(0.2, "cm"))) +
-  geom_point(size = 4, color = "#008080") +
+  geom_point(size = 4, color = "#1E2240") +
   geom_vline(xintercept = media_val, color = "red", linetype = "dashed", size = 1) +
   annotate("text", x = media_val, y = 0.05, label = "Media (x̄)", color = "red", size=5) +
   annotate("text", x = 2, y = -0.015, label = "(xᵢ - x̄)", size=5) +
@@ -296,7 +307,7 @@ datos_sim <- bind_rows(simetrica, as_derecha, as_izquierda) %>%
 
 # Gráfico
 ggplot(datos_sim, aes(x = valor)) +
-  geom_density(fill = "#008080", color = "#008080", alpha = 0.7, size = 1.2) +
+  geom_density(fill = "#7C90CC", color = "#1E2240", alpha = 0.7, size = 1.2) +
   facet_wrap(~tipo, scales = "free") +
   labs(title = "Visualización de la Asimetría", x = "", y = "Densidad") +
   theme_minimal(base_size = 14) +

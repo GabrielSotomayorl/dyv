@@ -140,7 +140,7 @@ barplot(
   main = "Distribución de la Muestra por Condición de Actividad",
   xlab = "Condición de Actividad",
   ylab = "Frecuencia (conteo de la muestra)",
-  col = "#D76D77",
+  col = "#7C90CC",
   ylim = c(0, 50000)
 )
 ```
@@ -159,7 +159,7 @@ barplot(
 ene %>%
   filter(edad >= 15) %>%
   ggplot(aes(x = condicion_actividad, weight = fact_cal)) +
-  geom_bar(fill = "#3A1C71") +
+  geom_bar(fill = "#1E2240") +
   labs(
     title = "Estimación de la Condición de Actividad en la Población",
     subtitle = "Trimestre Febrero-Marzo-Abril 2026",

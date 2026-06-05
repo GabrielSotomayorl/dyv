@@ -36,6 +36,7 @@ El objetivo de este práctico es aplicar las medidas de tendencia central y disp
 ### 1.1 La Encuesta Suplementaria de Ingresos (ESI) 2024
 
 Continuaremos trabajando con la **ESI 2024**. En este práctico, analizaremos dos variables cuantitativas clave:
+
 1.  `ing_t_p`: El **ingreso del trabajo principal**, una variable con fuerte asimetría positiva.
 2.  `efectivas`: Las **horas efectivas semanales trabajadas**, una variable con una ligera asimetría negativa.
 
@@ -109,9 +110,10 @@ esi_trabajo %>%
     mediana_ingreso = median(ing_t_p, na.rm = TRUE)
   )
 ```
-**Interpretación:**
--   **Horas trabajadas:** La media (`r round(mean(esi_trabajo$efectivas, na.rm = T),1)`) es menor que la mediana (`r round(median(esi_trabajo$efectivas, na.rm = T),1)`), sugiriendo una **asimetría a la izquierda**.
--   **Ingreso:** La media (`r format(round(mean(esi_trabajo$ing_t_p, na.rm = T)), big.mark = ",")`) es mucho mayor que la mediana (`r format(round(median(esi_trabajo$ing_t_p, na.rm = T)), big.mark = ",")`), una señal clara de **asimetría a la derecha**.
+**Interpretación:** En el histograma de horas, la línea de la media (roja) aparece a la izquierda de la mediana (azul), lo que señala **asimetría a la izquierda**. En el gráfico de densidad del ingreso ocurre lo contrario: la media queda muy a la derecha de la mediana, señal de **asimetría a la derecha** causada por ingresos extremadamente altos en la cola superior. El gráfico de ingresos está acotado al percentil 99 para poder visualizar la distribución central; los valores más extremos quedan fuera.
+
+-   **Horas trabajadas:** La media (`r round(mean(esi_trabajo$efectivas, na.rm = T),1)`) es menor que la mediana (`r round(median(esi_trabajo$efectivas, na.rm = T),1)`), lo que confirma la **asimetría a la izquierda**.
+-   **Ingreso:** La media (`r format(round(mean(esi_trabajo$ing_t_p, na.rm = T)), big.mark = ".")`) es mucho mayor que la mediana (`r format(round(median(esi_trabajo$ing_t_p, na.rm = T)), big.mark = ".")`), confirmando la **asimetría a la derecha**.
 
 
 ```{r warning=FALSE, message=FALSE}
@@ -120,44 +122,37 @@ mean_efectivas <- mean(esi_trabajo$efectivas, na.rm = TRUE)
 median_efectivas <- median(esi_trabajo$efectivas, na.rm = TRUE)
 
 ggplot(esi_trabajo, aes(x = efectivas)) +
-geom_histogram(fill = "lightblue", color = "white", alpha = 0.7) +
-geom_vline(aes(xintercept = mean_efectivas, color = "Media"), linetype = "dashed") +
-geom_vline(aes(xintercept = median_efectivas, color = "Mediana"), linetype = "solid") +
-scale_color_manual(name = "Estadístico", values = c("Media" = "red", "Mediana" = "blue")) +
-labs(
-title = "Distribución de Horas Efectivas Trabajadas",
-subtitle = paste0(
-"Media: ", round(mean_efectivas, 1),
-" | Mediana: ", round(median_efectivas, 1)
-),
-x = "Horas Efectivas",
-y = "Frecuencia"
-) +
-theme_minimal()
+  geom_histogram(fill = "#7C90CC", color = "white") +
+  geom_vline(aes(xintercept = mean_efectivas, color = "Media"), linetype = "dashed") +
+  geom_vline(aes(xintercept = median_efectivas, color = "Mediana")) +
+  scale_color_manual(name = "Estadístico", values = c("Media" = "#C2694B", "Mediana" = "#1E2240")) +
+  labs(
+    title = "Distribución de Horas Efectivas Trabajadas",
+    x = "Horas Efectivas",
+    y = "Frecuencia"
+  ) +
+  theme_minimal()
 ```
 
 ```{r warning=FALSE}
-# Plot para 'ing_t_p' (ingreso del trabajo principal)
+# Plot para 'ing_t_p' (ingreso del trabajo principal, acotado al percentil 99)
 mean_ing_t_p <- mean(esi_trabajo$ing_t_p, na.rm = TRUE)
 median_ing_t_p <- median(esi_trabajo$ing_t_p, na.rm = TRUE)
 
-ggplot(esi_trabajo, aes(x = ing_t_p)) +
-geom_density(fill = "lightgreen", color = "darkgreen", alpha = 0.7) +
-geom_vline(aes(xintercept = mean_ing_t_p, color = "Media"), linetype = "dashed") +
-geom_vline(aes(xintercept = median_ing_t_p, color = "Mediana"), linetype = "solid") +
-scale_color_manual(name = "Estadístico", values = c("Media" = "red", "Mediana" = "blue")) +
-scale_x_continuous(labels = scales::label_dollar(prefix = "$", big.mark = ",", decimal.mark = ".")) +
-labs(
-title = "Distribución del Ingreso del Trabajo Principal",
-subtitle = paste0(
-"Media: ", format(round(mean_ing_t_p), big.mark = ","),
-" | Mediana: ", format(round(median_ing_t_p), big.mark = ",")
-),
-x = "Ingreso del Trabajo Principal",
-y = "Densidad"
-) +
-theme_minimal() +
-coord_cartesian(xlim = c(0, quantile(esi_trabajo$ing_t_p, 0.99, na.rm = TRUE) * 1.05)) # Ajusta el límite para visibilidad
+esi_trabajo %>%
+  filter(ing_t_p < quantile(ing_t_p, 0.99, na.rm = TRUE)) %>%
+  ggplot(aes(x = ing_t_p)) +
+  geom_density(fill = "#7C90CC", color = "#1E2240", alpha = 0.7) +
+  geom_vline(aes(xintercept = mean_ing_t_p, color = "Media"), linetype = "dashed") +
+  geom_vline(aes(xintercept = median_ing_t_p, color = "Mediana")) +
+  scale_color_manual(name = "Estadístico", values = c("Media" = "#C2694B", "Mediana" = "#1E2240")) +
+  scale_x_continuous(labels = scales::label_dollar(prefix = "$", big.mark = ".")) +
+  labs(
+    title = "Distribución del Ingreso del Trabajo Principal (hasta percentil 99)",
+    x = "Ingreso del Trabajo Principal",
+    y = "Densidad"
+  ) +
+  theme_minimal()
 ```
 
 

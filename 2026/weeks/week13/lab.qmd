@@ -45,6 +45,7 @@ Como siempre, asegúrate de estar trabajando dentro de tu **Proyecto de RStudio*
 
 **Paso 2: Descarga la Base de Datos**
 Descarga la base de datos de la ENUT 2023 desde el siguiente enlace y guarda el archivo `.zip` en tu carpeta `datos`:
+
 -   **Enlace de descarga:** [Base de datos ENUT 2023 (formato R)](https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7)
 
 **Paso 3: Carga de Paquetes y Datos**
@@ -222,12 +223,12 @@ enut_practico %>%
   count(p_tcnr_dt_factor, cae_factor, wt = fe_cut, name = "n_pond") %>%
   pivot_wider(names_from = cae_factor, values_from = n_pond) %>%
 
-  adorn_totals("row") %>% 
+  adorn_totals("row") %>%
   adorn_percentages("col") %>%
   adorn_pct_formatting(digits = 1) %>%
   adorn_ns("front") %>%
-  
-  kable(caption = "Tabla 1: Participación en Cuidados por Condición de Actividad (Hombres)") %>%
+
+  kable(caption = "Tabla 2: Participación en Cuidados por Condición de Actividad (Mujeres)") %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE)
 ```
 
@@ -244,7 +245,7 @@ enut_practico %>%
   geom_bar(position = "fill") +
   scale_y_continuous(labels = scales::percent) +
   # Añadimos una paleta de colores más atractiva
-  scale_fill_viridis_d(name = "Participa en Cuidados") +
+  scale_fill_manual(name = "Participa en Cuidados", values = c("#1E2240", "#7C90CC")) +
   labs(
     title = "Participación en Cuidados por Condición de Actividad, según Sexo",
     x = "Condición de Actividad",

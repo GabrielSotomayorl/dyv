@@ -328,12 +328,12 @@ escala <- 10
 ggplot(fecundidad_chile, aes(x = anio)) +
   geom_line(aes(y = tasa_bruta_natalidad, color = "Tasa Bruta de Natalidad"), linewidth = 1.2) +
   geom_line(aes(y = tasa_global_fecundidad * escala, color = "Tasa Global de Fecundidad"), linewidth = 1.2) +
-  geom_hline(yintercept = 2.1 * escala, linetype = "dashed", color = "red", linewidth = 1) +
+  geom_hline(yintercept = 2.1 * escala, linetype = "dashed", color = "#C2694B", linewidth = 1) +
   scale_y_continuous(
     name = "Tasa Bruta de Natalidad (nacidos por 1.000 hab.)",
     sec.axis = sec_axis(~ . / escala, name = "Tasa Global de Fecundidad (hijos por mujer)")
   ) +
-  scale_color_manual(values = c("Tasa Bruta de Natalidad" = "#3A1C71", "Tasa Global de Fecundidad" = "#D76D77")) +
+  scale_color_manual(values = c("Tasa Bruta de Natalidad" = "#1E2240", "Tasa Global de Fecundidad" = "#7C90CC")) +
   labs(
     title = "Caída de la Natalidad y Fecundidad en Chile (1992-2024)",
     subtitle = "La línea roja punteada marca la tasa de reemplazo poblacional (2.1 hijos por mujer)",
@@ -346,14 +346,14 @@ ggplot(fecundidad_chile, aes(x = anio)) +
   theme(
     legend.position = "bottom",
     plot.title = element_text(face = "bold", size = 18),
-    axis.title.y.right = element_text(color = "#D76D77"),
-    axis.line.y.right = element_line(color = "#D76D77"),
-    axis.ticks.y.right = element_line(color = "#D76D77"),
-    axis.text.y.right = element_text(color = "#D76D77"),
-    axis.title.y.left = element_text(color = "#3A1C71"),
-    axis.line.y.left = element_line(color = "#3A1C71"),
-    axis.ticks.y.left = element_line(color = "#3A1C71"),
-    axis.text.y.left = element_text(color = "#3A1C71")
+    axis.title.y.right = element_text(color = "#7C90CC"),
+    axis.line.y.right = element_line(color = "#7C90CC"),
+    axis.ticks.y.right = element_line(color = "#7C90CC"),
+    axis.text.y.right = element_text(color = "#7C90CC"),
+    axis.title.y.left = element_text(color = "#1E2240"),
+    axis.line.y.left = element_line(color = "#1E2240"),
+    axis.ticks.y.left = element_line(color = "#1E2240"),
+    axis.text.y.left = element_text(color = "#1E2240")
   )
 ```
 
@@ -401,7 +401,7 @@ datos_grafico_final <- ene %>%
 
 # Gráfico mejorado
 ggplot(datos_grafico_final, aes(y = n, x = condicion_actividad)) +
-  geom_col(fill = "#D76D77") +
+  geom_col(fill = "#7C90CC") +
   labs(
     title = "Distribución de la Condición de Actividad",
     subtitle = "Trimestre Febrero-Marzo-Abril 2026",
@@ -439,7 +439,7 @@ datos_grafico_final <- ene %>%
 
 # Gráfico mejorado
 ggplot(datos_grafico_final, aes(x = fct_reorder(condicion_actividad, -porcentaje), y = porcentaje)) +
-  geom_col(fill = "#D76D77", width = 0.7) +
+  geom_col(fill = "#7C90CC", width = 0.7) +
   geom_text(aes(label = paste0(round(porcentaje, 1), "%")), vjust = -0.5, size = 5, fontface = "bold") +
   labs(
     title = "Más de la mitad de la población mayor de 15 años está ocupada",

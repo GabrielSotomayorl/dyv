@@ -30,6 +30,17 @@ format:
 -   **Clasificar** variables según su función en un modelo (independiente, dependiente).
 -   **Distinguir** entre los cuatro **niveles de medición** (nominal, ordinal, de intervalo, de razón) y comprender sus implicancias.
 
+## Repaso de la Clase Anterior {.smaller}
+
+En la sesión anterior abordamos la estadística como herramienta sociológica:
+
+-   **La cuantificación no es neutra:** medir implica decisiones teóricas sobre qué propiedades de la realidad social son importantes y cómo representarlas numéricamente.
+-   **La reflexividad** exige ser conscientes de cómo nuestra posición como investigadores/as afecta las preguntas que hacemos y cómo interpretamos los datos.
+-   **Vimos ejemplos concretos:** Durkheim usó tasas de suicidio para hacer visible la integración social; Bourdieu y Piketty usaron datos para argumentar sobre la desigualdad.
+-   **Primer contacto con R:** aprendimos a crear objetos y aplicar funciones (`mean()`, `summary()`) para explorar un vector de datos.
+
+**Hoy:** damos el siguiente paso y vemos cómo pasar de un concepto teórico a una variable medible.
+
 
 # 1. Del Concepto al Indicador
 
@@ -83,7 +94,7 @@ digraph G {
   node [shape=box, style=solid, fontcolor=black, fontsize=18];
 
   // Definición de Nodos
-  concepto [label="Concepto\n(Idea abstracta, ej. Bienestar Social)", shape=ellipse, style=filled, fillcolor="#008080", fontcolor=white];
+  concepto [label="Concepto\n(Idea abstracta, ej. Bienestar Social)", shape=ellipse, style=filled, fillcolor="#7C90CC", fontcolor=white];
   dimension [label="Dimensión\n(Faceta del concepto, ej. Bienestar Económico)"];
   subdimension [label="Sub-dimensión\n(Aspecto específico, ej. Estabilidad de Ingresos)"];
   indicador [label="Indicador\n(Observación concreta, ej. Pregunta de encuesta)"];

@@ -172,7 +172,7 @@ summary(elpi_completa$indice_bienestar)
 hist(elpi_completa$indice_bienestar,
      main = "Distribución del Índice de Bienestar (ELPI 2024)",
      xlab = "Puntaje Promedio (1-7)",
-     col = "#008080")
+     col = "#7C90CC")
 ```
 
 **Interpretación:** El `summary` nos muestra la distribución del índice. La mediana y la media nos permiten ver si la distribución está centrada o si hay asimetría. El histograma revela visualmente la forma de la distribución del bienestar subjetivo en esta cohorte de adolescentes chilenos.

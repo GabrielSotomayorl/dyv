@@ -30,6 +30,17 @@ format:
 -   **Discutir** las **limitaciones** de la correlación (outliers, no linealidad, causalidad).
 -   **Concluir** el curso conectando la estadística descriptiva con la **incertidumbre del muestreo** y el rol de la **probabilidad**.
 
+## Repaso y Conexión {.smaller}
+
+En la clase anterior dominamos el **análisis categórico bivariado**:
+
+-   Las **tablas de contingencia** muestran la distribución conjunta de dos variables categóricas.
+-   La regla de oro: **calcular porcentajes en la dirección de la variable explicativa** y comparar en la opuesta.
+-   El **control por una tercera variable (Z)** permite verificar si una asociación es espuria, se mantiene, o se especifica según el grupo.
+-   En R: `count()` + `pivot_wider()` + `janitor::adorn_*()` para tablas ponderadas; `facet_wrap()` para el control visual.
+
+**Hoy** cerramos el análisis bivariado con el caso **Cuantitativa → Cuantitativa** e introducimos la correlación de Pearson como herramienta de síntesis.
+
 
 # 1. El Mapa del Análisis Bivariado: Síntesis Visual
 
@@ -71,9 +82,9 @@ datos_cov <- tibble(x = rnorm(50), y = x + rnorm(50, 0, 0.5))
 mean_x <- mean(datos_cov$x)
 mean_y <- mean(datos_cov$y)
 ggplot(datos_cov, aes(x, y)) +
-  geom_point(size=3, color="#008080") +
-  geom_vline(xintercept = mean_x, color = "red", linetype = "dashed") +
-  geom_hline(yintercept = mean_y, color = "red", linetype = "dashed") +
+  geom_point(size=3, color="#1E2240") +
+  geom_vline(xintercept = mean_x, color = "#C2694B", linetype = "dashed") +
+  geom_hline(yintercept = mean_y, color = "#C2694B", linetype = "dashed") +
   annotate("text", x = 2, y = 2, label = "Cuadrante I (+, +)", color = "darkgreen", size=6) +
   annotate("text", x = -1.5, y = 2, label = "Cuadrante II (-, +)", color = "darkred", size=6) +
   annotate("text", x = -1.5, y = -2, label = "Cuadrante III (-, -)", color = "darkgreen", size=6) +
@@ -150,8 +161,8 @@ datos_neg099 <- crear_datos(100, -0.99)
 crear_grafico <- function(data, title) {
   ggplot(data, aes(x = x, y = y)) + 
     geom_point() + 
-    geom_vline(xintercept = mean(data$x), color = "red", linetype = "dotted") +  # Línea vertical para la media de x
-    geom_hline(yintercept = mean(data$y), color = "red", linetype = "dotted") +  # Línea horizontal para la media de y
+    geom_vline(xintercept = mean(data$x), color = "#C2694B", linetype = "dotted") +  # Línea vertical para la media de x
+    geom_hline(yintercept = mean(data$y), color = "#C2694B", linetype = "dotted") +  # Línea horizontal para la media de y
     labs(title = title) + 
     theme_minimal()
 }
@@ -207,8 +218,8 @@ datos_esp <- tibble(
   ahogamientos = temperatura * 0.2 + rnorm(260, 0, 3)
 )
 ggplot(datos_esp, aes(x = helados, y = ahogamientos)) +
-  geom_point(color = "#008080", alpha=0.6) +
-  geom_smooth(method="lm", color="red", se=FALSE) +
+  geom_point(color = "#1E2240", alpha=0.6) +
+  geom_smooth(method="lm", color="#C2694B", se=FALSE) +
   labs(title="Asociación Positiva: Venta de Helados vs. Ahogamientos",
        subtitle="Pero la causa común es la temperatura") +
   theme_minimal(base_size=16)
@@ -259,10 +270,10 @@ ggplot(datos_simulados, aes(x = x, y = y)) +
   geom_point(alpha = 0.6, color = "grey40", size = 2) +
   
   # A. Lo que ve Pearson (Ajuste Lineal - Rojo)
-  geom_smooth(method = "lm", se = FALSE, color = "#D55E00", linetype = "dashed", linewidth = 1.5) +
+  geom_smooth(method = "lm", se = FALSE, color = "#C2694B", linetype = "dashed", linewidth = 1.5) +
   
   # B. La relación real (Ajuste No Lineal - Azul Verdoso)
-  geom_smooth(method = "loess", se = FALSE, color = "#009E73", linewidth = 1.5) +
+  geom_smooth(method = "loess", se = FALSE, color = "#4A8B8A", linewidth = 1.5) +
   
   # Etiquetas y Estética
   labs(
@@ -275,7 +286,7 @@ ggplot(datos_simulados, aes(x = x, y = y)) +
   theme_minimal(base_size = 16) +
   theme(
     plot.title = element_text(face = "bold"),
-    plot.subtitle = element_text(color = "#D55E00", face = "bold")
+    plot.subtitle = element_text(color = "#C2694B", face = "bold")
   )
 ```
 
