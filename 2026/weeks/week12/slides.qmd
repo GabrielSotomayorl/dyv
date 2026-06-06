@@ -3,8 +3,8 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 12<br/> Introducción al Análisis Bivariado y Tipos de Asociación</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 02 November 2026
-date-meta: 02 November 2026
+date: 09 November 2026
+date-meta: 09 November 2026
 date-format: "DD MMM YYYY"
 toc: true
 toc-depth: 1
@@ -121,9 +121,7 @@ library(knitr)
 library(kableExtra)
 library(Hmisc)
 # Carga de ENUT (asumiendo que ya se cargó en un chunk anterior)
-url_enut <- "https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7"
-archivo_interno <- "250403-ii-enut-bdd-r-v2.RDS"
-enut <- rio::import(url_enut, which = archivo_interno)
+enut <- readRDS("../../data/enut.rds")
 
 # Limpieza y preparación
 enut_trabajo <- enut %>%

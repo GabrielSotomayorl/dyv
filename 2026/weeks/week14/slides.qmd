@@ -3,8 +3,8 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 14<br/> Síntesis Bivariada y Medidas de Asociación</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 16 November 2026
-date-meta: 16 November 2026
+date: 23 November 2026
+date-meta: 23 November 2026
 date-format: "DD MMM YYYY"
 toc: true
 toc-depth: 1
@@ -28,6 +28,7 @@ format:
 -   **Introducir** el coeficiente de **Correlación de Pearson (r)** para cuantificar la fuerza y dirección de una relación lineal.
 -   **Desglosar** el concepto de **covarianza** como el paso previo a la correlación.
 -   **Discutir** las **limitaciones** de la correlación (outliers, no linealidad, causalidad).
+-   **Introducir** la **Correlación de Spearman (ρ)** como alternativa robusta para variables ordinales y relaciones no lineales.
 -   **Concluir** el curso conectando la estadística descriptiva con la **incertidumbre del muestreo** y el rol de la **probabilidad**.
 
 ## Repaso y Conexión {.smaller}
@@ -52,7 +53,7 @@ Hemos explorado tres tipos de relaciones. A modo de resumen, este es nuestro map
 |:-----------------|:-----------------|:-----------------|:-----------------|
 | **Cat ➞ Quant** | ¿Difieren los grupos? | `geom_boxplot`, `geom_density` | Tabla de medias/medianas por grupo |
 | **Cat ➞ Cat** | ¿Se asocian las categorías? | `geom_bar(position="fill")` | Tabla de contingencia (% cond.) |
-| **Quant ➞ Quant** | ¿Cómo covarían las variables? | `geom_point` (Scatterplot) | Correlación |
+| **Quant ➞ Quant** | ¿Cómo covarían las variables? | `geom_point` (Scatterplot) | Correlación (Pearson o Spearman) |
 
 Hoy, nos enfocaremos en profundidad en el último caso: la relación entre dos variables cuantitativas.
 
@@ -292,6 +293,45 @@ ggplot(datos_simulados, aes(x = x, y = y)) +
 
 **Conclusión:** Un `r` cercano a 0 **no significa "ausencia de relación"**. Significa **"ausencia de relación *lineal*"**. Por eso, el análisis visual es irremplazable.
 
+## La Alternativa: Correlación de Spearman (ρ) {.smaller}
+
+Cuando Pearson no es apropiado, disponemos de una alternativa directa: la **correlación de Spearman (ρ)**. En lugar de operar sobre los valores, transforma primero cada observación en su **rango** (la posición que ocupa si se ordena la lista de menor a mayor) y luego aplica la fórmula de Pearson sobre esos rangos.
+
+:::::: columns
+::: {.column width="50%"}
+**¿Cuándo usarla?**
+
+- La variable es **ordinal** (Likert, escalas de acuerdo). Pearson no es técnicamente apropiado para ordinales; Spearman sí.
+- La relación es **monotónica pero no lineal**: cuando X sube, Y tiende a subir o bajar, aunque no en línea recta.
+- Hay **outliers extremos** que distorsionan Pearson. Al trabajar con rangos, el valor absoluto del outlier deja de importar.
+:::
+::: {.column width="50%"}
+**En R:** el mismo `cor()`, cambiando `method`:
+
+```r
+# Pearson (predeterminado)
+cor(x, y)
+
+# Spearman
+cor(x, y, method = "spearman")
+
+# Con corrr
+correlate(datos, method = "spearman")
+```
+:::
+::::::
+
+## Pearson vs. Spearman: Resumen Práctico {.smaller}
+
+| | **Pearson (r)** | **Spearman (ρ)** |
+|:---|:---|:---|
+| **Tipo de variable** | Cuantitativa | Cuantitativa u **ordinal** |
+| **Tipo de relación** | Solo lineal | Monotónica (no necesariamente lineal) |
+| **Sensible a outliers** | Sí | No (trabaja con rangos) |
+| **Uso típico** | Variables continuas bien distribuidas | Escalas Likert, ingresos, variables muy asimétricas |
+
+**Regla práctica:** si alguna de tus variables es ordinal, o si la distribución tiene valores extremos muy influyentes (como el ingreso), usa Spearman. Si ambas son cuantitativas y la relación parece lineal en el gráfico, Pearson es preferible porque sus propiedades matemáticas lo vinculan directamente con la regresión.
+
 # 4. Conclusión del Curso
 
 ## Más Allá de lo Descriptivo: Incertidumbre y Probabilidad {.smaller}
@@ -319,7 +359,8 @@ Lo que han aprendido en este curso es el fundamento indispensable para poder hac
 **Resumen de la sesión de hoy:**
 
 -   Hemos **sintetizado** las estrategias visuales y numéricas para los tres tipos de análisis bivariado.
--   El **coeficiente de correlación (r)** cuantifica la fuerza y dirección de una relación **lineal**, pero tiene importantes **limitaciones**.
+-   El **coeficiente de correlación de Pearson (r)** cuantifica la fuerza de una relación **lineal**, pero es sensible a outliers y no capta relaciones curvilíneas.
+-   La **correlación de Spearman (ρ)** es la alternativa robusta: trabaja con rangos y es apropiada para variables ordinales y relaciones monótonas no lineales.
 -   La **estadística descriptiva** es el primer paso, y la **probabilidad** es el puente hacia la **estadística inferencial**.
 
 **En el práctico de hoy:**

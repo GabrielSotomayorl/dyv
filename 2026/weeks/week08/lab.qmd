@@ -1,7 +1,7 @@
 ---
 title: "Práctico 4: Descripción de Variables Categóricas: Frecuencias y Gráficos de Barras en R"
 subtitle: "Trabajando con la Encuesta Nacional de Empleo (ENE)"
-date: "2026-10-05"
+date: "2026-10-12"
 lang: es
 format:
   html:

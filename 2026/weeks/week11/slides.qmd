@@ -3,8 +3,8 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 11<br/> La Visualización como Argumento Sociológico y la Gramática de Gráficos</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 26 October 2026
-date-meta: 26 October 2026
+date: 02 November 2026
+date-meta: 02 November 2026
 date-format: "DD MMM YYYY"
 toc: true
 toc-depth: 1

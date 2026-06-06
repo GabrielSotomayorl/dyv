@@ -1,7 +1,7 @@
 ---
 title: "Práctico 9: Análisis Categórico Bivariado: Tablas de Contingencia y Control"
 subtitle: "Trabajando con la Encuesta Nacional de Uso del Tiempo (ENUT) 2023"
-date: "2026-11-09"
+date: "2026-11-16"
 lang: es
 format:
   html:

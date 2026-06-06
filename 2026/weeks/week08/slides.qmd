@@ -3,8 +3,8 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 08<br/> Descripción de Variables Categóricas</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 05 October 2026
-date-meta: 05 October 2026
+date: 12 October 2026
+date-meta: 12 October 2026
 date-format: "DD MMM YYYY"
 toc: true
 toc-depth: 1

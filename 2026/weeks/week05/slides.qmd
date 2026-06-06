@@ -3,8 +3,8 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 05<br/> La Estructura de los Datos en R</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 08 September 2026
-date-meta: 08 September 2026
+date: 07 September 2026
+date-meta: 07 September 2026
 date-format: "DD MMM YYYY"
 toc: true
 toc-depth: 1

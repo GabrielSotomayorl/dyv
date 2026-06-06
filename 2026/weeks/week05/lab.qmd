@@ -1,7 +1,7 @@
 ---
 title: "Práctico 1: Exploración Inicial de Datos en R"
 subtitle: "Trabajando con la Encuesta CASEN 2024"
-date: "2026-09-08"
+date: "2026-09-07"
 lang: es
 format:
   html:
@@ -23,7 +23,7 @@ casen <- readRDS("../../data/casen24.rds")
 El propósito de este práctico es aplicar los conceptos de la clase teórica en un entorno de R real. Al finalizar, serás capaz de:
 
 *   Establecer un flujo de trabajo reproducible usando un Proyecto de RStudio.
-*   Importar una base de datos en formato `.RData` usando el paquete `haven`.
+*   Cargar una base de datos con variables etiquetadas (formato `haven_labelled`) y usar `haven::as_factor()` para convertir los códigos numéricos en categorías legibles.
 *   Realizar un "diagnóstico inicial" sistemático de una base de datos, interpretando los resultados de las funciones de exploración.
 *   Manejar la gran cantidad de variables de una encuesta real mediante la **subselección de datos**.
 *   Utilizar la función `haven::as_factor()` para trabajar con las etiquetas de las variables.
@@ -75,7 +75,7 @@ load("datos/casen_2024.RData")
 ```
 
 ::: {.callout-note title="¿Por qué necesitamos `haven` si la base ya está en formato `.RData`?"}
-Encuestas como CASEN son procesadas originalmente en programas como SPSS. Al convertirlas a R, las variables conservan una metadata especial llamada **etiquetas** (por ejemplo, que el código `1` significa *"Hombre"* y el `2` significa *"Mujer"*). El paquete `haven` le enseña a R cómo interpretar esa información. **Sin `haven` cargado, R no sabrá qué hacer con las etiquetas de las variables.**
+Aunque `haven` se usa principalmente para cargar archivos de SPSS (`.sav`) y Stata (`.dta`), la CASEN en formato `.RData` también lo necesita: la base fue originalmente procesada en SPSS y conserva sus etiquetas, es decir, pequeñas notas en cada variable que indican qué significa cada código (por ejemplo, que `1` es *"Hombre"* y `2` es *"Mujer"*). Sin `haven` cargado, `as_factor()` no puede convertir esos códigos numéricos en categorías con nombre.
 :::
 
 ## 3. Primer Contacto y Subselección de Datos

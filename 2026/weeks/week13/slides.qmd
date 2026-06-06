@@ -3,8 +3,8 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 13<br/> Tablas de Contingencia y el Control por Tercera Variable</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 09 November 2026
-date-meta: 09 November 2026
+date: 16 November 2026
+date-meta: 16 November 2026
 date-format: "DD MMM YYYY"
 toc: true
 toc-depth: 1
@@ -66,9 +66,7 @@ library(knitr)
 library(kableExtra)
 
 # Carga de ENUT y preparación
-url_enut <- "https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7"
-archivo_interno <- "250403-ii-enut-bdd-r-v2.RDS"
-enut <- rio::import(url_enut, which = archivo_interno)
+enut <- readRDS("../../data/enut.rds")
 
 enut_trabajo <- enut %>%
   filter(tiempo == 1) %>%

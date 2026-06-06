@@ -105,7 +105,7 @@ El curso tiene un carácter eminentemente práctico, utilizando lenguajes de pro
 -   Construcción de estadísticos por grupo.
 -   Construcción de tablas de contingencia y control por tercera variable.
 -   Visualizaciones bivariadas: barras, histogramas y boxplots.
--   Medidas de asociación: Pearson, spearman, gamma, policóricas.
+-   Medidas de asociación: Pearson y Spearman.
 -   Más allá de lo descriptivo: la probabilidad como medida de incertidumbre.
 
 ## Evaluaciones {.smaller .dark-background}
