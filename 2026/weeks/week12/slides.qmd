@@ -3,7 +3,7 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 12<br/> Introducción al Análisis Bivariado y Tipos de Asociación</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 09 November 2026
+date: 16 November 2026
 date-meta: 09 November 2026
 date-format: "DD MMM YYYY"
 toc: true
@@ -292,6 +292,10 @@ kable(cor_resultado, digits = 3, caption = "Correlación") %>%
 ```
 
 El coeficiente de correlación de Pearson es de 0.104. Al ser un valor positivo pero muy cercano a cero, indica que existe una **asociación lineal muy débil** entre la edad y las horas de trabajo no remunerado. Si solo miráramos este número, concluiríamos que la edad no es un factor relevante para predecir la carga de trabajo doméstico.
+
+::: {.callout-note title="¿Por qué esta correlación no usa ponderador?"}
+A diferencia de las medias y tablas que hemos calculado, `cor()` de R base **no tiene un argumento de pesos**. Calcular correlaciones ponderadas requiere funciones adicionales (`cov.wt()` o paquetes especializados) que exceden el alcance de este curso. Para los propósitos **exploratorios** de esta unidad usaremos la correlación sin ponderar; solo hay que tener presente que describe la **muestra**, no exactamente la población.
+:::
 
 
 ## Caso 3: Gráfico de Dispersión {.smaller}

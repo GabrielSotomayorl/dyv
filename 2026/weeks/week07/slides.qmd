@@ -25,6 +25,7 @@ format:
 ## Objetivos de la Sesión de Hoy {.smaller}
 
 -   **Aprender** técnicas de recodificación de variables usando `case_when()`.
+-   **Identificar y recodificar** los códigos de no respuesta de las encuestas (`-88`, `999`, etc.) como valores perdidos (`NA`), y reflexionar sobre el sesgo de ignorarlos.
 -   **Comprender y aplicar** la lógica de reestructurar datos de formato ancho a largo (`pivot_longer()`).
 -   **Aprender** a combinar o cruzar dos tablas de datos diferentes usando `left_join()`.
 -   **Distinguir** conceptualmente entre la construcción de índices y tipologías.
@@ -94,6 +95,47 @@ casen %>%
 -   La `~` (tilde) se lee como "entonces asigna este valor".
 -   `&` significa que ambas condiciones deben ser verdaderas.
 -   `TRUE ~ ...`: Esta última línea es una "catch-all" o cláusula por defecto. Si ninguna de las condiciones anteriores se cumple, se asignará este valor. Es una muy buena práctica incluirla siempre.
+
+## Un Caso Especial de Recodificación: los Valores Perdidos {.smaller}
+
+En R, un dato faltante se representa con **`NA`** (*Not Available*). Pero las encuestas rara vez usan `NA` directamente: registran la no respuesta con **códigos administrativos**.
+
+| Encuesta | Códigos de no respuesta típicos |
+|---|---|
+| CASEN | `-88` (No sabe), `-99` (No responde) |
+| ESI | `888`, `999` |
+| ENUT | `96` |
+
+-   Si no los recodificamos, R los trata como **números reales**: un promedio de ingresos que incluye `-88` o un `999` en una escala de 1 a 7 queda **distorsionado sin aviso**.
+-   **Regla de oro:** antes de calcular cualquier estadístico, revisar el libro de códigos e identificar estos valores con `summary()` o `table()`, y convertirlos a `NA`:
+
+```{r, eval=FALSE, echo=TRUE}
+casen %>%
+  mutate(
+    # na_if() convierte un código específico a NA
+    ind_hacina = na_if(ind_hacina, -88),
+    # case_when() permite convertir varios códigos a la vez
+    satisf = case_when(
+      satisf %in% c(888, 999) ~ NA,
+      TRUE ~ satisf
+    )
+  )
+```
+
+## ¿Y qué hacemos con los `NA`? El riesgo de ignorarlos {.smaller}
+
+Una vez que los perdidos son `NA`, las funciones como `mean()` exigen decidir qué hacer con ellos (`na.rm = TRUE`). Esa opción **no es inocua**: significa *"calcula como si esos casos no existieran"*.
+
+-   Si la falta de respuesta es **aleatoria** (a cualquiera se le pudo pasar la pregunta), descartar casos solo reduce la muestra.
+-   Pero si **quienes no responden son distintos de quienes sí lo hacen**, el resultado queda **sesgado**. Ejemplos clásicos:
+    -   Las personas de ingresos muy altos tienden a no declarar sus ingresos → el promedio calculado **subestima** el ingreso real.
+    -   Quienes están menos satisfechos con su vida pueden negarse a responder módulos de bienestar → la satisfacción promedio queda **inflada**.
+
+**Buenas prácticas mínimas para este curso:**
+
+1.  Reportar siempre **cuántos casos perdidos** tiene la variable (`summary()` los cuenta).
+2.  Preguntarse **quiénes** podrían ser los que no responden y si eso afecta la conclusión.
+3.  Dejar la decisión **documentada** en el código (comentario: por qué se recodificó y qué se excluyó).
 
 ## Más Allá de la Recodificación: Creando Nuevo Conocimiento {.smaller}
 
@@ -285,6 +327,7 @@ Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utiliza
 **Resumen de la sesión de hoy:**
 
 -   Hemos aprendido a realizar **recodificaciones complejas** de forma legible y segura con `case_when()`.
+-   Aprendimos a tratar los **códigos de no respuesta** como valores perdidos (`na_if()`, `case_when()`) y a pensar críticamente qué implica descartar casos con `na.rm = TRUE`.
 -   Entendimos la lógica de los datos "anchos" y "largos" y aprendimos a **reestructurarlos** con `pivot_longer()`.
 -   Descubrimos cómo **combinar diferentes bases de datos** usando la poderosa familia de funciones `_join()`.
 -   Con estas herramientas, hemos completado nuestro kit básico para la limpieza y preparación de datos.

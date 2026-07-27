@@ -3,7 +3,7 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 10<br/> La Media, la Desviación Estándar y la Estandarización</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 26 October 2026
+date: 02 November 2026
 date-meta: 26 October 2026
 date-format: "DD MMM YYYY"
 toc: true

@@ -3,7 +3,7 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 13<br/> Tablas de Contingencia y el Control por Tercera Variable</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 16 November 2026
+date: 23 November 2026
 date-meta: 16 November 2026
 date-format: "DD MMM YYYY"
 toc: true
@@ -26,6 +26,7 @@ format:
 
 -   **Construir, interpretar y dar formato** a **tablas de contingencia** (tablas cruzadas).
 -   **Dominar** el cálculo y la interpretación de **porcentajes condicionales** (de fila, de columna y totales).
+-   **Operacionalizar la independencia** comparando frecuencias observadas con las esperadas si no hubiera asociación.
 -   **Introducir** el concepto de control estadístico mediante una tercera variable (Z).
 -   **Comprender y diagnosticar** una **asociación espuria**.
 
@@ -136,6 +137,29 @@ enut_trabajo %>%
 1.  **Calculamos** porcentajes de columna (X = `sexo_factor` está en las columnas).
 2.  **Comparamos** los porcentajes a través de la fila "Sí participa".
 3.  **Conclusión:** Un **97.9%** de las mujeres participa en trabajo doméstico, en comparación con un **93.8%** de los hombres. Como estos porcentajes son diferentes, concluimos que **existe una asociación** entre el sexo y la participación en trabajo doméstico en la muestra.
+
+## Operacionalizando la Independencia: ¿Qué Tabla Esperaríamos? {.smaller}
+
+Decir que dos variables son **independientes** tiene una traducción concreta: la distribución de Y sería **la misma en cada categoría de X**. Eso nos permite construir la tabla que **esperaríamos ver si no hubiera asociación** (repartiendo cada total de fila en proporción al tamaño de cada columna) y compararla con la que **observamos**:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+tabla_obs <- enut_trabajo %>%
+  filter(!is.na(p_tdnr_dt_factor)) %>%
+  mutate(across(c(p_tdnr_dt_factor, sexo_factor), droplevels)) %>%
+  with(table(p_tdnr_dt_factor, sexo_factor))
+
+tabla_esp <- round(outer(rowSums(tabla_obs), colSums(tabla_obs)) / sum(tabla_obs))
+
+bind_cols(
+  tibble(`Participa en TDNR` = rownames(tabla_obs)),
+  as_tibble(unclass(tabla_obs)) %>% rename_with(~paste("Observado:", .x)),
+  as_tibble(unclass(tabla_esp)) %>% rename_with(~paste("Esperado:", .x))
+) %>%
+  kable(caption = "Frecuencias observadas vs. esperadas bajo independencia") %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE)
+```
+
+**Lectura:** si el sexo no tuviera relación con el trabajo doméstico, esperaríamos unos **453 hombres** que no participan; observamos **739** — un 60% más. La **distancia entre lo observado y lo esperado** es la manera precisa de decir "hay asociación", y es la idea sobre la que se construye el test de chi-cuadrado que verán en el curso de inferencia.
 
 
 # 3. El Control por una Tercera Variable

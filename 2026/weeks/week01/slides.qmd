@@ -113,9 +113,9 @@ El curso tiene un carácter eminentemente práctico, utilizando lenguajes de pro
 | Evaluación | Descripción | Ponderación (NP) |
 |:-----------------------|:-----------------------|:-----------------------|
 | **Trabajos Prácticos (TP)** | 2 trabajos en grupo | 30% |
-| **Controles (CONT)** | 5 controles individuales (se borra el peor) | 10% |
+| **Controles (CONT)** | 3 controles individuales (se borra el peor) | 10% |
 | **Tareas de R (TAR)** | 4 tareas individuales en R | 10% |
-| **Pruebas Solemnes (PS)** | 2 pruebas (06/10 y 01/12) | 50% |
+| **Pruebas Solemnes (PS)** | 2 pruebas (05/10 y 07/12) | 50% |
 
 -   La **Nota de Presentación (NP)** corresponde al **70%** de la nota final del curso.
 -   El **Examen Final** (fecha por confirmar) corresponde al **30%** restante.
@@ -134,7 +134,7 @@ El curso cuenta con un equipo de tres ayudantes:
 - Grupo 1: Lunes 14:30 - 15:50
 - Grupo 2: Lunes 14:30 - 15:50
 
-Se realizarán 10 sesiones prácticas en R a lo largo del semestre, y ayudantías para apoyar las pruebas.
+Además de las ayudantías, la clase incluye **10 prácticos en R** guiados por el profesor (desde la semana 5). Las ayudantías son sesiones aparte, a cargo del equipo de ayudantes, para reforzar contenidos y preparar las evaluaciones.
 
 ## Bibliografía Obligatoria (1/2) {.smaller}
 
@@ -159,7 +159,7 @@ Se realizarán 10 sesiones prácticas en R a lo largo del semestre, y ayudantía
 Todo el material estará disponible en:
 
 ::: {.callout-note icon=false}
-**[https://dyv25.netlify.app/](https://dyv25.netlify.app/){preview-link="true"}**
+**[https://gabrielsotomayorl.github.io/dyv/](https://gabrielsotomayorl.github.io/dyv/){preview-link="true"}**
 :::
 
 ### 🗣️ Delegado/a de Curso

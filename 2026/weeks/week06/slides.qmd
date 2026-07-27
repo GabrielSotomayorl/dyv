@@ -121,7 +121,7 @@ casen |>
 
 
 -   El pipe nativo `|>` es un poco más rápido pero, por ahora, ligeramente **menos flexible** que `%>%`. Algunas funciones y paquetes más antiguos del Tidyverse aún no son totalmente compatibles con él.
--   Se puede escribir el pipe pulsando CTRL + SHIFT + M. Se peude cambiar el pipe escrito con dicho atajo en las opciones de RStudio.
+-   Se puede escribir el pipe pulsando CTRL + SHIFT + M. Se puede cambiar el pipe escrito con dicho atajo en las opciones de RStudio.
 
 
 # 2. Los Verbos Fundamentales de `dplyr`
@@ -327,7 +327,7 @@ Este tipo de tabla es el punto de partida para muchos análisis sociológicos, p
 
 **En el práctico de hoy:**
 
--   Aplicarán todos estos verbos para filtrar, transformar y resumir la Encuesta CASEN 2022, respondiendo a preguntas sociológicas específicas.
+-   Aplicarán todos estos verbos para filtrar, transformar y resumir la Encuesta CASEN 2024, respondiendo a preguntas sociológicas específicas.
 
 **Adelanto de la próxima clase:**
 

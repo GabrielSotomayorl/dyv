@@ -41,7 +41,7 @@ Los datos de CASEN son fundamentales para el diseño y evaluación de las polít
 
 La base de un trabajo de análisis reproducible es la organización. La mejor forma de hacerlo es usando **Proyectos de RStudio (`.Rproj`)**. Un proyecto agrupa todos los archivos de una investigación (datos, scripts, informes) en una sola carpeta, y establece la raíz del directorio de trabajo en esa carpeta.
 
-Esto nos permite usar **rutas relativas** (ej. `"datos/casen_2024.RData"`) en lugar de rutas absolutas (ej. `"C:/Users/Gabriel/Documentos/Curso/datos/casen_2024.RData"`), lo que asegura que nuestro código funcione en cualquier computador.
+Esto nos permite usar **rutas relativas** (ej. `"datos/Base de datos Casen 2024 SPSS.sav"`) en lugar de rutas absolutas (ej. `"C:/Users/Gabriel/Documentos/Curso/datos/Base de datos Casen 2024 SPSS.sav"`), lo que asegura que nuestro código funcione en cualquier computador.
 
 **Acción:** Antes de continuar, asegúrate de haber creado un Proyecto de RStudio para esta clase.
 
@@ -68,14 +68,14 @@ library(tidyverse)
 
 ### 2.3 Carga de la Base de Datos CASEN 2024
 
-La base de datos está disponible en el sitio del [Observatorio Social del Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2024) en formato `.RData`. Descárgala y guárdala dentro de la carpeta de tu proyecto (por ejemplo, en una subcarpeta llamada `datos`). Luego cárgala así:
+La base de datos está disponible en el sitio del [Observatorio Social del Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2024) en formato **SPSS (`.sav`)**. Descárgala y guárdala dentro de la carpeta de tu proyecto (por ejemplo, en una subcarpeta llamada `datos`). Luego cárgala así:
 
 ```{r load-show, eval=FALSE}
-load("datos/casen_2024.RData")
+casen <- haven::read_sav("datos/Base de datos Casen 2024 SPSS.sav")
 ```
 
-::: {.callout-note title="¿Por qué necesitamos `haven` si la base ya está en formato `.RData`?"}
-Aunque `haven` se usa principalmente para cargar archivos de SPSS (`.sav`) y Stata (`.dta`), la CASEN en formato `.RData` también lo necesita: la base fue originalmente procesada en SPSS y conserva sus etiquetas, es decir, pequeñas notas en cada variable que indican qué significa cada código (por ejemplo, que `1` es *"Hombre"* y `2` es *"Mujer"*). Sin `haven` cargado, `as_factor()` no puede convertir esos códigos numéricos en categorías con nombre.
+::: {.callout-note title="¿Por qué usamos `haven` para cargar los datos?"}
+Las encuestas oficiales suelen distribuirse en formatos de otros programas estadísticos, como SPSS (`.sav`) o Stata (`.dta`). El paquete `haven` permite leerlos directamente en R y —esto es lo importante— **conserva las etiquetas** de las variables: pequeñas notas que indican qué significa cada código (por ejemplo, que en `sexo` el `1` es *"Hombre"* y el `2` es *"Mujer"*). Más adelante usaremos `as_factor()` para convertir esos códigos numéricos en categorías con nombre. Si abriéramos los datos con una función que no lee etiquetas, veríamos solo números sin saber qué significan.
 :::
 
 ## 3. Primer Contacto y Subselección de Datos

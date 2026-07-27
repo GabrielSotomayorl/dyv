@@ -18,6 +18,10 @@ En este laboratorio trabajaremos con la Encuesta Nacional de Empleo (ENE) para d
 
 👉 **[Ir al Práctico 4: Descripción de Variables Categóricas: Frecuencias y Gráficos de Barras en R](lab.qmd)**
 
+::: {.callout-important title="📊 Base de datos de la semana: ENE 2026 (trimestre FMA)"}
+Esta semana estrenamos la **Encuesta Nacional de Empleo** del INE, trimestre febrero–marzo–abril 2026. Su factor de expansión es **`fact_cal`**: úsalo en todas las tablas y estadísticos ponderados.
+:::
+
 ## 📚 Lecturas Obligatorias
 
 - **Ritchey, F. (2008).** *Estadística para las ciencias sociales*. McGraw-Hill. Cap. Frecuencias. [[PDF]](../../bib/Ritchey-frecuencias.pdf)

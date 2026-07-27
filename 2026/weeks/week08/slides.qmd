@@ -3,7 +3,7 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 08<br/> Descripción de Variables Categóricas</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 12 October 2026
+date: 19 October 2026
 date-meta: 12 October 2026
 date-format: "DD MMM YYYY"
 toc: true
@@ -27,6 +27,7 @@ format:
 -   **Revisar** la distinción entre variables categóricas y cuantitativas.
 -   **Calcular e interpretar** tablas de frecuencias absolutas, relativas y porcentajes.
 -   **Identificar** la **moda** como la medida de tendencia central apropiada para datos categóricos.
+-   **Describir variables ordinales** (escalas Likert) usando porcentajes acumulados y mediana.
 -   **Comprender** el concepto y la utilidad de las **tasas** en el análisis sociológico.
 -   **Crear e interpretar** gráficos de barras, discutiendo buenas prácticas de visualización.
 
@@ -120,6 +121,47 @@ Para las variables categóricas, la única medida de tendencia central que podem
 **La moda es "Católica"**, ya que es la categoría con el mayor número de casos (450).
 
 *Importante:* La moda es la **categoría** ("Católica"), no el número de casos (450).
+
+## ¿Y las Variables Ordinales? El Caso de las Escalas Likert {.smaller}
+
+Las variables **ordinales** son categóricas, pero sus categorías tienen un **orden**: nivel educacional, satisfacción (1 a 7), grado de acuerdo ("Muy en desacuerdo" → "Muy de acuerdo"). Son omnipresentes en la investigación social (escalas **Likert**).
+
+Ese orden nos da herramientas **adicionales** a las de una nominal:
+
+| Herramienta | ¿Nominal? | ¿Ordinal? |
+|---|:---:|:---:|
+| Tabla de frecuencias y moda | ✅ | ✅ |
+| **Porcentaje acumulado** ("el X% está en esta categoría *o menos*") | ❌ | ✅ |
+| **Mediana** (la categoría donde se ubica el caso central) | ❌ | ✅ |
+
+::: {.callout-warning title="¿Y el promedio de una Likert?"}
+Es una práctica común, pero discutible: calcular un promedio **asume que la distancia entre categorías es siempre la misma** (que ir de 1 a 2 "vale lo mismo" que ir de 6 a 7), y eso una ordinal no lo garantiza. En este curso preferimos describir ordinales con **frecuencias, porcentaje acumulado y mediana**; si reportan un promedio, decláralo como una simplificación.
+:::
+
+## Describiendo una Ordinal en R: Satisfacción con la Vida Familiar (ELPI 2024) {.smaller}
+
+Usemos la base de adolescentes de la ELPI (la del práctico pasado). La variable `d3_1` mide la satisfacción con la vida familiar de 1 ("Nada satisfecho") a 7 ("Muy satisfecho").
+
+```{r, echo=TRUE}
+#| output-location: column
+library(tidyverse); library(haven)
+elpi <- readRDS("../../data/elpiadol.rds")
+
+elpi %>%
+  filter(!is.na(d3_1)) %>%
+  count(satisfaccion = as_factor(d3_1)) %>%
+  mutate(
+    porcentaje = round(n / sum(n) * 100, 1),
+    pct_acumulado = cumsum(porcentaje)
+  )
+```
+
+```{r, echo=TRUE}
+# La mediana usa los códigos numéricos, pero se interpreta como categoría
+median(as.numeric(elpi$d3_1), na.rm = TRUE)
+```
+
+**Interpretación:** hasta la categoría 6 se acumula solo el 48% de los casos, así que el caso central cae en la categoría **7**: la mediana es "Muy satisfecho(a)". Nótese lo **asimétrica** que es la distribución — la mitad de los y las adolescentes elige el valor máximo de la escala.
 
 ## Ejemplo Aplicado: La Fuerza de Trabajo en Chile {.smaller}
 
@@ -492,6 +534,7 @@ ggplot(datos_grafico_pie, aes(x = "", y = n, fill = activ)) +
 
 -   Hemos aprendido que la descripción de **variables categóricas** se basa en el **conteo**.
 -   Las **tablas de frecuencia** (absolutas y relativas) y la **moda** son nuestras herramientas numéricas fundamentales.
+-   Las **variables ordinales** (escalas Likert) admiten además el **porcentaje acumulado** y la **mediana**; el promedio es una simplificación que debe declararse.
 -   Las **tasas** nos permiten hacer comparaciones justas entre grupos de diferentes tamaños.
 -   El **gráfico de barras** es la herramienta visual estándar y más efectiva para este tipo de variables.
 

@@ -3,7 +3,7 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 09<br/> Visualizando Distribuciones y Medidas Robustas</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 19 October 2026
+date: 26 October 2026
 date-meta: 19 October 2026
 date-format: "DD MMM YYYY"
 toc: true

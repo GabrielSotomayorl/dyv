@@ -48,6 +48,8 @@ Aplicar los métodos y herramientas de la estadística descriptiva necesarios pa
 7. Interpretar datos cuantitativos producidos por investigaciones propias o de terceros.
 8. Distinguir entre estadística descriptiva e inferencial.
 
+Los puntos anteriores se realizarán utilizando el lenguaje de programación estadístico R junto a herramientas de apoyo como Word y Excel. Los/as estudiantes tendrán una base sólida en este lenguaje de programación.
+
 ---
 
 ## IV. Contenidos
@@ -118,9 +120,11 @@ Se realizarán 8 ayudantías de R con asistencia obligatoria, cuyo objetivo es i
 
 ## V. Metodología
 
-El curso se desarrollará en base a clases teóricas de modalidad expositiva y prácticas tipo taller. Durante las clases en aula se presentarán los contenidos del curso tanto a nivel teórico como práctico a través de ejemplos y guías de ejercicios. Algunas sesiones serán destinadas al trabajo exclusivo en laboratorio de computación, abordando el lenguaje de programación R.
+El curso se desarrollará en base a clases teóricas de modalidad expositiva y prácticas tipo taller. Durante las clases en aula se presentarán los contenidos del curso tanto a nivel teórico como práctico a través de ejemplos y guías de ejercicios. Algunas sesiones serán destinadas al trabajo exclusivo en laboratorio de computación, abordando el lenguaje de programación R. Los contenidos del curso están disponibles en el sitio: [gabrielsotomayorl.github.io/dyv/2026](https://gabrielsotomayorl.github.io/dyv/2026/).
 
 Adicionalmente se realizará una sesión semanal de ayudantía con asistencia obligatoria a cargo de los ayudantes del curso, en el laboratorio de computación. La ayudantía entregará los elementos necesarios para el desarrollo y aplicación adecuada de los contenidos vistos en clases y la práctica de R.
+
+El ayudante, además de realizar las sesiones de ayudantía, revisará los trabajos prácticos en conjunto y bajo la supervisión del profesor. No será labor del ayudante, a menos que esté dentro de la programación, hacer ayudantías especiales para los trabajos prácticos.
 
 ---
 
@@ -129,12 +133,12 @@ Adicionalmente se realizará una sesión semanal de ayudantía con asistencia ob
 | Componente | Ponderación | Descripción resumida |
 |:---|:---:|:---|
 | **Trabajos Prácticos (TP)** | 30% | 2 trabajos grupales. |
-| **Controles (CONT)** | 10% | 5 controles individuales en clases (se borra el peor). |
+| **Controles (CONT)** | 10% | 3 controles individuales, al final de las Unidades 2, 3 y 4 (se borra el peor). |
 | **Tareas de R (TAR)** | 10% | 4 tareas individuales en R. |
 | **Pruebas Solemnes (PS)** | 50% | 2 pruebas (25% cada una). |
 
 - **Trabajos Prácticos (30%):** Los/as estudiantes desarrollarán 2 trabajos grupales que integran contenidos teóricos y prácticos a partir de una pregunta de investigación propia. Entrega en formato Word o Quarto.
-- **Controles (10%):** 5 controles individuales al final de cada unidad. Promedio simple; se elimina la peor nota.
+- **Controles (10%):** 3 controles individuales, al final de las Unidades 2, 3 y 4. El promedio simple de las dos mejores notas corresponde al 10% de la nota de presentación; se elimina la peor de las tres.
 - **Tareas de R (10%):** 4 tareas individuales donde se aplican las herramientas de R desarrolladas en el curso.
 - **Pruebas Solemnes (50%):** Dos pruebas que evalúan conceptos, cálculo, análisis e interpretación de datos.
 
@@ -148,9 +152,13 @@ Habrá un examen que evaluará todos los contenidos del curso. Equivale al 30% d
 
 Se podrán eximir del examen los estudiantes con nota de presentación igual o superior a 5,5, siempre y cuando no tengan ninguna nota bajo 5,0 en las pruebas solemnes. La nota mínima en el examen para aprobar es 3,5.
 
+Se exige un 70% de asistencia mínima (clases y ayudantías); la asistencia se toma en cada bloque. El estudiante que no cumpla este requisito no tendrá derecho a rendir examen y reprobará el curso automáticamente. Si el estudiante se retira 15 minutos o más antes de finalizar la clase, se considerará ausente.
+
 ### Nota Final (NF)
 
 **NF** = NP × 0,7 + Examen × 0,3
+
+Quien falte a una evaluación deberá rendir una prueba recuperativa, que pondera el porcentaje de la evaluación faltante. Quien falte a dos o más evaluaciones deberá rendir la prueba recuperativa y el examen; el porcentaje de las evaluaciones ausentes se suma a la ponderación del examen.
 
 ### Sobre inasistencia a evaluaciones
 
@@ -164,28 +172,30 @@ Los estudiantes tienen derecho a conocer las notas y la pauta de corrección en 
 
 ## VII. Cronograma de trabajo
 
-Las clases se realizan los **lunes**. Las semanas 1–14 corresponden a clases de contenido; las semanas de solemne y receso se indican con guión (—).
+Las clases se realizan los **lunes**. Las semanas 1–14 corresponden a clases de contenido; las semanas de solemne, feriado y receso se indican con guión (—).
 
 | Semana | Fecha | Unidad | Tópico | Evaluaciones |
 |:---|:---|:---|:---|:---|
 | 1 | 10-08 | 1 | Presentación del curso. El proceso de conocimiento científico. La estadística como herramienta sociológica. | |
-| 2 | 17-08 | 1 | Usos de la estadística en la actualidad. Relevancia de los lenguajes de programación. | Control N°1 |
+| 2 | 17-08 | 1 | Usos de la estadística en la actualidad. Relevancia de los lenguajes de programación. | |
 | 3 | 24-08 | 2 | Conceptualización y operacionalización. Tipos de variables y niveles de medición. | |
-| 4 | 31-08 | 2 | Muestra y población. Validez y confiabilidad. Error de medición. | Control N°2 · Tarea 1 |
+| 4 | 31-08 | 2 | Muestra y población. Validez y confiabilidad. Error de medición. | Control N°1 (fin Unidad 2) · Tarea 1 |
 | 5 | 07-09 | 3 | Estructura de una tabla de datos. Exploración en R. | TP 1 (inicia) |
-| — | 15-09 | — | *Receso — Fiestas Patrias* | |
+| — | 14 al 18-09 | — | *Receso — Fiestas Patrias* | |
 | 6 | 21-09 | 3 | Manipulación de tablas de datos con `dplyr`. | |
-| 7 | 28-09 | 3 | Recodificación, reestructuración y combinación de datos. | Control N°3 |
+| 7 | 28-09 | 3 | Recodificación, reestructuración y combinación de datos. | Control N°2 (fin Unidad 3) |
 | — | 05-10 | — | **Solemne 1** — Unidades 1, 2 y 3 | **PS 1** |
-| 8 | 12-10 | 4 | Descripción de variables categóricas. Frecuencias, porcentajes y tasas. | Tarea 2 |
-| 9 | 19-10 | 4 | Visualizando distribuciones: histograma y boxplot. Mediana y cuartiles. | |
-| 10 | 26-10 | 4 | La media, la desviación estándar y la estandarización. | Tarea 3 |
-| 11 | 02-11 | 4 | La visualización como argumento sociológico. Gramática de gráficos con `ggplot2`. | Control N°4 · TP 2 |
-| 12 | 09-11 | 5 | Introducción al análisis bivariado. Tipos de asociación. | |
-| 13 | 16-11 | 5 | Tablas de contingencia y control por tercera variable. | Tarea 4 |
-| 14 | 23-11 | 5 | Síntesis bivariada. Medidas de asociación. | Control N°5 |
-| — | 30-11 | — | **Solemne 2** — Unidades 4 y 5 | **PS 2** |
-| — | 07-12 | — | **Prueba Recuperativa** | |
+| — | 12-10 | — | *Feriado — Día del Encuentro de Dos Mundos* | |
+| 8 | 19-10 | 4 | Descripción de variables categóricas. Frecuencias, porcentajes y tasas. | Tarea 2 |
+| 9 | 26-10 | 4 | Visualizando distribuciones: histograma y boxplot. Mediana y cuartiles. | |
+| 10 | 02-11 | 4 | La media, la desviación estándar y la estandarización. | Tarea 3 |
+| 11 | 09-11 | 4 | La visualización como argumento sociológico. Gramática de gráficos con `ggplot2`. | Control N°3 (fin Unidad 4) · TP 2 (inicia) |
+| 12 | 16-11 | 5 | Introducción al análisis bivariado. Tipos de asociación. | |
+| 13 | 23-11 | 5 | Tablas de contingencia y control por tercera variable. | Tarea 4 |
+| 14 | 30-11 | 5 | Síntesis bivariada. Medidas de asociación. | |
+| — | 07-12 | — | **Solemne 2** — Unidades 4 y 5 | **PS 2** |
+| — | Por confirmar | — | **Prueba Recuperativa** (ambas secciones) | |
+| — | Por confirmar (10 al 21-12) | — | **Examen** — período oficial de exámenes | |
 
 ---
 
@@ -224,11 +234,15 @@ Se consideran fuentes de información que deben citarse los textos e imágenes e
 
 ## X. Política sobre discriminación arbitraria, acoso sexual y acoso laboral
 
-La Universidad Diego Portales (UDP) promueve el pluralismo y la independencia crítica, y tiene como uno de sus principales objetivos el desarrollo integral de las personas que forman parte de ella. La UDP promueve una convivencia reflexiva basada en el reconocimiento a la dignidad de las personas, la libertad de expresión, la identidad y expresión de género, y la autonomía de sus integrantes.
+La Universidad Diego Portales (UDP) promueve el pluralismo y la independencia crítica de quienes la integran y tiene como uno de sus principales objetivos el desarrollo integral de las personas que forman parte de ella y de la sociedad. En ese marco, la UDP promueve una convivencia reflexiva basada en el reconocimiento a la dignidad de las personas, la libertad de expresión, la libertad sexual, la identidad y expresión de género, y la autonomía de sus integrantes, en línea con la Convención sobre la eliminación de todas las formas de discriminación contra la mujer, la Convención interamericana para prevenir la violencia contra la mujer, y los demás tratados internacionales sobre Derechos Humanos suscritos y ratificados por Chile y que se encuentren vigentes.
 
-La UDP ha desarrollado reglamentos y políticas que garantizan el respeto a las personas y la no discriminación, buscando construir un espacio universitario libre de violencia.
+La UDP ha desarrollado reglamentos y políticas que garantizan el respeto a las personas y la no discriminación. Por ello, esta normativa surge de la necesidad de reducir las brechas de género arbitrarias e injustas existentes entre las personas que forman parte de la institución o se vinculan a ella, y de la necesidad de construir un espacio universitario libre de violencia. En este contexto, se entiende por discriminación a toda distinción, exclusión o restricción basada en el sexo, la identidad de género, la orientación sexual y/o la expresión de género, que tenga como resultado un menoscabo o anulación del goce o ejercicio de derechos fundamentales y/o a recibir un trato digno y respetuoso.
 
-Más información: [https://genero.udp.cl/politicas-normativas-y-orientaciones/](https://genero.udp.cl/politicas-normativas-y-orientaciones/)
+La violencia de género se entiende como toda conducta que afecta la dignidad e integridad de las personas, tanto en el ámbito público como en el privado, reconociendo que las mujeres y, en general, las personas que no se acercan a los patrones socialmente dominantes en cuanto a identidad de género, orientación sexual y expresión de género, suelen ser más vulnerables a situaciones de discriminación, desigualdad y abuso de poder.
+
+Quienes integran la Universidad tienen la obligación de conocer esta normativa y los protocolos, sitios web y programas que de ella deriven. Particularmente responsables de su implementación serán las autoridades de la universidad, quienes tendrán la primera obligación de hacer frente a situaciones que dañen a sus integrantes.
+
+Más información: [https://genero.udp.cl/](https://genero.udp.cl/)
 
 ---
 

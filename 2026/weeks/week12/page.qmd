@@ -18,6 +18,10 @@ En este laboratorio exploraremos el uso del tiempo en Chile usando la Encuesta N
 
 👉 **[Ir al Práctico 8: Introducción al Análisis Bivariado: Explorando el Uso del Tiempo con la ENUT 2023](lab.qmd)**
 
+::: {.callout-important title="📊 Base de datos de la semana: ENUT 2023"}
+Esta semana estrenamos la **Encuesta Nacional de Uso del Tiempo** del INE, que usaremos hasta el final del curso (semanas 12 a 14). Su factor de expansión es **`fe_cut`**. Recuerda que sus códigos de no respuesta (`96`) deben recodificarse a `NA` antes de calcular.
+:::
+
 ## 📚 Lecturas Obligatorias
 
 - **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch. Cap. 2, págs. 98–128. [[PDF]](../../bib/Moore - Estadística aplicada básica-139-173.pdf)

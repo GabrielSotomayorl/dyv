@@ -1,7 +1,7 @@
 ---
 title: "Práctico 7: La Visualización como Argumento Sociológico con ggplot2"
 subtitle: "Trabajando con la Encuesta CASEN 2024"
-date: "2026-11-02"
+date: "2026-11-09"
 lang: es
 format:
   html:
@@ -72,7 +72,8 @@ grupo_a <- tibble(valor = rnorm(500, 75, 10), grupo = "A: Simétrico (Unimodal)"
 grupo_b <- tibble(valor = c(rnorm(250, 65, 5), rnorm(250, 85, 5)), grupo = "B: Bimodal (Dos grupos)")
 grupo_c <- tibble(valor = rexp(500, 1/10) * 5 + 25, grupo = "C: Asimétrico (con Outliers)")
 
-# Forzamos que los estadísticos sean casi idénticos por motivos pedagógicos
+# Estandarizamos cada grupo para que los tres tengan exactamente
+# la misma media (75) y desviación estándar (10)
 trio_enganoso <- bind_rows(grupo_a, grupo_b, grupo_c) %>%
   group_by(grupo) %>%
   mutate(valor = as.numeric(scale(valor)) * 10 + 75)

@@ -18,6 +18,10 @@ En este laboratorio analizaremos la distribución del ingreso del trabajo princi
 
 👉 **[Ir al Práctico 5: Visualizando Distribuciones y Medidas Robustas: Histogramas y Boxplots en R](lab.qmd)**
 
+::: {.callout-important title="📊 Base de datos de la semana: ESI 2024"}
+Esta semana estrenamos la **Encuesta Suplementaria de Ingresos** del INE. Su factor de expansión es **`fact_cal_esi`** (¡ojo: no `fact_cal`, que es el de la ENE!): úsalo en todos los cálculos ponderados de las semanas 9 y 10.
+:::
+
 ## 📚 Lecturas Obligatorias
 
 - **Ritchey, F. (2008).** *Estadística para las ciencias sociales*. McGraw-Hill. Caps. 4 y 5, págs. 117–135. [[PDF]](../../bib/ritchey cap 4 y 5.pdf)

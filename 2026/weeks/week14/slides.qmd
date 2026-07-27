@@ -3,7 +3,7 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 14<br/> Síntesis Bivariada y Medidas de Asociación</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 23 November 2026
+date: 30 November 2026
 date-meta: 23 November 2026
 date-format: "DD MMM YYYY"
 toc: true
@@ -292,6 +292,34 @@ ggplot(datos_simulados, aes(x = x, y = y)) +
 ```
 
 **Conclusión:** Un `r` cercano a 0 **no significa "ausencia de relación"**. Significa **"ausencia de relación *lineal*"**. Por eso, el análisis visual es irremplazable.
+
+## Las Tres Advertencias en un Solo Ejemplo: El Cuarteto de Anscombe {.smaller}
+
+En 1973, el estadístico Francis Anscombe construyó **cuatro conjuntos de datos** que comparten exactamente los mismos estadísticos: misma media de X (9), misma media de Y (7.5) y **misma correlación (r = 0.82)**.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=4.5}
+# El cuarteto viene incluido en R (datasets::anscombe)
+anscombe_long <- anscombe %>%
+  pivot_longer(everything(),
+               names_to = c(".value", "conjunto"),
+               names_pattern = "(.)(.)") %>%
+  mutate(conjunto = paste("Conjunto", conjunto))
+
+ggplot(anscombe_long, aes(x = x, y = y)) +
+  geom_smooth(method = "lm", se = FALSE, color = "#C2694B", linewidth = 0.8) +
+  geom_point(color = "#1E2240", size = 2.5) +
+  facet_wrap(~conjunto) +
+  labs(title = "Cuatro datasets, la misma correlación (r = 0.82), cuatro historias distintas",
+       x = "X", y = "Y") +
+  theme_minimal(base_size = 14) +
+  theme(strip.text = element_text(face = "bold"))
+```
+
+-   **Conjunto 1:** la relación lineal que el coeficiente sugiere. Es el único caso donde r cuenta bien la historia.
+-   **Conjunto 2:** una relación **curvilínea** perfecta que r describe mal (advertencia 3).
+-   **Conjuntos 3 y 4:** un solo **outlier** distorsiona la recta o directamente fabrica la relación (advertencia 2).
+
+**Lección final:** nunca reportes una correlación sin haber mirado antes el gráfico de dispersión.
 
 ## La Alternativa: Correlación de Spearman (ρ) {.smaller}
 

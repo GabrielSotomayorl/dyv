@@ -232,7 +232,7 @@ Para que el análisis de datos sea eficiente y libre de errores, buscamos un for
 
 ![](img/tidy-1.svg)
 
-Afortunadamente, la mayoría de las encuestas (como CASEN o EBS) ya vienen en este formato. Nuestro trabajo es mantener este orden.
+Afortunadamente, la mayoría de las encuestas (como la CASEN o la ENE) ya vienen en este formato. Nuestro trabajo es mantener este orden.
 
 # 3. Un Flujo de Trabajo para Explorar Datos
 

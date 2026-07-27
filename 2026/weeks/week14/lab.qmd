@@ -1,7 +1,7 @@
 ---
 title: "Práctico 10: Análisis Cuantitativo Bivariado: Dispersión y Correlación"
 subtitle: "Trabajando con la Encuesta Nacional de Uso del Tiempo (ENUT) 2023"
-date: "2026-11-23"
+date: "2026-11-30"
 lang: es
 format:
   html:

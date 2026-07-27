@@ -48,9 +48,12 @@ __pycache__/
 env/
 venv/
 
+# Evaluaciones
+evaluaciones/
+
 # Misc
 .vscode/
 docs/
 .claude/
-PLAN_MEJORAS_2026.md
+_PLAN_MEJORAS_2026.md
 *_files/

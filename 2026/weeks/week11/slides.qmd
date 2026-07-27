@@ -3,7 +3,7 @@ subtitle: "Descripción y Visualización de Datos"
 title: "<font style='font-size:1em;'>🗓️ Semana 11<br/> La Visualización como Argumento Sociológico y la Gramática de Gráficos</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
-date: 02 November 2026
+date: 09 November 2026
 date-meta: 02 November 2026
 date-format: "DD MMM YYYY"
 toc: true
@@ -154,7 +154,8 @@ grupo_b <- tibble(valor = c(rnorm(250, 65, 5), rnorm(250, 85, 5)), grupo = "B: B
 grupo_c <- tibble(valor = rexp(500, 1/10) * 5 + 30, grupo = "C: Asimétrico (con Outliers)")
 trio_enganoso <- bind_rows(grupo_a, grupo_b, grupo_c)
 
-# Para forzar medias y sd similares (haciendo trampa por pedagogía)
+# Estandarizamos cada grupo para que los tres tengan exactamente
+# la misma media (75) y desviación estándar (10)
 trio_enganoso <- trio_enganoso %>% group_by(grupo) %>%
   mutate(valor = scale(valor) * 10 + 75)
 
