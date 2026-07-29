@@ -19,7 +19,7 @@ toc: true
 | **Horario de ayudantía** | Grupo 1: Lunes 14:30–15:50<br>Grupo 2: Lunes 14:30–15:50 |
 | **Asistencia** | Obligatoria 70% (clases y ayudantías) |
 | **Docente** | Gabriel Sotomayor<br>gabriel.sotomayor@mail.udp.cl |
-| **Ayudantes** | Felipe Adasme<br>felipe.adasme@mail.udp.cl<br><br>Francisca Hernández<br>francisca.hernandez_c@mail.udp.cl<br><br>Romina Zamorano<br>romina.zamorano@mail.udp.cl |
+| **Ayudantes** | Felipe Adasme<br>felipe.adasme@mail.udp.cl<br><br>Francisca Hernández<br>francisca.hernandez_c@mail.udp.cl<br><br>Catalina Rojas<br>catalina.rojas5@mail.udp.cl |
 
 ---
 
@@ -194,8 +194,8 @@ Las clases se realizan los **lunes**. Las semanas 1–14 corresponden a clases d
 | 13 | 23-11 | 5 | Tablas de contingencia y control por tercera variable. | Tarea 4 |
 | 14 | 30-11 | 5 | Síntesis bivariada. Medidas de asociación. | |
 | — | 07-12 | — | **Solemne 2** — Unidades 4 y 5 | **PS 2** |
-| — | Por confirmar | — | **Prueba Recuperativa** (ambas secciones) | |
-| — | Por confirmar (10 al 21-12) | — | **Examen** — período oficial de exámenes | |
+| — | Última semana de clases | — | **Prueba Recuperativa** (ambas secciones) | |
+| — | 10 al 21-12 | — | **Examen** — fecha exacta la fija la Escuela dentro de este período | |
 
 ---
 
