@@ -29,14 +29,17 @@ Horario de consultas:
 
 ## Ayudantes
 
+![](/figures/people/felipe.jpeg){fig-align="left" fig-alt="Foto de Felipe Adasme" style="object-fit: cover;width:5em;height:5em;border-radius: 50%;"}
 **Felipe Adasme** <br/>
 Licenciado en Sociología<br/>
 📧 [felipe.adasme@mail.udp.cl](mailto:felipe.adasme@mail.udp.cl)
 
+![](/figures/people/francisca.jpeg){fig-align="left" fig-alt="Foto de Francisca Hernández" style="object-fit: cover;width:5em;height:5em;border-radius: 50%;"}
 **Francisca Hernández** <br/>
 Licenciada en Sociología<br/>
 📧 [francisca.hernandez_c@mail.udp.cl](mailto:francisca.hernandez_c@mail.udp.cl)
 
+![](/figures/people/catalina.jpeg){fig-align="left" fig-alt="Foto de Catalina Rojas" style="object-fit: cover;width:5em;height:5em;border-radius: 50%;"}
 **Catalina Rojas** <br/>
 Estudiante de Sociología (UDP)<br/>
 📧 [catalina.rojas5@mail.udp.cl](mailto:catalina.rojas5@mail.udp.cl)
