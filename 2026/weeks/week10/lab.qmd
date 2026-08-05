@@ -117,6 +117,7 @@ esi_trabajo %>%
 
 
 ```{r warning=FALSE, message=FALSE}
+#| fig-alt: "Histograma de las horas efectivas trabajadas por semana, con líneas verticales marcando la media (37,0 horas, línea roja discontinua) y la mediana (44 horas, línea azul sólida). La media queda a la izquierda de la mediana, evidenciando asimetría a la izquierda."
 # Plot para 'efectivas' (horas trabajadas)
 mean_efectivas <- mean(esi_trabajo$efectivas, na.rm = TRUE)
 median_efectivas <- median(esi_trabajo$efectivas, na.rm = TRUE)
@@ -135,6 +136,7 @@ ggplot(esi_trabajo, aes(x = efectivas)) +
 ```
 
 ```{r warning=FALSE}
+#| fig-alt: "Gráfico de densidad del ingreso del trabajo principal, acotado al percentil 99 (bajo $3.946.528), con líneas verticales para la media ($758.430, línea roja discontinua) y la mediana ($560.000, línea azul sólida). La media queda muy a la derecha de la mediana, mostrando fuerte asimetría a la derecha."
 # Plot para 'ing_t_p' (ingreso del trabajo principal, acotado al percentil 99)
 mean_ing_t_p <- mean(esi_trabajo$ing_t_p, na.rm = TRUE)
 median_ing_t_p <- median(esi_trabajo$ing_t_p, na.rm = TRUE)

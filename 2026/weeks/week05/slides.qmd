@@ -41,7 +41,7 @@ Hoy, damos el salto a la práctica: **¿Cómo se organizan esas mediciones en el
 
 Esta unidad se centrará en los primeros y más cruciales pasos del proceso de análisis:
 
-![](img/data-science-explore.svg)
+![](img/data-science-explore.svg){fig-alt='Diagrama del ciclo de la ciencia de datos: un flujo lineal de Importar a Ordenar (Tidy), que entra a un ciclo central llamado Explorar donde se conectan Transformar, Visualizar y Modelar, y termina en Comunicar. Todo el proceso está enmarcado dentro de un recuadro más grande llamado Programar, indicando que la programación es la base que sostiene cada etapa.'}
 
 
 # 2. Los tipos de datos en R
@@ -230,7 +230,7 @@ Para que el análisis de datos sea eficiente y libre de errores, buscamos un for
 2.  **Cada observación tiene su propia fila.**
 3.  **Cada valor tiene su propia celda.**
 
-![](img/tidy-1.svg)
+![](img/tidy-1.svg){fig-alt='Ilustración de las tres reglas de los datos ordenados (tidy data) sobre una tabla de ejemplo con país (Afganistán, Brasil, China), año (1999 y 2000), casos y población. Un recuadro resalta las columnas y las etiqueta "variables"; otro resalta las filas y las etiqueta "observaciones"; un tercero resalta las celdas individuales y las etiqueta "valores".'}
 
 Afortunadamente, la mayoría de las encuestas (como la CASEN o la ENE) ya vienen en este formato. Nuestro trabajo es mantener este orden.
 

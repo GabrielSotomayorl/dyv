@@ -54,7 +54,7 @@ Hoy, profundizaremos en la lógica detrás de esa cuantificación: el **razonami
 
 Recordemos el ciclo de la investigación social: un diálogo constante entre el mundo de las ideas (**Teoría**) y el mundo de lo observable (**Datos**).
 
-![](img/rueda.png){fig-align="center" width="700"}
+![](img/rueda.png){fig-alt='Diagrama circular "La rueda de las ciencias" (Wallace, 1971): un ciclo con cuatro etapas conectadas por flechas — Teorías, Hipótesis, Observaciones y Generalizaciones empíricas — que vuelve a Teorías. El lado derecho del círculo (de Teorías a Hipótesis a Observaciones) está etiquetado como Deducción; el lado izquierdo (de Observaciones a Generalizaciones empíricas a Teorías) está etiquetado como Inducción.' fig-align="center" width="700"}
 
 
 -   **Deducción:** Parte de la teoría para generar hipótesis que se ponen a prueba con datos.
@@ -121,7 +121,7 @@ Esto se desarrolla principalmente en sus libros “De la Sociología” y especi
 :::: {.column width="50%"}
 
 
-![](img/goldthorpe.png){fig-align="center" width="400"}
+![](img/goldthorpe.png){fig-alt='Fotografía de retrato de John Goldthorpe, hombre mayor de cabello blanco, con blazer oscuro y camisa celeste, sentado con las manos entrelazadas.' fig-align="center" width="400"}
 
 ::::
 ::::::
@@ -216,7 +216,7 @@ Desde una tesis feminista central, esta hipótesis cuestiona la primacía de la 
 
 ## Primeros Resultados: ¿Qué nos dicen los datos? {.smaller}
 
-![](img/tab1.png){fig-align="center"}
+![](img/tab1.png){fig-alt='Tabla 11.3 de Wright y Baxter (1997): contribución porcentual media del marido al trabajo doméstico total, cruzando la clase laboral de la esposa (filas: autoempleada, clase media, clase obrera) con la del esposo (columnas: autoempleado, clase media, clase obrera), para Estados Unidos (N=537) y Suecia (N=641). Estados Unidos: autoempleada-autoempleado 17,1%; autoempleada-medio 22,8%; autoempleada-obrero 16,1%; media-autoempleado 22,8%; media-medio 23,9%; media-obrero 25,5%; obrera-autoempleado 16,1%; obrera-medio 22,3%; obrera-obrero 27,1%. Suecia: autoempleada-autoempleado 16,0%; autoempleada-medio 25,1%; autoempleada-obrero 19,6%; media-autoempleado 25,1%; media-medio 32,4%; media-obrero 27,8%; obrera-autoempleado 19,6%; obrera-medio 25,1%; obrera-obrero 28,1%. En ambos países, el aporte más alto del marido se da cuando ambos cónyuges son de clase obrera; el hogar de clase media pura muestra la mayor diferencia entre países (23,9% en EE. UU. frente a 32,4% en Suecia).' fig-align="center"}
 
 ## Discusión 1: Interpretando las Medias {.smaller}
 
@@ -243,7 +243,7 @@ El siguiente paso es usar un modelo de regresión para ver si los efectos de cla
 :::: {.column width="70%"}
 
 
-![](img/tab2.png){fig-align="center" width="400"}
+![](img/tab2.png){fig-alt='Tabla 11.5 de Wright y Baxter (1997): regresiones Tobit del aporte del esposo al trabajo doméstico, con coeficiente y significancia (p) para Estados Unidos y Suecia, en dos modelos. En el modelo sin controles, casi ninguna categoría de clase es significativa, salvo "autoempleado + obrero" en EE. UU. (-8,9; p=.06, marginal). En el modelo con controles completos, las categorías de clase dejan de ser significativas en casi todos los casos —excepto "hogar autoempleado" en Suecia (-10,5; p=.04)—, mientras que emergen como predictores significativos las horas de trabajo remunerado de la esposa (0,4; p=.00 en ambos países), la edad (significativa en ambos países) y, solo en Suecia, la contribución de la esposa al ingreso familiar (3,7; p=.002) y la presencia de hijos menores de 16 años (-4,5; p=.02).' fig-align="center" width="400"}
 
 ::::
 ::::::
@@ -328,7 +328,7 @@ El siguiente paso es usar un modelo de regresión para ver si los efectos de cla
 -   **RStudio:** Es un **Entorno de Desarrollo Integrado (IDE)**. Es una interfaz gráfica que hace que trabajar con R sea mucho más fácil e intuitivo. **Usaremos R *a través* de RStudio.**
 ::::
 :::: {.column width="50%"}
-![](img/r.jpg){fig-align="center"}
+![](img/r.jpg){fig-alt='Captura de pantalla de RStudio mostrando un script de R que carga ggplot2 y genera un gráfico de dispersión titulado "Diamond Pricing" (precio versus quilates de diamantes, coloreado por claridad), junto con el panel de consola, el entorno de trabajo y el visor de gráficos.' fig-align="center"}
 ::::
 ::::::
 

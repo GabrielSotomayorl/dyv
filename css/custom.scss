@@ -4,7 +4,8 @@
 // NOTA: Si cambias estos valores, actualiza también los mismos en css/slides.scss
 $brand-main:    #1E2240;   // Azul medianoche — estructura dominante de la imagen
 $brand-accent:  #7C90CC;   // Lavanda — luz fría predominante
-$brand-link:    #8A9ED4;   // Lavanda clara — zonas de transición
+$brand-link:    #8A9ED4;   // Lavanda clara — zonas de transición (contraste ~6:1 sobre fondo oscuro, usar solo en modo oscuro)
+$brand-link-a11y: #4C6ABD; // Mismo tono/saturación que $brand-link, más oscuro: ~5,1:1 sobre blanco (cumple WCAG AA), para modo claro
 
 $primary:       $brand-main;
 $navbar-bg:     $brand-main;
@@ -104,6 +105,11 @@ table.syllabus {
   padding: 1.5%;
   background-color: #fafafa;
   border-radius: 4px;
+  // Texto fijo en oscuro: la tarjeta es clara en ambos modos, así siempre es legible
+  // (en modo oscuro el texto heredaba blanco sobre este fondo claro y quedaba invisible).
+  color: $brand-main;
+
+  strong { color: $brand-main; }
 }
 
 // ==========================================
@@ -134,5 +140,33 @@ table.syllabus {
 // ==========================================
 div.csl-entry {
   margin-top: 1rem;
-  a { color: $brand-link; font-weight: 500; }
+  a { color: $brand-link; font-weight: 500; } // válido en modo oscuro (~6:1)
+}
+
+// ==========================================
+// 8. ACCESIBILIDAD: CONTRASTE DE ENLACES (WCAG AA)
+// ==========================================
+// $brand-link (#8A9ED4) da ~2,65:1 sobre fondo blanco — bajo el mínimo AA de 4,5:1 —
+// pero ~6:1 sobre el fondo oscuro del modo oscuro. Quarto marca el modo activo con
+// una clase en <body> (quarto-light / quarto-dark), así que solo oscurecemos el color
+// de enlaces en modo claro, manteniendo el mismo tono/saturación en ambos modos.
+body.quarto-light {
+  --bs-link-color-rgb: 76, 106, 189;   // $brand-link-a11y
+  --bs-link-hover-color-rgb: 65, 90, 161;
+  div.csl-entry a { color: $brand-link-a11y; }
+  // Bootstrap redeclara --bs-nav-link-color directamente en .nav (más cerca del elemento
+  // que nuestro body.quarto-light), así que gana en la herencia pese a nuestra variable.
+  // Fijamos el color directamente en vez de pelear con la cadena de variables.
+  .nav-link { color: $brand-link-a11y; }
+}
+
+// El color del enlace activo del TOC lateral se corrige por JS (a11y-fixes.html):
+// la regla de Quarto usa !important y el post-procesador de SCSS de Quarto
+// reescribe el selector de las reglas nav[role="doc-toc"], así que no se puede
+// vencer de forma confiable solo con CSS propio.
+
+// El texto gris de las tablas paginadas de knitr (tipo de columna, "N rows") usa
+// #999999 sobre blanco (~2,84:1, bajo el mínimo AA); en modo oscuro ya cumple (~5,6:1).
+body.quarto-light {
+  .pagedtable-header-type, .pagedtable-info { color: #595959; }
 }

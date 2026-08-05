@@ -150,6 +150,7 @@ enut_practico %>%
 Este método es el más rápido: `ggplot2` calcula las proporciones internamente.
 
 ```{r vis-direct}
+#| fig-alt: "Gráfico de barras apiladas al 100% con el nivel de satisfacción por el reparto de tareas domésticas, según sexo. Los hombres reportan mayor satisfacción: 28,3% 'Totalmente satisfecho' versus 21,2% de las mujeres, mientras la insatisfacción combinada es de 6,2% en hombres y 14,8% en mujeres."
 enut_practico %>%
   filter(!bs2_factor %in% c("No Aplica", "Valor Perdido") & !is.na(bs2_factor)) %>% # Filtramos NAs
   ggplot(aes(x = sexo_factor, fill = bs2_factor, weight = fe_cut)) +
@@ -166,6 +167,7 @@ enut_practico %>%
 Este método da más control y es útil para gráficos complejos.
 
 ```{r vis-tabular}
+#| fig-alt: "El mismo gráfico de satisfacción por sexo del ejemplo anterior, esta vez construido pre-tabulando los porcentajes con dplyr y graficando con geom_col(): los hombres reportan mayor satisfacción (28,3% 'Totalmente satisfecho') que las mujeres (21,2%), con mayor insatisfacción combinada en mujeres (14,8%) que en hombres (6,2%)."
 # Paso 1: Crear una tabla de resumen con los porcentajes
 tabla_para_grafico <- enut_practico %>%
   filter(!bs2_factor %in% c("No Aplica", "Valor Perdido") & !is.na(bs2_factor)) %>%
@@ -239,6 +241,7 @@ enut_practico %>%
 `facet_wrap()` es la contraparte visual de la estratificación, creando un panel para cada categoría de la variable de control de forma automática y mucho más directa.
 
 ```{r control-facet}
+#| fig-alt: "Gráfico de barras apiladas al 100% de la participación en trabajo de cuidados no remunerado (respuesta 'Sí') según condición de actividad, en dos paneles separados por sexo. Entre los hombres, la mayor participación se da en los ocupados (36,6%), bajando a 22,3% en quienes están fuera de la fuerza de trabajo. Entre las mujeres el patrón es distinto: la participación es alta tanto en ocupadas (47,8%) como en quienes están fuera de la fuerza de trabajo (36,7%), y aún mayor entre las desocupadas (50,6%)."
 enut_practico %>%
   filter(!is.na(p_tcnr_dt_factor)) %>% # Filtramos NAs para el gráfico
   ggplot(aes(x = cae_factor, fill = p_tcnr_dt_factor, weight = fe_cut)) +

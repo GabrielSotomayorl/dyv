@@ -165,7 +165,9 @@ format:
     toc: true
     include-in-header:
       - goatcounter.html
+    include-after-body:
+      - a11y-fixes.html
     margin-header: |
-      ![](/figures/logos/MY_INSTITUTION.png)
+      ![](/figures/logos/MY_INSTITUTION.png){fig-alt="Logo de la Escuela de Sociología UDP, Facultad de Ciencias Sociales y Humanidades"}
 
 

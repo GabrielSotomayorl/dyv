@@ -1,0 +1,84 @@
+<script>
+// Parches de accesibilidad para patrones generados por la plantilla de Quarto
+// que axe-core detecta como violaciones WCAG 2.1 AA (ver auditoría de accesibilidad).
+// No cambian el comportamiento visual del sitio, solo corrigen semántica ARIA
+// y foco de teclado.
+document.addEventListener("DOMContentLoaded", function () {
+
+  // 1) Los enlaces de logo (navbar y sidebar) quedan vacíos cuando no hay un
+  //    logo configurado explícitamente: sin texto ni aria-label, un lector de
+  //    pantalla los anuncia como "enlace" sin más información (link-name).
+  document.querySelectorAll(".navbar-brand-logo, .sidebar-logo-link").forEach(function (el) {
+    if (!el.textContent.trim() && !el.getAttribute("aria-label")) {
+      el.setAttribute("aria-label", "Ir al inicio del sitio del curso");
+    }
+  });
+
+  // 2) La barra de navegación superior y la barra lateral de secciones son dos
+  //    landmarks "nav" sin nombre accesible propio, indistinguibles entre sí
+  //    para quien navega por landmarks (landmark-unique).
+  var navbar = document.querySelector("nav.navbar");
+  if (navbar && !navbar.getAttribute("aria-label")) {
+    navbar.setAttribute("aria-label", "Navegación principal");
+  }
+  var sidebarNav = document.querySelector("nav#quarto-sidebar");
+  if (sidebarNav && !sidebarNav.getAttribute("aria-label")) {
+    sidebarNav.setAttribute("aria-label", "Navegación de secciones del curso");
+  }
+  var tocNav = document.querySelector('nav#TOC, nav[role="doc-toc"]');
+  if (tocNav && !tocNav.getAttribute("aria-label")) {
+    tocNav.setAttribute("aria-label", "Contenidos de esta página");
+  }
+
+  // 3) El bloque del logo institucional (margin-header) queda fuera de cualquier
+  //    landmark de la página (region). Se marca como contenido complementario.
+  var marginHeader = document.querySelector(".quarto-margin-header");
+  if (marginHeader && !marginHeader.getAttribute("role")) {
+    marginHeader.setAttribute("role", "complementary");
+    marginHeader.setAttribute("aria-label", "Logo institucional");
+  }
+
+  // 4) Dos patrones de "mostrar/ocultar" generados por Quarto no son botones
+  //    accesibles de verdad:
+  //    - Los toggles del sidebar (<a> sin href) traen role="navigation", lo que
+  //      crea un landmark de navegación por sección, todos con la misma etiqueta
+  //      genérica "Alternar sección" (landmark-unique), y no son alcanzables con
+  //      teclado (el <a> no tiene href, así que no entra en el orden de tabulación).
+  //    - Los encabezados de callouts plegables (data-bs-toggle="collapse") usan
+  //      aria-expanded sobre un <div> sin rol interactivo, un atributo ARIA no
+  //      permitido ahí (aria-allowed-attr), y tampoco son operables con teclado.
+  //    En ambos casos el rol correcto es "button", con foco y soporte de
+  //    teclado (Enter/Espacio) para que además funcionen como botón real.
+  function makeToggleButton(el) {
+    el.setAttribute("role", "button");
+    if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "0");
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        el.click();
+      }
+    });
+  }
+  document.querySelectorAll('[data-bs-toggle="collapse"][role="navigation"]').forEach(makeToggleButton);
+  document.querySelectorAll('.callout-header[data-bs-toggle="collapse"]').forEach(makeToggleButton);
+
+  // 5) Los bloques de código con scroll horizontal (líneas largas de R) no son
+  //    alcanzables con teclado si su contenido no lo es (scrollable-region-focusable):
+  //    una persona que navega solo con teclado no puede desplazarlos.
+  document.querySelectorAll("div.sourceCode").forEach(function (el) {
+    if (el.scrollWidth > el.clientWidth && !el.hasAttribute("tabindex")) {
+      el.setAttribute("tabindex", "0");
+    }
+  });
+
+  // 6) El enlace activo (y en hover) del tabla de contenidos lateral usa un color
+  //    con contraste insuficiente (~2,65:1) fijado con !important en la hoja de
+  //    estilos de Quarto, que no se puede vencer de forma confiable solo con CSS
+  //    propio (el post-procesador de Quarto reescribe esos selectores). Se fuerza
+  //    el color accesible con estilo en línea, que en la cascada gana incluso
+  //    sobre reglas externas con !important.
+  document.querySelectorAll('nav[role="doc-toc"] a').forEach(function (el) {
+    el.style.setProperty("color", "#4C6ABD", "important");
+  });
+});
+</script>

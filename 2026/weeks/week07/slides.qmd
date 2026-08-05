@@ -173,7 +173,7 @@ Una **tipología** es una variable **categórica** (nominal u ordinal) que se cr
 
 ## {.smaller}
 
-![](img/aim.jpg){fig-align="center"}
+![](img/aim.jpg){fig-alt='Matriz de clasificación de Grupo Socioeconómico (GSE) de AIM Chile: una tabla que cruza la educación y ocupación del principal sostenedor del hogar (filas) con siete tramos de ingreso autónomo per cápita equivalente, YPCE1 a YPCE7 (columnas). Cada celda está coloreada según el grupo socioeconómico resultante, desde "E" (naranja, hogares con menor educación, ocupación no calificada e ingresos más bajos) hasta "AB" (blanco, mayor educación, ocupación de nivel alto e ingresos más altos), pasando por D, C3, C2, C1b y C1a en un gradiente de color.' fig-align="center"}
 
 ## Operacionalizando una Tipología: El GSE en R {.smaller}
 
@@ -299,7 +299,7 @@ Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utiliza
 
 **Sintaxis:** `left_join(tabla_izquierda, tabla_derecha, by = "nombre_variable_llave")`  
 
-![](img/left_join.png){fig-align="center"}
+![](img/left_join.png){fig-alt='Diagrama de left_join(): una tabla verde con 2 columnas y 3 filas y una tabla naranja con 2 columnas y 3 filas, unidas por líneas que conectan las filas que coinciden según la llave. El resultado conserva las 3 filas de la tabla verde (izquierda) completas, agregándoles las columnas naranjas correspondientes.' fig-align="center"}
 
 -   Si una fila en la tabla izquierda no tiene correspondencia en la derecha, las nuevas columnas se rellenarán con `NA`.  
 -   Si una fila en la tabla derecha no tiene correspondencia en la izquierda, se descarta.  
@@ -316,7 +316,7 @@ Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utiliza
 -   **`anti_join(x, y)`:** Una herramienta de diagnóstico muy poderosa. Devuelve **todas las filas de la tabla izquierda que NO tienen correspondencia** en la tabla derecha. Es ideal para encontrar problemas de codificación en las llaves. 
 :::
 ::: {.column width="50%"}
-![](img/joins.png){fig-align="center"}
+![](img/joins.png){fig-alt='Diagrama comparando cuatro tipos de unión entre una tabla verde y una tabla naranja, todas partiendo de las mismas filas conectadas por llave. left_join(): conserva todas las filas de la tabla verde. right_join(): conserva todas las filas de la tabla naranja. inner_join(): conserva solo las filas que coinciden en ambas tablas. full_join(): conserva todas las filas de ambas tablas, incluyendo las que no tienen correspondencia.' fig-align="center"}
   
 :::
 ::::::

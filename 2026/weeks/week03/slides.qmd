@@ -259,7 +259,7 @@ La FIES utiliza 8 preguntas (indicadores) que capturan distintos umbrales de est
 
 ## La gran calculadora de clases británica {.smaller}
 
-![](img/survey.png){fig-align="center"}
+![](img/survey.png){fig-alt='Página promocional de la Great British Class Survey de la BBC: invita a responder cinco preguntas para descubrir a cuál de las siete nuevas clases sociales identificadas pertenece la persona, con ilustraciones de figuras humanas y un código QR de acceso.' fig-align="center"}
 
 
 # 2. ¿A Quién o Qué Estudiamos?
@@ -322,11 +322,11 @@ Un sociólogo analiza los resultados de la prueba PISA a nivel nacional y observ
 
 ## {.smaller}
 
-![](img/casen.png){fig-align="center"}
+![](img/casen.png){fig-alt='Ficha técnica de la Encuesta CASEN 2022: sus unidades de análisis son las personas y los hogares, mientras que el informante (unidad de observación) es un integrante del hogar de 18 años o más, que responde por todo el hogar.' fig-align="center"}
 
 ## {.smaller}
 
-![](img/encla.png){fig-align="center"}
+![](img/encla.png){fig-alt='Página de aspectos metodológicos de la Encuesta Laboral (ENCLA) 2023, que describe cómo se aplican distintos cuestionarios según el informante dentro de cada empresa —empleadores/as, sindicatos y trabajadores/as—, cada uno con su propio criterio de selección.' fig-align="center"}
 
 
 

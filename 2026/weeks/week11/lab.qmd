@@ -66,6 +66,7 @@ casen <- read_sav("datos/Base de datos Casen 2024 SPSS.sav")
 Vamos a demostrar con un ejemplo por qué los estadísticos resumen no son suficientes. Crearemos tres conjuntos de datos simulados que tienen la misma media y desviación estándar, pero formas muy diferentes.
 
 ```{r trio-enganoso}
+#| fig-alt: "Tres histogramas en paneles separados (A, B, C), todos con exactamente la misma media (75) y desviación estándar (10). El panel A muestra una distribución simétrica unimodal. El panel B es claramente bimodal, con dos grupos separados. El panel C está fuertemente sesgado a la derecha, con una cola larga de valores altos. Los tres se ven completamente distintos pese a compartir los mismos estadísticos resumen."
 # 1. Creamos los datos simulados
 set.seed(123)
 grupo_a <- tibble(valor = rnorm(500, 75, 10), grupo = "A: Simétrico (Unimodal)")
@@ -99,6 +100,10 @@ ggplot(trio_enganoso, aes(x = valor)) +
 Construiremos un histograma de `edad` capa por capa para entender la lógica de `ggplot2`.
 
 ```{r ggplot-paso-a-paso}
+#| fig-alt:
+#|   - "Lienzo vacío de ggplot2 con el eje X definido como edad (rango aproximado 0 a 107 años) y ninguna geometría añadida todavía: se ven los ejes, pero ninguna barra."
+#|   - "Histograma básico y sin ponderar de la variable edad en la muestra CASEN 2024, con el estilo por defecto de ggplot2, mostrando la forma general de la distribución de edades."
+#|   - "Histograma final, ponderado por el factor de expansión y personalizado con barras azules y 30 intervalos, de la distribución de edad en la población estimada por la Encuesta CASEN 2024. La edad promedio ponderada es de 37,9 años."
 # Capa 1: Los Datos y las Estéticas (aes). Crea un lienzo en blanco con el eje X definido.
 p <- ggplot(data = casen, mapping = aes(x = edad))
 p
@@ -143,7 +148,8 @@ casen <- casen %>%
 Usamos `weight = expr` para que las alturas representen población expandida.
 
 ```{r}
-casen %>% 
+#| fig-alt: "Gráfico de barras con la población estimada de Chile por nivel de pobreza, CASEN 2024, ponderado. 'Fuera de la pobreza' es, por lejos, la barra más alta con cerca de 16,6 millones de personas (82,7%), seguida de 'Pobreza no extrema' con 2,1 millones (10,4%) y 'Pobreza extrema' con 1,4 millones (6,9%)."
+casen %>%
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
   geom_bar(fill = "#1E2240") +
@@ -161,7 +167,8 @@ casen %>%
 Para porcentajes del total del gráfico, definimos `y = after_stat(count / sum(count))` y formateamos el eje Y como porcentaje.
 
 ```{r}
-casen %>% 
+#| fig-alt: "El mismo gráfico de barras por nivel de pobreza, ahora con el eje Y en porcentaje del total en vez de población absoluta: 'Fuera de la pobreza' representa el 82,7% de la población, 'Pobreza no extrema' el 10,4% y 'Pobreza extrema' el 6,9%."
+casen %>%
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
   geom_bar(aes(y = after_stat(count / sum(count))), fill = "#7C90CC") +
@@ -183,7 +190,8 @@ Usamos `geom_text()` para añadir etiquetas. La idea clave es **usar la misma es
 #### 4.4.1 Frecuencias absolutas (ponderadas) con etiquetas
 
 ```{r}
-casen %>% 
+#| fig-alt: "Gráfico de barras de población por nivel de pobreza con las cifras exactas etiquetadas sobre cada barra: 1.381.221 personas en pobreza extrema, 2.097.143 en pobreza no extrema y 16.640.850 fuera de la pobreza."
+casen %>%
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
   geom_bar(fill = "#1E2240") +
@@ -211,7 +219,8 @@ casen %>%
 #### 4.4.2 Porcentajes del total (ponderados) con etiquetas
 
 ```{r}
-casen %>% 
+#| fig-alt: "Gráfico de barras de porcentaje de población por nivel de pobreza con las cifras etiquetadas sobre cada barra: 6,9% en pobreza extrema, 10,4% en pobreza no extrema y 82,7% fuera de la pobreza."
+casen %>%
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
   geom_bar(aes(y = after_stat(count / sum(count))), fill = "#7C90CC") +
@@ -254,6 +263,7 @@ casen %>%
 El faceting nos permite crear una grilla de gráficos para comparar subgrupos. Vamos a visualizar la relación entre edad y pobreza, separando por zona urbana y rural.
 
 ```{r facet-example}
+#| fig-alt: "Dos líneas de tendencia en paneles separados por zona (Urbano y Rural) que muestran el porcentaje de personas en situación de pobreza según la edad. La zona Rural tiene una tasa de pobreza promedio más alta (22,9%, con un máximo de 34,6%) que la zona Urbana (16,0% en promedio, máximo 26,0%) a lo largo de casi todo el rango de edad."
 # 1. Preparamos los datos: calculamos el porcentaje de pobreza para cada edad y zona
 casen_pob_zona <- casen %>%
   mutate(

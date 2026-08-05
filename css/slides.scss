@@ -56,13 +56,15 @@ $brand-accent:  #7C90CC;   // Lavanda — luz fría predominante
 // ==========================================
 
 // Tags para la bio del profesor y ayudantes
+// Nota: $brand-accent con texto blanco da ~3,1:1 de contraste (bajo el mínimo AA de 4,5:1
+// para texto normal); usamos $brand-main, que da ~15:1, manteniendo la misma paleta.
 span.tag {
     display: inline-block;
     padding: 0.2em 0.8em;
     font-size: 0.85em;
     font-weight: 600;
     border-radius: 10px;
-    background-color: $brand-accent;
+    background-color: $brand-main;
     color: #ffffff;
     margin-bottom: 0.5em;
 }

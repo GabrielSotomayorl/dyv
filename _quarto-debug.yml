@@ -1,0 +1,8 @@
+format:
+  html:
+    axe:
+      output: json
+      standard: wcag21aa
+  # revealjs: nota — quarto 1.8.25 falla al compilar el SCSS del checker axe para
+  # revealjs con temas personalizados ($body-color indefinida en el partial de axe).
+  # Los checks de accesibilidad de las diapositivas se hicieron manualmente en esta sesión.

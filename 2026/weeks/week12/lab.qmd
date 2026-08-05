@@ -114,6 +114,7 @@ knitr::kable(tabla_caso1, digits = 2)
 ### 2.3 Análisis Visual
 
 ```{r cat-quant-vis}
+#| fig-alt: "Boxplots comparando las horas diarias de trabajo no remunerado entre hombres y mujeres. La mediana de las mujeres (4,11 horas) supera el tercer cuartil de los hombres (3,96 horas): más de la mitad de las mujeres dedica más tiempo a estas tareas que el 75% de los hombres. La mediana de los hombres es 2,10 horas."
 # Boxplots comparativos para el trabajo doméstico no remunerado
 ggplot(enut_trabajo, aes(x = sexo_factor, y = t_tnr_dt, fill = sexo_factor)) +
   geom_boxplot(outlier.alpha = 0.1) +
@@ -185,6 +186,7 @@ knitr::kable(
 El gráfico de barras apiladas al 100% visualiza directamente los porcentajes que calculamos.
 
 ```{r cat-cat-vis}
+#| fig-alt: "Gráfico de barras apiladas al 100% con el nivel de satisfacción por el reparto de tareas domésticas, según sexo. Los hombres reportan mayor satisfacción: 28,3% está 'Totalmente satisfecho' versus 21,2% de las mujeres. La insatisfacción combinada (insatisfecho más totalmente insatisfecho) es de 6,2% en hombres y 14,8% en mujeres."
 enut_limpio_cat %>%
   ggplot(aes(x = sexo_factor, fill = fct_rev(bs2_factor), weight = fe_cut)) +
   geom_bar(position = "fill", width = 0.6) +
@@ -216,6 +218,7 @@ enut_limpio_cat %>%
 ### 4.1 Análisis Visual
 **Pregunta:** ¿Cómo se relaciona la `edad` con el tiempo dedicado al trabajo doméstico (`t_tdnr_dt`)?
 ```{r quant-quant-vis, warning=FALSE}
+#| fig-alt: "Gráfico de dispersión de horas de trabajo doméstico no remunerado según edad (12 a 100 años), con dos líneas de tendencia superpuestas: una curva loess en rojo y una recta de regresión lineal en azul. La curva loess muestra una relación curvilínea, con el tiempo aumentando hasta la adultez media y disminuyendo después, mientras la línea lineal capta una asociación positiva débil (correlación de 0,20)."
 ggplot(enut_trabajo, aes(x = edad, y = t_tdnr_dt)) +
   geom_point(alpha = 0.05, color = "#1E2240", position = "jitter") +
   geom_smooth(color = "red", se = FALSE, method = "loess") +

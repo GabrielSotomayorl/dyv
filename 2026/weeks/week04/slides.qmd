@@ -57,7 +57,7 @@ Hoy, respondemos a la siguiente pregunta: una vez que sabemos qué medir y en qu
 -   El objetivo es usar la información de la muestra para hacer **inferencias** (generalizaciones) sobre la población total.    
 :::
 ::: {.column width="35%"}
-![](img/01.png){fig-align="center"}
+![](img/01.png){fig-alt='Ilustración conceptual con figuras humanas de colores: un círculo grande con muchas personas de distintos colores, etiquetado "Población", del cual una flecha señala a un círculo pequeño con solo cinco de esas personas, etiquetado "Muestra", mostrando que la muestra es un subconjunto de la población.' fig-align="center"}
 :::
 ::::::
 
@@ -230,7 +230,7 @@ Es la forma de validez más importante y abstracta.
 
 Una forma clásica de entender la diferencia es con la analogía de un tirador:
 
-![](img/03.png){fig-align="center"}
+![](img/03.png){fig-alt='Cuatro dianas de tiro al blanco que ilustran fiabilidad y validez: "Fiable pero no válido" (impactos agrupados pero lejos del centro), "Válido pero no fiable" (impactos dispersos alrededor del centro), "Ni válido ni fiable" (impactos dispersos y lejos del centro), y "Válido y fiable" (impactos agrupados en el centro).' fig-align="center"}
 
 -   **Fiable pero no Válido:** Todos los tiros dan en el mismo lugar, pero lejos del centro. La medición es consistente pero incorrecta.
 -   **Válido pero no Fiable:** Los tiros están dispersos alrededor del centro. En promedio aciertan, pero la medición es inconsistente.
@@ -269,7 +269,7 @@ El **Error Total de Encuesta** es un marco que nos ayuda a pensar en todas las f
 
 
 ## {}
-![](img/04.png){fig-align="center"}
+![](img/04.png){fig-alt='Diagrama del marco del Error Total de Encuesta, con dos cadenas paralelas de recuadros conectados por flechas. Rama de medición (izquierda): Constructo, luego Medición (con Error de Validez), luego Respuesta (con Error de Medición), luego Respuesta editada (con Error de Procesamiento). Rama de representación (derecha): Población objetivo, luego Marco muestral (con Error de Cobertura), luego Muestra (con Error de Muestreo), luego Muestra lograda (con Error de No Respuesta), luego Ajuste post-encuesta (con Error de Ajuste). Ambas ramas convergen en el recuadro final "Estadístico de encuesta".' fig-align="center"}
 
 
 ## El Error Total como un Desafío de Diseño {.smaller}

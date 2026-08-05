@@ -71,7 +71,7 @@ Savage, M. (2021). *The Return of Inequality: Social Change and the Weight of th
 
 ## La Curva en U de Piketty (La Desigualdad en el Tiempo) {.smaller}
 
-![](img/01.jpg){fig-align="center"}
+![](img/01.jpg){fig-alt='Gráfico de línea de tiempo (Gráfica 1 de Piketty): participación del decil superior en el ingreso nacional de Estados Unidos, 1910-2010. Dibuja una curva en forma de U: pasa de 45-50% en 1910-1920 a menos de 35% en la década de 1950 (la caída documentada por Kuznets), y vuelve a subir a 45-50% entre 2000 y 2010.' fig-align="center"}
 
 ## La Curva en U de Piketty (La Desigualdad en el Tiempo) {.smaller}
 
@@ -82,7 +82,7 @@ Savage, M. (2021). *The Return of Inequality: Social Change and the Weight of th
 
 ## El Espacio Social de Bourdieu (La Desigualdad en el Espacio) {.smaller}
 
-![](img/02.jpg){fig-align="center"}
+![](img/02.jpg){fig-alt='Mapa detallado de Bourdieu "The space of social positions": un plano con el volumen de capital total en el eje vertical (más arriba, menos abajo) y la composición del capital en el horizontal (capital cultural alto/capital económico bajo a la izquierda; capital económico alto/capital cultural bajo a la derecha). Decenas de categorías ocupacionales (profesores, ejecutivos, industriales, obreros) y prácticas culturales asociadas (ópera, golf, ajedrez, esquí acuático, camping) se ubican como puntos en este espacio, mostrando cómo cada posición social combina un perfil propio de capital y de gustos.' fig-align="center"}
 
 ## El Espacio Social de Bourdieu (La Desigualdad en el Espacio) {.smaller}
 
@@ -105,23 +105,23 @@ La visualización, por tanto, es una forma de hacer sociología.
 
 ## Veamos algunos otros ejemplos {.smaller}
 
-![](img/03.png){fig-align="center"}
+![](img/03.png){fig-alt='Gráfico de Our World in Data "Share of the world population living in poverty" (1820-2025), con varias líneas descendentes. La pobreza extrema histórica (Moatsos, morado) cae de 79% en 1820 a 9% en 2018. Con datos recientes del Banco Mundial (verde), la población bajo distintos umbrales diarios cae entre 1990 y 2025: bajo 3 dólares de 44% a 10%, bajo 5 dólares de 60% a 24%, bajo 10 dólares de 73% a 52%, y bajo 30 dólares de 87% a 81%.' fig-align="center"}
 
 
 ## Veamos algunos otros ejemplos {.smaller}
 
-![](img/04.png){fig-align="center"}
+![](img/04.png){fig-alt='Gráfico 5 (Corak, 2016): elasticidad intergeneracional del ingreso versus desigualdad (coeficiente Gini), por país. Muestra una relación positiva: países más desiguales como Perú, Brasil y Chile tienen mayor elasticidad (menor movilidad social entre generaciones), mientras países más igualitarios como Dinamarca, Noruega y Finlandia tienen baja elasticidad (mayor movilidad). Chile aparece entre los países con más desigualdad y menor movilidad, junto a Argentina y Brasil.' fig-align="center"}
 
 
 
 ## Veamos algunos otros ejemplos {.smaller}
 
-![](img/05.jpg){fig-align="center"}
+![](img/05.jpg){fig-alt='Gráfico de barras apiladas "Incidencia de la pobreza y la pobreza extrema en la población, 2006-2022" en Chile. La pobreza total cae sostenidamente de 28,7% en 2006 a 6,5% en 2022, con un repunte puntual a 10,7% en 2020. La pobreza extrema baja de 12,4% en 2006 a 2,0% en 2022.' fig-align="center"}
 
 
 ## Veamos algunos otros ejemplos {.smaller}
 
-![](img/06.jpg){fig-align="center"}
+![](img/06.jpg){fig-alt='Gráfico 7: segmentación social de las escuelas en Chile y resultados de PISA 2012 — puntaje PISA versus índice de nivel socioeconómico y cultural, por país y, dentro de Chile, por tipo de establecimiento. Los colegios particulares privados chilenos obtienen el puntaje más alto (cerca de 545, similar a países como Finlandia) con alto nivel socioeconómico, seguidos por los particulares subvencionados y, muy por debajo, los municipales (cerca de 440), evidenciando una fuerte segmentación social del sistema escolar chileno.' fig-align="center"}
 
 
 

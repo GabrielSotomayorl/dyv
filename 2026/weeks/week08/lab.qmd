@@ -131,6 +131,7 @@ Ahora, vamos a visualizar la información, manteniendo la distinción entre mues
 `barplot()` trabaja con tablas pre-calculadas. Por defecto, no tiene un argumento simple para ponderar, por lo que lo usaremos para visualizar las **frecuencias de la muestra**. Es una herramienta rápida para una exploración inicial.
 
 ```{r barplot-base}
+#| fig-alt: "Gráfico de barras de R base con la frecuencia muestral (sin ponderar) de la condición de actividad en personas de 15 años o más. Ocupados/as es la categoría más frecuente con 42.987 casos (51,7%), seguida de Fuera de la fuerza de trabajo con 35.981 casos (43,3%) y Desocupados/as con 4.193 casos (5,0%)."
 # 1. Creamos la tabla de frecuencias de la muestra (mayores de 15)
 frecuencias_muestra <- table(ene$condicion_actividad[ene$edad >= 15])
 
@@ -151,6 +152,7 @@ barplot(
 `ggplot2` nos permite construir gráficos por capas, dándonos un control total. `geom_bar()` puede calcular las frecuencias por nosotros directamente desde los datos e incorporar los ponderadores directamente en la construcción del gráfico a través del argumento `weight`.
 
 ```{r barplot-ggplot-simple}
+#| fig-alt: "Gráfico de barras de ggplot2 con la estimación poblacional ponderada de la condición de actividad, trimestre febrero-marzo-abril 2026. Ocupados/as es la categoría más alta con cerca de 9,4 millones de personas (56,7%), seguida de Fuera de la fuerza de trabajo con 6,3 millones (37,7%) y Desocupados/as con 0,9 millones (5,7%)."
 # Explicación del código:
 # 1. ggplot(data, aes(x)): Iniciamos el gráfico, definimos los datos y el mapeo estético principal (qué va en el eje x). En `aes()`, además de `x`, añadimos `weight = fact_cal`. Esto le dice a ggplot2
 # 2. geom_bar(): Añadimos la capa geométrica. Al no especificar un eje 'y', `geom_bar` cuenta automáticamente los casos por cada categoría de 'x'.

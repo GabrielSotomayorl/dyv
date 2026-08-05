@@ -107,6 +107,7 @@ Antes de calcular cualquier número, **siempre debemos visualizar**. El coeficie
 Utilizaremos `geom_point()` para los datos y `geom_smooth()` para comparar tendencias.
 
 ```{r scatterplot-basic, warning=FALSE}
+#| fig-alt: "Gráfico de dispersión entre edad y horas diarias de trabajo doméstico no remunerado, con dos líneas de tendencia: una recta de regresión lineal (roja) y una curva loess (azul discontinua). La línea lineal muestra una pendiente positiva suave (correlación r=0,204). La curva loess revela un patrón más rico: el trabajo doméstico aumenta rápidamente entre los 15 y 30 años, se mantiene alto y estable durante la adultez, y decae levemente en la vejez avanzada, un patrón que la línea recta no logra capturar."
 # Construcción del gráfico capa por capa
 ggplot(enut_cuant, aes(x = edad, y = t_tdnr_dt)) +
   
@@ -204,6 +205,7 @@ matriz_tidy %>%
 Podemos visualizar la intensidad y dirección de todas las correlaciones simultáneamente.
 
 ```{r corrr-plot}
+#| fig-alt: "Mapa de calor con la matriz de correlaciones entre edad, horas de trabajo remunerado, trabajo doméstico no remunerado y trabajo de cuidados no remunerado. Las correlaciones más notorias son: trabajo doméstico y trabajo de cuidados (r=0,20, positiva, en azul), trabajo remunerado y trabajo doméstico (r=-0,20, negativa, en rojo), y edad con trabajo doméstico (r=0,20, positiva). El resto son débiles y cercanas a cero: edad con trabajo remunerado (0,02), edad con cuidados (-0,15) y trabajo remunerado con cuidados (-0,15)."
 matriz_tidy %>%
   rplot(colors = c("#C2694B", "white", "#1E2240")) + # Terracota (neg) - Blanco - Azul noche (pos)
   labs(title = "Mapa de Correlaciones: Uso del Tiempo")

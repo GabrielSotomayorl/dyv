@@ -326,7 +326,7 @@ La **curtosis** es una medida de qué tan "pesadas" son las colas de una distrib
 
 ## Curtosis (Kurtosis): Midiendo las "Colas" y los Outliers {.smaller}
 
-![](https://analystprep.com/cfa-level-1-exam/wp-content/uploads/2019/08/page-64.png){width=60%}
+![](https://analystprep.com/cfa-level-1-exam/wp-content/uploads/2019/08/page-64.png){fig-alt='Tres curvas en forma de campana superpuestas comparando distribuciones según su curtosis. La curva azul (leptocúrtica) es la más alta y angosta, con colas más pesadas. La curva naranja (distribución normal) tiene una altura intermedia, como referencia. La curva verde (platicúrtica) es la más baja y ancha, con colas más ligeras.' width=60%}
 
 
 ## Estadísticos de Forma en la Práctica {.smaller}
