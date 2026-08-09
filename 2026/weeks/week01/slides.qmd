@@ -121,6 +121,21 @@ El curso tiene un carácter eminentemente práctico, utilizando lenguajes de pro
 -   El **Examen Final** (fecha por confirmar) corresponde al **30%** restante.
 -   Se requiere **70% de asistencia** para aprobar.
 
+## Política de Uso de Inteligencia Artificial {.smaller background-color="white"}
+
+-   **Uso acotado y transparente:** autorizado para usos específicos en las Tareas de R y los Trabajos Prácticos, **excepto en la prueba solemne y el examen**.
+-   **Permitido:** depurar código y resolver dudas técnicas de ese tipo.
+-   **No permitido:** que la IA redacte la interpretación sociológica de los resultados: esa interpretación debe ser trabajo original de ustedes.
+-   Deben declarar el uso de IA en cada evaluación: qué usaron, y confirmar que la interpretación es propia.
+
+Revisa el detalle completo en la [Política de IA](../../ai-policy.qmd) del curso.
+
+## Ejemplo: uso permitido y no permitido {.smaller background-color="white"}
+
+::: {style="font-size: 0.75em;"}
+Mi código de `ggplot()` marcaba error, le pedí a la IA que revisara la sintaxis y encontré que faltaba un `+`: **uso permitido**. Después le pedí que redactara qué significa sociológicamente la asimetría del gráfico: **uso no permitido**, esa interpretación la deben escribir ustedes.
+:::
+
 ## Ayudantes del Curso {.smaller background-color="white"}
 
 El curso cuenta con un equipo de tres ayudantes:
@@ -189,7 +204,7 @@ El curso cuenta con un equipo de tres ayudantes:
 Todo el material estará disponible en:
 
 ::: {.callout-note icon=false}
-**[https://gabrielsotomayorl.github.io/dyv/](https://gabrielsotomayorl.github.io/dyv/){preview-link="true"}**
+**[https://gabrielsotomayorl.github.io/dyv/2026/](https://gabrielsotomayorl.github.io/dyv/2026/){preview-link="true"}**
 :::
 
 ### 🗣️ Delegado/a de Curso
@@ -337,7 +352,7 @@ La cuantificación es un acto teórico y metodológico: decidimos qué propiedad
 
 ## La Teoría Representacional de la Medición {.smaller}
 
-Medir no es solo poner números, es hacerlo de forma que **representen fielmente las relaciones empíricas**.
+Medir es asignar números de forma que **representen fielmente las relaciones empíricas**.
 
 1.  **Reglas Claras:** La asignación de números sigue una regla explícita y coherente.
 2.  **Representación de Relaciones:** Si en la realidad el individuo A tiene "más" de una propiedad que el individuo B, el número asignado a A debe ser mayor que el de B.
@@ -379,7 +394,7 @@ La estadística y la visualización son herramientas poderosas para sintetizar i
 :::
 
 ::: {.column width="30%"}
--   Mapea la estructura de clases no solo por riqueza (capital económico) sino también por educación y gustos (capital cultural).
+-   Mapea la estructura de clases combinando riqueza (capital económico) con educación y gustos (capital cultural).
 -   La desigualdad es multidimensional y se reproduce a través de estilos de vida y prácticas culturales.
 :::
 :::
@@ -389,7 +404,7 @@ La estadística y la visualización son herramientas poderosas para sintetizar i
 ![](img/desigualdad.png){fig-alt='Dos gráficos de líneas sobre desigualdad de ingresos. A la izquierda, la participación del decil superior en el ingreso nacional de EE. UU. entre 1910 y 2010: cae de cerca de 45% en los años 1920 a alrededor de 33% entre 1950 y 1970, y vuelve a subir hasta cerca de 50% en 2010, dibujando una curva en forma de U. A la derecha, la participación del 1%, 0,1% y 0,01% más rico en el ingreso fiscal entre 1964 y 2017: el 1% más rico sube de cerca de 13% a un máximo de 18% hacia 1990 y luego se mantiene entre 15% y 16%.' fig-align="center"}
 
 -   Muestra la caída y el posterior resurgimiento de la concentración del ingreso en el 10% más rico durante el siglo XX en EE.UU.
--   La desigualdad no es un fenómeno natural, sino el resultado de políticas e instituciones que cambian históricamente.
+-   La desigualdad es el resultado de políticas e instituciones que cambian históricamente.
 
 ## Usos Actuales en Políticas Públicas {.smaller}
 

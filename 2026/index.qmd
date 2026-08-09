@@ -53,6 +53,7 @@ Estudiante de Sociología (UDP)<br/>
 
 - 📆 Lunes (Módulo 1)
 - ⌚ 08:30 a 09:50 hrs.
+- 📍 Ejército 326, piso 4, sala 402
 - 📌 Asistencia: 70%
 :::
 
@@ -61,6 +62,7 @@ Estudiante de Sociología (UDP)<br/>
 
 - 📆 Lunes (Módulos 2 y 3)
 - ⌚ Grupo 1: 10:00–11:20 · Grupo 2: 11:30–12:50
+- 📍 Ejército 333, piso 2, Laboratorio piso 2
 - 📌 Asistencia: 70%
 :::
 

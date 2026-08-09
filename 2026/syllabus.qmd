@@ -14,8 +14,8 @@ toc: true
 | **Período Académico** | 2º semestre 2026 |
 | **Requisito** | SOC09114 Matemáticas para Sociología |
 | **Duración** | Semestral |
-| **Horario de plenaria** | Lunes 08:30–09:50 |
-| **Horario de talleres** | Grupo 1: Lunes 10:00–11:20<br>Grupo 2: Lunes 11:30–12:50 |
+| **Horario de plenaria** | Lunes 08:30–09:50<br>Ejército 326, piso 4, sala 402 |
+| **Horario de talleres** | Grupo 1: Lunes 10:00–11:20<br>Grupo 2: Lunes 11:30–12:50<br>Ejército 333, piso 2, Laboratorio piso 2 |
 | **Horario de ayudantía** | Grupo 1: Lunes 14:30–15:50<br>Grupo 2: Lunes 14:30–15:50 |
 | **Asistencia** | Obligatoria 70% (clases y ayudantías) |
 | **Docente** | Gabriel Sotomayor<br>gabriel.sotomayor@mail.udp.cl |

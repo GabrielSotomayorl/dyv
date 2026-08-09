@@ -5,22 +5,20 @@ format: html
 toc: true
 ---
 
-## Principio general: uso abierto y transparente
+## Principio general: uso acotado y transparente
 
-En este curso adoptamos una política de **uso abierto y autorizado** de herramientas de IA generativa (ChatGPT, Claude, Copilot, Gemini, entre otras). Esta decisión refleja una postura pedagógica deliberada: en lugar de prohibir el uso de herramientas que los/as estudiantes ya utilizan —con o sin autorización— preferimos incorporarlas de manera **consciente, crítica y documentada**.
-
-Esta política está inspirada en el proyecto **[GENIAL](https://lse-dsi.github.io/genial/)** (*GENerative AI Tools as a Catalyst for Learning*), una iniciativa de la London School of Economics (LSE) que investigó cómo el uso de IA generativa afecta el proceso de aprendizaje en cursos de datos sociales.
+En este curso, el uso de herramientas de IA generativa (ChatGPT, Claude, Copilot, Gemini, entre otras) es **acotado y transparente**: está autorizado para usos específicos, y siempre debe declararse. El objetivo es un uso consciente y crítico de estas herramientas en todas las evaluaciones del curso.
 
 ---
 
 ## ¿Qué está permitido?
 
-El uso de herramientas de IA generativa está **permitido en todas las evaluaciones del curso**, con la excepción de la prueba solemne y el examen (ver más abajo). Esto incluye, pero no se limita a:
+En las **Tareas de R** y los **Trabajos Prácticos** (las evaluaciones que requieren código o análisis de datos), la IA está autorizada para:
 
-- Usar IA para ayudar a depurar código en R.
-- Consultar conceptos o pedir explicaciones alternativas de contenidos del curso.
-- Usar IA para estructurar argumentos o recibir retroalimentación preliminar sobre redacción.
-- Usar IA para revisar salidas de modelos o interpretar resultados.
+- **Depurar código:** entender por qué falla una función, corregir errores de sintaxis, o pedir que explique qué hace un fragmento de código.
+- **Resolver dudas técnicas** de ese tipo sobre R o los contenidos del curso.
+
+**No está permitido** que la IA redacte, resuma o formule la **interpretación sociológica** de los resultados. Esa interpretación (qué significan los datos, qué dicen sobre el fenómeno social estudiado) debe ser trabajo original de los/las estudiantes.
 
 ---
 
@@ -28,7 +26,7 @@ El uso de herramientas de IA generativa está **permitido en todas las evaluacio
 
 Para cada evaluación en que se use IA (o en que se haya optado por no usarla), deberán entregar junto con su trabajo:
 
-1. **Un breve comentario** (1 párrafo) describiendo cómo utilizaron la IA en su proceso de trabajo: para qué la usaron, qué tan útil fue, y qué decisiones tomaron ustedes frente a lo que la IA les sugirió.
+1. **Un breve comentario** (1 párrafo) describiendo cómo utilizaron la IA en su proceso de trabajo: para qué la usaron, qué tan útil fue, y qué decisiones tomaron ustedes frente a lo que la IA les sugirió. Indiquen si la usaron para código, y confirmen explícitamente que la interpretación es de su autoría.
 
 2. **El log o registro** de las interacciones relevantes con la herramienta de IA (exportación del chat, capturas de pantalla u otro formato disponible).
 
@@ -49,24 +47,9 @@ Esta política **no aplica a la prueba solemne ni al examen**, que son evaluacio
 
 ---
 
-## Beneficios del uso de IA en el aprendizaje
-
-Cuando se usan estratégicamente, las herramientas de IA pueden apoyar genuinamente el proceso de aprendizaje:
-
-- **Depuración de código:** Identificar por qué un script falla o por qué un resultado es inesperado.
-- **Exploración conceptual:** Pedir que la IA explique de otro modo un concepto que no quedó claro en clases.
-- **Retroalimentación rápida:** Obtener una primera evaluación de la estructura de un argumento o análisis antes de consultar al equipo docente.
-- **Productividad:** Reducir tiempo en tareas más mecánicas para dedicar más atención a la interpretación y el análisis.
-
----
-
 ## Riesgos: aprender vs. parecer que aprendiste
 
-La evidencia del proyecto GENIAL sugiere que el uso de IA también conlleva riesgos pedagógicos importantes. Las herramientas de IA generativa producen outputs que suenan y parecen correctos, incluso cuando no lo son. En un curso de programación estadística, el código puede ejecutar sin errores y aun así no responder a los objetivos de la tarea.
-
-::: {.callout-tip title="Para saber más"}
-- Sitio del proyecto: [lse-dsi.github.io/genial](https://lse-dsi.github.io/genial/)
-:::
+Usar IA para llegar directamente a un resultado, sin pasar por el proceso de razonamiento, puede dar la sensación de haber aprendido sin que eso ocurra realmente. Las herramientas de IA generativa producen outputs que suenan y parecen correctos, incluso cuando no lo son. En un curso de programación estadística, el código puede ejecutar sin errores y aun así no responder a los objetivos de la tarea.
 
 ---
 
@@ -74,8 +57,7 @@ La evidencia del proyecto GENIAL sugiere que el uso de IA también conlleva ries
 
 | | |
 |:---|:---|
-| **¿Está permitido usar IA?** | Sí, en todas las evaluaciones **excepto** la prueba solemne y el examen. |
-| **¿Qué debo entregar?** | Un comentario breve + el log de las interacciones relevantes. |
-| **¿Por qué?** | Para promover uso consciente/crítico y generar evidencia pedagógica. |
+| **¿Está permitido usar IA?** | Sí, para depurar código y resolver dudas técnicas en Tareas de R y Trabajos Prácticos. **No**, para la interpretación sociológica, ni en la prueba solemne o el examen. |
+| **¿Qué debo entregar?** | Un comentario breve confirmando el uso (o no uso) + el log de las interacciones relevantes. |
+| **¿Por qué?** | Para promover un uso consciente y crítico, y generar evidencia sobre cómo se usa la IA en el aprendizaje. |
 | **¿Cuál es el riesgo?** | Obtener buenos outputs sin comprender, saltando el proceso de aprendizaje. |
-| **¿Inspiración?** | Proyecto GENIAL (LSE): [lse-dsi.github.io/genial](https://lse-dsi.github.io/genial/) |
