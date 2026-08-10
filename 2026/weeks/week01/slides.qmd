@@ -130,12 +130,6 @@ El curso tiene un carácter eminentemente práctico, utilizando lenguajes de pro
 
 Revisa el detalle completo en la [Política de IA](../../ai-policy.qmd) del curso.
 
-## Ejemplo: uso permitido y no permitido {.smaller background-color="white"}
-
-::: {style="font-size: 0.75em;"}
-Mi código de `ggplot()` marcaba error, le pedí a la IA que revisara la sintaxis y encontré que faltaba un `+`: **uso permitido**. Después le pedí que redactara qué significa sociológicamente la asimetría del gráfico: **uso no permitido**, esa interpretación la deben escribir ustedes.
-:::
-
 ## Ayudantes del Curso {.smaller background-color="white"}
 
 El curso cuenta con un equipo de tres ayudantes:
@@ -257,7 +251,7 @@ A diferencia de otras ciencias, en sociología **somos parte de nuestro objeto d
     -   Los conceptos que usamos.
     -   La forma en que interpretamos los datos.
 
-La meta no es la neutralidad imposible, sino la **transparencia y el rigor consciente**.
+La meta es la **transparencia y el rigor consciente**.
 
 **Pregunta para reflexionar:** ¿De qué manera creen que la posición social o valores de un investigador podrían influir en una investigación cuantitativa? ¿Cómo se puede manejar eso?
 :::
