@@ -247,7 +247,6 @@ Desde una tesis feminista central, esta hipótesis cuestiona la primacía de la 
 ::::
 ::::::
 
-El aporte más alto se da cuando ambos cónyuges son de clase obrera; la mayor diferencia entre países está en el hogar de clase media pura.
 
 ## Discusión 1: Interpretando las medias {.smaller}
 
@@ -285,7 +284,6 @@ El siguiente paso es usar un modelo de regresión (Tobit) para ver si los efecto
 | N | 267 | 297 |
 :::
 
-Casi ninguna categoría de clase es significativa, salvo "autoempleado + obrero" en EE. UU. (-8,9; p=.06, marginal).
 
 ## Regresión Tobit: modelo con controles completos {.smaller}
 
@@ -309,7 +307,6 @@ Casi ninguna categoría de clase es significativa, salvo "autoempleado + obrero"
 | N | 267 | 297 |
 :::
 
-Con controles, casi todas las categorías de clase pierden significancia; el predictor más fuerte pasa a ser las horas de trabajo de la esposa.
 
 ## Discusión 2: Interpretando la regresión {.smaller}
 
