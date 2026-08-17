@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 14<br/> Síntesis Bivariada y Medidas de Asociación</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 14<br/> Síntesis bivariada y medidas de asociación</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 30 November 2026
@@ -22,7 +22,7 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller}
+## Objetivos de la sesión de hoy {.smaller}
 
 -   **Sintetizar** las estrategias visuales para cada tipo de análisis bivariado.
 -   **Introducir** el coeficiente de **Correlación de Pearson (r)** para cuantificar la fuerza y dirección de una relación lineal.
@@ -31,7 +31,7 @@ format:
 -   **Introducir** la **Correlación de Spearman (ρ)** como alternativa robusta para variables ordinales y relaciones no lineales.
 -   **Concluir** el curso conectando la estadística descriptiva con la **incertidumbre del muestreo** y el rol de la **probabilidad**.
 
-## Repaso y Conexión {.smaller}
+## Repaso y conexión {.smaller}
 
 En la clase anterior dominamos el **análisis categórico bivariado**:
 
@@ -43,9 +43,9 @@ En la clase anterior dominamos el **análisis categórico bivariado**:
 **Hoy** cerramos el análisis bivariado con el caso **Cuantitativa → Cuantitativa** e introducimos la correlación de Pearson como herramienta de síntesis.
 
 
-# 1. El Mapa del Análisis Bivariado: Síntesis Visual
+# 1. El mapa del análisis bivariado: Síntesis visual
 
-## Eligiendo la Herramienta Correcta {.smaller}
+## Eligiendo la herramienta correcta {.smaller}
 
 Hemos explorado tres tipos de relaciones. A modo de resumen, este es nuestro mapa conceptual para elegir la visualización y el análisis numérico correctos:
 
@@ -58,9 +58,9 @@ Hemos explorado tres tipos de relaciones. A modo de resumen, este es nuestro map
 Hoy, nos enfocaremos en profundidad en el último caso: la relación entre dos variables cuantitativas.
 
 
-# 2. Del Gráfico de Dispersión a la Correlación
+# 2. Del gráfico de dispersión a la correlación
 
-## El Gráfico de Dispersión (Scatterplot) {.smaller}
+## El gráfico de dispersión (scatterplot) {.smaller}
 
 El **gráfico de dispersión** es nuestra herramienta visual principal para analizar la relación entre dos variables cuantitativas. Nos permite evaluar tres aspectos clave:
 
@@ -70,7 +70,7 @@ El **gráfico de dispersión** es nuestra herramienta visual principal para anal
 2.  **Forma:** ¿El patrón sigue una línea recta (**lineal**) o una curva (**curvilíneo**)?
 3.  **Fuerza:** ¿Qué tan agrupados están los puntos alrededor del patrón principal? Puntos muy dispersos indican una relación débil; puntos muy juntos indican una relación fuerte.
 
-## Hacia una Medida Numérica: La Covarianza {.smaller}
+## Hacia una medida numérica: La covarianza {.smaller}
 
 Un gráfico de dispersión es subjetivo. Para cuantificar la relación, necesitamos un número. El primer paso es la **covarianza**.
 
@@ -97,7 +97,7 @@ ggplot(datos_cov, aes(x, y)) +
 -   **Asociación Positiva:** La mayoría de los puntos caen en los cuadrantes **I** y **III**.
 -   **Asociación Negativa:** La mayoría de los puntos caen en los cuadrantes **II** y **IV**.
 
-## La Covarianza (sxy) {.smaller}
+## La covarianza (sxy) {.smaller}
 
 La covarianza calcula el "promedio" del producto de las desviaciones de cada punto a sus respectivas medias.
 
@@ -111,7 +111,7 @@ $$
     -   Si **Cov(x, y) \< 0**, la relación es negativa (puntos en cuadrantes II y IV).
 -   **Problema:** La magnitud de la covarianza depende de las unidades de las variables (ej. `pesos * años`). **¡No es comparable!** No nos dice si la relación es "fuerte" o "débil".
 
-## La Solución: Correlación de Pearson (r) {.smaller}
+## La solución: Correlación de Pearson (r) {.smaller}
 
 Para resolver el problema de las unidades, **estandarizamos** la covarianza. La dividimos por el producto de las desviaciones estándar de cada variable. El resultado es el **coeficiente de correlación de Pearson (r)**.
 
@@ -125,7 +125,7 @@ $$
 -   La fórmula de `r` es el promedio del producto de las **puntuaciones Z** de X e Y.
 -   `r` es un número **sin unidades**, que siempre va de **-1 a +1**, lo que lo hace universalmente comparable.
 
-## Interpretando la Correlación (r) {.smaller}
+## Interpretando la correlación (r) {.smaller}
 
 -   **Rango:** Siempre entre -1 y +1.
 -   **Dirección:**
@@ -135,7 +135,7 @@ $$
     -   r cercano a 0: relación **lineal débil o nula**.
     -   r cercano a -1 o +1: relación **lineal fuerte**.
 
-## Interpretando la Correlación (r) {.smaller}
+## Interpretando la correlación (r) {.smaller}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 
@@ -202,9 +202,9 @@ grid.arrange(g0,g_pos05, g_pos09,g_neg03, g_neg07, g_neg099, ncol = 3)
 
 
 
-# 3. Advertencias sobre la Correlación
+# 3. Advertencias sobre la correlación
 
-## 1. Correlación no implica Causalidad {.smaller}
+## 1. Correlación no implica causalidad {.smaller}
 
 Una correlación fuerte entre dos variables **nunca** es, por sí sola, evidencia suficiente para concluir que una causa la otra.
 
@@ -226,7 +226,7 @@ ggplot(datos_esp, aes(x = helados, y = ahogamientos)) +
   theme_minimal(base_size=16)
 ```
 
-## 2. La Correlación es Sensible a Outliers {.smaller}
+## 2. La correlación es sensible a outliers {.smaller}
 
 Al igual que la media y la desviación estándar, la correlación es una medida **no robusta**. Un solo valor atípico puede distorsionar dramáticamente el coeficiente.
 
@@ -245,7 +245,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2)
 
 **Lección:** Siempre inspecciona visualmente tu gráfico de dispersión para detectar outliers antes de interpretar `r`.
 
-## 3. `r` Solo Mide Relaciones LINEALES {.smaller}
+## 3. `r` solo mide relaciones LINEALES {.smaller}
 
 El coeficiente de correlación de Pearson está diseñado para medir qué tan bien se ajustan los datos a una **línea recta**. Si la relación es fuerte pero **curvilínea**, `r` puede ser engañosamente bajo.
 
@@ -293,7 +293,7 @@ ggplot(datos_simulados, aes(x = x, y = y)) +
 
 **Conclusión:** Un `r` cercano a 0 **no significa "ausencia de relación"**. Significa **"ausencia de relación *lineal*"**. Por eso, el análisis visual es irremplazable.
 
-## Las Tres Advertencias en un Solo Ejemplo: El Cuarteto de Anscombe {.smaller}
+## Las tres advertencias en un solo ejemplo: El cuarteto de Anscombe {.smaller}
 
 En 1973, el estadístico Francis Anscombe construyó **cuatro conjuntos de datos** que comparten exactamente los mismos estadísticos: misma media de X (9), misma media de Y (7.5) y **misma correlación (r = 0.82)**.
 
@@ -321,7 +321,7 @@ ggplot(anscombe_long, aes(x = x, y = y)) +
 
 **Lección final:** nunca reportes una correlación sin haber mirado antes el gráfico de dispersión.
 
-## La Alternativa: Correlación de Spearman (ρ) {.smaller}
+## La alternativa: Correlación de Spearman (ρ) {.smaller}
 
 Cuando Pearson no es apropiado, disponemos de una alternativa directa: la **correlación de Spearman (ρ)**. En lugar de operar sobre los valores, transforma primero cada observación en su **rango** (la posición que ocupa si se ordena la lista de menor a mayor) y luego aplica la fórmula de Pearson sobre esos rangos.
 
@@ -349,7 +349,7 @@ correlate(datos, method = "spearman")
 :::
 ::::::
 
-## Pearson vs. Spearman: Resumen Práctico {.smaller}
+## Pearson vs. Spearman: Resumen práctico {.smaller}
 
 | | **Pearson (r)** | **Spearman (ρ)** |
 |:---|:---|:---|
@@ -360,9 +360,9 @@ correlate(datos, method = "spearman")
 
 **Regla práctica:** si alguna de tus variables es ordinal, o si la distribución tiene valores extremos muy influyentes (como el ingreso), usa Spearman. Si ambas son cuantitativas y la relación parece lineal en el gráfico, Pearson es preferible porque sus propiedades matemáticas lo vinculan directamente con la regresión.
 
-# 4. Conclusión del Curso
+# 4. Conclusión del curso
 
-## Más Allá de lo Descriptivo: Incertidumbre y Probabilidad {.smaller}
+## Más allá de lo descriptivo: Incertidumbre y probabilidad {.smaller}
 
 En este curso hemos aprendiendo a describir los patrones que vemos en **nuestros datos**. Pero casi siempre, estos datos provienen de una **muestra**.
 
@@ -372,7 +372,7 @@ Esto nos deja con la pregunta muy importante en estadística y para los resultad
 
 Responder esta pregunta no es posible usando solo estadística descriptiva.
 
-## El Puente a la Estadística Inferencial {.smaller}
+## El puente a la estadística inferencial {.smaller}
 
 -   **El Problema:** La **incertidumbre del muestreo**. Cada muestra que saquemos será ligeramente diferente, y nuestros estadísticos (media, correlación, etc.) variarán de muestra en muestra.
 
@@ -382,7 +382,7 @@ Responder esta pregunta no es posible usando solo estadística descriptiva.
 
 Lo que han aprendido en este curso es el fundamento indispensable para poder hacer inferencia de manera rigurosa y crítica.
 
-## Cierre y Próximos Pasos {.smaller}
+## Cierre y próximos pasos {.smaller}
 
 **Resumen de la sesión de hoy:**
 

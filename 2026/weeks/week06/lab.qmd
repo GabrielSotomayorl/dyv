@@ -1,5 +1,5 @@
 ---
-title: "Práctico 2: Manipulación de Datos con dplyr: Respondiendo Preguntas con datos sociales"
+title: "Práctico 2: Manipulación de datos con dplyr: respondiendo preguntas con datos sociales"
 subtitle: "Trabajando con la Encuesta CASEN 2024"
 date: "2026-09-21"
 lang: es

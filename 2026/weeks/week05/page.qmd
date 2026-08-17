@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 05: La Estructura de los Datos en R"
+title: "🗓️ Semana 05: La estructura de los datos en R"
 ---
 
 En esta semana damos el salto a la práctica con R. Revisaremos la estructura fundamental de una tabla de datos, los tipos de datos básicos en R y el concepto de coerción. Estableceremos un flujo de trabajo reproducible para la exploración inicial de bases de datos reales, aplicándolo directamente sobre la Encuesta CASEN 2024.

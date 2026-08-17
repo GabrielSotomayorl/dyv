@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 07<br/> Creación, Reestructuración y Combinación de Datos</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 07<br/> Creación, reestructuración y combinación de datos</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 28 September 2026
@@ -22,7 +22,7 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller}
+## Objetivos de la sesión de hoy {.smaller}
 
 -   **Aprender** técnicas de recodificación de variables usando `case_when()`.
 -   **Identificar y recodificar** los códigos de no respuesta de las encuestas (`-88`, `999`, etc.) como valores perdidos (`NA`), y reflexionar sobre el sesgo de ignorarlos.
@@ -31,9 +31,9 @@ format:
 -   **Distinguir** conceptualmente entre la construcción de índices y tipologías.
 
 
-# 1. Creando Nuevas Variables
+# 1. Creando nuevas variables
 
-## Repaso y Conexión {.smaller}
+## Repaso y conexión {.smaller}
 
 En la clase anterior, aprendimos la "gramática" de `dplyr` para manipular tablas:
 
@@ -44,7 +44,7 @@ En la clase anterior, aprendimos la "gramática" de `dplyr` para manipular tabla
 
 Hoy nos enfocaremos en el verbo más creativo, **`mutate()`**, y en tareas más avanzadas: crear nuevas variables a partir de condiciones, cambiar la forma de nuestras tablas y unir diferentes bases de datos.
 
-## Recodificación Condicional: `ifelse()` vs. `case_when()` {.smaller}
+## Recodificación condicional: `ifelse()` vs. `case_when()` {.smaller}
 
 Para crear variables basadas en condiciones, tenemos dos herramientas principales:
 
@@ -76,7 +76,7 @@ datos %>%
 :::
 ::::::
 
-## `case_when()` en Acción: Creando Tramos de Edad {.smaller}
+## `case_when()` en acción: Creando tramos de edad {.smaller}
 
 `case_when()` se lee como una serie de instrucciones lógicas. R evalúa cada condición en orden y asigna el valor de la primera que sea `TRUE`.
 
@@ -96,7 +96,7 @@ casen %>%
 -   `&` significa que ambas condiciones deben ser verdaderas.
 -   `TRUE ~ ...`: Esta última línea es una "catch-all" o cláusula por defecto. Si ninguna de las condiciones anteriores se cumple, se asignará este valor. Es una muy buena práctica incluirla siempre.
 
-## Un Caso Especial de Recodificación: los Valores Perdidos {.smaller}
+## Un caso especial de recodificación: Los valores perdidos {.smaller}
 
 En R, un dato faltante se representa con **`NA`** (*Not Available*). Pero las encuestas rara vez usan `NA` directamente: registran la no respuesta con **códigos administrativos**.
 
@@ -137,7 +137,7 @@ Una vez que los perdidos son `NA`, las funciones como `mean()` exigen decidir qu
 2.  Preguntarse **quiénes** podrían ser los que no responden y si eso afecta la conclusión.
 3.  Dejar la decisión **documentada** en el código (comentario: por qué se recodificó y qué se excluyó).
 
-## Más Allá de la Recodificación: Creando Nuevo Conocimiento {.smaller}
+## Más allá de la recodificación: Creando nuevo conocimiento {.smaller}
 
 A menudo, un solo indicador (una sola pregunta de encuesta) no es suficiente para capturar la complejidad de un concepto sociológico. Para medir fenómenos como "bienestar social", "precariedad laboral" o "capital cultural", necesitamos combinar múltiples indicadores.
 
@@ -145,7 +145,7 @@ A menudo, un solo indicador (una sola pregunta de encuesta) no es suficiente par
 
 En esta sección, veremos dos formas de construir estas nuevas variables compuestas: **Índices** y **Tipologías**. La herramienta principal para crearlas en R seguirá siendo `mutate()`.
 
-## Índices: La Suma de las Partes {.smaller}
+## Índices: La suma de las partes {.smaller}
 
 Un **índice** es una variable compuesta, generalmente numérica, que se crea a partir de la **suma o promedio** de varios indicadores.
 
@@ -162,7 +162,7 @@ Un **índice** es una variable compuesta, generalmente numérica, que se crea a 
 
 El índice se construye promediando las respuestas de estos 6 ítems para obtener un puntaje global de satisfacción.
 
-## Tipologías: Creando Perfiles {.smaller}
+## Tipologías: Creando perfiles {.smaller}
 
 Una **tipología** es una variable **categórica** (nominal u ordinal) que se crea al **cruzar dos o más variables** para clasificar a las observaciones en "tipos" o "perfiles" cualitativamente distintos.
 
@@ -175,7 +175,7 @@ Una **tipología** es una variable **categórica** (nominal u ordinal) que se cr
 
 ![](img/aim.jpg){fig-alt='Matriz de clasificación de Grupo Socioeconómico (GSE) de AIM Chile: una tabla que cruza la educación y ocupación del principal sostenedor del hogar (filas) con siete tramos de ingreso autónomo per cápita equivalente, YPCE1 a YPCE7 (columnas). Cada celda está coloreada según el grupo socioeconómico resultante, desde "E" (naranja, hogares con menor educación, ocupación no calificada e ingresos más bajos) hasta "AB" (blanco, mayor educación, ocupación de nivel alto e ingresos más altos), pasando por D, C3, C2, C1b y C1a en un gradiente de color.' fig-align="center"}
 
-## Operacionalizando una Tipología: El GSE en R {.smaller}
+## Operacionalizando una tipología: El GSE en R {.smaller}
 
 La creación de una tipología es la aplicación perfecta de `case_when()` con condiciones complejas unidas por el operador `&`. El código traduce directamente las reglas de la matriz de clasificación.
 
@@ -202,9 +202,9 @@ datos %>%
 
 
 
-# 2. Reestructurando Datos con `tidyr`
+# 2. Reestructurando datos con `tidyr`
 
-## El Problema de los Datos "Anchos" (Wide) {.smaller}
+## El problema de los datos "anchos" (wide) {.smaller}
 
 A veces, los datos no vienen en formato "ordenado" (tidy). Un problema común es el formato **ancho**, donde los valores de una misma variable se distribuyen en múltiples columnas.
 
@@ -218,7 +218,7 @@ A veces, los datos no vienen en formato "ordenado" (tidy). Un problema común es
 
 **Problema:** Este formato es difícil de analizar. No podemos, por ejemplo, calcular fácilmente la satisfacción promedio por año o graficar la evolución en el tiempo. "Año" está atrapado en los nombres de las columnas.
 
-## La Solución: `pivot_longer()` {.smaller}
+## La solución: `pivot_longer()` {.smaller}
 
 El paquete `tidyr` (parte del Tidyverse) nos permite reestructurar datos. La función `pivot_longer()` convierte los datos de formato ancho a **largo** (formato tidy).
 
@@ -237,7 +237,7 @@ datos_wide %>%
   )
 ```
 
-## `pivot_longer()` en Acción: El Resultado {.smaller}
+## `pivot_longer()` en acción: El resultado {.smaller}
 
 La tabla se transforma, y ahora sí está en formato **ordenado (tidy)**.
 
@@ -248,7 +248,7 @@ La tabla se transforma, y ahora sí está en formato **ordenado (tidy)**.
 | 1 | 7 | 8 | 8 |
 | 2 | 5 | 5 | 6 |
 
-## `pivot_longer()` en Acción: El Resultado {.smaller}
+## `pivot_longer()` en acción: El resultado {.smaller}
 
 **Tabla Transformada (Larga):**
 
@@ -263,9 +263,9 @@ La tabla se transforma, y ahora sí está en formato **ordenado (tidy)**.
 Ahora, "año" y "satisfacción" son variables en sus propias columnas, lo que facilita enormemente el análisis (ej. `group_by(año) %>% summarise(...)`) y la visualización.
 
 
-# 3. Combinando Tablas de Datos con `dplyr`
+# 3. Combinando tablas de datos con `dplyr`
 
-## La Necesidad de Unir Datos {.smaller}
+## La necesidad de unir datos {.smaller}
 
 Rara vez toda la información que necesitamos está en una sola tabla. En la investigación real, es muy común tener que **combinar o cruzar diferentes fuentes de datos**.  
 
@@ -276,7 +276,7 @@ Rara vez toda la información que necesitamos está en una sola tabla. En la inv
 -   Cruzar una **encuesta de hogares** con una **base de datos de personas** para asignar las características del hogar a cada miembro.  
 -   Combinar **dos rondas de una encuesta de panel** para analizar cambios en el tiempo.  
 
-## La Clave de la Unión: La "Llave" (`key`) {.smaller}
+## La clave de la unión: La "llave" (`key`) {.smaller}
 
 Para que R sepa cómo conectar las filas de dos tablas, necesita una (o más) variables **"llave"** (`key`).  
 
@@ -291,7 +291,7 @@ Para que R sepa cómo conectar las filas de dos tablas, necesita una (o más) va
 
 La calidad de la unión depende de la calidad de la llave.
 
-## `left_join()`: La Unión más Común {.smaller}
+## `left_join()`: La unión más común {.smaller}
 
 Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utilizada es `left_join()`.
 
@@ -322,7 +322,7 @@ Las funciones `_join()` de `dplyr` nos permiten combinar tablas. La más utiliza
 ::::::
 
 
-## Cierre y Próximos Pasos {.smaller}
+## Cierre y próximos pasos {.smaller}
 
 **Resumen de la sesión de hoy:**
 

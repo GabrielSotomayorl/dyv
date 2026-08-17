@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 06: La Gramática de la Manipulación de Datos"
+title: "🗓️ Semana 06: La gramática de la manipulación de datos"
 ---
 
 En esta semana aprendemos a manipular y transformar datos en R usando la "gramática" del paquete `dplyr`. Trabajaremos con los cinco verbos principales (`select`, `filter`, `arrange`, `mutate`, `summarise`) y el operador pipe (`%>%`) para encadenar operaciones de forma legible, aplicando todo ello a datos reales de la Encuesta CASEN 2024.

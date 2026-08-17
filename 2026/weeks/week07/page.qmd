@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 07: Creación, Reestructuración y Combinación de Datos"
+title: "🗓️ Semana 07: Creación, reestructuración y combinación de datos"
 ---
 
 En esta semana avanzamos en la manipulación de datos: aprenderemos recodificación condicional con `case_when()`, la reestructuración de tablas entre formato ancho y largo (`pivot_longer()`), y la combinación de múltiples bases de datos con `left_join()`. Estos son los ingredientes clave para preparar datos complejos provenientes de fuentes distintas.

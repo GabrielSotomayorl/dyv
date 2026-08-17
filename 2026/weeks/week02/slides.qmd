@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 02<br/> El Rol de la Estadística y la Programación en la Sociología Actual</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 02<br/> El rol de la estadística y la programación en la sociología actual</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 17 August 2026
@@ -22,7 +22,7 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller}
+## Objetivos de la sesión de hoy {.smaller}
 
 -   **Repasar** los conceptos de lógica inductiva y deductiva.
 -   **Comprender** por qué los datos sistemáticos son superiores a las anécdotas para el análisis social.
@@ -32,9 +32,9 @@ format:
 
 
 
-# 1. Del Hecho Social al Dato Estadístico
+# 1. Del hecho social al dato estadístico
 
-## Repaso de la Clase Anterior {.smaller}
+## Repaso de la clase anterior {.smaller}
 
 En nuestra primera sesión establecimos las bases de la investigación social:
 
@@ -48,9 +48,9 @@ Hoy, profundizaremos en la lógica detrás de esa cuantificación: el **razonami
 
 
 
-# 2. Datos contra Anécdotas: El Razonamiento Estadístico
+# 2. Datos contra anécdotas: El razonamiento estadístico
 
-## Repaso Rápido: La Rueda de la Ciencia {.smaller}
+## Repaso rápido: La rueda de la ciencia {.smaller}
 
 Recordemos el ciclo de la investigación social: un diálogo constante entre el mundo de las ideas (**Teoría**) y el mundo de lo observable (**Datos**).
 
@@ -62,7 +62,7 @@ Recordemos el ciclo de la investigación social: un diálogo constante entre el 
 
 La estadística nos proporciona las herramientas para navegar este ciclo de forma rigurosa.
 
-## Los Datos Tienen Contexto {.smaller}
+## Los datos tienen contexto {.smaller}
 
 "La estadística trata sobre datos. Éstos son números, pero no sólo son eso. Los datos son números en un contexto."
 — David S. Moore (2005)
@@ -73,7 +73,7 @@ El número **`3.75`** por sí solo no significa nada.
 
 En sociología, el contexto es todo. La estadística nos ayuda a interpretar números dentro de un marco social significativo. Un 10% de desempleo no es solo un número; representa vidas, políticas y estructuras sociales.
 
-## Datos Sistemáticos vs. Anécdotas {.smaller}
+## Datos sistemáticos vs. anécdotas {.smaller}
 
 -   **Anécdota:** Una historia sorprendente y memorable. Humaniza un tema, pero puede ser engañosa porque a menudo representa un caso extremo o atípico.
     -   *Ejemplo sociológico: "Mi abuelo fumó toda su vida y murió a los 98 años, así que fumar no es tan malo".*
@@ -82,7 +82,7 @@ En sociología, el contexto es todo. La estadística nos ayuda a interpretar nú
 
 La ciencia social se basa en datos sistemáticos porque las anécdotas, aunque poderosas, son una forma de **observación selectiva**.
 
-## El Caso de Ann Landers: ¿Por qué los datos importan? {.smaller}
+## El caso de Ann Landers: ¿Por qué los datos importan? {.smaller}
 
 En 1976, la columnista Ann Landers preguntó a sus lectoras: *"Si pudieran volver a hacerlo, ¿tendrían hijos?"*.
 
@@ -96,7 +96,7 @@ En 1976, la columnista Ann Landers preguntó a sus lectoras: *"Si pudieran volve
 Fuente: Caso citado en Moore, D. S. (2005).
 :::
 
-## La Variación está Siempre Presente {.smaller}
+## La variación está siempre presente {.smaller}
 
 -   La realidad social no es homogénea ni determinista. Las personas, los grupos y los contextos **varían**.
 -   Los ingresos varían, las opiniones varían, los resultados de una política varían.
@@ -127,7 +127,7 @@ Esto se desarrolla principalmente en sus libros “De la Sociología” y especi
 ::::::
 
 
-## La Sociología como Ciencia de la Población (2015)  {.smaller}
+## La sociología como ciencia de la población (2015)  {.smaller}
 
 
 En este libro Goldthorpe plantea que la tarea fundamental de la sociología es explicar las regularidades de la población, la variabilidad que se produce a nivel individual.    
@@ -140,9 +140,9 @@ sociológicos).
 El objetivo explicativo de la sociología es dar cuenta de los mecanismos (individuales) que permiten generara las regularidades observadas en la población.
 
 
-# 2. La Estadística en Acción: Un Caso de Estudio
+# 2. La estadística en acción: Un caso de estudio
 
-## El Caso: Clase, Género y Trabajo Doméstico {.smaller}
+## El caso: Clase, género y trabajo doméstico {.smaller}
 
 **Estudio:** "The noneffects of class on the gendered division of labor in the home" (Los no-efectos de la clase en la división de género del trabajo en el hogar).
 **Autor:** Erik Olin Wright y Janeen Baxter (1997).
@@ -150,7 +150,7 @@ El objetivo explicativo de la sociología es dar cuenta de los mecanismos (indiv
 -   **Objetivo Central:** Explorar sistemáticamente la relación empírica entre la **posición de clase** de los hogares y la **desigualdad de género** en la realización del trabajo doméstico.
 -   **Contexto Teórico:** El debate clásico entre el marxismo y el feminismo sobre si la estructura de clases capitalista es la causa fundamental de la subordinación de las mujeres en la esfera privada.
 
-## El Vacío en la Investigación {.smaller}
+## El vacío en la investigación {.smaller}
 
 Wright parte identificando un problema en la sociología de su época:
 
@@ -161,13 +161,13 @@ Wright parte identificando un problema en la sociología de su época:
 
 El estudio de Wright busca llenar este vacío, testeando empíricamente las grandes teorías.
 
-## Expectativas Teóricas: 5 Hipótesis en Competencia {.smaller}
+## Expectativas teóricas: 5 hipótesis en competencia {.smaller}
 
 Wright no parte de cero. Revisa la literatura y extrae cinco grandes hipótesis, provenientes de distintas tradiciones teóricas, que explican por qué la división del trabajo doméstico podría variar según la clase social.
 
 Vamos a revisarlas una por una.
 
-## Hipótesis 1 y 2: La Perspectiva Marxista Clásica {.smaller}
+## Hipótesis 1 y 2: La perspectiva marxista clásica {.smaller}
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 
 Basadas en el argumento de Friedrich Engels sobre la propiedad privada como raíz de la dominación masculina.
@@ -183,7 +183,7 @@ Basadas en el argumento de Friedrich Engels sobre la propiedad privada como raí
 ::: 
 
 
-## Hipótesis 3: La Perspectiva de las Culturas de Clase {.smaller}
+## Hipótesis 3: La perspectiva de las culturas de clase {.smaller}
 
 Esta hipótesis se basa en la idea de que las experiencias laborales moldean valores y actitudes.
 
@@ -191,7 +191,7 @@ Esta hipótesis se basa en la idea de que las experiencias laborales moldean val
     -   *Lógica:* El trabajo manual de la clase obrera, que valora la fuerza física y la solidaridad masculina, fomentaría una masculinidad más tradicional y sexista. En contraste, los trabajos de clase media, con mayor "complejidad cognitiva" (Kohn, 1969), promoverían actitudes más flexibles y abiertas hacia los roles de género.
     -   *Predicción:* Los hombres de clase obrera harán proporcionalmente menos trabajo doméstico. Los hogares de clase media homogénea serán los más igualitarios.
 
-## Hipótesis 4: La Perspectiva del Poder de Negociación {.smaller}
+## Hipótesis 4: La perspectiva del poder de negociación {.smaller}
 
 Esta visión entiende el hogar como un espacio de conflicto y negociación, no solo de roles socializados.
 
@@ -199,7 +199,7 @@ Esta visión entiende el hogar como un espacio de conflicto y negociación, no s
     -   *Lógica:* El poder de negociación de cada cónyuge depende de los recursos (económicos, de estatus) que aporta. Una mujer en una posición de clase más alta que su marido tendrá más poder para negociar una división más justa.
     -   *Predicción:* Los hogares con una esposa de clase media y un esposo de clase trabajadora serán los más igualitarios.
 
-## Hipótesis 5: La Perspectiva de la Autonomía del Género {.smaller}
+## Hipótesis 5: La perspectiva de la autonomía del género {.smaller}
 
 Desde una tesis feminista central, esta hipótesis cuestiona la primacía de la clase.
 
@@ -207,18 +207,49 @@ Desde una tesis feminista central, esta hipótesis cuestiona la primacía de la 
     -   *Lógica:* Las relaciones de género son un sistema de poder con una autonomía real. No son un simple reflejo de la estructura de clases. La división del trabajo doméstico se explica principalmente por las dinámicas y luchas de género en sí mismas, no por la clase.
     -   *Predicción:* El grado de igualdad en el trabajo doméstico **no variará mucho** entre hogares de distinta composición de clase. Los efectos de clase, si existen, serán débiles.
 
-## Diseño Metodológico {.smaller}
+## Diseño metodológico {.smaller}
 
 -   **Datos:** Encuestas de hogares de doble ingreso en **Estados Unidos** y **Suecia**.
 -   **Comparación Clave:** Se eligen estos países porque representan "polos opuestos" en términos de desigualdad económica y de género. Suecia, con su robusto estado de bienestar, debería mostrar patrones más igualitarios.
 -   **Variable Dependiente:** Porcentaje de contribución del esposo al trabajo doméstico total (reportado por las esposas, considerado más fiable).
 -   **Variable Independiente Principal:** Composición de clase de la familia (una matriz que combina la clase del esposo y la esposa en 7 categorías, ej. "Hogar de clase media pura", "Esposa de clase media, esposo de clase obrera", etc.).
 
-## Primeros Resultados: ¿Qué nos dicen los datos? {.smaller}
+## Primeros resultados: ¿Qué nos dicen los datos? {.smaller}
 
-![](img/tab1.png){fig-alt='Tabla 11.3 de Wright y Baxter (1997): contribución porcentual media del marido al trabajo doméstico total, cruzando la clase laboral de la esposa (filas: autoempleada, clase media, clase obrera) con la del esposo (columnas: autoempleado, clase media, clase obrera), para Estados Unidos (N=537) y Suecia (N=641). Estados Unidos: autoempleada-autoempleado 17,1%; autoempleada-medio 22,8%; autoempleada-obrero 16,1%; media-autoempleado 22,8%; media-medio 23,9%; media-obrero 25,5%; obrera-autoempleado 16,1%; obrera-medio 22,3%; obrera-obrero 27,1%. Suecia: autoempleada-autoempleado 16,0%; autoempleada-medio 25,1%; autoempleada-obrero 19,6%; media-autoempleado 25,1%; media-medio 32,4%; media-obrero 27,8%; obrera-autoempleado 19,6%; obrera-medio 25,1%; obrera-obrero 28,1%. En ambos países, el aporte más alto del marido se da cuando ambos cónyuges son de clase obrera; el hogar de clase media pura muestra la mayor diferencia entre países (23,9% en EE. UU. frente a 32,4% en Suecia).' fig-align="center"}
+**Tabla 11.3. Contribución porcentual media del esposo al trabajo doméstico total, según composición de clase de la pareja (solo hogares de doble ingreso)**
 
-## Discusión 1: Interpretando las Medias {.smaller}
+:::::: columns
+:::: {.column width="50%"}
+
+**Estados Unidos (N = 537)**
+
+| Esposa / Esposo | Autoempl. | Cl. media | Cl. obrera |
+|---|---:|---:|---:|
+| Autoempleada | 17,1% | 22,8% | 16,1% |
+| Clase media | 22,8% | 23,9% | 25,5% |
+| Clase obrera | 16,1% | 22,3% | 27,1% |
+
+: {tbl-colwidths="[34,22,22,22]"}
+
+::::
+:::: {.column width="50%"}
+
+**Suecia (N = 641)**
+
+| Esposa / Esposo | Autoempl. | Cl. media | Cl. obrera |
+|---|---:|---:|---:|
+| Autoempleada | 16,0% | 25,1% | 19,6% |
+| Clase media | 25,1% | 32,4% | 27,8% |
+| Clase obrera | 19,6% | 25,1% | 28,1% |
+
+: {tbl-colwidths="[34,22,22,22]"}
+
+::::
+::::::
+
+El aporte más alto se da cuando ambos cónyuges son de clase obrera; la mayor diferencia entre países está en el hogar de clase media pura.
+
+## Discusión 1: Interpretando las medias {.smaller}
 
 **Observando la tabla, en grupos, discutan:**
 
@@ -226,29 +257,61 @@ Desde una tesis feminista central, esta hipótesis cuestiona la primacía de la 
 2.  ¿Se observan diferencias importantes entre Estados Unidos y Suecia? ¿Dónde son más grandes las brechas?
 3.  A primera vista, ¿cuál de las 5 hipótesis parece recibir más apoyo de estos datos? ¿Cuál parece ser la más débil?
 
-## Interpretación de Wright (Resultados Descriptivos) {.smaller}
+## Interpretación de Wright (resultados descriptivos) {.smaller}
 
 -   **Las diferencias de clase son modestas:** En general, la variación entre las distintas composiciones de clase no es muy grande, especialmente en EE.UU.
 -   **El "Efecto Suecia":** Las diferencias de clase son algo mayores en Suecia. La gran diferencia entre los países se da en los hogares de **clase media pura**, donde los maridos suecos aportan casi 10 puntos porcentuales más que los estadounidenses.
 -   **El "Efecto Pequeña Burguesía":** En ambos países, los maridos en hogares con al menos un miembro autoempleado tienden a hacer **significativamente menos** trabajo doméstico, apoyando la idea de un "patriarcado más tradicional" en este grupo (apoyo parcial a H2).
 
-## Añadiendo Controles: ¿Se mantiene el efecto de clase? {.smaller}
+## Añadiendo controles: ¿Se mantiene el efecto de clase? {.smaller}
 
-:::::: columns
-:::: {.column width="30%"}  
+El siguiente paso es usar un modelo de regresión (Tobit) para ver si los efectos de clase persisten cuando controlamos por otras variables importantes (educación, edad, horas de trabajo de la esposa, ideología de género, etc.).
 
-El siguiente paso es usar un modelo de regresión para ver si los efectos de clase persisten cuando controlamos por otras variables importantes (educación, edad, horas de trabajo de la esposa, ideología de género, etc.).
-  
-::::
-:::: {.column width="70%"}
+**Tabla 11.5. Regresiones Tobit del aporte del esposo al trabajo doméstico** (coeficiente y significancia p, según respuesta de las esposas). La categoría de referencia (omitida) es el hogar de clase media pura.
 
+## Regresión Tobit: modelo sin controles {.smaller}
 
-![](img/tab2.png){fig-alt='Tabla 11.5 de Wright y Baxter (1997): regresiones Tobit del aporte del esposo al trabajo doméstico, con coeficiente y significancia (p) para Estados Unidos y Suecia, en dos modelos. En el modelo sin controles, casi ninguna categoría de clase es significativa, salvo "autoempleado + obrero" en EE. UU. (-8,9; p=.06, marginal). En el modelo con controles completos, las categorías de clase dejan de ser significativas en casi todos los casos —excepto "hogar autoempleado" en Suecia (-10,5; p=.04)—, mientras que emergen como predictores significativos las horas de trabajo remunerado de la esposa (0,4; p=.00 en ambos países), la edad (significativa en ambos países) y, solo en Suecia, la contribución de la esposa al ingreso familiar (3,7; p=.002) y la presencia de hijos menores de 16 años (-4,5; p=.02).' fig-align="center" width="400"}
+::: {.tbl-compact}
+| Categoría de clase | EE. UU. Coef. (p) | Suecia Coef. (p) |
+|---|---:|---:|
+| 1. Hogar autoempleado | -1,4 (.77) | -9,5 (.10) |
+| 2. Autoempleado + medio | 0,9 (.86) | -7,7 (.17) |
+| 3. Autoempleado + obrero | -8,9 (.06) | -7,5 (.14) |
+| 5. Esposa media + esposo obrero | -0,6 (.89) | -5,0 (.22) |
+| 6. Esposa obrera + esposo medio | -0,3 (.93) | -2,9 (.39) |
+| 7. Esposa obrera + esposo obrero | 2,5 (.52) | -0,8 (.82) |
+| Educación de la encuestada | 1,0 (.40) | 1,8 (.03) |
+| R² (OLS equiv.) | .03 | .06 |
+| N | 267 | 297 |
+:::
 
-::::
-::::::
+Casi ninguna categoría de clase es significativa, salvo "autoempleado + obrero" en EE. UU. (-8,9; p=.06, marginal).
 
-## Discusión 2: Interpretando la Regresión {.smaller}
+## Regresión Tobit: modelo con controles completos {.smaller}
+
+::: {.tbl-compact}
+| Categoría de clase / variable de control | EE. UU. Coef. (p) | Suecia Coef. (p) |
+|---|---:|---:|
+| 1. Hogar autoempleado | 0,5 (.91) | -10,5 (.04) |
+| 2. Autoempleado + medio | 1,7 (.71) | -8,8 (.08) |
+| 3. Autoempleado + obrero | -1,4 (.77) | -5,0 (.29) |
+| 5. Esposa media + esposo obrero | -3,3 (.46) | -5,9 (.11) |
+| 6. Esposa obrera + esposo medio | -0,8 (.83) | -2,4 (.42) |
+| 7. Esposa obrera + esposo obrero | 4,3 (.26) | -2,6 (.41) |
+| Educación de la encuestada | -0,2 (.86) | 0,5 (.55) |
+| Horas de trabajo remunerado (esposa) | 0,4 (.00) | 0,4 (.00) |
+| Contribución de la esposa al ingreso | 0,5 (.78) | 3,7 (.002) |
+| Ingreso familiar total ($ × 10⁻⁴) | 0,5 (.51) | 0,8 (.28) |
+| Ideología de género (encuestada) | 1,2 (.06) | 0,9 (.09) |
+| Edad | -0,3 (.03) | -0,2 (.02) |
+| Hijos menores de 16 en el hogar (0-1) | -1,4 (.57) | -4,5 (.02) |
+| R² (OLS equiv.) | .18 | .28 |
+| N | 267 | 297 |
+:::
+
+Con controles, casi todas las categorías de clase pierden significancia; el predictor más fuerte pasa a ser las horas de trabajo de la esposa.
+
+## Discusión 2: Interpretando la regresión {.smaller}
 
 **Observando los resultados del modelo multivariado:**
 
@@ -256,7 +319,7 @@ El siguiente paso es usar un modelo de regresión para ver si los efectos de cla
 2.  ¿Qué variable parece ser ahora la más importante para explicar la contribución del marido al trabajo doméstico?
 3.  ¿Cómo cambia esto nuestra interpretación inicial? ¿El efecto de la clase era real o era un "espejismo" causado por otras variables (como la educación o la edad)?
 
-## Interpretación de Wright (Resultados Multivariados) {.smaller}
+## Interpretación de Wright (resultados multivariados) {.smaller}
 
 -   **El efecto de clase se desvanece:** Una vez que se introducen los controles, casi todas las diferencias de clase estadísticamente significativas desaparecen, especialmente en EE.UU. En Suecia, el efecto de clase se reduce drásticamente y se vuelve no significativo, sugiriendo que estaba mediado principalmente por la educación y la edad (efectos de cohorte).
 -   **Nuevos protagonistas:** Las variables más potentes para explicar la división del trabajo son:
@@ -264,7 +327,7 @@ El siguiente paso es usar un modelo de regresión para ver si los efectos de cla
     2.  **La contribución de la esposa al ingreso familiar** (significativo en Suecia).
     3.  **La ideología de género** (con un efecto modesto pero significativo).
 
-## Conclusiones e Implicaciones del Estudio {.smaller}
+## Conclusiones e implicaciones del estudio {.smaller}
 
 -   **El Hallazgo Central:** La posición en la estructura de clases **no es un determinante poderoso** de las variaciones en la división del trabajo doméstico a nivel de los hogares.
 -   **¿Qué hipótesis se confirma?** Los resultados son más consistentes con la **Hipótesis 5 (Autonomía del Género)**. Las dinámicas de género (poder de negociación basado en recursos económicos, ideología) parecen ser mucho más importantes que la clase social *per se*.
@@ -272,9 +335,9 @@ El siguiente paso es usar un modelo de regresión para ver si los efectos de cla
 -   **Una Reflexión Final:** Quizás la clase no opera a nivel micro (entre hogares), sino a nivel **macro-institucional**. La política de clases en Suecia creó un Estado de Bienestar que, a su vez, facilitó un mayor igualitarismo de género. La clase importa, pero de una forma más indirecta y estructural de lo que las hipótesis originales suponían.
 
 
-# 3. ¿Por qué Aprender a Programar? La Estadística en el Siglo XXI
+# 3. ¿Por qué aprender a programar? La estadística en el siglo XXI
 
-## La Evolución del Análisis de Datos en Sociología {.smaller}
+## La evolución del análisis de datos en sociología {.smaller}
 
 :::::: columns
 :::: {.column width="50%"}
@@ -301,7 +364,7 @@ El siguiente paso es usar un modelo de regresión para ver si los efectos de cla
 ::::
 ::::::
 
-## Ventajas de Usar un Lenguaje de Programación (como R) {.smaller}
+## Ventajas de usar un lenguaje de programación (como R) {.smaller}
 
 1.  **Transparencia y Reproducibilidad:**
     -   Un *script* de código es una receta exacta de cada paso de tu análisis. Cualquier persona (incluido tu "yo" del futuro) puede ejecutarlo y obtener exactamente los mismos resultados. **Este es el pilar de la ciencia abierta.**
@@ -309,7 +372,7 @@ El siguiente paso es usar un modelo de regresión para ver si los efectos de cla
     -   No estás limitado por un menú. Tienes acceso a miles de paquetes con las técnicas estadísticas más avanzadas, a menudo desarrolladas por los mismos académicos que las crearon.
 
 
-## Ventajas de Usar un Lenguaje de Programación (como R) {.smaller}
+## Ventajas de usar un lenguaje de programación (como R) {.smaller}
     
 
 3.  **Visualización de Datos Superior:**
@@ -335,7 +398,7 @@ El siguiente paso es usar un modelo de regresión para ver si los efectos de cla
 **La primera ayudantía de esta semana se centrará en la instalación y los primeros pasos en este entorno.**
 
 
-## La Lógica de R: Objetos y Funciones {.smaller}
+## La lógica de R: Objetos y funciones {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 
@@ -363,7 +426,7 @@ Para empezar a pensar en R, necesitamos entender dos ideas clave. R opera con un
 ::::::
 
 :::
-## La Lógica de R: Objetos y Funciones {.smaller}
+## La lógica de R: Objetos y funciones {.smaller}
 
 ```{r, eval=T, echo=TRUE}
 # EJEMPLO PRÁCTICO:
@@ -381,7 +444,7 @@ mean(edades)
 summary(edades)
 ```
 
-## Cierre de la Unidad: La Estadística como Práctica Sociológica {.smaller}
+## Cierre de la unidad: La estadística como práctica sociológica {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 -   **Vimos que la estadística** no es solo un conjunto de técnicas matemáticas, sino una herramienta fundamental para **hacer visible lo social**. Nos permite pasar de la anécdota al análisis de **hechos sociales** (Durkheim) y **regularidades poblacionales** (Goldthorpe).

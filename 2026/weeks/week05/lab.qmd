@@ -1,5 +1,5 @@
 ---
-title: "Práctico 1: Exploración Inicial de Datos en R"
+title: "Práctico 1: Exploración inicial de datos en R"
 subtitle: "Trabajando con la Encuesta CASEN 2024"
 date: "2026-09-07"
 lang: es

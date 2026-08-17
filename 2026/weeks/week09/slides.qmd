@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 09<br/> Visualizando Distribuciones y Medidas Robustas</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 09<br/> Visualizando distribuciones y medidas robustas</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 26 October 2026
@@ -22,14 +22,14 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller}
+## Objetivos de la sesión de hoy {.smaller}
 
 -   **Introducir** el marco para describir una variable cuantitativa: **Forma, Centro y Dispersión**.
 -   **Aprender** a visualizar la **forma** de una distribución usando **Histogramas**.
 -   **Calcular e interpretar** las medidas de **centro** y **dispersión robustas**: **Mediana**, **Cuartiles** y **Rango Intercuartil (IQR)**.
 -   **Construir e interpretar** el **Resumen de Cinco Números** y su visualización: el **Boxplot**.
 
-## Repaso y Conexión {.smaller}
+## Repaso y conexión {.smaller}
 
 En la clase anterior describimos **variables categóricas**:
 
@@ -40,15 +40,15 @@ En la clase anterior describimos **variables categóricas**:
 **Hoy** pasamos a las **variables cuantitativas** (de intervalo o razón), como la edad, los ingresos o los años de escolaridad. Con estas variables, un simple conteo no es suficiente: necesitamos herramientas para describir la **forma**, el **centro** y la **dispersión** de su distribución.
 
 
-# 1. Descripción de Variables Cuantitativas
+# 1. Descripción de variables cuantitativas
 
-## De las Categorías a los Números {.smaller}
+## De las categorías a los números {.smaller}
 
 Pasamos de las variables categóricas a las **variables cuantitativas** (de intervalo o razón), como la edad, los ingresos o los años de escolaridad.
 
 Con estas variables, un simple conteo no es suficiente. Necesitamos herramientas para describir su **distribución**: cómo se reparten los valores a lo largo de un rango numérico.
 
-## Análisis Exploratorio de Datos {.smaller}
+## Análisis exploratorio de datos {.smaller}
 
 Al enfrentarnos a una variable cuantitativa, nuestro objetivo es describir tres características fundamentales de su distribución:
 
@@ -59,9 +59,9 @@ Al enfrentarnos a una variable cuantitativa, nuestro objetivo es describir tres 
 Además, siempre debemos estar atentos a la presencia de **valores atípicos (outliers)**, que son observaciones que se desvían marcadamente del patrón general.
 
 
-# 2. Visualizando la Forma: Histogramas
+# 2. Visualizando la forma: Histogramas
 
-## El Histograma: Un Retrato de la Distribución {.smaller}
+## El histograma: Un retrato de la distribución {.smaller}
 
 El **histograma** es la principal herramienta gráfica para visualizar la forma de la distribución de una variable cuantitativa.
 
@@ -72,7 +72,7 @@ El **histograma** es la principal herramienta gráfica para visualizar la forma 
 
 A diferencia de un gráfico de barras, en un histograma el eje X es continuo y las barras van juntas.
 
-## Ingreso del Trabajo Principal en Chile {.smaller}
+## Ingreso del trabajo principal en Chile {.smaller}
 
 Para ilustrar estos conceptos, usaremos la **Encuesta Suplementaria de Ingresos (ESI) 2024** del INE. Nos centraremos en la variable `ing_t_p` (ingreso del trabajo principal) para los ocupados de referencia.
 
@@ -101,7 +101,7 @@ esi %>%
   theme_minimal(base_size = 14)
 ```
 
-## La Fuente de Datos: Encuesta Suplementaria de Ingresos (ESI) {.smaller}
+## La fuente de datos: Encuesta suplementaria de ingresos (ESI) {.smaller}
 
 *   **¿Qué es?** La ESI es un módulo que se aplica anualmente (en el trimestre octubre-diciembre) a una submuestra de los hogares que participan en la **Encuesta Nacional de Empleo (ENE)**. Es la principal fuente de datos sobre ingresos en Chile.
 
@@ -113,7 +113,7 @@ esi %>%
 *   **Relevancia Sociológica:** Los datos de la ESI son cruciales para analizar la **desigualdad económica**, la **brecha salarial de género** y la estructura del mercado laboral en Chile. Cuando leemos en las noticias sobre la "mediana del ingreso" en el país, esa cifra proviene de esta encuesta.
 
 
-## Interpretando la Forma: Asimetría (Sesgo) {.smaller}
+## Interpretando la forma: Asimetría (sesgo) {.smaller}
 
 ::::::::: {style="font-size: 0.9em; line-height: 1.2;"}
 
@@ -148,7 +148,7 @@ ggplot(datos_asimetria, aes(x = valor)) +
 ::::::
 :::::::::
 
-## Interpretando la Forma: Modalidad {.smaller}
+## Interpretando la forma: Modalidad {.smaller}
 
 ::::::::: {style="font-size: 0.9em; line-height: 1.2;"}
 La modalidad se refiere al número de picos o modas que tiene una distribución.
@@ -183,9 +183,9 @@ ggplot(datos_modalidad, aes(x = valor)) +
 :::::::::
 
 
-# 3. Medidas de Centro y Dispersión Robustas
+# 3. Medidas de centro y dispersión robustas
 
-## ¿Qué es una Medida Robusta? {.smaller}
+## ¿Qué es una medida robusta? {.smaller}
 
 Una medida estadística es **robusta** si **no se ve afectada significativamente** por la presencia de valores extremos (outliers) o por la asimetría de la distribución.
 
@@ -198,7 +198,7 @@ Una medida estadística es **robusta** si **no se ve afectada significativamente
 Hoy nos centraremos en las medidas robustas, que son ideales para describir distribuciones como la del ingreso.
 
 
-## La Mediana (M o Q2): El Centro Geométrico {.smaller}
+## La mediana (M o Q2): El centro geométrico {.smaller}
 
 La **mediana** es el valor que se encuentra en el punto medio exacto de los datos, una vez que han sido ordenados de menor a mayor.
 
@@ -212,7 +212,7 @@ La **mediana** es el valor que se encuentra en el punto medio exacto de los dato
 
 El outlier no afecta a la mediana. Por eso es la medida preferida para describir el "ingreso típico" en una población.
 
-## Cuartiles y Rango Intercuartil (IQR) {.smaller}
+## Cuartiles y rango intercuartil (IQR) {.smaller}
 
 Así como la mediana divide los datos en dos mitades, los **cuartiles** los dividen en cuatro partes iguales.
 
@@ -225,7 +225,7 @@ A partir de los cuartiles, construimos la principal medida de dispersión robust
 -   **Interpretación:** El IQR representa el **rango en el que se encuentra el 50% central de los datos**. Al igual que la mediana, es una medida de dispersión **robusta** porque ignora los valores en las colas de la distribución.
 
 
-## Percentiles: Más Allá de los Cuartiles {.smaller}
+## Percentiles: Más allá de los cuartiles {.smaller}
 
 Los cuartiles son solo un tipo de **percentil** (o **cuantil**), un concepto más general y flexible para describir la posición de un valor dentro de una distribución ordenada.
 
@@ -234,7 +234,7 @@ Los cuartiles son solo un tipo de **percentil** (o **cuantil**), un concepto má
     -   El primer cuartil (Q1) es el percentil 25.
     -   El tercer cuartil (Q3) es el percentil 75.
 
-## Ejemplo: Los Quintiles de Ingreso {.smaller}
+## Ejemplo: Los quintiles de ingreso {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 En sociología y políticas públicas, es muy común dividir a la población en **cinco grupos** de igual tamaño (20% cada uno). A estos grupos se les llama **quintiles**. Para definirlos, calculamos los percentiles 20, 40, 60 y 80.
@@ -255,7 +255,7 @@ Podemos usar cualquier percentil para analizar la desigualdad. Por ejemplo, el *
 :::
 
 
-## El Resumen de Cinco Números y el Boxplot {.smaller}
+## El resumen de cinco números y el boxplot {.smaller}
 
 El **resumen de cinco números** es el conjunto estándar de estadísticas robustas para describir una variable cuantitativa.
 
@@ -270,7 +270,7 @@ El **resumen de cinco números** es el conjunto estándar de estadísticas robus
 Este resumen se visualiza directamente a través de un **diagrama de caja y bigotes** o **boxplot**.
 
 
-## El Resumen de Cinco Números en la Práctica {.smaller}
+## El resumen de cinco números en la práctica {.smaller}
 
 Apliquemos estos conceptos a nuestra variable `ing_t_p` (ingreso del trabajo principal) de la ESI 2024. Este es el resumen numérico estándar para describir una distribución, especialmente si es asimétrica como la del ingreso.
 
@@ -308,7 +308,7 @@ kable(resumen,
 ```
 
 
-## La Anatomía de un Boxplot {.smaller}
+## La anatomía de un boxplot {.smaller}
 
 ::::::::: {style="font-size: 0.9em; line-height: 1.2;"}
 Un **diagrama de caja y bigotes** o **boxplot** es la visualización directa del resumen de cinco números y una de las herramientas más informativas de la estadística descriptiva.
@@ -347,7 +347,7 @@ ggplot(df_boxplot, aes(x = "", y = y)) +
 ::::::
 :::::::::
 
-## El Boxplot  de Ingreso del Trabajo Principal {.smaller}
+## El boxplot  de ingreso del trabajo principal {.smaller}
 
 Apliquemos el boxplot a la variable de ingreso de la ESI 2024. Este gráfico nos permite ver de un solo vistazo la forma, el centro, la dispersión y la enorme cantidad de outliers.
 
@@ -369,14 +369,14 @@ esi %>%
   theme(plot.title.position = "plot")
 ```
 
-## La Escala Logarítmica  {.smaller}
+## La escala logarítmica  {.smaller}
 
 
 En el gráfico anterior, para poder visualizar la distribución del ingreso, aplicamos una transformación al eje: una **escala logarítmica**. Esta es una herramienta fundamental cuando trabajamos con variables que, como el ingreso, tienen una **fuerte asimetría positiva**.
 
 *   **El Problema de la Asimetría:** Cuando unos pocos valores muy altos (como los ingresos de las personas más ricas) son miles de veces más grandes que la mayoría, "aplastan" el resto del gráfico. La caja y los bigotes del boxplot, o un histograma, se comprimen tanto en la parte inferior que se vuelven casi invisibles, y perdemos toda la información sobre el 50% o 75% inferior de la población.
 
-## La Escala Logarítmica  {.smaller}
+## La escala logarítmica  {.smaller}
 
 **¿Qué hace una Escala Logarítmica?**
 
@@ -391,7 +391,7 @@ Una escala logarítmica, en cambio, representa **órdenes de magnitud**. La dist
 3.  **Facilita la interpretación:** Nos ayuda a pensar en términos de **cambios relativos** (ej. "duplicar el ingreso") en lugar de cambios absolutos, lo cual puede ser más relevante sociológicamente.
 
 
-## Cierre y Próximos Pasos {.smaller}
+## Cierre y próximos pasos {.smaller}
 
 **Resumen de la sesión de hoy:**
 

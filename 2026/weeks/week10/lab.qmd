@@ -1,5 +1,5 @@
 ---
-title: "Práctico 6: La Media, la Desviación Estándar y la Estandarización en R"
+title: "Práctico 6: La media, la desviación estándar y la estandarización en R"
 subtitle: "Trabajando con la Encuesta Suplementaria de Ingresos (ESI) 2024"
 date: "2026-11-02"
 lang: es

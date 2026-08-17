@@ -1,5 +1,5 @@
 ---
-title: "Práctico 5: Visualizando Distribuciones y Medidas Robustas: Histogramas y Boxplots en R"
+title: "Práctico 5: Visualizando distribuciones y medidas robustas: histogramas y boxplots en R"
 subtitle: "Trabajando con la Encuesta Suplementaria de Ingresos (ESI) 2024"
 date: "2026-10-26"
 lang: es

@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 05<br/> La Estructura de los Datos en R</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 05<br/> La estructura de los datos en R</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 07 September 2026
@@ -22,7 +22,7 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller}
+## Objetivos de la sesión de hoy {.smaller}
 
 -   **Comprender** la estructura fundamental de una tabla de datos (observaciones, variables, valores).
 -   **Reconocer** los tipos de datos básicos en R (`character`, `numeric`, `logical`) y el concepto de coerción.
@@ -31,7 +31,7 @@ format:
 
 # 1. Introducción
 
-## Conectando con la Unidad Anterior {.smaller}
+## Conectando con la unidad anterior {.smaller}
 
 En las clases pasadas, establecimos el camino teórico de la medición:
 
@@ -46,7 +46,7 @@ Esta unidad se centrará en los primeros y más cruciales pasos del proceso de a
 
 # 2. Los tipos de datos en R
 
-## Tipos de Datos Fundamentales {.smaller}
+## Tipos de datos fundamentales {.smaller}
 
 En R, cada columna de nuestra base de datos tendrá un "tipo" de dato específico. Comprender estos tipos es crucial para evitar errores. Los más comunes son:
 
@@ -59,7 +59,7 @@ En R, cada columna de nuestra base de datos tendrá un "tipo" de dato específic
 
 Podemos inspeccionar el tipo de una variable con la función `class()`.
 
-## El Concepto de Coerción {.smaller}
+## El concepto de coerción {.smaller}
 
 Una regla fundamental en R es que **todos los elementos de un vector deben ser del mismo tipo**.
 
@@ -81,7 +81,7 @@ vector_mixto
 
 **¡Cuidado!** La coerción implícita puede causar errores silenciosos. Si una columna de ingresos tiene un valor de texto ("No responde"), toda la columna puede ser leída como `character`, impidiendo cálculos matemáticos.
 
-## Coerción Explícita {.smaller}
+## Coerción explícita {.smaller}
 
 Para evitar problemas, la mejor práctica es realizar una **coerción explícita**: nosotros le decimos a R a qué tipo de dato debe convertir una variable.
 
@@ -108,7 +108,7 @@ mean(edad_numerica)
 # [1] 34.66667
 ```
 
-## Estructuras de Datos: Los Contenedores de Información {.smaller}
+## Estructuras de datos: Los contenedores de información {.smaller}
 
 Una vez que entendemos los *tipos* de datos (`numeric`, `character`, etc.), necesitamos saber cómo se *organizan*. En R, los datos se guardan en diferentes "contenedores" o estructuras.
 
@@ -119,7 +119,7 @@ Cada estructura tiene sus propias reglas y usos. Pasaremos de la más simple a l
 3.  **Matriz** 
 4.  **Data Frame** (Nuestra tabla de datos estándar)
 
-## 1. El Vector: La Variable Individual {.smaller}
+## 1. El vector: La variable individual {.smaller}
 
 El **vector** es la estructura de datos más fundamental en R. Piénsalo como **una sola columna o "variable"** de nuestra base de datos.
 
@@ -139,7 +139,7 @@ asiste_a_clases <- c(TRUE, TRUE, FALSE, TRUE)
 ```
 La mayoría de las operaciones en R están "vectorizadas", es decir, se aplican a cada elemento del vector a la vez.
 
-## 2. La Lista: El Contenedor Flexible {.smaller}
+## 2. La lista: El contenedor flexible {.smaller}
 
 Una **lista** es un contenedor que puede guardar cualquier tipo de objeto, incluso de diferentes tipos y tamaños.
 
@@ -164,7 +164,7 @@ encuestado_1$hijos
 ```
 Las listas son extremadamente poderosas para organizar resultados complejos, aunque no las usaremos tanto para guardar datos primarios.
 
-## 3. La Matriz y el Data Frame {.smaller}
+## 3. La matriz y el data frame {.smaller}
 
 Ambos son estructuras de dos dimensiones (filas y columnas), como una hoja de cálculo, pero con una diferencia crucial.
 
@@ -182,7 +182,7 @@ Ambos son estructuras de dos dimensiones (filas y columnas), como una hoja de c�
 ::::::
 Un `data.frame` es, conceptualmente, una **lista de vectores de igual longitud**.
 
-## 4. El Data Frame: Nuestra Tabla de Datos Estándar {.smaller}
+## 4. El data frame: Nuestra tabla de datos estándar {.smaller}
 
 Un `data.frame` organiza nuestros datos de la manera "ordenada" (tidy) que discutimos: cada fila es una observación y cada columna es una variable.
 
@@ -208,7 +208,7 @@ mi_encuesta
 ```
 Al importar datos de un archivo (como haremos en el práctico), R los cargará directamente como un `data.frame` (o un `tibble`, su versión moderna del tidyverse).
 
-## La Lógica de una Tabla de Datos {.smaller}
+## La lógica de una tabla de datos {.smaller}
 
 Independientemente de la encuesta o la fuente, los datos cuantitativos se organizan en una estructura tabular con una lógica universal:
 
@@ -222,7 +222,7 @@ Independientemente de la encuesta o la fuente, los datos cuantitativos se organi
 -   Cada **Fila** es una **Observación** (o caso). Generalmente, corresponde a nuestra **unidad de análisis** (ej. una persona).
 -   Cada **Columna** es una **Variable**. Corresponde a un **atributo** o característica que hemos medido.
 
-## El Ideal: Datos Ordenados (Tidy Data) {.smaller}
+## El ideal: Datos ordenados (tidy data) {.smaller}
 
 Para que el análisis de datos sea eficiente y libre de errores, buscamos un formato estándar conocido como **"datos ordenados"**. Este formato sigue tres reglas simples:
 
@@ -234,9 +234,9 @@ Para que el análisis de datos sea eficiente y libre de errores, buscamos un for
 
 Afortunadamente, la mayoría de las encuestas (como la CASEN o la ENE) ya vienen en este formato. Nuestro trabajo es mantener este orden.
 
-# 3. Un Flujo de Trabajo para Explorar Datos
+# 3. Un flujo de trabajo para explorar datos
 
-## Buenas Prácticas: Script vs. Consola {.smaller}
+## Buenas prácticas: Script vs. consola {.smaller}
 
 Antes de analizar, es crucial establecer un flujo de trabajo **reproducible**.
 
@@ -256,7 +256,7 @@ Antes de analizar, es crucial establecer un flujo de trabajo **reproducible**.
 ::::::
 *Sugerencia: Usar **Proyectos de RStudio (.Rproj)** para mantener todos los archivos de una investigación (datos, scripts, informes) organizados en una sola carpeta.*
 
-## Buenas Prácticas para un Código Reproducible {.smaller}
+## Buenas prácticas para un código reproducible {.smaller}
 ::: {style="font-size: 0.8em; line-height: 1.2;"}
 La regla de oro de la reproducibilidad es: **todo debe estar en el script**. Una vez que nos comprometemos con eso, el siguiente paso es asegurarnos de que nuestro código sea claro, robusto y portable.
 
@@ -276,7 +276,7 @@ La regla de oro de la reproducibilidad es: **todo debe estar en el script**. Una
 ::: 
 
 
-## Buenas Prácticas para un Código Reproducible {.smaller}
+## Buenas prácticas para un código reproducible {.smaller}
 ::: {style="font-size: 0.8em; line-height: 1.2;"}
 
 **Para que tu código SIEMPRE funcione:**
@@ -293,7 +293,7 @@ La regla de oro de la reproducibilidad es: **todo debe estar en el script**. Una
 
 ::: 
 
-## La exploración Inicial de los Datos {.smaller}
+## La exploración inicial de los datos {.smaller}
 
 Cuando recibimos una nueva base de datos, nuestro primer paso es siempre realizar una exploración inicial para entender su estructura y contenido. Estas funciones son nuestro "kit de diagnóstico" básico:
 
@@ -337,7 +337,7 @@ Una vez que entendemos la estructura, pasamos a revisar la calidad del contenido
     -   Nos permite ver todas las categorías presentes y cuántos casos hay en cada una. Útil para verificar la codificación.
 
 
-## Cierre y Próximos Pasos {.smaller}
+## Cierre y próximos pasos {.smaller}
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 **Resumen de la sesión de hoy:**
 

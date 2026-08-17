@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 09: Visualizando Distribuciones y Medidas Robustas"
+title: "🗓️ Semana 09: Visualizando distribuciones y medidas robustas"
 ---
 
 En esta semana aprendemos a describir variables cuantitativas a través de la tríada Forma-Centro-Dispersión. Nos centraremos en las herramientas robustas: el histograma para visualizar la forma, y la mediana, los cuartiles y el rango intercuartil como medidas de centro y dispersión resistentes a valores atípicos. El boxplot integra todo este repertorio en una sola visualización.

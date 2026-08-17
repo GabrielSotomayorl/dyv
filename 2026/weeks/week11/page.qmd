@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 11: La Visualización como Argumento Sociológico y la Gramática de Gráficos"
+title: "🗓️ Semana 11: La visualización como argumento sociológico y la gramática de gráficos"
 ---
 
 En esta semana tratamos la visualización de datos no como un adorno, sino como una forma de argumento sociológico. Analizaremos visualizaciones icónicas de Piketty y Bourdieu, aprenderemos las mejores prácticas para crear gráficos claros y honestos, e introduciremos la gramática de gráficos de `ggplot2` con especial atención al faceting para comparar distribuciones.

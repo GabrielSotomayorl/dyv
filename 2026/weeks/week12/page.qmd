@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 12: Introducción al Análisis Bivariado y Tipos de Asociación"
+title: "🗓️ Semana 12: Introducción al análisis bivariado y tipos de asociación"
 ---
 
 En esta semana pasamos del análisis univariado al bivariado. Aprenderemos a clasificar los tres tipos de relaciones según el nivel de medición de las variables (Categórica-Cuantitativa, Categórica-Categórica, Cuantitativa-Cuantitativa) y a asociar cada tipo con su herramienta de análisis numérico y visual más apropiada.

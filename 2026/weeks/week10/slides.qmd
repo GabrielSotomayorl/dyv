@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 10<br/> La Media, la Desviación Estándar y la Estandarización</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 10<br/> La media, la desviación estándar y la estandarización</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 02 November 2026
@@ -22,7 +22,7 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller}
+## Objetivos de la sesión de hoy {.smaller}
 
 * **Calcular e interpretar** la **Media** como medida de centro, reconociendo su sensibilidad a valores atípicos.
 * **Comparar la Media y la Mediana** para diagnosticar **asimetrías** en la distribución.
@@ -30,7 +30,7 @@ format:
 * **Interpretar** los **estadísticos de forma** (asimetría y curtosis) para caracterizar la forma de una distribución.
 * **Aplicar la estandarización** mediante **Puntuaciones Z**, comprendiendo su utilidad para comparar valores entre diferentes escalas o variables.
 
-## Repaso y Conexión {.smaller}
+## Repaso y conexión {.smaller}
 
 En la clase anterior describimos variables cuantitativas con **medidas robustas**:
 
@@ -42,9 +42,9 @@ En la clase anterior describimos variables cuantitativas con **medidas robustas*
 **Hoy** introducimos las medidas **no robustas**: la **media** y la **desviación estándar**, que usan la información de todos los datos y son la base de la estadística inferencial.
 
 
-# 1. La Media y su Sensibilidad
+# 1. La media y su sensibilidad
 
-## ¿Por qué Necesitamos la Media? {.smaller}
+## ¿Por qué necesitamos la media? {.smaller}
 
 La **mediana** es robusta, pero la **media (x̄)** posee propiedades matemáticas que la convierten en la piedra angular de la estadística más avanzada (correlación, regresión, análisis de varianza).
 
@@ -58,7 +58,7 @@ $$
 \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
 $$
 
-## La Sensibilidad de la Media a Outliers {.smaller}
+## La sensibilidad de la media a outliers {.smaller}
 
 La principal característica de la media es que **utiliza el valor de cada observación** en su cálculo. Esto la hace muy informativa, pero también **no robusta**.
 
@@ -93,7 +93,7 @@ El outlier "arrastra" la media hacia su valor.
 ::: 
 ::::::
 
-## Usando la Media y la Mediana para Diagnosticar Asimetría {.smaller}
+## Usando la media y la mediana para diagnosticar asimetría {.smaller}
 
 Esta diferencia en sensibilidad nos proporciona una poderosa **herramienta de diagnóstico** para complementar nuestros histogramas y boxplots.
 
@@ -127,7 +127,7 @@ ggplot(datos_sim, aes(x = valor)) +
   theme(legend.position = "bottom")
 ```
 
-## Usando la Media y la Mediana para Diagnosticar Asimetría {.smaller}
+## Usando la media y la mediana para diagnosticar asimetría {.smaller}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 # Carga de paquetes y datos
@@ -170,7 +170,7 @@ ggplot(esi_trabajo, aes(x = efectivas, weight = fact_cal_esi)) +
 
 ---
 
-## Usando la Media y la Mediana para Diagnosticar Asimetría (II) {.smaller}
+## Usando la media y la mediana para diagnosticar asimetría (II) {.smaller}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 # (Este chunk asume que el objeto 'esi_trabajo' ya existe)
@@ -202,9 +202,9 @@ ggplot(esi_trabajo, aes(x = edad, weight = fact_cal_esi)) +
 La línea de la media es ligeramente superior a la de la mediana. Esto confirma visual y numéricamente que la distribución de la edad de los ocupados tiene una **leve asimetría a la derecha**, debido a la presencia de una "cola" de personas de mayor edad.
 
 
-# 2. Medidas de Dispersión Basadas en la Media
+# 2. Medidas de dispersión basadas en la media
 
-## Hacia una Medida de Dispersión {.smaller}
+## Hacia una medida de dispersión {.smaller}
 
 Si la media es nuestro "centro de gravedad", necesitamos una medida que nos diga qué tan lejos o cerca están los datos de este centro. La idea es encontrar la **"distancia promedio"** de cada observación a la media.
 
@@ -234,7 +234,7 @@ ggplot(datos_desv, aes(x = valor, y = 0)) +
 
 **Problema:** Si sumamos todas las desviaciones, el resultado siempre será **cero**, porque la media es el punto de equilibrio. ¡No nos sirve para promediar!
 
-## La Varianza (s²): "Promediando" las Distancias al Cuadrado {.smaller}
+## La varianza (s²): "Promediando" las distancias al cuadrado {.smaller}
 
 Para resolver el problema de los signos, elevamos cada desviación al cuadrado. Esto tiene dos ventajas:
 
@@ -250,7 +250,7 @@ $$
 -   **Interpretación:** Es la "media de las desviaciones al cuadrado".
 -   **Desventaja:** Sus unidades también están al cuadrado (ej. `pesos²`, `años²`), lo que la hace difícil de interpretar directamente.
 
-## La Desviación Estándar (s) {.smaller}
+## La desviación estándar (s) {.smaller}
 
 Para volver a las unidades originales de la variable, simplemente sacamos la raíz cuadrada de la varianza.
 
@@ -269,7 +269,7 @@ La **Desviación Estándar (s)** es la medida de dispersión más importante y u
 
 Como la media, la desviación estándar es una medida **no robusta** y es sensible a los outliers.
 
-## Más Allá del Centro y la Dispersión: La Forma de la Distribución {.smaller}
+## Más allá del centro y la dispersión: La forma de la distribución {.smaller}
 
 Ya tenemos herramientas para medir el **centro** (media, mediana) y la **dispersión** (desviación estándar, IQR) de nuestros datos.
 
@@ -280,7 +280,7 @@ El último paso para una descripción completa es cuantificar la **forma** de la
 
 ------------------------------------------------------------------------
 
-## Asimetría (Skewness): Midiendo la Simetría {.smaller}
+## Asimetría (skewness): Midiendo la simetría {.smaller}
 
 La **asimetría** mide el grado en que los datos se distribuyen de forma no simétrica con respecto a su media. Confirma numéricamente lo que diagnosticamos al comparar la media y la mediana.
 
@@ -289,7 +289,7 @@ La **asimetría** mide el grado en que los datos se distribuyen de forma no sim�
     -   **Asimetría \> 0 (Positiva):** La cola derecha es más larga. La mayoría de los datos están a la izquierda.
     -   **Asimetría \< 0 (Negativa):** La cola izquierda es más larga. La mayoría de los datos están a la derecha.
 
-## Asimetría (Skewness): Midiendo la Simetría {.smaller}
+## Asimetría (skewness): Midiendo la simetría {.smaller}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 # Simulación de datos
@@ -315,7 +315,7 @@ ggplot(datos_sim, aes(x = valor)) +
 ```
 
 
-## Curtosis (Kurtosis): Midiendo las "Colas" y los Outliers {.smaller}
+## Curtosis (kurtosis): Midiendo las "colas" y los outliers {.smaller}
 
 La **curtosis** es una medida de qué tan "pesadas" son las colas de una distribución en comparación con una distribución normal. **No mide si la distribución es "puntiaguda" o "plana"**, sino su propensión a producir valores extremos.
 
@@ -324,12 +324,12 @@ La **curtosis** es una medida de qué tan "pesadas" son las colas de una distrib
     -   **Curtosis \> 0 (Leptocúrtica):** Colas "pesadas". Hay más probabilidad de encontrar valores muy extremos (outliers).
     -   **Curtosis \< 0 (Platicúrtica):** Colas "ligeras". Menos probabilidad de outliers que en una distribución normal.
 
-## Curtosis (Kurtosis): Midiendo las "Colas" y los Outliers {.smaller}
+## Curtosis (kurtosis): Midiendo las "colas" y los outliers {.smaller}
 
 ![](https://analystprep.com/cfa-level-1-exam/wp-content/uploads/2019/08/page-64.png){fig-alt='Tres curvas en forma de campana superpuestas comparando distribuciones según su curtosis. La curva azul (leptocúrtica) es la más alta y angosta, con colas más pesadas. La curva naranja (distribución normal) tiene una altura intermedia, como referencia. La curva verde (platicúrtica) es la más baja y ancha, con colas más ligeras.' width=60%}
 
 
-## Estadísticos de Forma en la Práctica {.smaller}
+## Estadísticos de forma en la práctica {.smaller}
 
 ::::::::: {style="font-size: 0.9em; line-height: 1.2;"}
 
@@ -392,9 +392,9 @@ knitr::kable(
 :::::::::
 
 
-# 3. Estandarización y Puntuaciones Z
+# 3. Estandarización y puntuaciones Z
 
-## Comparando entre Diferentes Variables {.smaller}
+## Comparando entre diferentes variables {.smaller}
 
 Imaginemos que queremos saber a quién le fue relativamente mejor en sus estudios. Tenemos dos estudiantes y sus notas en diferentes pruebas:
 
@@ -405,7 +405,7 @@ Imaginemos que queremos saber a quién le fue relativamente mejor en sus estudio
 
 A primera vista, el 6.2 parece mejor que el 5.5. Pero, ¿considerando la dificultad y las notas de los demás, quién tuvo un rendimiento *relativamente* más destacado? No podemos comparar estas notas directamente porque provienen de pruebas con diferentes promedios y dispersiones. Necesitamos una escala común.
 
-## La Puntuación Z: Una Escala Universal {.smaller}
+## La puntuación Z: Una escala universal {.smaller}
 
 La **puntuación Z** (o valor estandarizado) recalcula el valor de una observación para expresar su posición relativa a la media y a la dispersión de su grupo.
 
@@ -422,11 +422,11 @@ La **puntuación Z** (o valor estandarizado) recalcula el valor de una observaci
 
 -   `Z = -2`: La observación está dos desviaciones estándar por debajo de la media.
 
-## La Puntuación Z: Una Escala Universal {.smaller}
+## La puntuación Z: Una escala universal {.smaller}
 
 Estandarizar variables es fundamental porque permite llevar **distintas variables a una escala común** (con media 0 y desviación estándar 1). **Esto es crucial en muchas técnicas estadísticas** (como la regresión o el análisis factorial) donde las variables deben tener el mismo peso o ser directamente comparables, independientemente de sus unidades o rangos originales.
 
-## Resolviendo el Problema: ¿A quién le fue mejor, Estudiante A o B? {.smaller}
+## Resolviendo el problema: ¿A quién le fue mejor, estudiante A o B? {.smaller}
 
 ::::::::: {style="font-size: 0.8em; line-height: 1.2;"}
 
@@ -470,7 +470,7 @@ $$
 
 :::::::::
 
-## Cierre y Próximos Pasos {.smaller}
+## Cierre y próximos pasos {.smaller}
 
 ::: {style="font-size: 0.8em; line-height: 1.2;"}
 **Resumen de la sesión de hoy:**

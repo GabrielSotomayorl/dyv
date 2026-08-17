@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 06<br/> La Gramática de la Manipulación de Datos</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 06<br/> La gramática de la manipulación de datos</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 21 September 2026
@@ -22,7 +22,7 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller}
+## Objetivos de la sesión de hoy {.smaller}
 
 -   **Introducir** la "gramática de la manipulación de datos" del paquete `dplyr`.
 -   **Aprender y aplicar** los cinco "verbos" principales de `dplyr`: `select()`, `filter()`, `arrange()`, `mutate()` y `summarise()`.
@@ -30,9 +30,9 @@ format:
 -   **Aplicar** la combinación `group_by()` + `summarise()` para calcular estadísticas descriptivas por subgrupos.
 
 
-# 1. Una Forma Intuitiva de Trabajar: El Tidyverse y `dplyr`
+# 1. Una forma intuitiva de trabajar: El tidyverse y `dplyr`
 
-## Repaso y Conexión {.smaller}
+## Repaso y conexión {.smaller}
 
 En la clase anterior, aprendimos el **protocolo de exploración inicial**:
 
@@ -43,7 +43,7 @@ En la clase anterior, aprendimos el **protocolo de exploración inicial**:
 
 **El Desafío:** A medida que nuestras preguntas se vuelven más complejas, como "calcular el ingreso promedio *solo de las mujeres de la Región Metropolitana*", el código en R base puede volverse anidado y difícil de leer. Hoy aprenderemos un enfoque más intuitivo.
 
-## El Ecosistema Tidyverse: Un Lenguaje para la Ciencia de Datos {.smaller}
+## El ecosistema tidyverse: Un lenguaje para la ciencia de datos {.smaller}
 
 El **Tidyverse** no es solo un paquete, es una **colección de paquetes** diseñados para trabajar juntos de forma coherente en todo el ciclo de análisis de datos. Comparte una filosofía común que hace el código más **legible, consistente e intuitivo**.
 
@@ -55,7 +55,7 @@ El **Tidyverse** no es solo un paquete, es una **colección de paquetes** diseñ
     -   `tidyr`: Para ordenar y reestructurar datos.
     -   Y muchos más (`purrr`, `stringr`, `forcats`...).
     
-## El Ecosistema Tidyverse: Un Lenguaje para la Ciencia de Datos {.smaller}
+## El ecosistema tidyverse: Un lenguaje para la ciencia de datos {.smaller}
 
 
 Al cargar el paquete `tidyverse` con `library(tidyverse)`, se cargan automáticamente los paquetes más importantes de este ecosistema.
@@ -65,7 +65,7 @@ Al cargar el paquete `tidyverse` con `library(tidyverse)`, se cargan automática
 library(tidyverse)
 ```
 
-## `dplyr`: La Gramática de la Manipulación de Datos {.smaller}
+## `dplyr`: La gramática de la manipulación de datos {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 El paquete `dplyr` es el corazón del Tidyverse para la manipulación de datos. Su diseño se basa en una "gramática" simple y consistente, definida por tres reglas clave:
@@ -82,7 +82,7 @@ El paquete `dplyr` es el corazón del Tidyverse para la manipulación de datos. 
 Esta gramática consistente es lo que permite que las funciones se encadenen de manera fluida y predecible.
 :::
 
-## El Operador Pipe `%>%`: Escribiendo Código como se Piensa {.smaller}
+## El operador pipe `%>%`: Escribiendo código como se piensa {.smaller}
 
 ::: {style="font-size: 0.87em; line-height: 1.2;"}
 El *pipe* (tubería) es el operador `%>%` y es la pieza central que hace que el código del Tidyverse sea tan legible.
@@ -104,7 +104,7 @@ Esto se lee como: "Toma la base CASEN, **luego** filtra por la RM, **luego** agr
 :::
 
 
-## El Pipe Nativo de R: `|>` {.smaller}
+## El pipe nativo de R: `|>` {.smaller}
 
 A partir de la versión 4.1.0, R introdujo su propio operador de *pipe* "nativo": `|>`. Su función es muy similar al `%>%` del Tidyverse.
 
@@ -124,9 +124,9 @@ casen |>
 -   Se puede escribir el pipe pulsando CTRL + SHIFT + M. Se puede cambiar el pipe escrito con dicho atajo en las opciones de RStudio.
 
 
-# 2. Los Verbos Fundamentales de `dplyr`
+# 2. Los verbos fundamentales de `dplyr`
 
-## Los 5 Verbos Principales {.smaller}
+## Los 5 verbos principales {.smaller}
 
 `dplyr` se basa en un conjunto pequeño de "verbos" o funciones que resuelven la gran mayoría de las tareas de manipulación de datos. Cada verbo realiza una acción específica y predecible.
 
@@ -138,7 +138,7 @@ casen |>
 
 Hoy nos enfocaremos en estos cinco.
 
-## `select()`: Trabajando con Columnas {.smaller}
+## `select()`: Trabajando con columnas {.smaller}
 
 `select()` nos permite quedarnos con las variables que nos interesan, descartando el resto.
 
@@ -156,7 +156,7 @@ casen_sin_ids <- casen %>%
 ```
 `select()` tiene "helpers" muy útiles como `starts_with("y_")` para seleccionar todas las variables que empiezan con "y_", o `everything()` para mover columnas de lugar.
 
-## La Lógica del Filtrado: Operadores de Comparación {.smaller}
+## La lógica del filtrado: Operadores de comparación {.smaller}
 
 Antes de usar `filter()`, necesitamos entender cómo construir las "condiciones lógicas". El primer paso es usar **operadores de comparación** para crear una pregunta que R pueda responder con `TRUE` o `FALSE`.
   
@@ -175,7 +175,7 @@ Antes de usar `filter()`, necesitamos entender cómo construir las "condiciones 
 
 :::
 
-## Combinando Condiciones: Operadores Lógicos {.smaller}
+## Combinando condiciones: Operadores lógicos {.smaller}
 
 A menudo, nuestras preguntas de investigación requieren combinar varias condiciones. Para esto, usamos los **operadores lógicos**.  
 
@@ -191,7 +191,7 @@ El orden de las operaciones importa. Al igual que en matemáticas, es una buena 
 
 
 
-## `filter()`: Aplicando la Lógica para Seleccionar Filas {.smaller}
+## `filter()`: Aplicando la lógica para seleccionar filas {.smaller}
 
 Ahora sí, la función `filter()` toma estas condiciones lógicas y las usa para seleccionar solo las filas (observaciones) de nuestra base de datos donde la condición completa es `TRUE`.
 
@@ -212,7 +212,7 @@ casen_v_viii <- casen %>%
   filter(region %in% c(5, 8))
 ```
 
-## `arrange()`: Reordenando Filas {.smaller}
+## `arrange()`: Reordenando filas {.smaller}
 
 `arrange()` nos permite ordenar las filas de nuestra tabla de datos según los valores de una o más columnas.
 
@@ -230,7 +230,7 @@ casen_ordenada_ingreso <- casen %>%
 ```
 Podemos ordenar por múltiples variables. Por ejemplo, `arrange(region, desc(edad))` ordenaría primero por región y, dentro de cada región, por edad de forma descendente.
 
-## `mutate()`: Creando y Modificando Variables {.smaller}
+## `mutate()`: Creando y modificando variables {.smaller}
 
 `mutate()` es el verbo que nos permite añadir nuevas columnas o modificar las existentes. Es una de las funciones más poderosas y creativas.
 
@@ -247,7 +247,7 @@ casen_con_mayoria_edad <- casen %>%
 ```
 En la próxima clase, veremos cómo usar `mutate()` con funciones más complejas como `case_when()` para realizar recodificaciones avanzadas.
 
-## `summarise()`: Colapsando Datos en Resúmenes {.smaller}
+## `summarise()`: Colapsando datos en resúmenes {.smaller}
 
 `summarise()` (o `summarize`) reduce la base de datos a una sola fila que contiene resúmenes estadísticos.
 
@@ -266,7 +266,7 @@ resumen_general
 Por sí solo, `summarise()` es útil para obtener una visión global. Sin embargo, su verdadero poder se desata cuando lo combinamos con `group_by()`.
 
 
-# 3. Análisis por Grupos: `group_by()` + `summarise()`
+# 3. Análisis por grupos: `group_by()` + `summarise()`
 
 ## Obteniendo estadísticos por grupo {.smaller}
 
@@ -278,7 +278,7 @@ La combinación de `group_by()` y `summarise()` es el flujo de trabajo estándar
 2.  **`summarise(...)`:** Luego, `summarise` calcula el resumen estadístico para cada uno de estos grupos virtuales.
 3.  **Resultado:** `dplyr` devuelve una nueva tabla con los resultados para cada grupo.
 
-## Calculando Estadísticas por Grupo {.smaller}
+## Calculando estadísticas por grupo {.smaller}
 
 **Pregunta de investigación:** ¿Cuál es el promedio de años de escolaridad (`esc`) por sexo?
 
@@ -298,7 +298,7 @@ casen %>%
 
 *Para que esto sea más claro, primero tendríamos que convertir `sexo` a un factor con `as_factor()`.*
 
-## Análisis por Múltiples Grupos {.smaller}
+## Análisis por múltiples grupos {.smaller}
 
 Podemos agrupar por más de una variable para análisis más detallados.
 
@@ -316,7 +316,7 @@ casen %>%
 
 Este tipo de tabla es el punto de partida para muchos análisis sociológicos, permitiendo comparar subgrupos de la población de manera sistemática.
 
-## Cierre y Próximos Pasos {.smaller}
+## Cierre y próximos pasos {.smaller}
 ::: {style="font-size: 0.95em; line-height: 1.2;"}
 **Resumen de la sesión de hoy:**
 

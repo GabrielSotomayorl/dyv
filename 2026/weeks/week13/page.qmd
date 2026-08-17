@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 13: Tablas de Contingencia y el Control por Tercera Variable"
+title: "🗓️ Semana 13: Tablas de contingencia y el control por tercera variable"
 ---
 
 En esta semana nos enfocamos en el análisis de la relación entre dos variables categóricas mediante tablas de contingencia. Aprenderemos a construirlas e interpretarlas correctamente usando porcentajes condicionales, e introduciremos el control estadístico por una tercera variable para distinguir relaciones genuinas de asociaciones espurias.

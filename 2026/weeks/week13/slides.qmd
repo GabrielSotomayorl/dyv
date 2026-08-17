@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 13<br/> Tablas de Contingencia y el Control por Tercera Variable</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 13<br/> Tablas de contingencia y el control por tercera variable</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 23 November 2026
@@ -22,7 +22,7 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-## Objetivos de la Sesión de Hoy {.smaller}
+## Objetivos de la sesión de hoy {.smaller}
 
 -   **Construir, interpretar y dar formato** a **tablas de contingencia** (tablas cruzadas).
 -   **Dominar** el cálculo y la interpretación de **porcentajes condicionales** (de fila, de columna y totales).
@@ -30,7 +30,7 @@ format:
 -   **Introducir** el concepto de control estadístico mediante una tercera variable (Z).
 -   **Comprender y diagnosticar** una **asociación espuria**.
 
-## Repaso y Conexión {.smaller}
+## Repaso y conexión {.smaller}
 
 En la clase anterior analizamos el caso **Categórica (X) → Cuantitativa (Y)**:
 
@@ -42,16 +42,16 @@ En la clase anterior analizamos el caso **Categórica (X) → Cuantitativa (Y)**
 **Hoy** nos centramos en el caso **Categórica (X) → Categórica (Y)**, donde la herramienta principal es la **tabla de contingencia**.
 
 
-# 1. La Tabla de Contingencia
+# 1. La tabla de contingencia
 
-## De Comparar Grupos a Cruzar Categorías {.smaller}
+## De comparar grupos a cruzar categorías {.smaller}
 
 Hoy nos enfocamos en el caso **Categórica (X) ➞ Categórica (Y)**, uno de los análisis más clásicos e importantes en sociología.
 
 -   **Pregunta clave:** ¿La probabilidad de pertenecer a una categoría de la variable Y depende de la categoría de la variable X a la que se pertenece?
 -   **Herramienta Central:** La **tabla de contingencia** (también llamada tabla cruzada o de doble entrada).
 
-## Anatomía de una Tabla de Contingencia {.smaller}
+## Anatomía de una tabla de contingencia {.smaller}
 
 Una tabla de contingencia cruza las categorías de una variable explicativa (X) con las de una variable respuesta (Y), y muestra la **frecuencia** de casos en cada celda.
 
@@ -88,9 +88,9 @@ enut_trabajo %>%
 **Problema:** Hay más mujeres que hombres en la muestra que contestó el cuestionario de uso del tiempo. Comparar los conteos directos (9,742 vs. 17,646) puede ser engañoso. **Necesitamos porcentajes.**
 
 
-# 2. Uso de Porcentajes
+# 2. Uso de porcentajes
 
-## Tres Tipos de Porcentajes {.smaller}
+## Tres tipos de porcentajes {.smaller}
 
 En una tabla de contingencia, podemos calcular tres tipos de porcentajes:
 
@@ -138,7 +138,7 @@ enut_trabajo %>%
 2.  **Comparamos** los porcentajes a través de la fila "Sí participa".
 3.  **Conclusión:** Un **97.9%** de las mujeres participa en trabajo doméstico, en comparación con un **93.8%** de los hombres. Como estos porcentajes son diferentes, concluimos que **existe una asociación** entre el sexo y la participación en trabajo doméstico en la muestra.
 
-## Operacionalizando la Independencia: ¿Qué Tabla Esperaríamos? {.smaller}
+## Operacionalizando la independencia: ¿Qué tabla esperaríamos? {.smaller}
 
 Decir que dos variables son **independientes** tiene una traducción concreta: la distribución de Y sería **la misma en cada categoría de X**. Eso nos permite construir la tabla que **esperaríamos ver si no hubiera asociación** (repartiendo cada total de fila en proporción al tamaño de cada columna) y compararla con la que **observamos**:
 
@@ -162,9 +162,9 @@ bind_cols(
 **Lectura:** si el sexo no tuviera relación con el trabajo doméstico, esperaríamos unos **453 hombres** que no participan; observamos **739** — un 60% más. La **distancia entre lo observado y lo esperado** es la manera precisa de decir "hay asociación", y es la idea sobre la que se construye el test de chi-cuadrado que verán en el curso de inferencia.
 
 
-# 3. El Control por una Tercera Variable
+# 3. El control por una tercera variable
 
-## ¿Es "Real" la Relación? {.smaller}
+## ¿Es "real" la relación? {.smaller}
 
 El análisis bivariado es solo el primer paso. Una pregunta fundamental en sociología es:
 
@@ -174,7 +174,7 @@ Para responder a esto, usamos una técnica central en el análisis de datos: el 
 
 La idea es **estratificar**: rehacemos nuestro análisis de la relación entre X e Y, pero esta vez por separado para cada categoría de la variable de control Z. Esto nos permite ver si la relación original se comporta de la misma manera en diferentes contextos.
 
-## Un Ejemplo Clásico: La Asociación Espuria {.smaller}
+## Un ejemplo clásico: La asociación espuria {.smaller}
 
 ::: {style="font-size: 0.8em; line-height: 1.2;"}
 Antes de usar nuestros datos, veamos un ejemplo conceptual clásico para entender la lógica.
@@ -192,7 +192,7 @@ Antes de usar nuestros datos, veamos un ejemplo conceptual clásico para entende
 
 ::: 
 
-## Aplicando el Control en la Práctica (ENUT 2023) {.smaller}
+## Aplicando el control en la práctica (ENUT 2023) {.smaller}
 
 **Paso 1: La Relación Original (X → Y)**
 
@@ -219,7 +219,7 @@ enut_control %>%
 
 **Interpretación Inicial:** Observamos una clara brecha de género. Un **41.0%** de las mujeres participa en trabajo de cuidados, en comparación con solo el **29.1%** de los hombres. Esto representa una diferencia de casi 12 puntos porcentuales en la participación.
 
-## Aplicando el Control en la Práctica (ENUT 2023) {.smaller}
+## Aplicando el control en la práctica (ENUT 2023) {.smaller}
 
 **Paso 2: Introduciendo la Variable de Control (Z)**
 
@@ -228,7 +228,7 @@ enut_control %>%
 -   **Variable de Control (Z):** `cae` (Condición de Actividad Económica).
 -   **Estrategia:** Repetiremos la tabla anterior, pero ahora por separado para "Personas ocupadas" y "Personas inactivas".
 
-## Aplicando el Control en la Práctica (ENUT 2023) {.smaller}
+## Aplicando el control en la práctica (ENUT 2023) {.smaller}
 
 **Paso 3: Las Tablas Parciales o Estratificadas**
 
@@ -254,7 +254,7 @@ enut_control %>%
   kable_styling(bootstrap_options = "striped", full_width = FALSE)
 ```
 
-## Conclusión del Análisis de Control {.smaller}
+## Conclusión del análisis de control {.smaller}
 
 Al comparar las tablas parciales, observamos un patrón de **Especificación (o Interacción)**:
 
@@ -265,7 +265,7 @@ Al comparar las tablas parciales, observamos un patrón de **Especificación (o 
 **Conclusión Sociológica:** La relación entre sexo y trabajo de cuidados no es espuria, sino robusta y **especificada** por la condición de actividad. La brecha de género existe tanto dentro como fuera del mercado laboral, pero se manifiesta de forma diferente: aunque en términos absolutos la participación en cuidados es mayor entre las personas ocupadas, la **desigualdad relativa** (la diferencia porcentual entre hombres y mujeres) es aún más pronunciada entre quienes están fuera de la fuerza de trabajo.
 
 
-## Patrones del Análisis de Control {.smaller}
+## Patrones del análisis de control {.smaller}
 
 Al introducir una variable de control (Z), la relación original entre X e Y puede:
 
@@ -276,7 +276,7 @@ Al introducir una variable de control (Z), la relación original entre X e Y pue
 3.  **Especificarse (Interacción):** La relación es **diferente** en las distintas categorías de Z, siendo más fuerte para un grupo que para otro. **Esto es lo que acabamos de encontrar en nuestro ejemplo de la ENUT:** la relación entre sexo y trabajo de cuidados fue especificada por la condición de actividad.
 
 
-## Cierre y Próximos Pasos {.smaller}
+## Cierre y próximos pasos {.smaller}
 
 **Resumen de la sesión de hoy:**
 

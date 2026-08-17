@@ -1,5 +1,5 @@
 ---
-title: "Práctico 3: Construcción y Combinación de Datos: Un Análisis de Bienestar Adolescente con la ELPI"
+title: "Práctico 3: Construcción y combinación de datos: un análisis de bienestar adolescente con la ELPI"
 subtitle: "Trabajando con la Encuesta Longitudinal de Primera Infancia (ELPI) Cuarta Ronda 2024"
 date: "2026-09-28"
 lang: es

@@ -1,6 +1,6 @@
 ---
 subtitle: "Descripción y Visualización de Datos"
-title: "<font style='font-size:1em;'>🗓️ Semana 01<br/> Introducción al Curso</font>"
+title: "<font style='font-size:1em;'>🗓️ Semana 01<br/> Introducción al curso</font>"
 author: Prof. [Gabriel Sotomayor](https://gabrielsotomayorl.github.io/)
 institute: '[Universidad Diego Portales](https://sociologia.udp.cl/)'
 date: 10 August 2026
@@ -22,7 +22,7 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-# Presentación del Curso
+# Presentación del curso
 
 ## Presentación {.smaller}
 
@@ -32,11 +32,11 @@ Se abordarán elementos de la estadística descriptiva univariada y bivariada, c
 
 El curso tiene un carácter eminentemente práctico, utilizando lenguajes de programación como **R** para el análisis y presentación de datos, buscando que los y las estudiantes comprendan la relevancia del análisis estadístico en las Ciencias Sociales.
 
-## Resultados de Aprendizaje
+## Resultados de aprendizaje
 
 **Resultado general:** Aplicar los métodos y herramientas de la estadística descriptiva necesarios para el análisis de datos cuantitativos en las ciencias sociales.
 
-## Resultados Específicos {.smaller}
+## Resultados específicos {.smaller}
 
 1.  Comprender el uso y relevancia de la estadística en las Ciencias Sociales.
 2.  Relacionar metodologías de recolección de datos y las técnicas estadísticas apropiadas para su análisis.
@@ -85,7 +85,7 @@ El curso tiene un carácter eminentemente práctico, utilizando lenguajes de pro
 
 ## Contenidos: Unidad 4 {.smaller .dark-background}
 
-### 4. Estadística Descriptiva Univariada
+### 4. Estadística descriptiva univariada
 
 -   **Estadísticos para variables numéricas:**
     -   Centro: media, mediana, moda.
@@ -98,7 +98,7 @@ El curso tiene un carácter eminentemente práctico, utilizando lenguajes de pro
 
 ## Contenidos: Unidad 5 {.smaller .dark-background}
 
-### 5. Estadística Descriptiva Bivariada
+### 5. Estadística descriptiva bivariada
 
 -   Tipos de asociaciones entre variables según su naturaleza.
 -   Concepto de independencia.
@@ -121,7 +121,7 @@ El curso tiene un carácter eminentemente práctico, utilizando lenguajes de pro
 -   El **Examen Final** (fecha por confirmar) corresponde al **30%** restante.
 -   Se requiere **70% de asistencia** para aprobar.
 
-## Política de Uso de Inteligencia Artificial {.smaller background-color="white"}
+## Política de uso de inteligencia artificial {.smaller background-color="white"}
 
 -   **Uso acotado y transparente:** autorizado para usos específicos en las Tareas de R y los Trabajos Prácticos, **excepto en la prueba solemne y el examen**.
 -   **Permitido:** depurar código y resolver dudas técnicas de ese tipo.
@@ -130,7 +130,7 @@ El curso tiene un carácter eminentemente práctico, utilizando lenguajes de pro
 
 Revisa el detalle completo en la [Política de IA](../../ai-policy.qmd) del curso.
 
-## Ayudantes del Curso {.smaller background-color="white"}
+## Ayudantes del curso {.smaller background-color="white"}
 
 El curso cuenta con un equipo de tres ayudantes:
 
@@ -175,7 +175,7 @@ El curso cuenta con un equipo de tres ayudantes:
 - Grupo 2: Lunes 14:30 - 15:50
 
 
-## Bibliografía Obligatoria (1/2) {.smaller}
+## Bibliografía obligatoria (1/2) {.smaller}
 
 -   **Asún, R. (2006).** *Medir la realidad social: El sentido de la metodología cuantitativa*. En M. Canales, Metodologías de investigación Social.
 -   **Babbie, E. (1996).** *Manual para la práctica de la investigación social*. Desclée De Brouwer.
@@ -184,16 +184,16 @@ El curso cuenta con un equipo de tres ayudantes:
 -   **Diez, D. M., Barr, C. D., & Çetinkaya-Rundel, M. (2024).** *OpenIntro Statistics*. Creative Commons.
 -   **Hernández R., Fernández C. & Baptista P. (2010).** *Metodología de la Investigación*. Mc Graw Hill.
 
-## Bibliografía Obligatoria (2/2) {.smaller}
+## Bibliografía obligatoria (2/2) {.smaller}
 
 -   **Moore, D. S. (2005).** *Estadística aplicada básica*. Antoni Bosch editor.
 -   **Ritchey F. (2008).** *Estadística para las ciencias sociales*. McGraw-Hill.
 -   **Urdinez, F., & Cruz, A. (2020).** *R for political data science: a practical guide*. CRC Press. Disponible en: <https://arcruz0.github.io/libroadp/>
 -   **Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023).** *R para ciencia de datos* (2ª ed.). Disponible en: <https://davidrsch.github.io/r4ds-es/>
 
-## Plataformas y Comunicación {.smaller}
+## Plataformas y comunicación {.smaller}
 
-### 🌐 Página Web del Curso
+### 🌐 Página web del curso
 
 Todo el material estará disponible en:
 
@@ -201,20 +201,20 @@ Todo el material estará disponible en:
 **[https://gabrielsotomayorl.github.io/dyv/2026/](https://gabrielsotomayorl.github.io/dyv/2026/){preview-link="true"}**
 :::
 
-### 🗣️ Delegado/a de Curso
+### 🗣️ Delegado/a de curso
 
 Las comunicaciones del equipo docente para temas colectivos deberán gestionarse de manera centralizada mediante un delegado o delegada. Esto es particularmente relevante para solicitudes respecto a evaluaciones o cambios de fechas.
 
-## Objetivos de la Sesión {.smaller}
+## Objetivos de la sesión {.smaller}
 
 -   **Comprender** el rol de la estadística dentro del proceso de investigación social.
 -   **Conocer** ejemplos de uso de información cuantitativa para comprender la realidad social.
 -   **Introducir** los procedimientos y supuestos de la cuantificación de la realidad social.
 -   **Reflexionar** sobre nuestro papel como sociólogos/as en la producción de conocimiento.
 
-# 1. El Proceso de Conocimiento Científico
+# 1. El proceso de conocimiento científico
 
-## Conocimiento Científico: Inducción y Deducción {.smaller}
+## Conocimiento científico: Inducción y deducción {.smaller}
 
 Como sociólogos/as, nuestro objetivo es producir conocimiento **sistemático** sobre la realidad social. Para ello, usamos dos lógicas complementarias en un ciclo constante:
 
@@ -240,7 +240,7 @@ Como sociólogos/as, nuestro objetivo es producir conocimiento **sistemático** 
 :::
 :::
 
-## Reflexividad: El/la Sociólogo/a como Sujeto Situado {.smaller}
+## Reflexividad: El/la sociólogo/a como sujeto situado {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 A diferencia de otras ciencias, en sociología **somos parte de nuestro objeto de estudio**. No partimos de un "punto cero".
@@ -256,9 +256,9 @@ La meta es la **transparencia y el rigor consciente**.
 **Pregunta para reflexionar:** ¿De qué manera creen que la posición social o valores de un investigador podrían influir en una investigación cuantitativa? ¿Cómo se puede manejar eso?
 :::
 
-# 2. Cuantificando la Realidad Social
+# 2. Cuantificando la realidad social
 
-## El Hecho Social: La Mirada de Durkheim {.smaller}
+## El hecho social: La mirada de Durkheim {.smaller}
 
 Para Durkheim, la sociología debía estudiar los **hechos sociales**:
 
@@ -266,15 +266,45 @@ Para Durkheim, la sociología debía estudiar los **hechos sociales**:
 
 Son patrones y corrientes colectivas que trascienden al individuo. Su regla fundamental era: **"Tratar los hechos sociales como cosas"**, es decir, estudiarlos de manera objetiva y empírica.
 
-## El Suicidio {.smaller}
+## El suicidio {.smaller}
 
-![](img/durkheim.png){fig-alt='Tabla histórica del "Cuadro XVIII" del libro *El Suicidio* de Durkheim (1897): tasas de suicidio por millón de habitantes de cada confesión religiosa (protestante, católica, judía) en distintos países europeos entre 1844 y 1891. En casi todos los casos, la tasa de los protestantes es sustancialmente más alta que la de católicos y judíos.' fig-align="center"}
+**Cuadro XVIII. Suicidios en los diferentes países por un millón de sujetos de cada confesión**
 
-## El Suicidio {.smaller}
+::: {.tbl-compact}
+| País (período) | Protestantes | Católicos | Judíos | Observador |
+|---|---:|---:|---:|---|
+| Austria (1852-59) | 79,5 | 51,3 | 20,7 | Wagner |
+| Prusia (1849-55) | 159,9 | 49,6 | 46,4 | Ídem |
+| Prusia (1869-72) | 187 | 69 | 96 | Morselli |
+| Prusia (1890) | 240 | 100 | 180 | Prinzing |
+| Baden (1852-62) | 139 | 117 | 87 | Legoyt |
+| Baden (1870-74) | 171 | 136,7 | 124 | Morselli |
+| Baden (1878-88) | 242 | 170 | 210 | Prinzing |
+| Baviera (1844-56) | 135,4 | 49,1 | 105,9 | Morselli |
+| Baviera (1884-91) | 224 | 94 | 193 | Prinzing |
+| Wurtemberg (1846-60) | 113,5 | 79,9 | 65,6 | Wagner |
+| Wurtemberg (1873-76) | 190 | 120 | 60 | Durkheim |
+| Wurtemberg (1881-90) | 170 | 119 | 142 | Ídem |
+:::
 
-![](img/durkheim2.png){fig-alt='Tabla histórica de *El Suicidio* de Durkheim: tasas de suicidio por cada 100.000 habitantes según sexo, estado civil y grupo de edad. Los hombres no casados (viudos y solteros) presentan tasas mucho más altas que los casados, especialmente en la vejez (333,35 por 100.000 en el grupo de 66 años y más, frente a 9,48 en los casados). Las mujeres, en todas las categorías, tienen tasas mucho más bajas que los hombres.' fig-align="center"}
+**En casi todos los casos, la tasa de los protestantes es sustancialmente más alta que la de católicos y judíos.**
 
-## El Suicidio {.smaller}
+## El suicidio {.smaller}
+
+**Suicidios por cada 100.000 habitantes, según sexo, estado civil y edad (años)**
+
+::: {.tbl-compact}
+| Sexo / estado civil | 16-25 | 26-35 | 36-45 | 46-55 | 56-65 | 66-75 | 76+ |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Hombres casados | 10,51 | 10,58 | 18,77 | 24,08 | 26,29 | 20,76 | 9,48 |
+| Hombres viudos/solteros | 5,69 | 25,73 | 66,95 | 90,72 | 150,08 | 229,27 | 333,35 |
+| Mujeres casadas | 2,63 | 2,76 | 4,15 | 5,55 | 7,09 | 4,67 | 7,64 |
+| Mujeres viudas/solteras | 2,99 | 6,14 | 13,23 | 17,05 | 25,98 | 51,93 | 34,69 |
+:::
+
+**Los no casados tienen tasas mucho más altas, sobre todo en la vejez (333,35 vs. 9,48 en el grupo de 66+). Las mujeres muestran tasas mucho más bajas que los hombres.**
+
+## El suicidio {.smaller}
 
 En *El Suicidio* (1897), Durkheim usó la estadística para demostrar su punto de vista:
 
@@ -285,7 +315,7 @@ Durkheim parte de la estadística para proponer, según la regularidad de las ci
 
 La cuantificación permitió a Durkheim **hacer visible la estructura social** y sus efectos.
 
-## Los 5 Niveles de una Investigación {.smaller}
+## Los 5 niveles de una investigación {.smaller}
 
 Toda investigación se construye sobre una jerarquía de decisiones, desde lo más abstracto a lo más concreto.
 
@@ -297,7 +327,7 @@ Toda investigación se construye sobre una jerarquía de decisiones, desde lo m�
 
 La coherencia entre estos niveles es fundamental para la validez de nuestra investigación.
 
-## Aplicando los 5 Niveles al Estudio de Durkheim {.smaller}
+## Aplicando los 5 niveles al estudio de Durkheim {.smaller}
 
 Veamos la coherencia interna del estudio sobre el suicidio:
 
@@ -309,18 +339,18 @@ Veamos la coherencia interna del estudio sobre el suicidio:
 
 **Pregunta:** ¿Cómo cambiarían estos niveles si quisiéramos estudiar el suicidio desde una perspectiva cualitativa, centrada en el significado que le dan las personas?
 
-## El Proceso de Investigación Social Empírica {.smaller}
+## El proceso de investigación social empírica {.smaller}
 
 ![](img/01.png){fig-alt='Diagrama de flujo jerárquico del proceso de investigación social en tres grandes bloques. I. Especificación de la pregunta de investigación: planteamiento del problema, pregunta de investigación, objetivos, relevancias. II. Especificación de la posición teórica: estado del arte, toma de posición, conceptos y dimensiones centrales, hipótesis. III. Especificación de la estrategia metodológica: tipo de estudio, tipo de diseño, estrategia metodológica, técnicas de producción de información, técnicas de análisis de información, muestreo.' fig-align="center" width="800"}
 
-## El Proceso de Investigación Social Empírica {.smaller}
+## El proceso de investigación social empírica {.smaller}
 
 La estadística es un momento clave dentro de un proceso más amplio que va desde la teoría hasta la interpretación.
 
 -   La estadística no es el principio ni el fin; es la herramienta que usamos en las fases de **diseño, recolección y análisis** para responder a una pregunta teóricamente informada.
 -   En este curso, nos enfocaremos en la **descripción y visualización**, el primer paso fundamental del análisis.
 
-## Tres Grandes Enfoques Metodológicos {.smaller}
+## Tres grandes enfoques metodológicos {.smaller}
 
 ::: {style="font-size: 0.9em; line-height: 1.2;"}
 En sociología, coexisten al menos tres grandes enfoques metodológicos:
@@ -336,15 +366,15 @@ En sociología, coexisten al menos tres grandes enfoques metodológicos:
 **Este curso se centra en el enfoque cuantitativo**, pero es crucial entender que es una de varias formas válidas de producir conocimiento.
 :::
 
-# 3. Los Supuestos de la Cuantificación
+# 3. Los supuestos de la cuantificación
 
-## ¿Qué es Medir en Ciencias Sociales? {.smaller}
+## ¿Qué es medir en ciencias sociales? {.smaller}
 
 "La investigación cuantitativa es una estrategia de investigación que conceptualmente delimita propiedades de sus sujetos de estudio con el fin de **asignarles números** a las magnitudes, grados o tipos en que éstos las poseen y que utiliza **procedimientos estadísticos** para resumir, manipular y asociar dichos números" — Rodrigo Asún (2006)
 
 La cuantificación es un acto teórico y metodológico: decidimos qué propiedades de lo social son importantes y cómo las representaremos numéricamente.
 
-## La Teoría Representacional de la Medición {.smaller}
+## La teoría representacional de la medición {.smaller}
 
 Medir es asignar números de forma que **representen fielmente las relaciones empíricas**.
 
@@ -352,7 +382,7 @@ Medir es asignar números de forma que **representen fielmente las relaciones em
 2.  **Representación de Relaciones:** Si en la realidad el individuo A tiene "más" de una propiedad que el individuo B, el número asignado a A debe ser mayor que el de B.
 3.  **Arbitrariedad Justificada:** La elección de los números (ej. 1 para "mujer" y 2 para "hombre") es arbitraria, pero debe representar consistentemente las relaciones reales.
 
-## Los Niveles de Medición {.smaller}
+## Los niveles de medición {.smaller}
 
 Las reglas que usamos determinan el "nivel" o tipo de información que contienen nuestros números y qué podemos hacer con ellos.
 
@@ -374,13 +404,13 @@ Las reglas que usamos determinan el "nivel" o tipo de información que contienen
 
 **¿Por qué importa?** El nivel de medición determina qué operaciones estadísticas podemos realizar legítimamente. No podemos calcular el "promedio" de una variable nominal.
 
-# 4. La Estadística como Herramienta Sociológica
+# 4. La estadística como herramienta sociológica
 
-## Contando Historias Sociológicas con Datos {.smaller}
+## Contando historias sociológicas con datos {.smaller}
 
 La estadística y la visualización son herramientas poderosas para sintetizar información compleja y comunicar hallazgos de gran impacto sociológico.
 
-## El Espacio Social (Bourdieu) {.smaller}
+## El espacio social (Bourdieu) {.smaller}
 
 ::: columns
 ::: {.column width="70%"}
@@ -393,14 +423,14 @@ La estadística y la visualización son herramientas poderosas para sintetizar i
 :::
 :::
 
-## La Desigualdad de Ingresos (Piketty) {.smaller}
+## La desigualdad de ingresos (Piketty) {.smaller}
 
 ![](img/desigualdad.png){fig-alt='Dos gráficos de líneas sobre desigualdad de ingresos. A la izquierda, la participación del decil superior en el ingreso nacional de EE. UU. entre 1910 y 2010: cae de cerca de 45% en los años 1920 a alrededor de 33% entre 1950 y 1970, y vuelve a subir hasta cerca de 50% en 2010, dibujando una curva en forma de U. A la derecha, la participación del 1%, 0,1% y 0,01% más rico en el ingreso fiscal entre 1964 y 2017: el 1% más rico sube de cerca de 13% a un máximo de 18% hacia 1990 y luego se mantiene entre 15% y 16%.' fig-align="center"}
 
 -   Muestra la caída y el posterior resurgimiento de la concentración del ingreso en el 10% más rico durante el siglo XX en EE.UU.
 -   La desigualdad es el resultado de políticas e instituciones que cambian históricamente.
 
-## Usos Actuales en Políticas Públicas {.smaller}
+## Usos actuales en políticas públicas {.smaller}
 
 La estadística es fundamental para el diseño, monitoreo y evaluación de las políticas que buscan mejorar la vida social.
 
@@ -411,7 +441,7 @@ La estadística es fundamental para el diseño, monitoreo y evaluación de las p
 -   **Encuestas de Victimización:**
     -   Permiten medir la "cifra negra" de la delincuencia (delitos no denunciados), dando una imagen más precisa de la seguridad pública que los registros policiales.
 
-## Ejercicio Final: Formulen sus Preguntas {.smaller}
+## Ejercicio final: Formulen sus preguntas {.smaller}
 
 **En grupos, elijan uno de los siguientes temas:**
 

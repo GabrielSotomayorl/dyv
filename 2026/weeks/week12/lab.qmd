@@ -1,5 +1,5 @@
 ---
-title: "Práctico 8: Introducción al Análisis Bivariado: Explorando el Uso del Tiempo con la ENUT 2023"
+title: "Práctico 8: Introducción al análisis bivariado: explorando el uso del tiempo con la ENUT 2023"
 subtitle: "Trabajando con la Encuesta Nacional de Uso del Tiempo (ENUT) 2023"
 date: "2026-11-16"
 lang: es

@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 14: Síntesis Bivariada y Medidas de Asociación"
+title: "🗓️ Semana 14: Síntesis bivariada y medidas de asociación"
 ---
 
 En esta semana cerramos el análisis bivariado con una síntesis de las herramientas visuales aprendidas y la introducción de los coeficientes de correlación de Pearson y Spearman para cuantificar la fuerza y dirección de relaciones entre variables cuantitativas. Concluiremos el curso conectando la estadística descriptiva con la lógica de la inferencia y el rol de la probabilidad en la investigación social.

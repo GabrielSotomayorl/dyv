@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 10: La Media, la Desviación Estándar y la Estandarización"
+title: "🗓️ Semana 10: La media, la desviación estándar y la estandarización"
 ---
 
 En esta semana profundizamos en las medidas no robustas de tendencia central y dispersión: la media aritmética, la varianza y la desviación estándar. Aprenderemos a compararlas con las medidas robustas para diagnosticar asimetrías, e introduciremos la estandarización mediante puntuaciones Z, una herramienta fundamental para comparar valores entre diferentes escalas.

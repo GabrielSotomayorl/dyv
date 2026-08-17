@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 08: Descripción de Variables Categóricas"
+title: "🗓️ Semana 08: Descripción de variables categóricas"
 ---
 
 En esta semana iniciamos el análisis estadístico univariado con el foco en las variables categóricas. Aprenderemos a calcular e interpretar tablas de frecuencias absolutas, relativas y porcentajes, identificar la moda, comprender el concepto de tasas, y construir gráficos de barras para visualizar distribuciones categóricas.

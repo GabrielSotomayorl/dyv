@@ -1,5 +1,5 @@
 ---
-title: "🗓️ Semana 02: El Rol de la Estadística y la Programación en la Sociología Actual"
+title: "🗓️ Semana 02: El rol de la estadística y la programación en la sociología actual"
 ---
 
 En esta sesión profundizamos en la lógica del razonamiento estadístico como práctica sociológica. Discutiremos por qué los datos sistemáticos son superiores a las anécdotas, cómo la variación es el objeto central de la estadística social, y analizaremos un caso de investigación real —el estudio de Wright y Baxter sobre clase, género y trabajo doméstico— para ver estas ideas en acción. Cerraremos con una introducción a R como herramienta fundamental del análisis cuantitativo contemporáneo.

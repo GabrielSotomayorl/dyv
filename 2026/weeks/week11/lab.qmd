@@ -1,5 +1,5 @@
 ---
-title: "Práctico 7: La Visualización como Argumento Sociológico con ggplot2"
+title: "Práctico 7: La visualización como argumento sociológico con ggplot2"
 subtitle: "Trabajando con la Encuesta CASEN 2024"
 date: "2026-11-09"
 lang: es
