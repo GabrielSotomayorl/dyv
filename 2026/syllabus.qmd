@@ -174,28 +174,28 @@ Los estudiantes tienen derecho a conocer las notas y la pauta de corrección en 
 
 Las clases se realizan los **lunes**. Las semanas 1–14 corresponden a clases de contenido; las semanas de solemne, feriado y receso se indican con guión (—).
 
-| Semana | Fecha | Unidad | Tópico | Evaluaciones |
-|:---|:---|:---|:---|:---|
-| 1 | 10-08 | 1 | Presentación del curso. El proceso de conocimiento científico. La estadística como herramienta sociológica. | |
-| 2 | 17-08 | 1 | Usos de la estadística en la actualidad. Relevancia de los lenguajes de programación. | |
-| 3 | 24-08 | 2 | Conceptualización y operacionalización. Tipos de variables y niveles de medición. | |
-| 4 | 31-08 | 2 | Muestra y población. Validez y confiabilidad. Error de medición. | Control N°1 (fin Unidad 2) · Tarea 1 |
-| 5 | 07-09 | 3 | Estructura de una tabla de datos. Exploración en R. | TP 1 (inicia) |
-| — | 14 al 18-09 | — | *Receso — Fiestas Patrias* | |
-| 6 | 21-09 | 3 | Manipulación de tablas de datos con `dplyr`. | |
-| 7 | 28-09 | 3 | Recodificación, reestructuración y combinación de datos. | Control N°2 (fin Unidad 3) |
-| — | 05-10 | — | **Solemne 1** — Unidades 1, 2 y 3 | **PS 1** |
-| — | 12-10 | — | *Feriado — Día del Encuentro de Dos Mundos* | |
-| 8 | 19-10 | 4 | Descripción de variables categóricas. Frecuencias, porcentajes y tasas. | Tarea 2 |
-| 9 | 26-10 | 4 | Visualizando distribuciones: histograma y boxplot. Mediana y cuartiles. | |
-| 10 | 02-11 | 4 | La media, la desviación estándar y la estandarización. | Tarea 3 |
-| 11 | 09-11 | 4 | La visualización como argumento sociológico. Gramática de gráficos con `ggplot2`. | Control N°3 (fin Unidad 4) · TP 2 (inicia) |
-| 12 | 16-11 | 5 | Introducción al análisis bivariado. Tipos de asociación. | |
-| 13 | 23-11 | 5 | Tablas de contingencia y control por tercera variable. | Tarea 4 |
-| 14 | 30-11 | 5 | Síntesis bivariada. Medidas de asociación. | |
-| — | 07-12 | — | **Solemne 2** — Unidades 4 y 5 | **PS 2** |
-| — | Última semana de clases | — | **Prueba Recuperativa** (ambas secciones) | |
-| — | 10 al 21-12 | — | **Examen** — fecha exacta la fija la Escuela dentro de este período | |
+| Semana | Fecha | Unidad | Tópico | Lecturas | Evaluaciones |
+|:---|:---|:---|:---|:---|:---|
+| 1 | 10-08 | 1 | Presentación del curso. El proceso de conocimiento científico. La estadística como herramienta sociológica. | Babbie (2000) caps. 1-2 [PDF](bib/Fundamentos De La Investigacion Social (Scan) (Babbie Earl)-1-72.pdf)<br>Cea D'Ancona (1996) cap. 2 [PDF](bib/Cea D’Ancona M. (1996) Metodología Cuantitativa-77-118.pdf) | |
+| 2 | 17-08 | 1 | Usos de la estadística en la actualidad. Relevancia de los lenguajes de programación. | Moore (2005) cap. 1 [PDF](bib/Moore - Estadística aplicada básica-27-37.pdf) | |
+| 3 | 24-08 | 2 | Conceptualización y operacionalización. Tipos de variables y niveles de medición. | Babbie (2000) cap. 5 [PDF](bib/Babbie-Fundamentos de la Investigacion Social-59-69.pdf)<br>Babbie (2000) cap. 6 [PDF](bib/Babbie-Fundamentos de la Investigacion Social-69-82.pdf)<br>Ritchey (2008) cap. 2 [PDF](bib/Ritchey - Análisis estadistico.pdf)<br>Asún (2006) [PDF](bib/Asun - Medir la realidad social.pdf) | |
+| 4 | 31-08 | 2 | Muestra y población. Validez y confiabilidad. Error de medición. | Babbie (1996) cap. 5 [PDF](bib/Babbie - MANUAL PARA LA PRACTICA DE LA INVESTIGACION SOCIAL cap 5.pdf)<br>Babbie (2000) caps. 4 y 8 [PDF](bib/Babbie-Fundamentos de la Investigacion Social - MUESTREO CAP 4 Y 8.pdf) | Control N°1 (fin Unidad 2) · Tarea 1 |
+| 5 | 07-09 | 3 | Estructura de una tabla de datos. Exploración en R. | Wickham et al. (2023) — [Transformación](https://davidrsch.github.io/r4ds-es/data-transform.html) y [Visualización](https://davidrsch.github.io/r4ds-es/data-visualize.html) de datos<br>Babbie (2000) cap. 14 [PDF](bib/Babbie-Fundamentos de la Investigacion Social-177-180.pdf) | TP 1 (inicia) |
+| — | 14 al 18-09 | — | *Receso — Fiestas Patrias* | | |
+| 6 | 21-09 | 3 | Manipulación de tablas de datos con `dplyr`. | Wickham et al. (2023) — [Transformación de datos](https://davidrsch.github.io/r4ds-es/data-transform.html) | |
+| 7 | 28-09 | 3 | Recodificación, reestructuración y combinación de datos. | Wickham et al. (2023) — [Datos relacionales y joins](https://davidrsch.github.io/r4ds-es/joins.html) | Control N°2 (fin Unidad 3) |
+| — | 05-10 | — | **Solemne 1** — Unidades 1, 2 y 3 | | **PS 1** |
+| — | 12-10 | — | *Feriado — Día del Encuentro de Dos Mundos* | | |
+| 8 | 19-10 | 4 | Descripción de variables categóricas. Frecuencias, porcentajes y tasas. | Ritchey (2008) [PDF](bib/Ritchey-frecuencias.pdf)<br>Moore (2005) cap. 1 [PDF](bib/Moore - Estadística aplicada básica-45-66.pdf)<br>Diez et al. (2024) cap. 2 [PDF](bib/Diez - Open Intro Statistics-61-71.pdf) | Tarea 2 |
+| 9 | 26-10 | 4 | Visualizando distribuciones: histograma y boxplot. Mediana y cuartiles. | Ritchey (2008) caps. 4-5 [PDF](bib/ritchey cap 4 y 5.pdf)<br>Moore (2005) cap. 1 [PDF](bib/Moore - Estadística aplicada básica 32-54.pdf) | |
+| 10 | 02-11 | 4 | La media, la desviación estándar y la estandarización. | Ritchey (2008) caps. 4-5 [PDF](bib/ritchey cap 4 y 5.pdf)<br>Moore (2005) cap. 1 [PDF](bib/Moore - Estadística aplicada básica 32-54.pdf) | Tarea 3 |
+| 11 | 09-11 | 4 | La visualización como argumento sociológico. Gramática de gráficos con `ggplot2`. | Ritchey (2008) cap. 3 [PDF](bib/Ritchey-2002_Teorica-49-57.pdf)<br>Wickham et al. (2023) — [Visualización de datos](https://davidrsch.github.io/r4ds-es/data-visualize.html) | Control N°3 (fin Unidad 4) · TP 2 (inicia) |
+| 12 | 16-11 | 5 | Introducción al análisis bivariado. Tipos de asociación. | Moore (2005) cap. 2 [PDF](bib/Moore - Estadística aplicada básica-139-173.pdf) | |
+| 13 | 23-11 | 5 | Tablas de contingencia y control por tercera variable. | Moore (2005) sec. 2.6 [PDF](bib/Moore - Estadística aplicada básica-311-330.pdf) | Tarea 4 |
+| 14 | 30-11 | 5 | Síntesis bivariada. Medidas de asociación. | | |
+| — | 07-12 | — | **Solemne 2** — Unidades 4 y 5 | | **PS 2** |
+| — | Última semana de clases | — | **Prueba Recuperativa** (ambas secciones) | | |
+| — | 10 al 21-12 | — | **Examen** — fecha exacta la fija la Escuela dentro de este período | | |
 
 ---
 

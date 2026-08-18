@@ -218,35 +218,44 @@ Desde una tesis feminista central, esta hipótesis cuestiona la primacía de la 
 
 **Tabla 11.3. Contribución porcentual media del esposo al trabajo doméstico total, según composición de clase de la pareja (solo hogares de doble ingreso)**
 
-:::::: columns
-:::: {.column width="50%"}
+<table style="width:100%; border:none;"><tbody><tr>
+<td style="vertical-align:top; width:50%; border:none; padding:0 1em 0 0;">
+<p><strong>Estados Unidos (N = 537)</strong></p>
+<table class="tbl-compact">
+<colgroup>
+<col style="width:34%"><col style="width:22%"><col style="width:22%"><col style="width:22%">
+</colgroup>
+<thead>
+<tr class="header"><th rowspan="2">Esposa</th><th colspan="3">Esposo</th></tr>
+<tr class="header"><th>Autoempl.</th><th>Cl. media</th><th>Cl. obrera</th></tr>
+</thead>
+<tbody>
+<tr class="odd"><td>Autoempleada</td><td>17,1%</td><td>22,8%</td><td>16,1%</td></tr>
+<tr class="even"><td>Clase media</td><td>22,8%</td><td>23,9%</td><td>25,5%</td></tr>
+<tr class="odd"><td>Clase obrera</td><td>16,1%</td><td>22,3%</td><td>27,1%</td></tr>
+</tbody>
+</table>
+</td>
+<td style="vertical-align:top; width:50%; border:none; padding:0 0 0 1em;">
+<p><strong>Suecia (N = 641)</strong></p>
+<table class="tbl-compact">
+<colgroup>
+<col style="width:34%"><col style="width:22%"><col style="width:22%"><col style="width:22%">
+</colgroup>
+<thead>
+<tr class="header"><th rowspan="2">Esposa</th><th colspan="3">Esposo</th></tr>
+<tr class="header"><th>Autoempl.</th><th>Cl. media</th><th>Cl. obrera</th></tr>
+</thead>
+<tbody>
+<tr class="odd"><td>Autoempleada</td><td>16,0%</td><td>25,1%</td><td>19,6%</td></tr>
+<tr class="even"><td>Clase media</td><td>25,1%</td><td>32,4%</td><td>27,8%</td></tr>
+<tr class="odd"><td>Clase obrera</td><td>19,6%</td><td>25,1%</td><td>28,1%</td></tr>
+</tbody>
+</table>
+</td>
+</tr></tbody></table>
 
-**Estados Unidos (N = 537)**
-
-| Esposa / Esposo | Autoempl. | Cl. media | Cl. obrera |
-|---|---:|---:|---:|
-| Autoempleada | 17,1% | 22,8% | 16,1% |
-| Clase media | 22,8% | 23,9% | 25,5% |
-| Clase obrera | 16,1% | 22,3% | 27,1% |
-
-: {tbl-colwidths="[34,22,22,22]"}
-
-::::
-:::: {.column width="50%"}
-
-**Suecia (N = 641)**
-
-| Esposa / Esposo | Autoempl. | Cl. media | Cl. obrera |
-|---|---:|---:|---:|
-| Autoempleada | 16,0% | 25,1% | 19,6% |
-| Clase media | 25,1% | 32,4% | 27,8% |
-| Clase obrera | 19,6% | 25,1% | 28,1% |
-
-: {tbl-colwidths="[34,22,22,22]"}
-
-::::
-::::::
-
+En ambos países, el aporte más alto del esposo se da cuando ambos cónyuges son de clase obrera; el hogar de clase media pura muestra la mayor diferencia entre países (23,9% en EE. UU. frente a 32,4% en Suecia).
 
 ## Discusión 1: Interpretando las medias {.smaller}
 

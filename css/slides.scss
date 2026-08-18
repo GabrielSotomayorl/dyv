@@ -84,13 +84,21 @@ span.tag {
 // Tablas de datos densas: letra e interlineado reducidos para que quepan
 // completas en una sola diapositiva (usadas en tablas históricas/estadísticas
 // con muchas filas o columnas)
-.reveal .tbl-compact table {
+.reveal .tbl-compact table,
+.reveal table.tbl-compact {
     font-size: 0.5em;
     line-height: 1.15;
 }
 .reveal .tbl-compact table th,
-.reveal .tbl-compact table td {
+.reveal .tbl-compact table td,
+.reveal table.tbl-compact th,
+.reveal table.tbl-compact td {
     padding: 0.25em 0.5em;
+}
+.reveal table.tbl-compact th[rowspan],
+.reveal table.tbl-compact th[colspan] {
+    text-align: center;
+    vertical-align: middle;
 }
 
 // Variante extra compacta para diapositivas con dos tablas de datos apiladas
