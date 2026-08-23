@@ -49,13 +49,11 @@ website:
               contents:
                 - href: 2026/weeks/week02/page.qmd
                   text: "👨‍🏫 Material de clase"
-            # Semanas 03-14 ocultas del menú a propósito al inicio del semestre;
-            # ir agregando cada bloque de vuelta a medida que avanza el curso.
-            # - section: "Semana 03"
-            #   collapse: false
-            #   contents:
-            #     - href: 2026/weeks/week03/page.qmd
-            #       text: "👨‍🏫 Material de clase"
+            - section: "Semana 03"
+              collapse: false
+              contents:
+                - href: 2026/weeks/week03/page.qmd
+                  text: "👨‍🏫 Material de clase"
             # - section: "Semana 04"
             #   collapse: false
             #   contents:
