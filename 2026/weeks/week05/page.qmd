@@ -18,10 +18,6 @@ En este laboratorio realizaremos una exploración inicial de la Encuesta CASEN 2
 
 👉 **[Ir al Práctico 1: Exploración inicial de datos con CASEN 2024](lab.qmd)**
 
-::: {.callout-important title="📊 Base de datos de la semana: CASEN 2024"}
-Esta semana estrenamos la **Encuesta CASEN 2024** (formato SPSS `.sav`, se carga con `haven::read_sav()`). Puedes descargarla desde el [Observatorio Social](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2024). Su factor de expansión (ponderador) es **`expr`** — lo empezaremos a usar en la Semana 8, cuando veamos por qué es necesario ponderar.
-:::
-
 ## 📚 Lecturas Obligatorias
 
 - **Wickham, H., Çetinkaya-Rundel, M. y Grolemund, G. (2023).** *R para ciencia de datos* (2ª ed.). Capítulos sobre [Transformación de datos](https://davidrsch.github.io/r4ds-es/data-transform.html) y [Visualización de datos](https://davidrsch.github.io/r4ds-es/data-visualize.html).

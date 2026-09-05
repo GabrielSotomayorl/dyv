@@ -119,7 +119,7 @@ Usemos `str()` para ver la estructura de nuestro nuevo objeto.
 str(casen_sub)
 ```
 
-**Interpretación:** `haven` es inteligente. Ha importado las variables numéricas de SPSS (ej. `sexo` donde 1="Hombre", 2="Mujer") y también ha guardado las **etiquetas de texto** asociadas. Por eso vemos `dbl+lbl` o `haven_labelled`. Por defecto, R las trata como números, pero guarda las etiquetas. Para que nuestro análisis sea más claro, necesitamos "activar" esas etiquetas.
+`haven` ha importado las variables numéricas de SPSS (ej. `sexo` donde 1="Hombre", 2="Mujer") y también ha guardado las **etiquetas de texto** asociadas. Por eso vemos `dbl+lbl` o `haven_labelled`. Por defecto, R las trata como números, pero guarda las etiquetas. Para que nuestro análisis sea más claro, necesitamos "activar" esas etiquetas.
 
 ### 4.2 Trabajando con Etiquetas: `haven::as_factor()`
 
@@ -143,6 +143,7 @@ summary(casen_sub)
 ```
 
 **Actividad de Interpretación:** Examina el `summary`. ¿Detectas algún valor que te parezca extraño o problemático?
+
 *   En `ind_hacina`, vemos un `Min.` de -88. Esto es un código para "No sabe", no un valor real.
 *   En `esc`, hay `NA's` (valores perdidos). Esto es esperable, ya que la pregunta solo aplica a personas mayores de cierta edad.
 *   En `ytotcorh`, el `Max.` es muy alto. Esto sugiere una distribución de ingresos muy asimétrica (desigual).
@@ -168,7 +169,7 @@ Para obtener los porcentajes, usamos `prop.table()`.
 prop.table(table(casen_sub$hacinamiento_factor)) * 100
 ```
 
-**Actividad de Interpretación:** Basado en la tabla de frecuencias porcentuales, ¿qué porcentaje de los hogares en la muestra vive en condiciones de hacinamiento (sumando las categorías de hacinamiento medio, alto y crítico)?
+**Actividad de Interpretación:** Basado en la tabla de frecuencias porcentuales, ¿qué porcentaje de las personas en la muestra vive en condiciones de hacinamiento (sumando las categorías de hacinamiento medio, alto y crítico)?
 
 ### 5.2 Variable Numérica: Edad (`edad`)
 

@@ -4,11 +4,14 @@ project:
   type: "website"
   title: "Descripción y Visualización de Datos"
   output-dir: _output
-render:
+  render:
     - "index.qmd"
     - "404.qmd"
     - "2026/*.qmd"
     - "2026/weeks/**/*.qmd"
+    # evaluaciones/ es un proyecto Quarto aparte (PDF con Typst) y no es
+    # parte del sitio: sin esta exclusión el preview intenta renderizarlo
+    - "!evaluaciones/"
 
 website:
   title: "Descripción y Visualización de Datos"
@@ -59,13 +62,13 @@ website:
               contents:
                 - href: 2026/weeks/week04/page.qmd
                   text: "👨‍🏫 Material de clase"
-            # - section: "Semana 05"
-            #   collapse: false
-            #   contents:
-            #     - href: 2026/weeks/week05/page.qmd
-            #       text: "👨‍🏫 Material de clase"
-            #     - href: 2026/weeks/week05/lab.qmd
-            #       text: "💻 Práctico 1"
+            - section: "Semana 05"
+              collapse: false
+              contents:
+                - href: 2026/weeks/week05/page.qmd
+                  text: "👨‍🏫 Material de clase"
+                - href: 2026/weeks/week05/lab.qmd
+                  text: "💻 Práctico 1"
             # - section: "Semana 06"
             #   collapse: false
             #   contents:

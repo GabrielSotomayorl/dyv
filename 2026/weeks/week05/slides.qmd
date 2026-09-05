@@ -248,10 +248,10 @@ Antes de analizar, es crucial establecer un flujo de trabajo **reproducible**.
 -   **No guarda un registro de tu trabajo**. Lo que escribes en la consola se pierde cuando cierras RStudio.  
 :::
 ::: {.column width="50%"}
-**El Script (.R) o R Markdown (.qmd)**  
+**El Script (.R) o el documento Quarto (.qmd)**  
 -   Son archivos de texto plano donde escribimos y guardamos nuestro código.  
 -   Crean un **registro permanente y reproducible** de cada paso de nuestro análisis.  
--   **Siempre debemos trabajar en un script o en un R Markdown.**  
+-   **Siempre debemos trabajar en un script o en un documento Quarto.**  
 :::
 ::::::
 *Sugerencia: Usar **Proyectos de RStudio (.Rproj)** para mantener todos los archivos de una investigación (datos, scripts, informes) organizados en una sola carpeta.*
