@@ -45,7 +45,7 @@ En la clase anterior, aprendimos el **protocolo de exploración inicial**:
 
 ## El ecosistema tidyverse: Un lenguaje para la ciencia de datos {.smaller}
 
-El **Tidyverse** no es solo un paquete, es una **colección de paquetes** diseñados para trabajar juntos de forma coherente en todo el ciclo de análisis de datos. Comparte una filosofía común que hace el código más **legible, consistente e intuitivo**.
+El **Tidyverse** es una **colección de paquetes** diseñados para trabajar juntos de forma coherente en todo el ciclo de análisis de datos. Comparte una filosofía común que hace el código más **legible, consistente e intuitivo**.
 
 -   **Origen del Nombre:** Viene del concepto de **"tidy data" (datos ordenados)**, que es el formato de datos ideal para el análisis.
 -   **Paquetes Principales:** Incluye herramientas esenciales como:
