@@ -107,7 +107,7 @@ En R, un dato faltante se representa con **`NA`** (*Not Available*). Pero las en
 | ENUT | `96` |
 
 -   Si no los recodificamos, R los trata como **números reales**: un promedio de ingresos que incluye `-88` o un `999` en una escala de 1 a 7 queda **distorsionado sin aviso**.
--   **Regla de oro:** antes de calcular cualquier estadístico, revisar el libro de códigos e identificar estos valores con `summary()` o `table()`, y convertirlos a `NA`:
+-   Antes de calcular cualquier estadístico, revisar el libro de códigos e identificar estos valores con `summary()` o `table()`, y convertirlos a `NA`:
 
 ```{r, eval=FALSE, echo=TRUE}
 casen %>%
@@ -122,7 +122,7 @@ casen %>%
   )
 ```
 
-## ¿Y qué hacemos con los `NA`? El riesgo de ignorarlos {.smaller}
+## ¿Y qué hacemos con los `NA`? {.smaller}
 
 Una vez que los perdidos son `NA`, las funciones como `mean()` exigen decidir qué hacer con ellos (`na.rm = TRUE`). Esa opción **no es inocua**: significa *"calcula como si esos casos no existieran"*.
 
@@ -166,7 +166,7 @@ El índice se construye promediando las respuestas de estos 6 ítems para obtene
 
 Una **tipología** es una variable **categórica** (nominal u ordinal) que se crea al **cruzar dos o más variables** para clasificar a las observaciones en "tipos" o "perfiles" cualitativamente distintos.
 
--   **Ejemplo Clásico:** La clasificación de **Grupos Socioeconómicos (GSE)** utilizada en investigación de mercado y social en Chile. No es una sola variable, sino el resultado de cruzar tres dimensiones:
+-   **Ejemplo Clásico:** La clasificación de **Grupos Socioeconómicos (GSE)** utilizada en investigación de mercado y social en Chile. Es el resultado de cruzar tres dimensiones:
     1.  **Nivel Educacional** del principal sostenedor del hogar (PSH).
     2.  **Ocupación** del PSH.
     3.  **Tramos de Ingreso** del hogar.
@@ -272,7 +272,7 @@ Rara vez toda la información que necesitamos está en una sola tabla. En la inv
 **Ejemplos sociológicos:**     
 
 -   Unir una **encuesta de personas** con una **base de datos de características de sus comunas** (ej. tasa de pobreza, nivel de delincuencia).  
--   Unir **distintos cuestionarios de un misma encuesta** por ej. el ceustionario al NNA y el cuestionario al Responsable Principal del nna.  
+-   Unir **distintos cuestionarios de un misma encuesta** por ej. el cuestionario al NNA y el cuestionario al Responsable Principal del nna.  
 -   Cruzar una **encuesta de hogares** con una **base de datos de personas** para asignar las características del hogar a cada miembro.  
 -   Combinar **dos rondas de una encuesta de panel** para analizar cambios en el tiempo.  
 
