@@ -105,7 +105,7 @@ Ahora podemos decir que "el 60% de la muestra son mujeres", una afirmación comp
 
 ## La moda: El centro de las categorías {.smaller}
 
-Para las variables categóricas, la única medida de tendencia central que podemos calcular es la **moda**.
+Para las variables categóricas nominales, la única medida de tendencia central que podemos calcular es la **moda**.
 
 -   **Definición:** La **moda** es la categoría que tiene la **mayor frecuencia** en una distribución.
 -   Es la categoría "más típica" o "más común".
@@ -122,46 +122,48 @@ Para las variables categóricas, la única medida de tendencia central que podem
 
 *Importante:* La moda es la **categoría** ("Católica"), no el número de casos (450).
 
-## ¿Y las variables ordinales? El caso de las escalas Likert {.smaller}
+## Variables ordinales y escalas Likert {.smaller}
 
-Las variables **ordinales** son categóricas, pero sus categorías tienen un **orden**: nivel educacional, satisfacción (1 a 7), grado de acuerdo ("Muy en desacuerdo" → "Muy de acuerdo"). Son omnipresentes en la investigación social (escalas **Likert**).
+Las variables **ordinales** son categóricas, pero sus categorías tienen un **orden**: nivel educacional, satisfacción de 1 a 7, grado de acuerdo. Son muy comunes en la investigación social (escalas **Likert**).
 
-Ese orden nos da herramientas **adicionales** a las de una nominal:
+Ese orden suma dos herramientas a las de una variable nominal:
 
-| Herramienta | ¿Nominal? | ¿Ordinal? |
-|---|:---:|:---:|
-| Tabla de frecuencias y moda | ✅ | ✅ |
-| **Porcentaje acumulado** ("el X% está en esta categoría *o menos*") | ❌ | ✅ |
-| **Mediana** (la categoría donde se ubica el caso central) | ❌ | ✅ |
+| Herramienta | Nominal | Ordinal |
+|:---|:---:|:---:|
+| Tabla de frecuencias y moda | Sí | Sí |
+| Porcentaje acumulado | No | Sí |
+| Mediana | No | Sí |
 
-::: {.callout-warning title="¿Y el promedio de una Likert?"}
-Es una práctica común, pero discutible: calcular un promedio **asume que la distancia entre categorías es siempre la misma** (que ir de 1 a 2 "vale lo mismo" que ir de 6 a 7), y eso una ordinal no lo garantiza. En este curso preferimos describir ordinales con **frecuencias, porcentaje acumulado y mediana**; si reportan un promedio, decláralo como una simplificación.
-:::
+**¿Y el promedio?** Es común, pero discutible: supone que la distancia entre categorías es siempre la misma, y una ordinal no lo garantiza. En este curso describimos las ordinales con frecuencias, porcentaje acumulado y mediana. Si reportan un promedio, declárenlo como una simplificación.
 
-## Describiendo una ordinal en R: Satisfacción con la vida familiar (ELPI 2024) {.smaller}
+## Una ordinal en la práctica {.smaller}
 
-Usemos la base de adolescentes de la ELPI (la del práctico pasado). La variable `d3_1` mide la satisfacción con la vida familiar de 1 ("Nada satisfecho") a 7 ("Muy satisfecho").
+En la base de adolescentes de la ELPI 2024, la variable `d3_1` mide la satisfacción con la vida familiar de 1 ("Nada satisfecho") a 7 ("Muy satisfecho").
 
-```{r, echo=TRUE}
-#| output-location: column
-library(tidyverse); library(haven)
+```{r elpi-ordinal, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse); library(haven); library(knitr)
 elpi <- readRDS("../../data/elpiadol.rds")
 
-elpi %>%
+tabla_ord <- elpi %>%
   filter(!is.na(d3_1)) %>%
-  count(satisfaccion = as_factor(d3_1)) %>%
-  mutate(
-    porcentaje = round(n / sum(n) * 100, 1),
-    pct_acumulado = cumsum(porcentaje)
-  )
+  count(valor = as.numeric(d3_1)) %>%
+  mutate(porcentaje = n / sum(n) * 100,
+         acumulado = cumsum(porcentaje))
+
+mediana_ord <- median(as.numeric(elpi$d3_1), na.rm = TRUE)
+acum_previo <- tabla_ord$acumulado[tabla_ord$valor == mediana_ord - 1]
+pct_maximo  <- tabla_ord$porcentaje[tabla_ord$valor == max(tabla_ord$valor)]
+
+# Tabla horizontal: una columna por categoría, para que quepa en la diapositiva
+tabla_ord %>%
+  transmute(valor, `%` = porcentaje, `% acumulado` = acumulado) %>%
+  pivot_longer(-valor) %>%
+  pivot_wider(names_from = valor, values_from = value) %>%
+  rename(` ` = name) %>%
+  kable(digits = 1, format.args = list(decimal.mark = ","))
 ```
 
-```{r, echo=TRUE}
-# La mediana usa los códigos numéricos, pero se interpreta como categoría
-median(as.numeric(elpi$d3_1), na.rm = TRUE)
-```
-
-**Interpretación:** hasta la categoría 6 se acumula solo el 48% de los casos, así que el caso central cae en la categoría **7**: la mediana es "Muy satisfecho(a)". Nótese lo **asimétrica** que es la distribución — la mitad de los y las adolescentes elige el valor máximo de la escala.
+**Interpretación:** hasta la categoría `r mediana_ord - 1` se acumula el `r format(round(acum_previo, 1), decimal.mark = ",")`% de los casos, así que el caso central cae en la categoría **`r mediana_ord`**: esa es la mediana. La distribución es muy **asimétrica**: el `r format(round(pct_maximo, 1), decimal.mark = ",")`% de los y las adolescentes elige el valor máximo de la escala.
 
 ## Ejemplo aplicado: La fuerza de trabajo en Chile {.smaller}
 
@@ -175,15 +177,14 @@ Nos centraremos en la variable **condición de actividad (`activ`)** para la pob
 -   **Inactivos o Fuera de la Fuerza de Trabajo:** Personas que no estaban ocupadas ni buscaron activamente trabajo (ej. estudiantes, jubilados, personas dedicadas al trabajo doméstico no remunerado).
 ::: 
 
-## Tabla de frecuencias: Condición de actividad {.smaller}
+## Tabla de frecuencias {.smaller}
 
-El primer paso es construir una tabla de frecuencias para describir la distribución de esta variable. Usaremos los datos de la ENE para el trimestre móvil Febrero-Marzo-Abril 2026.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r ene-carga, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(haven)
 library(knitr)
-ene <- readRDS("../../data/ene_fma.rds")
+ene <- readRDS("../../data/ene_jja.rds")
+trimestre <- "junio-julio-agosto 2026"
 
 # Creación de la tabla
 tabla_frec <- ene %>%
@@ -199,12 +200,12 @@ knitr::kable(
   tabla_frec,
   digits = c(0, 0, 3, 1),
   align = 'lrrr',
-  caption = "Tabla 1: Distribución de la Condición de Actividad (Población 15 años y más)"
+  col.names = c("Condición de actividad", "n", "Proporción", "%"),
+  format.args = list(decimal.mark = ",", big.mark = ".")
 )
 ```
 
--   Podemos observar que la categoría con la mayor frecuencia, es decir, la **moda**, es "Ocupado/as".
--   La tabla muestra la distribución entre personas ocupadas, desocupadas y fuera de la fuerza de trabajo para la población de 15 años y más.
+Condición de actividad de la población de 15 años y más en la muestra de la ENE, trimestre `r trimestre`. La categoría más frecuente, la **moda**, es "Ocupados/as".
 
 
 ## De la muestra a la población: Un problema de representatividad {.smaller}
@@ -238,47 +239,34 @@ Para resolver este problema, los equipos estadísticos calculan una variable esp
 Al usar el ponderador, pasamos de describir la muestra a **estimar las características de la población**.
 
 -   **¿Cómo se usa?** Al calcular cualquier estadística, en lugar de contar cada persona como "1", la contamos según el valor de su ponderador.
--   **En R:** En las bases de datos, esta variable suele llamarse `fact_cal` (en la ENE), `fexp`, `pond`, `expr` o `weights`. entre otros.
+-   **En R:** En las bases de datos, esta variable suele llamarse `fact_cal` (en la ENE), `fexp`, `pond`, `expr` o `weights`, entre otros.
 -   **Aplicación:** Para calcular el conteo poblacional en nuestra tabla de frecuencias, usamos el argumento `wt` dentro de la función `count()`.
 :::
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# Carga de datos
-library(tidyverse)
-library(haven)
-ene <- readRDS("../../data/ene_fma.rds")
-```
-```{r}
-# Creamos la tabla ponderada
+```{r tabla-ponderada, echo=TRUE}
 tabla_frec_ponderada <- ene %>%
   filter(edad >= 15) %>%
   mutate(condicion_actividad = as_factor(activ)) %>%
-  # El argumento 'wt = fact_cal' le dice a count que use el ponderador
+  # wt = fact_cal: cada persona cuenta según su ponderador
   count(condicion_actividad, wt = fact_cal, name = "Poblacion_Estimada") %>%
-  mutate(
-    Porcentaje = (Poblacion_Estimada / sum(Poblacion_Estimada)) * 100
-  )
-
-tabla_frec_ponderada
+  mutate(Porcentaje = Poblacion_Estimada / sum(Poblacion_Estimada) * 100)
 ```
 
-**Nota sobre análisis avanzado:** El análisis correcto de encuestas complejas (para calcular errores estándar, intervalos de confianza, etc.) requiere paquetes especializados como `survey`. Este es un tema avanzado, pero por ahora, es fundamental que sepan que **para obtener estimaciones poblacionales, siempre deben usar el ponderador**.
+## Tabla ponderada {.smaller}
 
-## Tabla ponderada: Condición de actividad en la población {.smaller}
-
-Al aplicar el factor de expansión, nuestra tabla ya no describe la muestra, sino que **estima la distribución para toda la población de 15 años y más en Chile**. Estos porcentajes son los que coinciden con las cifras oficiales publicadas por el INE.
+Con el factor de expansión la tabla ya no describe la muestra: **estima la distribución de toda la población de 15 años y más**, y coincide con las cifras oficiales del INE.
 
 ```{r tabla-ponderada-kable, echo=FALSE, message=FALSE, warning=FALSE}
 # La tabla que creamos en la diapositiva anterior, ahora presentada con kable
 knitr::kable(
   tabla_frec_ponderada,
   digits = c(0, 0, 1),
-  col.names = c("Condición de Actividad", "Población Estimada (n)", "Porcentaje (%)"),
-  caption = "Tabla 2: Estimación de la Condición de Actividad (Población 15 años y más, ponderada)"
+  col.names = c("Condición de actividad", "Población estimada", "%"),
+  format.args = list(decimal.mark = ",", big.mark = ".")
 )
 ```
 
-**Interpretación:** Ahora podemos afirmar con propiedad que, para el trimestre Febrero-Marzo-Abril 2026, la tabla anterior muestra la distribución estimada de la población de 15 años y más según condición de actividad.
+Trimestre `r trimestre`. Para estimaciones poblacionales **siempre** se usa el ponderador.
 
 
 ## Tasas: Una medida estandarizada para la comparación {.smaller}
@@ -404,7 +392,8 @@ ggplot(fecundidad_chile, aes(x = anio)) +
 La socióloga Martina Yopo, experta en género y reproducción, ofrece un diagnóstico complejo que va más allá de las decisiones individuales.
 
 > "Mucha gente piensa que no hay futuro para hacer familia en Chile"
-> — Martina Yopo
+>
+> Martina Yopo
 
 **Algunas claves del fenómeno:**
 
@@ -446,7 +435,7 @@ ggplot(datos_grafico_final, aes(y = n, x = condicion_actividad)) +
   geom_col(fill = "#7C90CC") +
   labs(
     title = "Distribución de la Condición de Actividad",
-    subtitle = "Trimestre Febrero-Marzo-Abril 2026",
+    subtitle = paste("Trimestre", trimestre),
     x = "Condición de Actividad",
     y = "Frecuencia Absoluta (Conteo)"
   ) +
@@ -480,17 +469,19 @@ datos_grafico_final <- ene %>%
   mutate(porcentaje = n / sum(n) * 100)
 
 # Gráfico mejorado
+pct_ocupados <- datos_grafico_final$porcentaje[datos_grafico_final$condicion_actividad == "Ocupados/as"]
+
 ggplot(datos_grafico_final, aes(x = fct_reorder(condicion_actividad, -porcentaje), y = porcentaje)) +
   geom_col(fill = "#7C90CC", width = 0.7) +
   geom_text(aes(label = paste0(round(porcentaje, 1), "%")), vjust = -0.5, size = 5, fontface = "bold") +
   labs(
-    title = "Más de la mitad de la población mayor de 15 años está ocupada",
-    subtitle = "Distribución de la Condición de Actividad, Trimestre FMA 2026",
+    title = paste0("El ", round(pct_ocupados), "% de la población de 15 años y más está ocupada"),
+    subtitle = paste("Condición de actividad, trimestre", trimestre),
     x = NULL, # Quitamos la etiqueta del eje x, es redundante
     y = "Porcentaje (%)",
     caption = "Fuente: Elaboración propia a partir de Encuesta Nacional de Empleo (ENE)."
   ) +
-  ylim(0, 60) +
+  ylim(0, ceiling(max(datos_grafico_final$porcentaje) / 10) * 10 + 5) +
   theme_minimal(base_size = 16) +
   theme(
     plot.title.position = "plot",
