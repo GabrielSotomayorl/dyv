@@ -317,31 +317,49 @@ Un **diagrama de caja y bigotes** o **boxplot** es la visualización directa del
 ::: {.column width="45%"}
 -   **La Caja:** Representa el **Rango Intercuartil (IQR)**. Su longitud es una medida visual de la dispersión del 50% central de los datos.
 -   **La Línea Central:** Marca la **mediana** (Q2 o percentil 50).
--   **Los Bigotes:** Se extienden hasta los valores mínimo y máximo "típicos" (generalmente 1.5 veces el IQR desde la caja).
--   **Los Puntos:** Representan **valores atípicos (outliers)**, que son observaciones que caen más allá de los bigotes, permitiendo identificarlos fácilmente.
+-   **Los Bigotes:** Llegan hasta el dato más extremo que no se aleja más de **1,5 veces el IQR** de la caja.
+-   **Los Puntos:** Son los **valores atípicos (outliers)**: los datos que quedan más allá de ese límite.
 :::
 ::: {.column width="55%"}
-```{r boxplot-anatomia, echo=FALSE, message=FALSE, warning=FALSE, fig.height=10}
-
+```{r boxplot-anatomia, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=6.2}
 set.seed(123)
-df_boxplot <- data.frame(y = c(rnorm(100, 50, 10), 10, 90, 95))
+df_boxplot <- data.frame(y = c(rnorm(100, 50, 10), 16, 88, 94))
 
-ggplot(df_boxplot, aes(x = "", y = y)) +
-  geom_boxplot(fill = "#7C90CC", width = 0.22, alpha = 0.85, linewidth = 0.8, outlier.size = 2.8) +
-  stat_summary(fun = "mean", geom = "point", shape = 23, size = 4.5, fill = "white") +
-  annotate("text", x = 1.25, y = 60, label = "Tercer Cuartil (Q3)", hjust = 0, size = 5.2) +
-  annotate("text", x = 1.25, y = 50, label = "Mediana (Q2)", hjust = 0, size = 5.2) +
-  annotate("text", x = 1.25, y = 40, label = "Primer Cuartil (Q1)", hjust = 0, size = 5.2) +
-  annotate("text", x = 0.85, y = 75, label = "Bigote\nSuperior", hjust = 1, size = 5.2) +
-  annotate("text", x = 0.85, y = 92, label = "Outliers", hjust = 1, size = 5.2) +
-  annotate("text", x = 1.25, y = 55, label = "Caja = IQR", hjust = 0, size = 5.2) +
-  geom_segment(aes(x = 1.2, xend = 1.15, y = 58.5, yend = 58.5), arrow = arrow(length = unit(0.22, "cm"))) +
-  geom_segment(aes(x = 1.2, xend = 1.05, y = 50, yend = 50),   arrow = arrow(length = unit(0.22, "cm"))) +
-  geom_segment(aes(x = 0.9, xend = 0.95, y = 75, yend = 68),   arrow = arrow(length = unit(0.22, "cm"))) +
-  geom_segment(aes(x = 0.9, xend = 0.98, y = 92, yend = 91),   arrow = arrow(length = unit(0.22, "cm"))) +
-  theme_void(base_size = 15) +                                  # << sube el base_size del plot
-  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+base <- ggplot(df_boxplot, aes(x = 1, y = y)) +
+  geom_boxplot(fill = "#7C90CC", width = 0.4, alpha = 0.85, linewidth = 0.7,
+               outlier.size = 3, outlier.colour = "#1E2240")
 
+# Las posiciones de las etiquetas salen del propio boxplot, no se escriben a mano
+b <- ggplot_build(base)$data[[1]]
+q1 <- b$lower; q2 <- b$middle; q3 <- b$upper
+bigote_inf <- b$ymin; bigote_sup <- b$ymax
+iqr <- q3 - q1
+lim_sup <- q3 + 1.5 * iqr; lim_inf <- q1 - 1.5 * iqr
+atip_sup <- max(unlist(b$outliers)); atip_inf <- min(unlist(b$outliers))
+
+etiquetas <- data.frame(
+  y = c(atip_sup, bigote_sup, q3, q2, q1, bigote_inf, atip_inf),
+  texto = c("Valor atípico", "Fin del bigote superior", "Q3 (percentil 75)",
+            "Mediana (percentil 50)", "Q1 (percentil 25)",
+            "Fin del bigote inferior", "Valor atípico")
+)
+
+base +
+  # límites de 1,5 × IQR: lo que queda fuera es atípico
+  annotate("segment", x = 0.45, xend = 1.2, y = c(lim_inf, lim_sup), yend = c(lim_inf, lim_sup),
+           linetype = "dashed", colour = "grey55") +
+  annotate("text", x = 0.55, y = lim_sup, label = "Q3 + 1,5 × IQR", vjust = -0.5, hjust = 0, size = 4.8, colour = "grey40") +
+  annotate("text", x = 0.55, y = lim_inf, label = "Q1 − 1,5 × IQR", vjust = 1.5, hjust = 0, size = 4.8, colour = "grey40") +
+  # la caja es el IQR
+  annotate("segment", x = 0.74, xend = 0.74, y = q1, yend = q3, linewidth = 0.8) +
+  annotate("segment", x = 0.74, xend = 0.77, y = c(q1, q3), yend = c(q1, q3), linewidth = 0.8) +
+  annotate("text", x = 0.71, y = q2, label = "Caja = IQR\n(50% central)", hjust = 1, size = 5.2, fontface = "bold") +
+  # etiquetas a la derecha, cada una a la altura exacta de lo que señala
+  geom_segment(data = etiquetas, aes(x = 1.36, xend = 1.23, y = y, yend = y),
+               arrow = arrow(length = unit(0.18, "cm")), colour = "grey30") +
+  geom_text(data = etiquetas, aes(x = 1.38, y = y, label = texto), hjust = 0, size = 5.2) +
+  scale_x_continuous(limits = c(0.3, 2.15)) +
+  theme_void(base_size = 15)
 ```
 :::
 ::::::
@@ -390,6 +408,23 @@ Una escala logarítmica, en cambio, representa **órdenes de magnitud**. La dist
 2.  **Expande la base:** Estira la parte inferior de la distribución, permitiéndonos ver con claridad la posición de la mediana, la forma de la caja (el IQR) y la distribución de la mayoría de los casos.
 3.  **Facilita la interpretación:** Nos ayuda a pensar en términos de **cambios relativos** (ej. "duplicar el ingreso") en lugar de cambios absolutos, lo cual puede ser más relevante sociológicamente.
 
+
+## ¿Logaritmo natural o en base 10? {.smaller}
+
+```{r log-ceros, echo=FALSE, message=FALSE, warning=FALSE}
+ocupados <- esi %>% filter(ocup_ref == 1)
+n_ceros <- sum(ocupados$ing_t_p == 0, na.rm = TRUE)
+```
+
+La **base** no cambia la forma del gráfico, solo los números. Lo que importa es el uso:
+
+| | Eje en escala logarítmica | Variable transformada |
+|:---|:---|:---|
+| **Para qué** | Ver una variable asimétrica | Analizarla o modelarla |
+| **Base** | 10: marcas en \$100.000, \$1.000.000 | Natural: diferencias ≈ porcentuales |
+| **En R** | `scale_y_log10()` | `log()`, que es el natural |
+
+**Ojo:** el logaritmo de 0 no existe. En la ESI, `r format(n_ceros, big.mark = ".")` personas ocupadas declaran ingreso 0 y quedan fuera de todo gráfico o análisis en escala logarítmica. Hay que decirlo al reportar.
 
 ## Cierre y próximos pasos {.smaller}
 

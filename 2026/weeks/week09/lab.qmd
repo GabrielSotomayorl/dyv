@@ -244,6 +244,29 @@ boxplot_log
 ```
 **Interpretación:** Ahora la caja es visible. Podemos apreciar la posición de la mediana, el rango intercuartil (el tamaño de la caja) y la extensión de los bigotes, dándonos una visión completa y robusta de la distribución del ingreso en la muestra.
 
+### 4.3 Transformar la variable: el logaritmo natural
+
+La escala logarítmica del gráfico anterior solo cambia **cómo se dibuja** el eje: los valores siguen en pesos. Otra cosa es **transformar la variable**, es decir, crear una nueva columna con su logaritmo. Para eso la práctica estándar es el **logaritmo natural**, que en R es simplemente `log()`. Su ventaja es la interpretación: una diferencia de 0,1 en el logaritmo natural equivale aproximadamente a una diferencia de 10% en el ingreso.
+
+Antes de transformar hay que resolver un problema: **el logaritmo de 0 no existe**. En la base hay `r format(sum(esi_trabajo$ing_t_p == 0, na.rm = TRUE), big.mark = ".")` personas ocupadas con ingreso 0, así que las excluimos de forma explícita (si no, R las convierte en `-Inf`).
+
+```{r histograma-log-natural, message=FALSE, warning=FALSE}
+#| fig-alt: "Histograma del logaritmo natural del ingreso del trabajo principal, excluyendo a quienes declaran ingreso cero. A diferencia del histograma del ingreso en pesos, la distribución se ve mucho más simétrica, con un pico central y colas parecidas a ambos lados."
+esi_trabajo %>%
+  filter(ing_t_p > 0) %>%                      # el logaritmo de 0 no existe
+  mutate(log_ingreso = log(ing_t_p)) %>%       # log() es el logaritmo natural
+  ggplot(aes(x = log_ingreso)) +
+  geom_histogram(bins = 40, fill = "#7C90CC", color = "white") +
+  labs(
+    title = "Distribución del logaritmo natural del ingreso",
+    x = "Logaritmo natural del ingreso mensual",
+    y = "Frecuencia"
+  ) +
+  theme_minimal()
+```
+
+**Interpretación:** en escala logarítmica la distribución del ingreso se vuelve mucho más **simétrica**. Por eso, cuando más adelante comparemos ingresos entre grupos o los relacionemos con otras variables, es habitual trabajar con su logaritmo natural en vez del ingreso en pesos.
+
 ## 5. Guardando tus Gráficos con `ggsave()`
 
 Una vez que tienes un gráfico de `ggplot2` que te gusta, puedes guardarlo como un archivo de imagen de alta calidad con `ggsave()`.
