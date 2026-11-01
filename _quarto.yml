@@ -97,13 +97,13 @@ website:
                   text: "👨‍🏫 Material de clase"
                 - href: 2026/weeks/week09/lab.qmd
                   text: "💻 Práctico 5"
-            # - section: "Semana 10"
-            #   collapse: false
-            #   contents:
-            #     - href: 2026/weeks/week10/page.qmd
-            #       text: "👨‍🏫 Material de clase"
-            #     - href: 2026/weeks/week10/lab.qmd
-            #       text: "💻 Práctico 6"
+            - section: "Semana 10"
+              collapse: false
+              contents:
+                - href: 2026/weeks/week10/page.qmd
+                  text: "👨‍🏫 Material de clase"
+                - href: 2026/weeks/week10/lab.qmd
+                  text: "💻 Práctico 6"
             # - section: "Semana 11"
             #   collapse: false
             #   contents:
