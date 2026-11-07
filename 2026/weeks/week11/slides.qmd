@@ -22,9 +22,12 @@ format:
     footer: 'Descripción y Visualización de Datos'
 ---
 
-```{r setup, include=FALSE}
+```{r}
+#| label: setup
+#| include: false
 library(tidyverse)
 library(haven)
+library(patchwork)
 casen <- readRDS("../../data/casen24.rds")
 casen <- casen %>% mutate(pobreza_factor = as_factor(pobreza))
 ```
@@ -80,9 +83,9 @@ Savage, M. (2021). *The Return of Inequality: Social Change and the Weight of th
 -   **El Argumento Visual:** La forma de **"U"** es una poderosa narrativa. Desafía la idea modernista de un progreso lineal y constante hacia una mayor igualdad. El gráfico *argumenta* que, tras un período de relativa equidad a mediados de siglo, estamos **"regresando"** a los niveles de desigualdad de la "Gilded Age". Hace visible **"el peso de la historia"** en el presente.
 
 
-## El espacio social de Bourdieu (la desigualdad en el espacio) {.smaller}
+## {#bourdieu-mapa .sin-titulo}
 
-![](img/02.jpg){fig-alt='Mapa detallado de Bourdieu "The space of social positions": un plano con el volumen de capital total en el eje vertical (más arriba, menos abajo) y la composición del capital en el horizontal (capital cultural alto/capital económico bajo a la izquierda; capital económico alto/capital cultural bajo a la derecha). Decenas de categorías ocupacionales (profesores, ejecutivos, industriales, obreros) y prácticas culturales asociadas (ópera, golf, ajedrez, esquí acuático, camping) se ubican como puntos en este espacio, mostrando cómo cada posición social combina un perfil propio de capital y de gustos.' fig-align="center"}
+![](img/02.jpg){.r-stretch fig-alt='Mapa detallado de Bourdieu "The space of social positions": un plano con el volumen de capital total en el eje vertical (más arriba, menos abajo) y la composición del capital en el horizontal (capital cultural alto/capital económico bajo a la izquierda; capital económico alto/capital cultural bajo a la derecha). Decenas de categorías ocupacionales (profesores, ejecutivos, industriales, obreros) y prácticas culturales asociadas (ópera, golf, ajedrez, esquí acuático, camping) se ubican como puntos en este espacio, mostrando cómo cada posición social combina un perfil propio de capital y de gustos.' fig-align="center"}
 
 ## El espacio social de Bourdieu (la desigualdad en el espacio) {.smaller}
 
@@ -116,7 +119,7 @@ La visualización, por tanto, es una forma de hacer sociología.
 
 ## Veamos algunos otros ejemplos {.smaller}
 
-![](img/05.jpg){fig-alt='Gráfico de barras apiladas "Incidencia de la pobreza y la pobreza extrema en la población, 2006-2022" en Chile. La pobreza total cae sostenidamente de 28,7% en 2006 a 6,5% en 2022, con un repunte puntual a 10,7% en 2020. La pobreza extrema baja de 12,4% en 2006 a 2,0% en 2022.' fig-align="center"}
+![](img/05.png){fig-alt='Gráfico de líneas "Pobreza por ingresos. Incidencia de la pobreza en la población, 2006-2024", en porcentaje de personas, con tres series según la metodología de medición. Metodología 1987 (2006-2013): baja de 13,7% en 2006 a 7,8% en 2013. Metodología 2013 (2006-2024): baja de 28,7% en 2006 a 13,9% en 2013, 8,5% en 2017, sube a 10,7% en 2020 y baja a 6,5% en 2022 y 4,9% en 2024. Metodología 2024 (2009-2024): baja de 37,7% en 2009 a 27,6% en 2013 y 22,5% en 2017, sube a 28,3% en 2020 y baja a 20,5% en 2022 y 17,3% en 2024. Cada cambio metodológico eleva el nivel medido de pobreza, aunque la tendencia de largo plazo es descendente.' fig-align="center"}
 
 
 ## Veamos algunos otros ejemplos {.smaller}
@@ -147,7 +150,11 @@ Si solo miramos los números, podríamos pensar que las tres distribuciones son 
 
 La visualización revela la verdadera estructura que los números ocultaban.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
 set.seed(123)
 grupo_a <- tibble(valor = rnorm(500, 75, 10), grupo = "A: Simétrico (Unimodal)")
 grupo_b <- tibble(valor = c(rnorm(250, 65, 5), rnorm(250, 85, 5)), grupo = "B: Bimodal (Dos grupos)")
@@ -157,7 +164,7 @@ trio_enganoso <- bind_rows(grupo_a, grupo_b, grupo_c)
 # Estandarizamos cada grupo para que los tres tengan exactamente
 # la misma media (75) y desviación estándar (10)
 trio_enganoso <- trio_enganoso %>% group_by(grupo) %>%
-  mutate(valor = scale(valor) * 10 + 75)
+  mutate(valor = as.numeric(scale(valor)) * 10 + 75)
 
 ggplot(trio_enganoso, aes(x = valor)) +
   geom_histogram(fill = "#7C90CC", color = "white", bins = 20) +
@@ -193,7 +200,11 @@ Un buen gráfico no solo muestra datos, sino que cuenta una historia de forma cl
 
 Nuestros ojos interpretan la longitud o altura de la barra como proporcional a la cantidad que representa. Truncar el eje Y exagera las diferencias y es visualmente deshonesto.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
 set.seed(123)
 data_barras <- tibble(
   grupo = c("A", "B", "C"),
@@ -201,7 +212,7 @@ data_barras <- tibble(
 )
 p1 <- ggplot(data_barras, aes(x = grupo, y = valor)) + geom_col(fill = "#7C90CC") + labs(title = "Honesto: Eje Y empieza en 0") + theme_minimal(base_size=14)
 p2 <- ggplot(data_barras, aes(x = grupo, y = valor)) + geom_col(fill = "#C2694B") + coord_cartesian(ylim = c(80, 105)) + labs(title = "Engañoso: Eje Y truncado") + theme_minimal(base_size=14)
-gridExtra::grid.arrange(p1, p2, ncol = 2)
+p1 + p2
 ```
 En el gráfico de la derecha, la barra C parece 3 o 4 veces más grande que la A, cuando la diferencia real es solo de un ~18%.
 
@@ -252,7 +263,11 @@ La sintaxis siempre sigue esta plantilla:
 
 **Paso 1: `ggplot()` crea el lienzo.** Le decimos qué datos usar y qué variables mapear a los ejes. El resultado es un plano cartesiano vacío.
 
-```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center'}
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| fig-align: center
 
 # Capa 1: Datos y Estéticas
 ggplot(data = casen, mapping = aes(x = edad))
@@ -262,7 +277,12 @@ ggplot(data = casen, mapping = aes(x = edad))
 
 **Paso 2: `+ geom_histogram()` añade la capa que dibuja.** Le decimos que represente los datos mapeados como un histograma.
 
-```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6}
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 6
 # Capa 2: Geometría
 ggplot(data = casen, mapping = aes(x = edad)) +
    geom_histogram(fill = "#7C90CC", color = "white", bins = 30)
@@ -305,7 +325,10 @@ Usemos el dataset `mtcars` para ver la diferencia de forma clara. Crearemos un g
 **Mapeando `color` a la variable `cyl` (cilindros)**
 
 Aquí, el color **representa información**: nos dice cuántos cilindros tiene cada auto.
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
 ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) +
   geom_point(size = 4, alpha = 0.8) +
   labs(color = "Cilindros") +
@@ -317,7 +340,10 @@ ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) +
 **Fijando `color` a "blue"**
 
 Aquí, el color es una **decisión estética**: todos los puntos son azules, sin importar sus datos.
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
 ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point(size = 4, alpha = 0.8, color = "blue") +
   theme_minimal(base_size = 14)
@@ -346,7 +372,12 @@ ggplot(datos, aes(x = ingreso)) +
 
 Ahora, usemos `facet_wrap()` para comparar la distribución del rendimiento (`mpg`) para cada tipo de cilindro (`cyl`). En lugar de usar colores en un solo gráfico, creamos un panel para cada categoría.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.height=5}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 5
 ggplot(mtcars, aes(x = mpg)) +
   geom_histogram(fill = "#7C90CC", color = "white", bins = 5) +
   # La fórmula ~ cyl le dice a ggplot que cree un panel para cada valor de 'cyl'

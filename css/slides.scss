@@ -33,6 +33,11 @@ $brand-accent:  #7C90CC;   // Lavanda — luz fría predominante
   padding-bottom: 10px;
 }
 
+// Diapositiva sin título (p. ej. una imagen a pantalla completa): oculta la línea del h2 vacío
+.reveal section.sin-titulo > h2 {
+  display: none;
+}
+
 // ==========================================
 // 3. CÓDIGO (Balance de tamaños 0.9 / 0.85)
 // ==========================================

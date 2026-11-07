@@ -12,7 +12,9 @@ format:
     body-classes: lab-content
 ---
 
-```{r load-data, include=FALSE}
+```{r}
+#| label: load-data
+#| include: false
 library(tidyverse)
 library(haven)
 casen <- readRDS("../../data/casen24.rds")
@@ -34,7 +36,7 @@ El objetivo de este práctico es dominar la "Gramática de Gráficos" para const
 
 Como vimos en la clase, la visualización de datos no es un simple adorno. Es una forma de **argumento sociológico** y una herramienta de **diagnóstico fundamental**. Autores como Piketty y Bourdieu usan gráficos como el núcleo de sus teorías. Estadísticamente, graficar nuestros datos es la mejor forma de descubrir la verdadera forma de una distribución, que puede ocultarse detrás de estadísticos descriptivos similares.
 
-### **1.2 Preparación del Entorno y Datos (CASEN 2024)**
+### 1.2 Preparación del Entorno y Datos (CASEN 2024)
 
 Como en prácticos anteriores, nuestro primer paso es asegurar un entorno de trabajo reproducible.
 
@@ -43,18 +45,20 @@ Como en prácticos anteriores, nuestro primer paso es asegurar un entorno de tra
 
 #### Carga de Paquetes
 Cargamos los paquetes que necesitaremos para la sesión de hoy.
-```{r setup, message=FALSE, warning=FALSE}
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
 # Cargar los paquetes que usaremos hoy
 library(tidyverse)
 library(haven)
 ```
 
 #### Carga de Datos
-A continuación, hay dos formas de cargar los datos. **Debes usar el Método 1 (Carga Manual)**.
-
-**Método 1: Carga Manual (Para tu trabajo)**
 Este bloque de código carga la base de datos que guardaste en tu carpeta `datos`.
-```{r load-show, eval=FALSE}
+```{r}
+#| label: load-show
+#| eval: false
 # Usamos read_sav() con la ruta relativa a nuestro proyecto
 casen <- read_sav("datos/Base de datos Casen 2024 SPSS.sav")
 ```
@@ -65,7 +69,8 @@ casen <- read_sav("datos/Base de datos Casen 2024 SPSS.sav")
 
 Vamos a demostrar con un ejemplo por qué los estadísticos resumen no son suficientes. Crearemos tres conjuntos de datos simulados que tienen la misma media y desviación estándar, pero formas muy diferentes.
 
-```{r trio-enganoso}
+```{r}
+#| label: trio-enganoso
 #| fig-alt: "Tres histogramas en paneles separados (A, B, C), todos con exactamente la misma media (75) y desviación estándar (10). El panel A muestra una distribución simétrica unimodal. El panel B es claramente bimodal, con dos grupos separados. El panel C está fuertemente sesgado a la derecha, con una cola larga de valores altos. Los tres se ven completamente distintos pese a compartir los mismos estadísticos resumen."
 # 1. Creamos los datos simulados
 set.seed(123)
@@ -99,7 +104,8 @@ ggplot(trio_enganoso, aes(x = valor)) +
 
 Construiremos un histograma de `edad` capa por capa para entender la lógica de `ggplot2`.
 
-```{r ggplot-paso-a-paso}
+```{r}
+#| label: ggplot-paso-a-paso
 #| fig-alt:
 #|   - "Lienzo vacío de ggplot2 con el eje X definido como edad (rango aproximado 0 a 107 años) y ninguna geometría añadida todavía: se ven los ejes, pero ninguna barra."
 #|   - "Histograma básico y sin ponderar de la variable edad en la muestra CASEN 2024, con el estilo por defecto de ggplot2, mostrando la forma general de la distribución de edades."
@@ -119,6 +125,7 @@ p
 # Capa 4: Etiquetas y Título. Añadimos contexto con labs() y ponderador.
 p_final <- ggplot(data = casen, mapping = aes(x = edad, weight = expr)) +
   geom_histogram(fill = "#7C90CC", color = "white", bins = 30) +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".")) +
   labs(
     title = "Distribución de Edades en la Encuesta CASEN 2024",
     x = "Edad (en años)",
@@ -153,6 +160,7 @@ casen %>%
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
   geom_bar(fill = "#1E2240") +
+  scale_y_continuous(labels = scales::label_number(big.mark = ".")) +
   labs(
     title = "Distribución de la población por nivel de pobreza",
     subtitle = "CASEN 2024, estimaciones ponderadas",
@@ -172,7 +180,7 @@ casen %>%
   filter(!is.na(pobreza_factor)) %>%
   ggplot(aes(x = pobreza_factor, weight = expr)) +
   geom_bar(aes(y = after_stat(count / sum(count))), fill = "#7C90CC") +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::label_percent()) +
   labs(
     title = "Distribución porcentual de la población por nivel de pobreza",
     subtitle = "CASEN 2024, estimaciones ponderadas",
@@ -198,13 +206,14 @@ casen %>%
   geom_text(
     aes(
       y = after_stat(count),
-      label = after_stat(sprintf("%.0f", count))
+      label = after_stat(scales::number(count, big.mark = "."))
     ),
     stat = "count",
     vjust = -0.5,
     size = 3.8
   ) +
   scale_y_continuous(
+    labels = scales::label_number(big.mark = "."),
     expand = expansion(mult = c(0, 0.08))  # pequeño margen superior para que entren las etiquetas
   ) +
   labs(
@@ -227,14 +236,14 @@ casen %>%
   geom_text(
     aes(
       y     = after_stat(count / sum(count)),
-      label = after_stat(scales::percent(count / sum(count), accuracy = 0.1))
+      label = after_stat(scales::percent(count / sum(count), accuracy = 0.1, decimal.mark = ","))
     ),
     stat = "count",
     vjust = -0.5,
     size  = 3.8
   ) +
   scale_y_continuous(
-    labels = scales::percent,
+    labels = scales::label_percent(),
     expand = expansion(mult = c(0, 0.08))
   ) +
   labs(
@@ -252,7 +261,9 @@ casen %>%
 
 **Actividad 1:** Usando la CASEN, crea un gráfico de barras ponderado (`weight = expr`) para la variable `sexo` convertida a factor con `as_factor()`. Muestra los porcentajes del total (no frecuencias absolutas). Añade etiquetas con los porcentajes sobre cada barra y aplica un `theme_minimal()`. Compara el resultado con la distribución sin ponderar y comenta si hay diferencias.
 
-```{r actividad-1, eval=FALSE}
+```{r}
+#| label: actividad-1
+#| eval: false
 # Escribe tu código aquí
 ```
 
@@ -262,12 +273,16 @@ casen %>%
 
 El faceting nos permite crear una grilla de gráficos para comparar subgrupos. Vamos a visualizar la relación entre edad y pobreza, separando por zona urbana y rural.
 
-```{r facet-example}
+```{r}
+#| label: facet-example
 #| fig-alt: "Dos líneas de tendencia en paneles separados por zona (Urbano y Rural) que muestran el porcentaje de personas en situación de pobreza según la edad. La zona Rural tiene una tasa de pobreza promedio más alta (22,9%, con un máximo de 34,6%) que la zona Urbana (16,0% en promedio, máximo 26,0%) a lo largo de casi todo el rango de edad."
 # 1. Preparamos los datos: calculamos el porcentaje de pobreza para cada edad y zona
 casen_pob_zona <- casen %>%
   mutate(
-    es_pobre = ifelse(pobreza %in% c(1, 2), 1, 0),
+    es_pobre = case_when(
+      pobreza %in% c(1, 2) ~ 1, # pobreza extrema o no extrema
+      pobreza == 3 ~ 0          # fuera de la pobreza
+    ),                          # cualquier otro valor (NA) queda como NA
     zona_factor = as_factor(area)
     ) %>%
   filter(edad < 90) %>%
@@ -294,6 +309,7 @@ ggplot(casen_pob_zona, aes(x = edad, y = porc_pobreza)) +
 Tu misión es crear **una sola figura (usando faceting)** que compare la distribución del **ingreso del trabajo (`ytrabajocor`)** a través de las distintas **categorías de pobreza (`pobreza_factor`)**.
 
 **Instrucciones:**
+
 1.  Filtra los datos para quedarte con `ytrabajocor > 0` y `ytrabajocor < 5000000` para una mejor visualización.
 2.  Usa `ggplot()` y `facet_wrap(~ pobreza_factor)`.
 3.  Dentro de cada faceta, elige la geometría que mejor muestre la distribución del ingreso (`geom_histogram` o `geom_density`).
@@ -301,6 +317,8 @@ Tu misión es crear **una sola figura (usando faceting)** que compare la distrib
 5.  Aplica buenas prácticas: añade un título informativo, etiqueta los ejes y cita la fuente.
 6.  Escribe un breve párrafo de **interpretación**: ¿Cómo cambia la distribución del ingreso (su centro, forma y dispersión) a medida que pasamos de "Pobreza Extrema" a "No Pobres"?
 
-```{r, eval=FALSE, echo=TRUE}
+```{r}
+#| eval: false
+#| echo: true
 
 ```
