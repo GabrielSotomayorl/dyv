@@ -41,6 +41,240 @@ En la clase anterior cerramos la Unidad 4 con herramientas de **visualización**
 **Hoy** iniciamos la **Unidad 5**: dejamos el análisis univariado y pasamos a estudiar la *relación entre dos variables*.
 
 
+```{r}
+#| label: repaso-control3-datos
+#| include: false
+library(tidyverse)
+library(DescTools)
+
+# Datos simulados con los estadísticos del ítem de desarrollo del Control 3
+# (horas habituales trabajadas a la semana por las personas ocupadas):
+# un núcleo de jornadas completas, una cola larga de jornadas parciales
+# y una cola corta de jornadas extensas.
+set.seed(5)
+n <- 5000
+u <- runif(n)
+horas <- ifelse(u < 0.33, 44 - rexp(n, 1 / 16),
+         ifelse(u < 0.39, 44 + rexp(n, 1 / 14),
+                rnorm(n, 44.5, 1)))
+c3 <- tibble(horas = round(pmin(pmax(horas, 1), 100)))
+
+coma <- function(x, d = 1) format(round(x, d), nsmall = d, decimal.mark = ",")
+c3_media   <- mean(c3$horas)
+c3_mediana <- median(c3$horas)
+c3_de      <- sd(c3$horas)
+c3_asim    <- Skew(c3$horas)
+c3_curt    <- Kurt(c3$horas)
+
+azul   <- "#7C90CC"
+oscuro <- "#1E2240"
+acento <- "#C2694B"
+base_hist <- ggplot(c3, aes(x = horas)) +
+  scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 20)) +
+  labs(x = "Horas habituales a la semana", y = "Frecuencia") +
+  theme_minimal(base_size = 15)
+
+# Porcentaje de casos a más de 2 DE de la media (en una normal es 4,6%)
+c3_extremos <- mean(abs(c3$horas - c3_media) > 2 * c3_de) * 100
+
+# Textos alternativos de los gráficos (calculados con los datos)
+alt_repaso_curtosis <- paste0("El mismo histograma ilustrativo, con líneas punteadas a dos desviaciones estándar bajo y sobre la media. Las barras que quedan fuera de esas líneas, sobre todo en la cola de jornadas cortas, están destacadas en otro color: suman el ", coma(c3_extremos), "% de los casos, frente al 4,6% que tendría una distribución normal. El eje vertical está recortado para que se vean las colas.")
+alt_repaso_media <- paste0("Histograma ilustrativo de horas habituales trabajadas a la semana, con datos simulados. La mayoría de los casos se concentra en torno a 44 horas y hay una cola larga hacia las jornadas cortas. Una línea vertical marca la media, en ", coma(c3_media), " horas.")
+alt_repaso_mediana <- paste0("El mismo histograma ilustrativo, con las barras coloreadas en dos tonos: a la izquierda de la mediana (", coma(c3_mediana, 0), " horas) queda el 50% de los casos y a la derecha el otro 50%. Una línea vertical marca la mediana.")
+alt_repaso_de <- paste0("El mismo histograma ilustrativo, con una franja sombreada que va de una desviación estándar bajo la media (", coma(c3_media - c3_de), " horas) a una sobre la media (", coma(c3_media + c3_de), " horas). La franja cubre el núcleo de la distribución, pero la cola de jornadas cortas queda en buena parte fuera de ella.")
+alt_repaso_asimetria <- paste0("Curva de densidad ilustrativa de las horas habituales trabajadas. El pico está en torno a 44 horas y la cola izquierda, de jornadas cortas, es mucho más larga que la derecha. Dos líneas verticales muestran que la media (", coma(c3_media), ") queda a la izquierda de la mediana (", coma(c3_mediana, 0), ").")
+```
+
+## Repaso Control 3: media {.smaller}
+
+:::: {.columns}
+::: {.column width="42%"}
+**Media = `r coma(c3_media)` horas**
+
+**¿Cómo se interpreta?**
+
+-   Es el **promedio**: la suma de los valores dividida por el número de casos.
+-   Se expresa en la **unidad** de la variable (horas semanales).
+-   Es **sensible a los valores extremos**: las colas la arrastran.
+:::
+
+::: {.column width="58%"}
+```{r}
+#| label: repaso-media
+#| echo: false
+#| fig-width: 6.4
+#| fig-height: 3.6
+#| fig-alt: !expr alt_repaso_media
+base_hist +
+  geom_histogram(binwidth = 2, fill = azul, color = "white") +
+  geom_vline(xintercept = c3_media, color = acento, linewidth = 1.2) +
+  annotate("label", x = c3_media - 2, y = Inf, vjust = 1.3, hjust = 1,
+           label = paste("Media =", coma(c3_media)), color = acento, size = 5)
+```
+:::
+::::
+
+::: {.fragment style="font-size: 0.85em;"}
+**Respuesta:** en promedio, las personas ocupadas trabajan habitualmente `r coma(c3_media)` horas a la semana. Como está por debajo de la mediana, el promedio es arrastrado hacia abajo por quienes trabajan pocas horas.
+:::
+
+## Repaso Control 3: mediana {.smaller}
+
+:::: {.columns}
+::: {.column width="42%"}
+**Mediana = `r coma(c3_mediana, 0)` horas**
+
+**¿Cómo se interpreta?**
+
+-   **Divide la distribución en dos mitades**: el 50% de los casos queda bajo ella y el 50% sobre ella.
+-   Se expresa en la **unidad** de la variable.
+-   Es **resistente a los valores extremos**.
+:::
+
+::: {.column width="58%"}
+```{r}
+#| label: repaso-mediana
+#| echo: false
+#| fig-width: 6.4
+#| fig-height: 3.6
+#| fig-alt: !expr alt_repaso_mediana
+base_hist +
+  geom_histogram(aes(fill = horas <= c3_mediana), binwidth = 2, color = "white",
+                 show.legend = FALSE) +
+  scale_fill_manual(values = c(`TRUE` = azul, `FALSE` = oscuro)) +
+  geom_vline(xintercept = c3_mediana, color = acento, linewidth = 1.2) +
+  annotate("label", x = c3_mediana - 2, y = Inf, vjust = 1.3, hjust = 1,
+           label = "50% de los casos", color = azul, size = 5) +
+  annotate("label", x = c3_mediana + 2, y = Inf, vjust = 1.3, hjust = 0,
+           label = "50%", color = oscuro, size = 5)
+```
+:::
+::::
+
+::: {.fragment style="font-size: 0.85em;"}
+**Respuesta:** el 50% de las personas ocupadas trabaja habitualmente `r coma(c3_mediana, 0)` horas semanales o menos, y el otro 50% trabaja `r coma(c3_mediana, 0)` horas o más.
+:::
+
+## Repaso Control 3: desviación estándar {.smaller}
+
+:::: {.columns}
+::: {.column width="42%"}
+**Desviación estándar = `r coma(c3_de)` horas**
+
+**¿Cómo se interpreta?**
+
+-   Mide la **dispersión**: cuánto se alejan, en promedio, los valores de la media.
+-   Se expresa en la **unidad** de la variable.
+-   Mientras **mayor** es, más **heterogéneos** son los casos. Se lee siempre junto a la media.
+:::
+
+::: {.column width="58%"}
+```{r}
+#| label: repaso-de
+#| echo: false
+#| fig-width: 6.4
+#| fig-height: 3.6
+#| fig-alt: !expr alt_repaso_de
+base_hist +
+  annotate("rect", xmin = c3_media - c3_de, xmax = c3_media + c3_de,
+           ymin = -Inf, ymax = Inf, fill = acento, alpha = 0.15) +
+  geom_histogram(binwidth = 2, fill = azul, color = "white") +
+  geom_vline(xintercept = c3_media, color = acento, linewidth = 1.2) +
+  annotate("label", x = c3_media, y = Inf, vjust = 1.3,
+           label = paste0("Media ± 1 DE: ", coma(c3_media - c3_de), " a ", coma(c3_media + c3_de)),
+           color = acento, size = 5)
+```
+:::
+::::
+
+::: {.fragment style="font-size: 0.85em;"}
+**Respuesta:** en promedio, las horas trabajadas se alejan `r coma(c3_de)` horas de la media de `r coma(c3_media)`. Es una dispersión considerable: conviven jornadas completas con jornadas parciales y algunas muy extensas.
+:::
+
+## Repaso Control 3: asimetría {.smaller}
+
+:::: {.columns}
+::: {.column width="42%"}
+**Asimetría = `r coma(c3_asim)`**
+
+**¿Cómo se interpreta?**
+
+-   **≈ 0:** simétrica.
+-   **> 0:** cola **derecha** más larga; la mayoría de los datos a la izquierda.
+-   **< 0:** cola **izquierda** más larga; la mayoría de los datos a la derecha.
+-   Se confirma comparando **media y mediana**.
+:::
+
+::: {.column width="58%"}
+```{r}
+#| label: repaso-asimetria
+#| echo: false
+#| fig-width: 6.4
+#| fig-height: 3.6
+#| fig-alt: !expr alt_repaso_asimetria
+ggplot(c3, aes(x = horas)) +
+  geom_density(fill = azul, color = oscuro, alpha = 0.7, adjust = 1.5) +
+  geom_vline(xintercept = c3_media, color = acento, linewidth = 1.1) +
+  geom_vline(xintercept = c3_mediana, color = oscuro, linewidth = 1.1, linetype = "dashed") +
+  annotate("text", x = c3_media - 1.5, y = Inf, vjust = 1.5, hjust = 1,
+           label = paste("Media", coma(c3_media)), color = acento, size = 4.5) +
+  annotate("text", x = c3_mediana + 1.5, y = Inf, vjust = 1.5, hjust = 0,
+           label = paste("Mediana", coma(c3_mediana, 0)), color = oscuro, size = 4.5) +
+  annotate("segment", x = 30, xend = 8, y = 0.012, yend = 0.012,
+           arrow = arrow(length = unit(0.25, "cm")), color = acento, linewidth = 0.9) +
+  annotate("text", x = 19, y = 0.02, label = "cola izquierda larga", color = acento, size = 4.5) +
+  scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 20)) +
+  labs(x = "Horas habituales a la semana", y = "Densidad") +
+  theme_minimal(base_size = 15)
+```
+:::
+::::
+
+::: {.fragment style="font-size: 0.85em;"}
+**Respuesta:** la asimetría es negativa: la cola izquierda es más larga. La mayoría se concentra en jornadas completas y una minoría con jornadas cortas forma la cola hacia los valores bajos. Coincide con que la media (`r coma(c3_media)`) es menor que la mediana (`r coma(c3_mediana, 0)`).
+:::
+
+## Repaso Control 3: curtosis {.smaller}
+
+:::: {.columns}
+::: {.column width="42%"}
+**Curtosis = `r coma(c3_curt)`**
+
+**¿Cómo se interpreta?**
+
+-   **≈ 0:** colas como la normal (mesocúrtica).
+-   **> 0:** colas **pesadas**, más valores extremos (leptocúrtica).
+-   **< 0:** colas **ligeras**, menos valores extremos (platicúrtica).
+-   Mide las **colas**, no si es "puntiaguda".
+:::
+
+::: {.column width="58%"}
+```{r}
+#| label: repaso-curtosis
+#| echo: false
+#| fig-width: 6.4
+#| fig-height: 3.6
+#| fig-alt: !expr alt_repaso_curtosis
+base_hist +
+  geom_histogram(aes(fill = abs(horas - c3_media) > 2 * c3_de), binwidth = 2,
+                 color = "white", show.legend = FALSE) +
+  scale_fill_manual(values = c(`FALSE` = azul, `TRUE` = acento)) +
+  geom_vline(xintercept = c3_media + c(-2, 2) * c3_de, color = acento,
+             linewidth = 0.8, linetype = "dashed") +
+  annotate("label", x = 66, y = Inf, vjust = 1.2, hjust = 0, size = 4.5, color = acento,
+           label = paste0("Más allá de ±2 DE:\n", coma(c3_extremos), "% de los casos\n",
+                          "(en una normal: 4,6%)")) +
+  # se recorta el eje Y para que se vean las colas (el pico en 44 sigue hacia arriba)
+  coord_cartesian(ylim = c(0, 250)) +
+  labs(y = "Frecuencia (eje recortado)")
+```
+:::
+::::
+
+::: {.fragment style="font-size: 0.85em;"}
+**Respuesta:** la distribución es leptocúrtica: sus colas son más pesadas que las de una normal. Hay más casos extremos de lo esperable en una normal, como jornadas muy cortas o muy largas.
+:::
+
 # 1. De describir a relacionar
 
 ## El salto al análisis bivariado {.smaller}
