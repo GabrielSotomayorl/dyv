@@ -45,7 +45,17 @@ En este práctico, nos enfocaremos en las variables de "Día Tipo", que represen
 *   `t_tdnr_dt`: Trabajo Doméstico No Remunerado.
 *   `t_tcnr_dt`: Trabajo de Cuidados No Remunerado.
 
-### 1.3 Preparación del Entorno
+### 1.3 Preparación del Entorno y Datos
+
+**Paso 1: Organiza tu entorno**
+Como siempre, asegúrate de estar trabajando dentro de tu **Proyecto de RStudio** y de tener una carpeta `datos`.
+
+**Paso 2: Descarga la Base de Datos**
+Descarga la base de datos de la ENUT 2023 desde el siguiente enlace y guarda el archivo `.zip` en tu carpeta `datos` (no es necesario descomprimirlo):
+
+-   **Enlace de descarga:** [Base de datos ENUT 2023 (formato R)](https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7)
+
+**Paso 3: Carga de Paquetes y Datos**
 
 ```{r setup, message=FALSE, warning=FALSE}
 # Cargar paquetes
@@ -60,10 +70,6 @@ library(kableExtra)
 
 ```{r load-show, eval=FALSE}
 # Carga Manual (Método recomendado)
-# 1. Crea una carpeta 'datos' en tu Proyecto de RStudio.
-# 2. Descarga el archivo .zip desde: https://www.ine.gob.cl/docs/default-source/uso-del-tiempo-tiempo-libre/bbdd/ii-enut/250403-ii-enut-bdd-r-v2.zip?sfvrsn=87682f16_7
-# 3. Guarda el archivo .zip en tu carpeta 'datos'.
-# 4. Ejecuta el siguiente código:
 enut <- rio::import("datos/250403-ii-enut-bdd-r-v2.zip", which = "250403-ii-enut-bdd-r-v2.RDS")
 ```
 
